@@ -1,0 +1,314 @@
+body {
+  height: 100vh;
+  width: 100vw;
+  margin: 0 auto;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  position: relative; /* Corrected from 'flex' */
+}
+
+/* Logo styling */
+.logo {
+  position: fixed; /* Makes it respect .svg-wrapper */
+  top: -350px; /* Ensures it starts from the top */
+  left: -330px;
+  scale: 10%;
+  z-index: 10;
+  transition: filter 0.3s ease, transform 0.3s ease; /* Smooth transition for contour and movement */
+}
+.logo:hover {
+  transform: translateY(30px) scale(1.2); /* Move downward slightly and scale up */
+}
+
+
+
+
+html, body {
+  overflow-x: hidden; /* Disables horizontal scrolling */
+  overflow-y: auto; /* Allows vertical scrolling */
+  width: 100vw; /* Prevents accidental width overflow */
+}
+.svg-wrapper {
+  position: absolute; /* Keeps wrapper fixed relative to viewport */
+  top: 0; /* Pins wrapper to the top */
+  left: 50%;
+  transform: translateX(-50%);
+  width: 100vw;
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start; /* Aligns content to the top */
+  justify-content: flex-start; /* Prevents centering */
+  overflow: visible;
+}
+/* Ensure SVG stays at the top */
+.svg1 {
+  position: relative; /* Makes it respect .svg-wrapper */
+  top: -17%; /* Ensures it starts from the top */
+  left: 50%;
+  transform: translateX(-50%);
+  width: 25vw; /* Scales dynamically */
+  max-width: 100vh;
+  min-width: 50vh;
+
+  height: 90%;
+  z-index: 10;
+}
+
+#HARD-SKILLS, #PROFESSIONAL, #CV, #ACADEMIC, #SOFT-SKILLS, #HOME-BUTTON {
+  cursor: pointer; /* Ensure the pointer cursor appears */
+  transition: transform 0.3s ease; /* Add smooth hover effect */
+  z-index: 20;
+  pointer-events: auto;
+}
+
+/* Prevent other layers from blocking interaction */
+rect[id^="blockcolor"] {
+  pointer-events: none; /* Ensures fog layers don't block clicks */
+  transition: opacity 0.5s ease;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/* PDF container styles */
+.pdf-container {
+  position: fixed;
+  margin-top: 2.5%;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%) scale(0.95); /* Start slightly scaled down */
+  width: 80vw;         /* Constrain the width */
+  min-width: 600px;    /* Minimum width for proper layout */
+  max-width: 90vw;     /* Prevent it from being too wide */
+  height: 70vh;        /* Constrain the height */
+  max-height: 90vh;    /* Prevent it from being too tall */
+  background-color: transparent;
+  border-radius: 10px;
+  z-index: 100;
+  visibility: hidden;  /* Initially hidden */
+  opacity: 0;          /* Initially transparent */
+  transition: opacity 0.5s ease, transform 0.5s ease; /* Smooth fade-in and zoom */
+}
+
+.pdf-container.active {
+  visibility: visible; /* Make it visible */
+  opacity: 1;          /* Fully opaque */
+  transform: translate(-50%, -50%) scale(1); /* Scale back to normal */
+}
+
+
+
+
+
+/* PDF Flipbook integration */
+.pdf-flipbook {
+  position: relative;
+  width: 100%;         /* Match the container's width */
+  height: 100%;        /* Match the container's height */
+  margin: 0 auto;
+  z-index: 200;
+  background: transparent;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: visible;
+  cursor: pointer; /* Show a pointer cursor to indicate interactivity */
+}
+.pdf-flipbook:hover {
+  /* Prevent movement on hover */
+  transform: none !important;
+  margin: 0 !important;
+}
+.pdf-container.active .pdf-flipbook {
+  visibility: visible;
+  opacity: 1;
+}
+
+
+
+
+
+.pdf-flipbook .page,
+.pdf-flipbook .page img {
+  width: 100%;
+  height: 100%;
+  background: transparent;
+  border-radius: 5px;
+}
+.pdf-flipbook .page img {
+  object-fit: contain;
+  display: block;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.10);
+  background: #fff;
+}
+
+
+
+/* Hide all PageFlip navigation, slider, and progress elements */
+.page-flip__controls,
+.page-flip__slider,
+.page-flip__progress,
+.page-flip__navigation,
+.page-flip__navigation-wrapper,
+.page-flip__navigation-button,
+.page-flip__navigation__item,
+.page-flip__navigation__item--active {
+  display: none !important;
+  opacity: 0 !important;
+  visibility: hidden !important;
+  pointer-events: none !important;
+  height: 0 !important;
+  min-height: 0 !important;
+  max-height: 0 !important;
+  margin: 0 !important;
+  padding: 0 !important;
+}
+
+
+
+
+
+
+
+
+
+
+
+/* General interactive elements */
+a {
+  font-weight: 500;
+  color: #646cff;
+  text-decoration: inherit;
+}
+/* Light mode adjustments */
+@media (prefers-color-scheme: light) {
+  :root {
+    color: #ffffff;
+    background-color: #93a0c6;
+  }
+
+  a:hover {
+    color: #e3125f;
+
+  }
+
+  button {
+    background-color: #f9f9f9;
+  }
+}
+#citat {
+  z-index: 10;
+  font-size: .7rem;
+  color: #93a0c6;
+}
+#citat-wrapper {
+  z-index: 10;
+  position: absolute;
+  background-color: rgba(255, 255, 255, .9); /* Slight transparency */
+  backdrop-filter: blur(10px); /* Adds a blurred glass-like effect */
+  bottom: -10%;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 100%;
+  text-align: center;
+  padding: Orem; /* Adds space */
+}
+
+/* Loading animation container */
+.loading-animation {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 100px; /* Adjust size as needed */
+  height: 100px;
+  z-index: 300; /* Ensure it appears above fog layers */
+}
+
+/* Ensure loading elements are initially hidden */
+.loading-animation svg [id^="loading"] {
+  opacity: 0; /* Start with elements hidden */
+  transition: opacity 0.5s ease; /* Smooth transition for opacity */
+}
+
+
+
+
+/* Optional: Add a subtle background overlay during loading */
+.pdf-container.loading {
+  background-color: rgba(0, 0, 0, 0.5); /* Semi-transparent black overlay */
+}
+
+/* Loading overlay */
+.loading-overlay {
+  position: fixed;
+  top: 0; left: 0; width: 100vw; height: 100vh;
+  z-index: 9999;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  visibility: hidden;
+
+}
+
+/* Loading animation container */
+.loading-animation {
+  width: 100px;
+  height: 100px;
+}
+
+/* Ensure loading elements are initially hidden */
+.loading-animation svg [id^="loading"] {
+  opacity: 0; /* Start with elements hidden */
+  transition: opacity 0.5s ease; /* Smooth transition for opacity */
+}
+
+.stf__page {
+  transform-style: 3d !important;
+  perspective: auto !important;
+  /* Remove transform-origin if you want standard flipping, or tweak for diagonal */
+  /* transform-origin: 80% 90% !important; */
+  /* Remove box-shadow: none !important; to allow subtle shadow */
+  box-shadow: 0 4px 16px rgba(0,0,0,0.10) !important;
+}
+
+
+/* SVG interactive container styles */
+.interactive-container {
+  z-index: 1000;
+  position: fixed;
+  margin-top: -10px;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%) scale(1); /* Start slightly scaled down */
+  width: 80vw;         /* Constrain the width */
+  min-width: 600px;    /* Minimum width for proper layout */
+  max-width: 90vw;     /* Prevent it from being too wide */
+  height: 70vh;        /* Constrain the height */
+  max-height: 90vh;    /* Prevent it from being too tall */
+  background-color: transparent;
+  border-radius: 10px;
+  visibility: hidden;  /* Initially hidden */
+  opacity: 0;          /* Initially transparent */
+  transition: opacity 0.5s ease, transform 0.5s ease; /* Smooth fade-in and zoom */
+}
+
+.interactive-container.active {
+  visibility: visible; /* Make it visible */
+  opacity: 1;          /* Fully opaque */
+  transform: translate(-50%, -50%) scale(1); /* Scale back to normal */
+}
