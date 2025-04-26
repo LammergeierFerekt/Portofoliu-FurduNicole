@@ -2,18 +2,21 @@ import './style.css';
 import { getDocument, GlobalWorkerOptions } from 'pdfjs-dist';
 import { PageFlip } from 'page-flip';
 
+
+
 document.addEventListener('DOMContentLoaded', () => {
   document.body.style.visibility = 'visible';
   document.body.style.opacity = '1';
 });
 
 
-
+const loadingEyeFile = 'public/assets/loading-eye.svg';
+const artworkFile = 'public/assets/artwork_div_1.svg';
 
 
 
 // Set the worker source for pdfjs-dist
-GlobalWorkerOptions.workerSrc = '/Portofoliu-F.Nicole/assets/pdfjs/pdf.worker.mjs';
+GlobalWorkerOptions.workerSrc = '/Portofoliu-F.Nicole/pdfjs/pdf.worker.mjs';
 
 
 
@@ -49,7 +52,7 @@ function hideAllSvgContainers() {
 
 
   // Fetch and insert the loading-eye.svg into the fill-loader
-  fetch('/src/loading-eye.svg')
+  fetch(loadingEyeFile)
     .then((res) => res.text())
     .then((svgText) => {
       const parser = new DOMParser();
@@ -154,7 +157,7 @@ function addHoverEffects(svgElement) {
         textElement.style.transition = 'fill 0.3s ease';
         textElement.style.fill = '#ffca31'; 
         
-        textElement.style.fontFamily = 'Century Gothic';
+        textElement.style.fontFamily = 'Segoe UI';
         textElement.style.fontWeight = 'bold';}
 
       const resetHoverStyles = () => {
@@ -372,7 +375,7 @@ async function showPDF(pdfFile) {
   // Fetch and insert the loading-eye.svg if not already present
   const loadingSpinner = document.getElementById('loading-spinner');
   if (loadingSpinner && !loadingSpinner.querySelector('svg')) {
-    const svgText = await fetch('/src/loading-eye.svg').then(res => res.text());
+    const svgText = await fetch(loadingEyeFile).then(res => res.text());
     const parser = new DOMParser();
     const svgDoc = parser.parseFromString(svgText, 'image/svg+xml');
     loadingSpinner.innerHTML = '';
@@ -398,7 +401,7 @@ async function showPDF(pdfFile) {
 
   try {
     flipbookContainer.innerHTML = '';
-    const pdfPath = `/pdfs/${pdfFile}`;
+    const pdfPath = `public/assets/pdfs/${pdfFile}`;
     const loadingTask = getDocument(pdfPath);
     const pdfDoc = await loadingTask.promise;
 
@@ -482,7 +485,7 @@ async function showSVG(svgFile) {
   // Loader: ensure loading-eye.svg is present
   const loadingSpinner = document.getElementById('loading-spinner');
   if (loadingSpinner && !loadingSpinner.querySelector('svg')) {
-    const svgText = await fetch('/src/loading-eye.svg').then(res => res.text());
+    const svgText = await fetch(loadingEyeFile).then(res => res.text());
     const parser = new DOMParser();
     const svgDoc = parser.parseFromString(svgText, 'image/svg+xml');
     loadingSpinner.innerHTML = '';
@@ -496,7 +499,7 @@ async function showSVG(svgFile) {
   let currentStep = 0;
 
   // Fetch and parse the SVG file
-  const svgText = await fetch(`/pdfs/${svgFile}`).then(res => res.text());
+  const svgText = await fetch(`public/assets/pdfs/${svgFile}`).then(res => res.text());
   const parser = new DOMParser();
   const svgDoc = parser.parseFromString(svgText, 'image/svg+xml');
   const svgContent = svgDoc.documentElement;
@@ -578,7 +581,7 @@ function addHoverEffectToMainElements() {
 
 // Main logic
 window.onload = function () {
-  fetchAndInsertSVG('/src/artwork_div_1.svg', '.svg1', (svgElement) => {
+  fetchAndInsertSVG(artworkFile, '.svg1', (svgElement) => {
     addHoverEffects(svgElement);
     attachButtonEvents(svgElement);
     addHoverEffectToMainElements();

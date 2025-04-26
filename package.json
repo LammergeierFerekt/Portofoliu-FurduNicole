@@ -17,5 +17,6 @@
     "pdf-lib": "^1.17.1",
     "pdfjs-dist": "^5.1.91",
     "three": "^0.175.0"
-  }
+  },
+  "license": "0BSD"
 }
