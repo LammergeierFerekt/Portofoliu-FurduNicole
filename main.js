@@ -10,8 +10,8 @@ document.addEventListener('DOMContentLoaded', () => {
 });
 
 
-const loadingEyeFile = 'public/assets/loading-eye.svg';
-const artworkFile = 'public/assets/artwork_div_1.svg';
+const loadingEyeFile = 'public/loading-eye.svg';
+const artworkFile = 'public/artwork_div_1.svg';
 
 
 
