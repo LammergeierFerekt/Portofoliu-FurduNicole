@@ -16,7 +16,7 @@ const artworkFile = 'public/assets/artwork_div_1.svg';
 
 
 // Set the worker source for pdfjs-dist
-GlobalWorkerOptions.workerSrc = '/Portofoliu-F.Nicole/pdfjs/pdf.worker.mjs';
+GlobalWorkerOptions.workerSrc = '/pdfjs/pdf.worker.mjs';
 
 
 
