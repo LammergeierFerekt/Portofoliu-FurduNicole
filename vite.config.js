@@ -2,7 +2,7 @@ import { defineConfig } from 'vite';
 import { viteStaticCopy } from 'vite-plugin-static-copy';
 
 export default defineConfig({
-  base: '/Portofoliu-F.Nicole/', // 🛠️ THIS IS CRUCIAL
+  base: '/Portofoliu-FurduNicole/', // 🛠️ THIS IS CRUCIAL
   plugins: [
     viteStaticCopy({
       targets: [
