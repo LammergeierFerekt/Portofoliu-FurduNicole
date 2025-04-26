@@ -1,6 +1,11 @@
 import './style.css';
 import { getDocument, GlobalWorkerOptions } from 'pdfjs-dist';
 import { PageFlip } from 'page-flip';
+import * as pdfjsLib from "pdfjs-dist/build/pdf";
+
+
+
+
 
 
 
@@ -16,7 +21,7 @@ const artworkFile = 'public/artwork_div_1.svg';
 
 
 // Set the worker source for pdfjs-dist
-GlobalWorkerOptions.workerSrc = '/pdfjs/pdf.worker.mjs';
+pdfjsLib.GlobalWorkerOptions.workerSrc = 'assets/pdfjs/pdf.worker.mjs';
 
 
 
@@ -401,7 +406,7 @@ async function showPDF(pdfFile) {
 
   try {
     flipbookContainer.innerHTML = '';
-    const pdfPath = `public/assets/pdfs/${pdfFile}`;
+    const pdfPath = `public/pdfs/${pdfFile}`;
     const loadingTask = getDocument(pdfPath);
     const pdfDoc = await loadingTask.promise;
 
@@ -499,7 +504,7 @@ async function showSVG(svgFile) {
   let currentStep = 0;
 
   // Fetch and parse the SVG file
-  const svgText = await fetch(`public/assets/pdfs/${svgFile}`).then(res => res.text());
+  const svgText = await fetch(`public/pdfs/${svgFile}`).then(res => res.text());
   const parser = new DOMParser();
   const svgDoc = parser.parseFromString(svgText, 'image/svg+xml');
   const svgContent = svgDoc.documentElement;
