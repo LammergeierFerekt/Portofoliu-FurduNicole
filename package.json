@@ -5,11 +5,14 @@
   "type": "module",
   "scripts": {
     "dev": "vite --host",
-    "deploy": "gh-pages -d dist",
+    "clean": "rimraf dist",
     "build": "vite build",
+    "deploy": "npm run build && gh-pages -d dist",
     "preview": "vite preview"
   },
   "devDependencies": {
+    "gh-pages": "^6.3.0",
+    "rimraf": "^6.0.1",
     "vite": "^6.2.6",
     "vite-plugin-static-copy": "^2.3.1"
   },
