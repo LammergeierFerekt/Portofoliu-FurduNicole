@@ -10,18 +10,35 @@ body {
   position: relative; /* Corrected from 'flex' */
 }
 
+
+
+
+
+#logo-citat-row {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  width: 100vw;
+  height: 60px;
+  display: flex;
+  flex-direction: column; /* or row if you want them side by side */
+  align-items: flex-start; /* Align children (logo) to the left */
+  z-index: 200;
+}
+
+
+
 /* Logo styling */
 .logo {
-  position: fixed; /* Makes it respect .svg-wrapper */
-  top: -350px; /* Ensures it starts from the top */
-  left: -330px;
-  scale: 10%;
-  z-index: 10;
-  transition: filter 0.3s ease, transform 0.3s ease; /* Smooth transition for contour and movement */
+  position: absolute; /* Let flexbox handle the position */
+  margin-left: -500px; /* Space from the left edge */
+  margin-bottom: 710px; /* Space from the top edge */
+  width: 57.5px;
+  z-index: 400;
+  transition: filter 0.3s ease, transform 0.3s ease;
+  pointer-events: auto;
 }
-.logo:hover {
-  transform: translateY(30px) scale(1.2); /* Move downward slightly and scale up */
-}
+
 
 
 
@@ -52,7 +69,7 @@ html, body {
   transform: translateX(-50%);
   width: 25vw; /* Scales dynamically */
   max-width: 100vh;
-  min-width: 50vh;
+  min-width: 65vh;
 
   height: 90%;
   z-index: 10;
