@@ -14,30 +14,55 @@ body {
 
 
 
-#logo-citat-row {
-  position: fixed;
-  bottom: 0;
+.logo-citat-row {
+  display: flex;
+  margin-bottom: 0;
   left: 0;
   width: 100vw;
-  height: 60px;
-  display: flex;
-  flex-direction: column; /* or row if you want them side by side */
-  align-items: flex-start; /* Align children (logo) to the left */
-  z-index: 200;
+  z-index: 3000;
+  flex-direction: row;
+  align-items: center;    /* Vertically center */
+  justify-content: flex-start; /* Align left */
+  gap: 24px;              /* Space between logo and citat */
+  background-color: rgba(255, 255, 255, .9); /* Slight transparency */
+  backdrop-filter: blur(10px); /* Adds a blurred glass-like effect */
 }
 
 
 
 /* Logo styling */
 .logo {
-  position: absolute; /* Let flexbox handle the position */
-  margin-left: -500px; /* Space from the left edge */
-  margin-bottom: 710px; /* Space from the top edge */
-  width: 57.5px;
-  z-index: 400;
-  transition: filter 0.3s ease, transform 0.3s ease;
-  pointer-events: auto;
+  width: 70px;            /* Adjust as needed */
+  height: auto;
+  margin-left: 70px;         
+;
 }
+
+#citat {
+  z-index: 10;
+  font-size: .7rem;
+  color: #93a0c6;
+  
+}
+
+#citat-wrapper {
+  flex: 1 1 auto;
+  text-align: center;
+  margin-left: -150px;         
+
+}
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
@@ -227,23 +252,7 @@ a {
     background-color: #f9f9f9;
   }
 }
-#citat {
-  z-index: 10;
-  font-size: .7rem;
-  color: #93a0c6;
-}
-#citat-wrapper {
-  z-index: 10;
-  position: absolute;
-  background-color: rgba(255, 255, 255, .9); /* Slight transparency */
-  backdrop-filter: blur(10px); /* Adds a blurred glass-like effect */
-  bottom: -10%;
-  left: 50%;
-  transform: translateX(-50%);
-  width: 100%;
-  text-align: center;
-  padding: Orem; /* Adds space */
-}
+
 
 /* Loading animation container */
 .loading-animation {
