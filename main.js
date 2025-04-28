@@ -3,6 +3,7 @@ import { getDocument, GlobalWorkerOptions } from 'pdfjs-dist';
 import { PageFlip } from 'page-flip';
 import * as pdfjsLib from "pdfjs-dist/build/pdf";
 
+
 // SVG content as strings (replace these with your actual SVG strings)
 const loadingEyeSVG = `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 490 285.96">
   <g id="ochi">
@@ -1611,6 +1612,8 @@ const softSkillsSVG = `<svg id="soft-skills" viewBox="0 0 1200 800" xmlns="http:
 </svg>`;
 
 
+
+
 // Show page only after DOM ready
 document.addEventListener('DOMContentLoaded', () => {
   try {
@@ -1623,7 +1626,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
 // Set the worker source for pdfjs-dist
 try {
-  pdfjsLib.GlobalWorkerOptions.workerSrc = 'assets/pdfjs/pdf.worker.mjs';
+  GlobalWorkerOptions.workerSrc = 'assets/pdfjs/pdf.worker.mjs';
 } catch (err) {
   console.error('Error setting PDF worker source:', err);
 }
@@ -1685,9 +1688,25 @@ function insertLoadingEyeSVG() {
   }
 }
 
+// Example fix
+const svg = document.getElementById('loading-spinner');
+if (svg) {
+  const loadingElements = svg.querySelectorAll('[id^="loading"]');
+  // ...rest of your code...
+} else {
+  console.error('SVG loading spinner not found!');
+}
+
+
+
+
+
 // Function to start the loading animation
 function startLoadingAnimation(svgElement) {
   try {
+    if (!svgElement) {
+      throw new Error('SVG element is null in startLoadingAnimation');
+    }
     const loadingElements = svgElement.querySelectorAll('[id^="loading"]');
     if (!loadingElements.length) {
       throw new Error('No loading elements found in SVG');
@@ -2120,19 +2139,15 @@ async function showPDF(pdfFile) {
     let currentStep = 0;
 
     function showNextLoaderStep() {
-      try {
-        if (loadingElements[currentStep]) {
-          loadingElements[currentStep].style.opacity = '1';
-        }
-        currentStep++;
-      } catch (err) {
-        console.error('Error showing loader step:', err);
+      if (loadingElements[currentStep]) {
+        loadingElements[currentStep].style.opacity = '1';
       }
+      currentStep++;
     }
 
     try {
       flipbookContainer.innerHTML = '';
-      const pdfPath = `public/pdfs/${pdfFile}`;
+      const pdfPath = `${import.meta.env.BASE_URL}pdfs/${pdfFile}`;
       const loadingTask = getDocument(pdfPath);
       const pdfDoc = await loadingTask.promise;
 
@@ -2160,8 +2175,6 @@ async function showPDF(pdfFile) {
         showNextLoaderStep();
         await new Promise(res => setTimeout(res, stepDuration));
       }
-
-      await new Promise(res => setTimeout(res, 500));
 
       pageImages.forEach((src) => {
         try {
@@ -2194,7 +2207,7 @@ async function showPDF(pdfFile) {
           height: 800,
           maxShadowOpacity: 0.5,
           showCover: false,
-          mobileScrollSupport: false
+          mobileScrollSupport: false,
         });
         pageFlip.loadFromHTML(document.querySelectorAll('#flipbook .page'));
       } catch (err) {
