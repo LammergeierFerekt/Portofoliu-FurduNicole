@@ -2190,7 +2190,7 @@ async function showPDF(pdfFile) {
         if (window.innerWidth < 700) {
           // Use most of the viewport, but keep a minimum for readability
           pageWidth = Math.max(window.innerWidth * 0.95, 320);  // 95vw, min 320px
-          pageHeight = Math.max(window.innerHeight * 0.7, 400); // 80vh, min 400px
+          pageHeight = Math.max(window.innerHeight * 0.65, 400); // 80vh, min 400px
         } else {
           pageWidth = 710;   // or whatever you want for desktop
           pageHeight = 1100;
@@ -2368,8 +2368,42 @@ function parseFeatherId(id) {
 }
 
 function startWindWaveAnimation() {
+  if (window.innerWidth < 700 && document.body.classList.contains('no-wave')) {
+    return; // Don't run wave on mobile if modal is open
+  }
   if (windWaveActive) return;
   windWaveActive = true;
+
+
+// On small screens, animate a random bunch of feathers, not all columns
+  if (window.innerWidth < 700) {
+    const allFeathers = Array.from(document.querySelectorAll(
+      '[id*="Pana_roz_degrade"], [id*="Pana_roz_opac"], [id*="Pana_gri_opac"]'
+    ));
+
+    // Pick a random subset (e.g., 8-14 feathers)
+    const count = Math.floor(Math.random() * 6) + 8;
+    const shuffled = allFeathers.sort(() => Math.random() - 0.5);
+    const randomFeathers = shuffled.slice(0, count);
+
+    randomFeathers.forEach((el, idx) => {
+      setTimeout(() => {
+        el.style.transition = 'transform 1s cubic-bezier(.4,1.4,.4,1)';
+        el.style.transform = 'translateY(50px)';
+        setTimeout(() => {
+          el.style.transition = 'transform 0.7s cubic-bezier(.4,1.4,.4,1)';
+          el.style.transform = 'translateY(0px)';
+        }, 350);
+      }, idx * 80);
+    });
+
+    setTimeout(() => {
+      windWaveActive = false;
+      if (!userActive) windWaveRepeatTimeout = setTimeout(startWindWaveAnimation, windWaveDelay);
+    }, count * 60 + 400);
+
+    return;
+  }
 
   // Gather all feathers and parse their positions
   const allFeathers = Array.from(document.querySelectorAll(

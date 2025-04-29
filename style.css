@@ -8,9 +8,13 @@ body {
   align-items: center;
   justify-content: center;
   position: relative; /* Corrected from 'flex' */
-
 }
 
+
+body, html {
+  background-color: #93a0c6;
+  
+}
 /* Hide scrollbar for Chrome, Edge, Safari */
 html::-webkit-scrollbar, body::-webkit-scrollbar {
   display: none;
@@ -20,8 +24,9 @@ html::-webkit-scrollbar, body::-webkit-scrollbar {
 #HOME-BUTTON {
   z-index: 2000 !important;
   position: relative;
+  -webkit-tap-highlight-color: transparent;
+  outline: none;
 }
-
 
 .logo-citat-row {
   position: absolute; /* Keeps wrapper fixed relative to viewport */
@@ -99,6 +104,8 @@ html, body {
   align-items: flex-start; /* Aligns content to the top */
   justify-content: flex-start; /* Prevents centering */
   overflow: visible;
+  -webkit-tap-highlight-color: transparent;
+  outline: none;
 }
 /* Ensure SVG stays at the top */
 .svg1 {
@@ -111,16 +118,17 @@ html, body {
   min-width: 65vh;
   height: 90%;
   z-index: 10;
+  -webkit-tap-highlight-color: transparent;
+  outline: none;
 }
 
-
-
-
-#HARD-SKILLS, #PROFESSIONAL, #CV, #ACADEMIC, #SOFT-SKILLS, #HOME-BUTTON {
+#HARD-SKILLS, #PROFESSIONAL, #CV, #ACADEMIC, #SOFT-SKILLS {
   cursor: pointer; /* Ensure the pointer cursor appears */
   transition: transform 0.3s ease; /* Add smooth hover effect */
   z-index: 20;
   pointer-events: auto;
+  -webkit-tap-highlight-color: transparent;
+  outline: none;
 }
 
 /* Prevent other layers from blocking interaction */
@@ -328,6 +336,9 @@ a {
   align-items: center;
   justify-content: center;
   visibility: hidden;
+  background: rgba(147, 160, 198, 0.1);
+  backdrop-filter: blur(5px);
+  -webkit-backdrop-filter: blur(5px);
 
 }
 
@@ -388,6 +399,8 @@ a {
     left: 50%;
     top: 67.5%;
     transform: translate(-50%, -50%);
+    pointer-events: none; /* Disable pointer events when not active */
+
   }
 }
 
