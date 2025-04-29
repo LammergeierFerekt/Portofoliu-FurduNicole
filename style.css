@@ -16,7 +16,11 @@ html::-webkit-scrollbar, body::-webkit-scrollbar {
   display: none;
 }
 
-
+/* If you want the home button to always be on top, give it a high z-index */
+#HOME-BUTTON {
+  z-index: 2000 !important;
+  position: relative;
+}
 
 
 .logo-citat-row {
@@ -33,7 +37,6 @@ html::-webkit-scrollbar, body::-webkit-scrollbar {
   background-color: rgba(255, 255, 255, .9); /* Slight transparency */
   backdrop-filter: blur(10px); /* Adds a blurred glass-like effect */
 }
-
 /* Logo styling */
 .logo {
   width: 70px;            /* Adjust as needed */
@@ -79,16 +82,6 @@ html::-webkit-scrollbar, body::-webkit-scrollbar {
 
 
 
-
-
-
-
-
-
-
-
-
-
 html, body {
   overflow-x: hidden; /* Disables horizontal scrolling */
   overflow-y: auto; /* Allows vertical scrolling */
@@ -116,10 +109,12 @@ html, body {
   width: 25vw; /* Scales dynamically */
   max-width: 100vh;
   min-width: 65vh;
-
   height: 90%;
   z-index: 10;
 }
+
+
+
 
 #HARD-SKILLS, #PROFESSIONAL, #CV, #ACADEMIC, #SOFT-SKILLS, #HOME-BUTTON {
   cursor: pointer; /* Ensure the pointer cursor appears */
@@ -153,7 +148,7 @@ rect[id^="blockcolor"] {
   margin-top: 2.5%;
   top: 50%;
   left: 50%;
-  transform: translate(-50%, -50%) scale(0.95); /* Start slightly scaled down */
+  transform: translate(-50%, -50%) scale(1); /* Start slightly scaled down */
   width: 80vw;         /* Constrain the width */
   min-width: 600px;    /* Minimum width for proper layout */
   max-width: 90vw;     /* Prevent it from being too wide */
@@ -191,11 +186,23 @@ rect[id^="blockcolor"] {
   overflow: visible;
   cursor: pointer; /* Show a pointer cursor to indicate interactivity */
 }
-.pdf-flipbook:hover {
-  /* Prevent movement on hover */
-  transform: none !important;
-  margin: 0 !important;
+
+/* Desktop: Prevent scrollbars and movement */
+.pdf-container {
+  overflow: hidden; /* Prevent scrollbars on desktop */
 }
+
+/* Remove transform/margin changes on hover */
+.pdf-flipbook:hover {
+  /* No transform or margin changes */
+}
+
+/* Keep centering consistent */
+.pdf-flipbook {
+  margin: 0 auto !important;
+  transform: none !important;
+}
+
 .pdf-container.active .pdf-flipbook {
   visibility: visible;
   opacity: 1;
@@ -221,6 +228,13 @@ rect[id^="blockcolor"] {
 
 
 
+.pdf-container,
+.pdf-flipbook,
+.pdf-flipbook .page,
+.pdf-flipbook .page img {
+  pointer-events: auto !important;
+}
+
 /* Hide all PageFlip navigation, slider, and progress elements */
 .page-flip__controls,
 .page-flip__slider,
@@ -241,9 +255,14 @@ rect[id^="blockcolor"] {
   padding: 0 !important;
 }
 
-
-
-
+/* Hide scrollbars for PDF container on all platforms */
+.pdf-container {
+  scrollbar-width: none;          /* Firefox */
+  -ms-overflow-style: none;       /* IE and Edge */
+}
+.pdf-container::-webkit-scrollbar {
+  display: none;                  /* Chrome, Safari, Opera */
+}
 
 
 
@@ -334,24 +353,20 @@ a {
 }
 
 
-/* SVG interactive container styles */
 .interactive-container {
   z-index: 1000;
   position: fixed;
-  margin-top: -10px;
   top: 50%;
   left: 50%;
-  transform: translate(-50%, -50%) scale(1); /* Start slightly scaled down */
-  width: 80vw;         /* Constrain the width */
-  min-width: 600px;    /* Minimum width for proper layout */
-  max-width: 90vw;     /* Prevent it from being too wide */
-  height: 70vh;        /* Constrain the height */
-  max-height: 90vh;    /* Prevent it from being too tall */
+  transform: translate(-50%, -50%);
+  width: 105vh;         /* Fixed width, adjust as needed */
+  height: 70vh;
+  max-height: 90vh;
   background-color: transparent;
-  border-radius: 10px;
-  visibility: hidden;  /* Initially hidden */
-  opacity: 0;          /* Initially transparent */
-  transition: opacity 0.5s ease, transform 0.5s ease; /* Smooth fade-in and zoom */
+  visibility: hidden;
+  opacity: 0;
+  overflow: visible;     /* Allow SVG to overflow if needed */
+  transition: opacity 0.5s ease, transform 0.5s ease;
 }
 
 .interactive-container.active {
@@ -360,3 +375,39 @@ a {
   transform: translate(-50%, -50%) scale(1); /* Scale back to normal */
 }
 
+
+
+
+@media (max-width: 700px) {
+  .interactive-container {
+    overflow: visible;
+    width: 105vh;        /* Nearly full width on mobile */
+    max-width: 165vh;
+    height: 105vh;       /* More height for mobile */
+    max-height: 165vh;
+    left: 50%;
+    top: 67.5%;
+    transform: translate(-50%, -50%);
+  }
+}
+
+
+@media (max-width: 700px) {
+  .pdf-container {
+    overflow-x: auto !important;
+    overflow-y: visible;
+    width: 100vw;
+    min-width: 0;
+    max-width: 100vw;
+    margin: 0 auto;
+    height: 80vh;
+    max-height: 95vh;
+  }
+}
+
+
+
+.loading-overlay,
+.loading-animation {
+  pointer-events: none !important; /* Only when not visible */
+}

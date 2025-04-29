@@ -2185,18 +2185,30 @@ async function showPDF(pdfFile) {
       }, 100);
 
       try {
+        // Responsive page size based on viewport width
+        let pageWidth, pageHeight;
+        if (window.innerWidth < 700) {
+          // Use most of the viewport, but keep a minimum for readability
+          pageWidth = Math.max(window.innerWidth * 0.95, 320);  // 95vw, min 320px
+          pageHeight = Math.max(window.innerHeight * 0.7, 400); // 80vh, min 400px
+        } else {
+          pageWidth = 710;   // or whatever you want for desktop
+          pageHeight = 1100;
+        }
+
         const pageFlip = new PageFlip(flipbookContainer, {
-          size: 'stretch',
-          width: 600,
-          height: 800,
+          size: 'fixed',
+          width: pageWidth ,
+          height: pageHeight,
           maxShadowOpacity: 0.5,
           showCover: false,
-          mobileScrollSupport: false,
+          mobileScrollSupport: true,
         });
         pageFlip.loadFromHTML(document.querySelectorAll('#flipbook .page'));
       } catch (err) {
         console.error('Error initializing PageFlip:', err);
       }
+
     } catch (error) {
       console.error('Error loading or rendering PDF:', error);
       hideLoadingOverlay();
@@ -2206,6 +2218,9 @@ async function showPDF(pdfFile) {
     hideLoadingOverlay();
   }
 }
+
+
+
 
 // Show SVG content from string
 async function showSVGContent(svgType, svgElement) {
