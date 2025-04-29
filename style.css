@@ -200,10 +200,7 @@ rect[id^="blockcolor"] {
   overflow: hidden; /* Prevent scrollbars on desktop */
 }
 
-/* Remove transform/margin changes on hover */
-.pdf-flipbook:hover {
-  /* No transform or margin changes */
-}
+
 
 /* Keep centering consistent */
 .pdf-flipbook {
