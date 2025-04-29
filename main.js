@@ -1627,7 +1627,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
 // Set the worker source for pdfjs-dist
 try {
-  GlobalWorkerOptions.workerSrc = '/Portofoliu-FurduNicole/assets/pdfjs/pdf.worker.mjs';
+  GlobalWorkerOptions.workerSrc = '/assets/pdfjs/pdf.worker.mjs';
 } catch (err) {
   console.error('Error setting PDF worker source:', err);
 }
