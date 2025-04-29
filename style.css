@@ -1,5 +1,5 @@
 body {
-  height: 100vh;
+  height: 110vh;
   width: 100vw;
   margin: 0 auto;
   text-align: center;
@@ -8,15 +8,21 @@ body {
   align-items: center;
   justify-content: center;
   position: relative; /* Corrected from 'flex' */
+
+}
+
+/* Hide scrollbar for Chrome, Edge, Safari */
+html::-webkit-scrollbar, body::-webkit-scrollbar {
+  display: none;
 }
 
 
 
 
-
 .logo-citat-row {
+  position: absolute; /* Keeps wrapper fixed relative to viewport */
+  bottom: 0; /* Pins wrapper to the top */
   display: flex;
-  margin-bottom: 0;
   left: 0;
   width: 100vw;
   z-index: 3000;
@@ -28,8 +34,6 @@ body {
   backdrop-filter: blur(10px); /* Adds a blurred glass-like effect */
 }
 
-
-
 /* Logo styling */
 .logo {
   width: 70px;            /* Adjust as needed */
@@ -37,14 +41,12 @@ body {
   margin-left: 70px;         
 ;
 }
-
 #citat {
   z-index: 10;
   font-size: .7rem;
   color: #93a0c6;
   
 }
-
 #citat-wrapper {
   flex: 1 1 auto;
   text-align: center;
@@ -52,7 +54,26 @@ body {
 
 }
 
+@media (max-width: 600px) {
+  #citat-wrapper {
+    display: none;
+  }
+  .logo-citat-row {
+    justify-content: center;
+    align-items: center;
+    background-color: transparent;
+  }
+  .logo {
+    margin-left: 0;
+    margin-right: 0;
+    display: block;
+  }
 
+
+
+
+
+}
 
 
 
@@ -338,3 +359,4 @@ a {
   opacity: 1;          /* Fully opaque */
   transform: translate(-50%, -50%) scale(1); /* Scale back to normal */
 }
+

@@ -1683,7 +1683,9 @@ function insertLoadingEyeSVG() {
     
     loadingSpinner.innerHTML = '';
     loadingSpinner.appendChild(svgDoc.documentElement);
-    startLoadingAnimation(svgDoc.documentElement);
+    if (svgDoc.documentElement) {
+      startLoadingAnimation(svgDoc.documentElement);
+    }
   } catch (err) {
     console.error('Error inserting loading SVG:', err);
   }
@@ -2114,16 +2116,17 @@ async function showPDF(pdfFile) {
 
     resetLoadingAnimation();
 
-    const svg = loadingSpinner?.querySelector('svg');
     const loadingElements = svg ? svg.querySelectorAll('[id^="loading"]') : [];
     const totalSteps = loadingElements.length;
-    let currentStep = 0;
+    let currentStep = 0; // <-- Add this line
 
-    function showNextLoaderStep() {
-      if (loadingElements[currentStep]) {
-        loadingElements[currentStep].style.opacity = '1';
-      }
-      currentStep++;
+    // Helper to update loading elements based on progress (0 to 1)
+    function updateLoadingProgress(progress) {
+      const activeCount = Math.floor(progress * totalSteps);
+      loadingElements.forEach((el, idx) => {
+        el.style.opacity = idx < activeCount ? '1' : '0';
+      });
+    
     }
 
     try {
@@ -2138,7 +2141,6 @@ async function showPDF(pdfFile) {
       const pageImages = [];
       for (let i = 1; i <= numPages; i++) {
         try {
-          showNextLoaderStep();
           const page = await pdfDoc.getPage(i);
           const viewport = page.getViewport({ scale: 1.5 });
           const canvas = document.createElement('canvas');
@@ -2146,16 +2148,17 @@ async function showPDF(pdfFile) {
           canvas.height = viewport.height;
           await page.render({ canvasContext: canvas.getContext('2d'), viewport }).promise;
           pageImages.push(canvas.toDataURL());
+
+          // Update loading animation progress
+          updateLoadingProgress(i / numPages);
+
           await new Promise(res => setTimeout(res, stepDuration));
         } catch (err) {
           console.error(`Error rendering page ${i}:`, err);
         }
       }
 
-      while (currentStep < totalSteps) {
-        showNextLoaderStep();
-        await new Promise(res => setTimeout(res, stepDuration));
-      }
+    
 
       pageImages.forEach((src) => {
         try {
