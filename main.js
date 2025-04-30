@@ -1603,16 +1603,414 @@ const hardSkillsSVG = `<svg id="Layer_1" data-name="Layer 1" xmlns="http://www.w
 </svg>
 `;
 
-const cvSVG = `<svg id="cv" viewBox="0 0 1200 800" xmlns="http://www.w3.org/2000/svg">
-  <!-- Your CV SVG content here -->
-</svg>`;
+const cvSVG = `<svg id="cv_content" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 1700 1467.19">
+  <defs>
+    <filter id="boxg12" x="550" y="1290.96" width="281" height="136" filterUnits="userSpaceOnUse">
+      <feOffset dx="10" dy="10" input="SourceAlpha"/>
+      <feGaussianBlur stdDeviation="5" result="blur"/>
+      <feFlood flood-color="#515151"/>
+      <feComposite operator="in" in2="blur"/>
+      <feComposite in="SourceGraphic"/>
+    </filter>
+    <filter id="boxg11" x="440" y="1143.96" width="391" height="136" filterUnits="userSpaceOnUse">
+      <feOffset dx="10" dy="10" input="SourceAlpha"/>
+      <feGaussianBlur stdDeviation="5" result="blur-2"/>
+      <feFlood flood-color="#515151"/>
+      <feComposite operator="in" in2="blur-2"/>
+      <feComposite in="SourceGraphic"/>
+    </filter>
+    <filter id="boxg10" x="883" y="986.96" width="281" height="136" filterUnits="userSpaceOnUse">
+      <feOffset dx="10" dy="10" input="SourceAlpha"/>
+      <feGaussianBlur stdDeviation="5" result="blur-3"/>
+      <feFlood flood-color="#515151"/>
+      <feComposite operator="in" in2="blur-3"/>
+      <feComposite in="SourceGraphic"/>
+    </filter>
+    <filter id="boxg9" x="383" y="909.96" width="391" height="136" filterUnits="userSpaceOnUse">
+      <feOffset dx="10" dy="10" input="SourceAlpha"/>
+      <feGaussianBlur stdDeviation="5" result="blur-4"/>
+      <feFlood flood-color="#515151"/>
+      <feComposite operator="in" in2="blur-4"/>
+      <feComposite in="SourceGraphic"/>
+    </filter>
+    <filter id="boxg8" x="946" y="679.96" width="391" height="136" filterUnits="userSpaceOnUse">
+      <feOffset dx="10" dy="10" input="SourceAlpha"/>
+      <feGaussianBlur stdDeviation="5" result="blur-5"/>
+      <feFlood flood-color="#515151"/>
+      <feComposite operator="in" in2="blur-5"/>
+      <feComposite in="SourceGraphic"/>
+    </filter>
+    <filter id="boxg7" x="440" y="729.96" width="391" height="136" filterUnits="userSpaceOnUse">
+      <feOffset dx="10" dy="10" input="SourceAlpha"/>
+      <feGaussianBlur stdDeviation="5" result="blur-6"/>
+      <feFlood flood-color="#515151"/>
+      <feComposite operator="in" in2="blur-6"/>
+      <feComposite in="SourceGraphic"/>
+    </filter>
+    <filter id="boxg6" x="883" y="533.96" width="391" height="136" filterUnits="userSpaceOnUse">
+      <feOffset dx="10" dy="10" input="SourceAlpha"/>
+      <feGaussianBlur stdDeviation="5" result="blur-7"/>
+      <feFlood flood-color="#515151"/>
+      <feComposite operator="in" in2="blur-7"/>
+      <feComposite in="SourceGraphic"/>
+    </filter>
+    <filter id="boxg5" x="550" y="405.96" width="281" height="136" filterUnits="userSpaceOnUse">
+      <feOffset dx="10" dy="10" input="SourceAlpha"/>
+      <feGaussianBlur stdDeviation="5" result="blur-8"/>
+      <feFlood flood-color="#515151"/>
+      <feComposite operator="in" in2="blur-8"/>
+      <feComposite in="SourceGraphic"/>
+    </filter>
+    <filter id="boxg4" x="883" y="347.96" width="281" height="136" filterUnits="userSpaceOnUse">
+      <feOffset dx="10" dy="10" input="SourceAlpha"/>
+      <feGaussianBlur stdDeviation="5" result="blur-9"/>
+      <feFlood flood-color="#515151"/>
+      <feComposite operator="in" in2="blur-9"/>
+      <feComposite in="SourceGraphic"/>
+    </filter>
+    <filter id="boxg15_2" x="946" y="1143.96" width="391" height="136" filterUnits="userSpaceOnUse">
+      <feOffset dx="10" dy="10" input="SourceAlpha"/>
+      <feGaussianBlur stdDeviation="5" result="blur-10"/>
+      <feFlood flood-color="#515151"/>
+      <feComposite operator="in" in2="blur-10"/>
+      <feComposite in="SourceGraphic"/>
+    </filter>
+    <filter id="boxg15_1" x="493" y="219.96" width="281" height="136" filterUnits="userSpaceOnUse">
+      <feOffset dx="10" dy="10" input="SourceAlpha"/>
+      <feGaussianBlur stdDeviation="5" result="blur-11"/>
+      <feFlood flood-color="#515151"/>
+      <feComposite operator="in" in2="blur-11"/>
+      <feComposite in="SourceGraphic"/>
+    </filter>
+    <filter id="boxg2" x="946" y="118.96" width="391" height="136" filterUnits="userSpaceOnUse">
+      <feOffset dx="10" dy="10" input="SourceAlpha"/>
+      <feGaussianBlur stdDeviation="5" result="blur-12"/>
+      <feFlood flood-color="#515151"/>
+      <feComposite operator="in" in2="blur-12"/>
+      <feComposite in="SourceGraphic"/>
+    </filter>
+    <filter id="boxg1" x="383" y="9.96" width="391" height="136" filterUnits="userSpaceOnUse">
+      <feOffset dx="10" dy="10" input="SourceAlpha"/>
+      <feGaussianBlur stdDeviation="5" result="blur-13"/>
+      <feFlood flood-color="#515151"/>
+      <feComposite operator="in" in2="blur-13"/>
+      <feComposite in="SourceGraphic"/>
+    </filter>
+  </defs>
+  <g id="Layer12">
+    <rect id="boxg12-2" data-name="boxg12" x="555.68" y="1296.13" width="250" height="105" rx="13.78" transform="translate(1361.36 2697.26) rotate(-180)" style="fill: #a3b0d1;opacity: 0.5;filter: url(#boxg12)"/>
+    <g id="lineg12_2">
+      <g>
+        <line x1="852.21" y1="943.29" x2="852.21" y2="949.29" style="fill: none;stroke: #fff;stroke-linecap: round;stroke-linejoin: round;stroke-width: 2.5511811023622px"/>
+        <line x1="852.21" y1="960.91" x2="852.21" y2="1303.55" style="fill: none;stroke: #fff;stroke-linecap: round;stroke-linejoin: round;stroke-width: 2.5511811023622px;stroke-dasharray: 11.614862442016602,11.614862442016602"/>
+        <line x1="852.21" y1="1309.35" x2="852.21" y2="1315.35" style="fill: none;stroke: #fff;stroke-linecap: round;stroke-linejoin: round;stroke-width: 2.5511811023622px"/>
+      </g>
+    </g>
+    <g id="lineg12_1">
+      <g>
+        <line x1="852.21" y1="1315.35" x2="790.27" y2="1315.35" style="fill: none;stroke: #fff;stroke-linecap: round;stroke-linejoin: round;stroke-width: 2.5511811023622px"/>
+        <circle cx="790.27" cy="1315.35" r="9.59" transform="translate(-698.63 944.07) rotate(-45)" style="fill: #fff"/>
+      </g>
+    </g>
+    <g id="textg12">
+      <g id="title12_red">
+        <text transform="translate(652.77 1371.64)" style="font-size: 32.073631286621094px;fill: #fff;font-family: YuGothicUI-Regular, Yu Gothic UI;letter-spacing: 0.13000963983328004em">ONCR </text>
+      </g>
+      <g id="ScoutVolunteer">
+        <text transform="translate(614.9 1391.22)" style="font-size: 19.606599807739258px;fill: #fff;font-family: YuGothicUI-Regular, Yu Gothic UI">Scout <tspan x="54.07" y="0" style="letter-spacing: -0.04492691880628687em">V</tspan><tspan x="65.37" y="0">olunteer</tspan></text>
+      </g>
+      <text transform="translate(661.91 1336.45)" style="font-size: 43.495079040527344px;fill: #fff;font-family: YuGothicUI-Bold, Yu Gothic UI;font-weight: 700;letter-spacing: 0.020003964628661854em">2013</text>
+    </g>
+    <g id="time12">
+      <text transform="translate(690.49 1435.33)" style="font-size: 20.55118179321289px;fill: #ffe1ab;font-family: YuGothicUI-Regular, Yu Gothic UI;letter-spacing: -0.005011700165427601em">6 years</text>
+      <g>
+        <circle cx="658.28" cy="1429.27" r="14.17" style="fill: none;stroke: #ffe1ab;stroke-miterlimit: 10;stroke-width: 2.8346456692913384px"/>
+        <line x1="666.91" y1="1419.12" x2="658.28" y2="1429.27" style="fill: none;stroke: #ffe1ab;stroke-linecap: round;stroke-linejoin: round;stroke-width: 2.8346456692913384px"/>
+        <line x1="650.88" y1="1424.2" x2="658.28" y2="1429.27" style="fill: none;stroke: #ffe1ab;stroke-linecap: round;stroke-linejoin: round;stroke-width: 2.8346456692913384px"/>
+      </g>
+    </g>
+  </g>
+  <g id="Layer11">
+    <rect id="boxg11-2" data-name="boxg11" x="445.68" y="1149.41" width="360" height="105" rx="13.78" transform="translate(1251.36 2403.81) rotate(-180)" style="fill: #a3b0d1;opacity: 0.5;filter: url(#boxg11)"/>
+    <g id="lineg11_1">
+      <g>
+        <line x1="836.02" y1="1167.04" x2="787.41" y2="1167.04" style="fill: none;stroke: #fff;stroke-linecap: round;stroke-linejoin: round;stroke-width: 2.5511811023622px"/>
+        <circle cx="787.41" cy="1167.04" r="9.59" transform="translate(-594.6 898.6) rotate(-45)" style="fill: #fff"/>
+      </g>
+    </g>
+    <g id="textg11">
+      <text transform="translate(660.73 1189.23)" style="font-size: 43.495079040527344px;fill: #fff;font-family: YuGothicUI-Bold, Yu Gothic UI;font-weight: 700;letter-spacing: 0.020003964628661854em">2017</text>
+      <text transform="translate(591.26 1247.02)" style="font-size: 19.606599807739258px;fill: #fff;font-family: YuGothicUI-Regular, Yu Gothic UI">C. NEGRUZZI | IASI</text>
+      <g id="title11_red">
+        <text transform="translate(447.97 1221.39)" style="font-size: 32.073631286621094px;fill: #fff;font-family: YuGothicUI-Regular, Yu Gothic UI;letter-spacing: -0.0400029661025477em">High school graduation </text>
+      </g>
+    </g>
+    <g id="time11">
+      <text transform="translate(679.56 1281.42)" style="font-size: 20.55118179321289px;fill: #ffe1ab;font-family: YuGothicUI-Regular, Yu Gothic UI;letter-spacing: -0.005011700165427601em">12 years</text>
+      <g>
+        <circle cx="644.11" cy="1276.08" r="14.17" style="fill: none;stroke: #ffe1ab;stroke-miterlimit: 10;stroke-width: 2.8346456692913384px"/>
+        <line x1="652.75" y1="1265.93" x2="644.11" y2="1276.08" style="fill: none;stroke: #ffe1ab;stroke-linecap: round;stroke-linejoin: round;stroke-width: 2.8346456692913384px"/>
+        <line x1="636.71" y1="1271.01" x2="644.11" y2="1276.08" style="fill: none;stroke: #ffe1ab;stroke-linecap: round;stroke-linejoin: round;stroke-width: 2.8346456692913384px"/>
+      </g>
+    </g>
+  </g>
+  <g id="Layer10">
+    <rect id="boxg10-2" data-name="boxg10" x="888.21" y="992.56" width="250" height="105" rx="13.78" style="fill: #a3b0d1;opacity: 0.5;filter: url(#boxg10)"/>
+    <g id="lineg10_1">
+      <g>
+        <line x1="861.27" y1="1023.97" x2="906.48" y2="1023.97" style="fill: none;stroke: #fff;stroke-linecap: round;stroke-linejoin: round;stroke-width: 2.5511811023622px"/>
+        <g>
+          <path d="M906.48,1033.56a9.6,9.6,0,1,0-9.59-9.59A9.59,9.59,0,0,0,906.48,1033.56Z" style="fill: #fff"/>
+          <path d="M906.48,1034.83A10.87,10.87,0,1,1,917.35,1024a10.87,10.87,0,0,1-10.87,10.86Zm0-19.18a8.32,8.32,0,1,0,8.32,8.32,8.32,8.32,0,0,0-8.32-8.32Z" style="fill: #fff"/>
+        </g>
+      </g>
+    </g>
+    <g id="textg10">
+      <text transform="translate(929.55 1039.84)" style="font-size: 43.495079040527344px;fill: #fff;font-family: YuGothicUI-Bold, Yu Gothic UI;font-weight: 700;letter-spacing: 0.020003964628661854em">2018</text>
+      <text id="title10_red" transform="translate(928.55 1075.71)" style="font-size: 28.34645652770996px;fill: #fff;font-family: YuGothicUI-Regular, Yu Gothic UI;letter-spacing: -0.030002186245158765em">ALLPLAN courses</text>
+    </g>
+    <g id="time10">
+      <text transform="translate(971.88 1132.45)" style="font-size: 20.55118179321289px;fill: #ffe1ab;font-family: YuGothicUI-Regular, Yu Gothic UI;letter-spacing: -0.005011700165427601em">6 months</text>
+      <g>
+        <circle cx="942.58" cy="1124.39" r="14.17" style="fill: none;stroke: #ffe1ab;stroke-miterlimit: 10;stroke-width: 2.8346456692913384px"/>
+        <line x1="951.22" y1="1114.24" x2="942.58" y2="1124.39" style="fill: none;stroke: #ffe1ab;stroke-linecap: round;stroke-linejoin: round;stroke-width: 2.8346456692913384px"/>
+        <line x1="935.18" y1="1119.31" x2="942.58" y2="1124.39" style="fill: none;stroke: #ffe1ab;stroke-linecap: round;stroke-linejoin: round;stroke-width: 2.8346456692913384px"/>
+      </g>
+    </g>
+  </g>
+  <g id="Layer9">
+    <rect id="boxg9-2" data-name="boxg9" x="388.97" y="915.32" width="360" height="105" rx="13.78" style="fill: #a3b0d1;opacity: 0.5;filter: url(#boxg9)"/>
+    <g id="lineg9_1">
+      <g>
+        <line x1="838.88" y1="937.07" x2="731.38" y2="937.07" style="fill: none;stroke: #fff;stroke-linecap: round;stroke-linejoin: round;stroke-width: 2.5511811023622px"/>
+        <path d="M731.38,927.48a9.59,9.59,0,1,0,9.6,9.59A9.59,9.59,0,0,0,731.38,927.48Z" style="fill: #fff"/>
+      </g>
+    </g>
+    <g id="textg9">
+      <text transform="translate(621.94 953.92)" style="font-size: 43.495079040527344px;fill: #fff;font-family: YuGothicUI-Bold, Yu Gothic UI;font-weight: 700;letter-spacing: 0.020003964628661854em">2019</text>
+      <text id="title9_red" transform="translate(397.93 985.34)" style="font-size: 32.073631286621094px;fill: #fff;font-family: YuGothicUI-Regular, Yu Gothic UI">NEME<tspan x="85.24" y="0" style="letter-spacing: -0.009771366720003052em">T</tspan><tspan x="101.73" y="0" xml:space="preserve">SCHEK  contest</tspan></text>
+      <text transform="translate(422.23 1007.66)" style="font-size: 19.606599807739258px;fill: #fff;font-family: YuGothicUI-Regular, Yu Gothic UI">1<tspan x="10.57" y="0" style="letter-spacing: -0.00975584539780171em">S</tspan><tspan x="20.79" y="0" xml:space="preserve">T prize winner  of Lumion video</tspan></text>
+    </g>
+    <g id="time9">
+      <text transform="translate(629.9 1053.12)" style="font-size: 20.55118179321289px;fill: #ffe1ab;font-family: YuGothicUI-Regular, Yu Gothic UI;letter-spacing: -0.005011700165427601em">3 months</text>
+      <g>
+        <circle cx="600.82" cy="1045.06" r="14.17" style="fill: none;stroke: #ffe1ab;stroke-miterlimit: 10;stroke-width: 2.8346456692913384px"/>
+        <line x1="609.45" y1="1034.91" x2="600.82" y2="1045.06" style="fill: none;stroke: #ffe1ab;stroke-linecap: round;stroke-linejoin: round;stroke-width: 2.8346456692913384px"/>
+        <line x1="593.42" y1="1039.99" x2="600.82" y2="1045.06" style="fill: none;stroke: #ffe1ab;stroke-linecap: round;stroke-linejoin: round;stroke-width: 2.8346456692913384px"/>
+      </g>
+    </g>
+  </g>
+  <g id="Layer8">
+    <rect id="boxg8-2" data-name="boxg8" x="951.64" y="685.58" width="360" height="105" rx="13.78" style="fill: #a3b0d1;opacity: 0.5;filter: url(#boxg8)"/>
+    <g id="lineg8_1">
+      <g>
+        <polyline points="968.62 708.83 852.21 708.83 852.21 943.29" style="fill: none;stroke: #fff;stroke-linecap: round;stroke-linejoin: round;stroke-width: 2.5511811023622px"/>
+        <g>
+          <path d="M968.62,699.24a9.59,9.59,0,1,1-9.6,9.59A9.59,9.59,0,0,1,968.62,699.24Z" style="fill: #fff"/>
+          <path d="M968.62,698a10.87,10.87,0,1,0,10.86,10.87A10.88,10.88,0,0,0,968.62,698Zm0,19.19a8.32,8.32,0,1,1,8.31-8.32,8.33,8.33,0,0,1-8.31,8.32Z" style="fill: #fff"/>
+        </g>
+      </g>
+    </g>
+    <g id="textg8">
+      <text id="title8_red" transform="translate(986.03 722.25)" style="font-size: 32.073631286621094px;fill: #fff;font-family: YuGothicUI-Regular, Yu Gothic UI;letter-spacing: 0.010000741525636925em"><tspan xml:space="preserve">Wienerberger  contest</tspan></text>
+      <text transform="translate(986.03 747.02)" style="font-size: 19.606599807739258px;fill: #fff;font-family: YuGothicUI-Regular, Yu Gothic UI;letter-spacing: -0.020011990559593254em">3rd prize winner for Collective<tspan x="246.56" y="0" style="font-size: 32.073631286621094px;letter-spacing: -0.02000148305127385em"> </tspan><tspan x="254.71" y="0">housing</tspan></text>
+      <text transform="translate(986.03 774.06)" style="font-size: 23.527860641479492px;fill: #fff;font-family: YuGothicUI-Regular, Yu Gothic UI;letter-spacing: -0.006003612255502974em">oct-ian</text>
+    </g>
+    <g id="time8">
+      <text transform="translate(1032.25 825.58)" style="font-size: 20.55118179321289px;fill: #ffe1ab;font-family: YuGothicUI-Regular, Yu Gothic UI;letter-spacing: -0.005011700165427601em">3 months</text>
+      <g>
+        <circle cx="1002.95" cy="817.52" r="14.17" style="fill: none;stroke: #ffe1ab;stroke-miterlimit: 10;stroke-width: 2.8346456692913384px"/>
+        <line x1="1011.59" y1="807.37" x2="1002.95" y2="817.52" style="fill: none;stroke: #ffe1ab;stroke-linecap: round;stroke-linejoin: round;stroke-width: 2.8346456692913384px"/>
+        <line x1="995.55" y1="812.44" x2="1002.95" y2="817.52" style="fill: none;stroke: #ffe1ab;stroke-linecap: round;stroke-linejoin: round;stroke-width: 2.8346456692913384px"/>
+      </g>
+    </g>
+  </g>
+  <g id="Layer7">
+    <rect id="boxg7-2" data-name="boxg7" x="445.68" y="735.14" width="360" height="105" rx="13.78" style="fill: #a3b0d1;opacity: 0.5;filter: url(#boxg7)"/>
+    <g id="lineg7_1">
+      <g>
+        <polyline points="838.88 662.6 838.88 755.06 787.41 755.06" style="fill: none;stroke: #fff;stroke-linecap: round;stroke-linejoin: round;stroke-width: 2.5511811023622px"/>
+        <circle cx="787.41" cy="755.06" r="9.59" transform="translate(-229.01 358.8) rotate(-22.5)" style="fill: #fff"/>
+      </g>
+    </g>
+    <g id="textg7">
+      <text transform="translate(653.29 771.26)" style="font-size: 43.495079040527344px;fill: #fff;font-family: YuGothicUI-Bold, Yu Gothic UI;font-weight: 700;letter-spacing: 0.020003964628661854em">2020</text>
+      <text id="title7_red" transform="translate(516.83 804.38)" style="font-size: 32.073631286621094px;fill: #fff;font-family: YuGothicUI-Regular, Yu Gothic UI;letter-spacing: -0.02000148305127385em">D.A.S. Arch. office</text>
+      <text transform="translate(670.49 831.62)" style="font-size: 23.527860641479492px;fill: #fff;font-family: YuGothicUI-Regular, Yu Gothic UI;letter-spacing: 0.03299902152937919em">jan-july</text>
+    </g>
+    <g id="time7">
+      <text transform="translate(669.01 874.6)" style="font-size: 20.55118179321289px;fill: #ffe1ab;font-family: YuGothicUI-Regular, Yu Gothic UI;letter-spacing: -0.005011700165427601em">6 months</text>
+      <g>
+        <circle cx="644.11" cy="869.26" r="14.17" style="fill: none;stroke: #ffe1ab;stroke-miterlimit: 10;stroke-width: 2.8346456692913384px"/>
+        <line x1="652.75" y1="859.11" x2="644.11" y2="869.26" style="fill: none;stroke: #ffe1ab;stroke-linecap: round;stroke-linejoin: round;stroke-width: 2.8346456692913384px"/>
+        <line x1="636.71" y1="864.19" x2="644.11" y2="869.26" style="fill: none;stroke: #ffe1ab;stroke-linecap: round;stroke-linejoin: round;stroke-width: 2.8346456692913384px"/>
+      </g>
+    </g>
+  </g>
+  <g id="Layer6">
+    <rect id="boxg6-2" data-name="boxg6" x="888.21" y="539.47" width="360" height="105" rx="13.78" style="fill: #a3b0d1;opacity: 0.5;filter: url(#boxg6)"/>
+    <g id="lineg6_1">
+      <g>
+        <polyline points="906.48 559.59 853.71 559.59 853.71 467.13" style="fill: none;stroke: #fff;stroke-linecap: round;stroke-linejoin: round;stroke-width: 2.5511811023622px"/>
+        <g>
+          <path d="M906.48,550a9.6,9.6,0,1,1-9.59,9.6A9.59,9.59,0,0,1,906.48,550Z" style="fill: #fff"/>
+          <path d="M906.48,548.72a10.87,10.87,0,1,0,10.87,10.87,10.87,10.87,0,0,0-10.87-10.87Zm0,19.18a8.32,8.32,0,1,1,8.32-8.31,8.32,8.32,0,0,1-8.32,8.31Z" style="fill: #fff"/>
+        </g>
+      </g>
+    </g>
+    <g id="textg6">
+      <text transform="translate(937.55 575.83)" style="font-size: 43.495079040527344px;fill: #fff;font-family: YuGothicUI-Bold, Yu Gothic UI;font-weight: 700;letter-spacing: 0.020003964628661854em">2021</text>
+      <text id="title6_red" transform="translate(940.59 610.21)" style="font-size: 32.073631286621094px;fill: #fff;font-family: YuGothicUI-Regular, Yu Gothic UI;letter-spacing: -0.040033549409965556em">P<tspan x="16.68" y="0" style="letter-spacing: -0.02000148305127385em">oint Arch. office</tspan></text>
+      <text transform="translate(940.59 635.47)" style="font-size: 23.527860641479492px;fill: #fff;font-family: YuGothicUI-Regular, Yu Gothic UI;letter-spacing: -0.006003612255502974em">oct-march</text>
+    </g>
+    <g id="time6">
+      <text transform="translate(971.88 676.06)" style="font-size: 20.55118179321289px;fill: #ffe1ab;font-family: YuGothicUI-Regular, Yu Gothic UI;letter-spacing: -0.005011700165427601em">6 months</text>
+      <g>
+        <circle cx="942.58" cy="668" r="14.17" style="fill: none;stroke: #ffe1ab;stroke-miterlimit: 10;stroke-width: 2.8346456692913384px"/>
+        <line x1="951.22" y1="657.85" x2="942.58" y2="668" style="fill: none;stroke: #ffe1ab;stroke-linecap: round;stroke-linejoin: round;stroke-width: 2.8346456692913384px"/>
+        <line x1="935.18" y1="662.93" x2="942.58" y2="668" style="fill: none;stroke: #ffe1ab;stroke-linecap: round;stroke-linejoin: round;stroke-width: 2.8346456692913384px"/>
+      </g>
+    </g>
+  </g>
+  <g id="Layer5">
+    <rect id="boxg5-2" data-name="boxg5" x="555.68" y="411.61" width="250" height="105" rx="13.78" transform="translate(1361.36 928.21) rotate(-180)" style="fill: #a3b0d1;opacity: 0.5;filter: url(#boxg5)"/>
+    <g id="lineg5_1">
+      <g>
+        <line x1="836.02" y1="434.82" x2="787.41" y2="434.82" style="fill: none;stroke: #fff;stroke-linecap: round;stroke-linejoin: round;stroke-width: 2.5511811023622px"/>
+        <circle cx="787.41" cy="434.82" r="9.59" transform="translate(-106.46 334.43) rotate(-22.5)" style="fill: #fff"/>
+      </g>
+    </g>
+    <g id="textg5">
+      <g id="title5_red">
+        <text transform="translate(595.88 447.06)" style="font-size: 28.34645652770996px;fill: #fff;font-family: YuGothicUI-Regular, Yu Gothic UI;letter-spacing: 0.030002186245158765em">Monuments <tspan x="10.41" y="26.13">Ambulance</tspan></text>
+      </g>
+      <text transform="translate(670.49 500.2)" style="font-size: 23.527860641479492px;fill: #fff;font-family: YuGothicUI-Regular, Yu Gothic UI;letter-spacing: 0.03299902152937919em">jan-july</text>
+    </g>
+    <g id="time5">
+      <text transform="translate(682.26 552.21)" style="font-size: 20.55118179321289px;fill: #ffe1ab;font-family: YuGothicUI-Regular, Yu Gothic UI;letter-spacing: -0.005011700165427601em">2 weeks</text>
+      <g>
+        <circle cx="658.28" cy="546.87" r="14.17" style="fill: none;stroke: #ffe1ab;stroke-miterlimit: 10;stroke-width: 2.8346456692913384px"/>
+        <line x1="666.91" y1="536.72" x2="658.28" y2="546.87" style="fill: none;stroke: #ffe1ab;stroke-linecap: round;stroke-linejoin: round;stroke-width: 2.8346456692913384px"/>
+        <line x1="650.88" y1="541.8" x2="658.28" y2="546.87" style="fill: none;stroke: #ffe1ab;stroke-linecap: round;stroke-linejoin: round;stroke-width: 2.8346456692913384px"/>
+      </g>
+    </g>
+  </g>
+  <g id="Layer4">
+    <rect id="boxg4-2" data-name="boxg4" x="888.21" y="353.86" width="250" height="105" rx="13.78" style="fill: #a3b0d1;opacity: 0.5;filter: url(#boxg4)"/>
+    <g id="lineg4_1">
+      <g>
+        <polyline points="853.71 362.28 853.71 377.08 906.48 377.08" style="fill: none;stroke: #fff;stroke-linecap: round;stroke-linejoin: round;stroke-width: 2.5511811023622px"/>
+        <g>
+          <path d="M906.48,386.67a9.6,9.6,0,1,0-9.59-9.59A9.59,9.59,0,0,0,906.48,386.67Z" style="fill: #fff"/>
+          <path d="M906.48,387.94a10.87,10.87,0,1,1,10.87-10.86,10.87,10.87,0,0,1-10.87,10.86Zm0-19.18a8.32,8.32,0,1,0,8.32,8.32,8.32,8.32,0,0,0-8.32-8.32Z" style="fill: #fff"/>
+        </g>
+      </g>
+    </g>
+    <g id="textg4">
+      <text transform="translate(937.55 392.86)" style="font-size: 43.495079040527344px;fill: #fff;font-family: YuGothicUI-Bold, Yu Gothic UI;font-weight: 700;letter-spacing: 0.020003964628661854em">2022</text>
+      <g id="title4_red">
+        <text transform="translate(940.59 425.44)" style="font-size: 31.181102752685547px;fill: #fff;font-family: YuGothicUI-Regular, Yu Gothic UI;letter-spacing: 0.03001162331198218em"><tspan xml:space="preserve">G.R.S.  office</tspan></text>
+      </g>
+      <text transform="translate(940.59 447.36)" style="font-size: 23.527860641479492px;fill: #fff;font-family: YuGothicUI-Regular, Yu Gothic UI;letter-spacing: -0.006003612255502974em">aug-sept</text>
+    </g>
+    <g id="time4">
+      <text transform="translate(971.88 492.26)" style="font-size: 20.55118179321289px;fill: #ffe1ab;font-family: YuGothicUI-Regular, Yu Gothic UI;letter-spacing: -0.005011700165427601em">1 month practice</text>
+      <g>
+        <circle cx="942.58" cy="484.2" r="14.17" style="fill: none;stroke: #ffe1ab;stroke-miterlimit: 10;stroke-width: 2.8346456692913384px"/>
+        <line x1="951.22" y1="474.06" x2="942.58" y2="484.2" style="fill: none;stroke: #ffe1ab;stroke-linecap: round;stroke-linejoin: round;stroke-width: 2.8346456692913384px"/>
+        <line x1="935.18" y1="479.13" x2="942.58" y2="484.2" style="fill: none;stroke: #ffe1ab;stroke-linecap: round;stroke-linejoin: round;stroke-width: 2.8346456692913384px"/>
+      </g>
+    </g>
+  </g>
+  <g id="Layer15">
+    <rect id="boxg15_2-2" data-name="boxg15_2" x="951.64" y="1149.41" width="360" height="105" rx="13.78" style="fill: #a3b0d1;opacity: 0.5;filter: url(#boxg15_2)"/>
+    <rect id="boxg15_1-2" data-name="boxg15_1" x="498.97" y="225.41" width="250" height="105" rx="13.78" style="fill: #a3b0d1;opacity: 0.5;filter: url(#boxg15_1)"/>
+    <g id="lineg15_1">
+      <g>
+        <polyline points="968.62 1167.05 846.29 1167.05 846.29 249.56 731.38 249.56" style="fill: none;stroke: #fff;stroke-linecap: round;stroke-linejoin: round;stroke-width: 2.5511811023622px"/>
+        <path d="M968.62,1157.45A9.6,9.6,0,1,1,959,1167,9.6,9.6,0,0,1,968.62,1157.45Z" style="fill: #fff"/>
+        <path d="M731.38,240a9.6,9.6,0,1,0,9.6,9.6A9.6,9.6,0,0,0,731.38,240Z" style="fill: #fff"/>
+      </g>
+    </g>
+    <g id="textg15">
+      <g id="title15_red">
+        <text transform="translate(524.14 296.09)" style="font-size: 31.181102752685547px;fill: #fff;font-family: YuGothicUI-Regular, Yu Gothic UI"><tspan style="letter-spacing: -0.01492716484437688em">V<tspan x="18.9" y="0" style="letter-spacing: 0.03001162331198218em">aledictorian</tspan></tspan><tspan style="font-size: 32.073631286621094px"><tspan x="464.08" y="922.58" style="letter-spacing: -0.04492687859682154em">F</tspan><tspan x="478.3" y="922.58">aculty of </tspan><tspan x="608.15" y="922.58" style="font-size: 31.370500564575195px">Architecture</tspan><tspan x="776.34" y="922.58"> </tspan></tspan></text>
+      </g>
+      <text transform="translate(986.03 1245.59)" style="font-size: 19.606599807739258px;fill: #fff;font-family: YuGothicUI-Regular, Yu Gothic UI">G.M. CAN<tspan x="84.38" y="0" style="letter-spacing: -0.035171073408485146em">T</tspan><tspan x="93.96" y="0" style="letter-spacing: -0.015109052872492909em">A</tspan><tspan x="106.31" y="0">CUZINO | IASI</tspan></text>
+      <text transform="translate(618.24 265.65)" style="font-size: 43.495079040527344px;fill: #fff;font-family: YuGothicUI-Regular, Yu Gothic UI;letter-spacing: 0.020003964628661854em">2023</text>
+      <text transform="translate(542.36 318.35)" style="font-size: 20.55118179321289px;fill: #fff;font-family: YuGothicUI-Regular, Yu Gothic UI;letter-spacing: -0.005011700165427601em">Head of promotion</text>
+    </g>
+    <g id="time15">
+      <text transform="translate(651.38 361.59)" style="font-size: 20.55118179321289px;fill: #ffe1ab;font-family: YuGothicUI-Regular, Yu Gothic UI;letter-spacing: -0.005011700165427601em">6 years</text>
+      <g>
+        <circle cx="619.17" cy="355.53" r="14.17" style="fill: none;stroke: #ffe1ab;stroke-miterlimit: 10;stroke-width: 2.8346456692913384px"/>
+        <line x1="627.8" y1="345.38" x2="619.17" y2="355.53" style="fill: none;stroke: #ffe1ab;stroke-linecap: round;stroke-linejoin: round;stroke-width: 2.8346456692913384px"/>
+        <line x1="611.77" y1="350.46" x2="619.17" y2="355.53" style="fill: none;stroke: #ffe1ab;stroke-linecap: round;stroke-linejoin: round;stroke-width: 2.8346456692913384px"/>
+      </g>
+    </g>
+  </g>
+  <g id="Layer2">
+    <rect id="boxg2-2" data-name="boxg2" x="951.64" y="124.03" width="360" height="105" rx="13.78" style="fill: #a3b0d1;opacity: 0.5;filter: url(#boxg2)"/>
+    <g id="lineg2_1">
+      <g>
+        <polyline points="968.62 146.51 853.71 146.56 853.71 249.56" style="fill: none;stroke: #fff;stroke-linecap: round;stroke-linejoin: round;stroke-width: 2.5511811023622px"/>
+        <g>
+          <path d="M968.61,136.92a9.59,9.59,0,1,1-9.59,9.59A9.59,9.59,0,0,1,968.61,136.92Z" style="fill: #fff"/>
+          <path d="M968.61,135.64a10.87,10.87,0,1,0,10.87,10.86,10.88,10.88,0,0,0-10.87-10.86Zm0,19.19a8.32,8.32,0,1,1,8.31-8.32,8.33,8.33,0,0,1-8.31,8.32C964,154.83,973.21,154.82,968.62,154.83Z" style="fill: #fff"/>
+        </g>
+      </g>
+    </g>
+    <g id="textg2">
+      <text transform="translate(987.43 164.39)" style="font-size: 43.495079040527344px;fill: #fff;font-family: YuGothicUI-Bold, Yu Gothic UI;font-weight: 700;letter-spacing: 0.020003964628661854em">2024</text>
+      <g id="title2_red">
+        <text transform="translate(986.03 197.45)" style="font-size: 31.181102752685547px;fill: #fff;font-family: YuGothicUI-Regular, Yu Gothic UI">Albendiego office</text>
+      </g>
+      <text transform="translate(986.03 219.37)" style="font-size: 23.527860641479492px;fill: #fff;font-family: YuGothicUI-Regular, Yu Gothic UI;letter-spacing: -0.006003612255502974em">nov-nov</text>
+    </g>
+    <g id="time2">
+      <text transform="translate(1032.25 262.98)" style="font-size: 20.55118179321289px;fill: #ffe1ab;font-family: YuGothicUI-Regular, Yu Gothic UI;letter-spacing: -0.005011700165427601em">1 year</text>
+      <g>
+        <circle cx="1002.95" cy="254.92" r="14.17" style="fill: none;stroke: #ffe1ab;stroke-miterlimit: 10;stroke-width: 2.8346456692913384px"/>
+        <line x1="1011.59" y1="244.77" x2="1002.95" y2="254.92" style="fill: none;stroke: #ffe1ab;stroke-linecap: round;stroke-linejoin: round;stroke-width: 2.8346456692913384px"/>
+        <line x1="995.55" y1="249.85" x2="1002.95" y2="254.92" style="fill: none;stroke: #ffe1ab;stroke-linecap: round;stroke-linejoin: round;stroke-width: 2.8346456692913384px"/>
+      </g>
+    </g>
+  </g>
+  <g id="Layer1">
+    <rect id="boxg1-2" data-name="boxg1" x="388.36" y="15.48" width="360" height="105" rx="13.78" style="fill: #a3b0d1;opacity: 0.5;filter: url(#boxg1)"/>
+    <g id="lineg1_2">
+      <g>
+        <line x1="846.29" y1="143.88" x2="846.29" y2="149.88" style="fill: none;stroke: #fff;stroke-linecap: round;stroke-linejoin: round;stroke-width: 2.5511811023622px"/>
+        <line x1="846.29" y1="162.08" x2="846.29" y2="229.14" style="fill: none;stroke: #fff;stroke-linecap: round;stroke-linejoin: round;stroke-width: 2.5511811023622px;stroke-dasharray: 12.193806648254395,12.193806648254395"/>
+        <line x1="846.29" y1="235.24" x2="846.29" y2="241.24" style="fill: none;stroke: #fff;stroke-linecap: round;stroke-linejoin: round;stroke-width: 2.5511811023622px"/>
+      </g>
+    </g>
+    <g id="lineg1_1">
+      <g>
+        <polyline points="846.29 146.51 846.29 38.74 731.38 38.74" style="fill: none;stroke: #fff;stroke-linecap: round;stroke-linejoin: round;stroke-width: 2.5511811023622px"/>
+        <path d="M731.38,29.14a9.6,9.6,0,1,0,9.6,9.6A9.6,9.6,0,0,0,731.38,29.14Z" style="fill: #fff"/>
+      </g>
+    </g>
+    <g id="textg1">
+      <text transform="translate(615.45 56.66)" style="font-size: 43.495079040527344px;fill: #fff;font-family: YuGothicUI-Bold, Yu Gothic UI;font-weight: 700;letter-spacing: 0.020003964628661854em">2025</text>
+      <text id="title1_red" transform="translate(397.78 85.01)" style="font-size: 29.763778686523438px;fill: #fff;font-family: YuGothicUI-Regular, Yu Gothic UI;letter-spacing: 0.03000713043215252em">Hobby - Code learning</text>
+      <text transform="translate(412.17 108.78)" style="font-size: 20.55118179321289px;fill: #fff;font-family: YuGothicUI-Regular, Yu Gothic UI;letter-spacing: -0.005011700165427601em">2 websites &amp; this current example</text>
+    </g>
+    <g id="time1">
+      <text transform="translate(601.69 155.78)" style="font-size: 20.55118179321289px;fill: #ffe1ab;font-family: YuGothicUI-Regular, Yu Gothic UI;letter-spacing: -0.005011700165427601em">... till present</text>
+      <g>
+        <circle cx="570.38" cy="147.72" r="14.17" style="fill: none;stroke: #ffe1ab;stroke-miterlimit: 10;stroke-width: 2.8346456692913384px"/>
+        <line x1="579.01" y1="137.57" x2="570.38" y2="147.72" style="fill: none;stroke: #ffe1ab;stroke-linecap: round;stroke-linejoin: round;stroke-width: 2.8346456692913384px"/>
+        <line x1="562.98" y1="142.64" x2="570.38" y2="147.72" style="fill: none;stroke: #ffe1ab;stroke-linecap: round;stroke-linejoin: round;stroke-width: 2.8346456692913384px"/>
+      </g>
+    </g>
+  </g>
+</svg>
+`;
 
 const softSkillsSVG = `<svg id="soft-skills" viewBox="0 0 1200 800" xmlns="http://www.w3.org/2000/svg">
   <!-- Your soft skills SVG content here -->
 </svg>`;
-
-
-
 
 // Show page only after DOM ready
 document.addEventListener('DOMContentLoaded', () => {
@@ -2234,6 +2632,168 @@ async function showSVGContent(svgType, svgElement) {
     return;
   }
 
+  function addCvSvgHoverEffects(svgElement) {
+    const groupNumbers = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 15];
+  
+    groupNumbers.forEach((num) => {
+      // Select the group, text group, and box elements
+      const group = svgElement.querySelector(`#Layer${num}`);
+      const textGroup = svgElement.querySelector(`#textg${num}`);
+      let box = svgElement.querySelector(`#boxg${num}`);
+      const lineg = svgElement.querySelector(`#lineg${num}`);
+      const timeGroup = svgElement.querySelector(`#time${num}`); // Select the time group
+  
+      // Handle multiple boxes for group 3
+      let boxes = [];
+      if (num === 3) {
+        const box1 = svgElement.querySelector(`#boxg3_1`);
+        const box2 = svgElement.querySelector(`#boxg3_2`);
+        boxes = [box1, box2].filter(Boolean);
+      } else if (box) {
+        boxes = [box];
+      }
+  
+      // Apply initial styles to boxes
+      boxes.forEach((b) => {
+        b.classList.add('boxg-style'); // Add the predefined CSS class
+      });
+  
+      // Add hover effects
+      boxes.forEach((b) => {
+        b.addEventListener('mouseenter', () => {
+          b.classList.add('boxg-hover'); // Add hover effect class
+        });
+  
+        b.addEventListener('mouseleave', () => {
+          b.classList.remove('boxg-hover'); // Remove hover effect class
+        });
+      });
+  
+
+      // Collect red text elements
+      let redTexts = [];
+      if (textGroup) {
+        if (num === 3) {
+          const t1 = textGroup.querySelector('#title3_red');
+          const t2 = textGroup.querySelector('#title3-1_red');
+          if (t1) redTexts.push(t1);
+          if (t2) redTexts.push(t2);
+  
+          // Add mutual hover effects for title3_red and title3-1_red
+          [t1, t2].forEach((el, _, siblings) => {
+            if (!el) return;
+  
+            el.addEventListener('mouseenter', () => {
+              siblings.forEach((sibling) => {
+                if (sibling) sibling.style.fill = '#ab2726';
+              });
+            });
+  
+            el.addEventListener('mouseleave', () => {
+              siblings.forEach((sibling) => {
+                if (sibling) sibling.style.fill = ''; // Reset to original color
+              });
+            });
+          });
+        } else {
+          textGroup.querySelectorAll('[id$="_red"]').forEach((el) => {
+            if (el.tagName.toLowerCase() === 'g') {
+              const t = el.querySelector('text');
+              if (t) redTexts.push(t);
+            } else {
+              redTexts.push(el);
+            }
+          });
+        }
+      }
+  
+
+      // Collect lineg elements
+      let linegElements = [];
+      if (lineg) {
+        linegElements.push(lineg);
+
+        // Add hover effects for lineg elements
+        linegElements.forEach((el) => {
+          el.addEventListener('mouseenter', () => {
+            el.style.stroke = '#ab2726'; // Change stroke color to red
+          });
+
+          el.addEventListener('mouseleave', () => {
+            el.style.stroke = ''; // Reset to original color
+          });
+        });
+      }
+
+
+
+
+      // Store original styles
+      const originalTextColors = redTexts.map(
+        (el) => el.getAttribute('fill') || el.style.fill || ''
+      );
+      const originalBoxOpacities = boxes.map(
+        (b) => b.getAttribute('opacity') || b.style.opacity || ''
+      );
+      const originalBoxFilters = boxes.map((b) => b.style.filter || '');
+  
+      // --- MOVEMENT EFFECT ---
+      if (group) {
+        group.style.transition = 'transform 0.4s cubic-bezier(.4,1.4,.4,1)';
+      }
+  
+      // --- COLOR/BLUR EFFECTS ---
+      function applyHover() {
+        redTexts.forEach((el) => {
+          el.style.transition = 'fill 0.2s';
+          el.style.fill = '#ab2726';
+        });
+        boxes.forEach((b, i) => {
+          b.style.opacity = originalBoxOpacities[i] || '1';
+        });
+        if (group) group.style.transform = 'translate(5px, 5px)';
+  
+        // Make the time group visible
+        if (timeGroup) {
+          timeGroup.style.transition = 'opacity 0.4s ease';
+          timeGroup.style.opacity = '1';
+          timeGroup.style.filter = 'drop-shadow(2px 4px 6px rgba(0, 0, 0, 0.5))'; // Add shadow drop
+
+        }
+      }
+  
+      function resetHover() {
+        redTexts.forEach((el, i) => {
+          el.style.fill = originalTextColors[i];
+        });
+        boxes.forEach((b, i) => {
+          b.style.opacity = originalBoxOpacities[i] || '1';
+          b.style.filter = originalBoxFilters[i] || '';
+        });
+        if (group) group.style.transform = '';
+  
+        // Make the time group invisible
+        if (timeGroup) {
+          timeGroup.style.transition = 'opacity 0.4s ease';
+          timeGroup.style.opacity = '0';
+        }
+      }
+  
+      // Attach hover listeners to the group
+      if (group) {
+        group.addEventListener('mouseenter', applyHover);
+        group.addEventListener('mouseleave', resetHover);
+      }
+  
+      // Make the time group invisible initially
+      if (timeGroup) {
+        timeGroup.style.opacity = '0';
+      }
+    });
+  }
+
+
+
   hideAllPdfContainers();
   showLoadingOverlay();
 
@@ -2295,6 +2855,11 @@ async function showSVGContent(svgType, svgElement) {
     await new Promise(res => setTimeout(res, stepDuration));
   }
 
+  // Add a specific delay for cv.svg only
+  if (svgType === 'cv') {
+    await new Promise(res => setTimeout(res, 2000)); // Add a 2-second delay
+  }
+
   await new Promise(res => setTimeout(res, 500));
 
   interactiveContainer.innerHTML = '';
@@ -2303,7 +2868,16 @@ async function showSVGContent(svgType, svgElement) {
   interactiveContainer.style.visibility = 'visible';
   interactiveContainer.style.opacity = '1';
   hideLoadingOverlay();
+
+  // CV.SVG-specific function called here
+  if (svgType === 'cv') {
+    addCvSvgHoverEffects(svgContent);
+  }
 }
+
+
+
+
 
 
 // Function to add hover effects to main elements

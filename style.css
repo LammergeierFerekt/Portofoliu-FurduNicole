@@ -372,7 +372,7 @@ a {
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
-  width: 105vh;         /* Fixed width, adjust as needed */
+  width: 90vh;         /* Fixed width, adjust as needed */
   height: 70vh;
   max-height: 90vh;
   background-color: transparent;
@@ -394,7 +394,7 @@ a {
 @media (max-width: 700px) {
   .interactive-container {
     overflow: visible;
-    width: 105vh;        /* Nearly full width on mobile */
+    width: 85vh;        /* Nearly full width on mobile */
     max-width: 165vh;
     height: 105vh;       /* More height for mobile */
     max-height: 165vh;
@@ -426,3 +426,20 @@ a {
 .loading-animation {
   pointer-events: none !important; /* Only when not visible */
 }
+
+
+
+
+
+
+
+
+
+
+/* CV.SVG FUNCTIONALITITES**********************************************/
+
+.boxg-shadow {
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 1);
+  transition: box-shadow 0.3s ease;
+}
+/* CV.SVG FUNCTIONALITITES**********************************************/
