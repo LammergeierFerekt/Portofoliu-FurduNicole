@@ -159,15 +159,17 @@ rect[id^="blockcolor"] {
   transform: translate(-50%, -50%) scale(1); /* Start slightly scaled down */
   width: 80vw;         /* Constrain the width */
   min-width: 600px;    /* Minimum width for proper layout */
-  max-width: 90vw;     /* Prevent it from being too wide */
-  height: 70vh;        /* Constrain the height */
-  max-height: 90vh;    /* Prevent it from being too tall */
+  max-width: 100vw;     /* Prevent it from being too wide */
+  height: 100vh;        /* Increased from 70vh */
+  max-height: 1000px;    /* Increased from 90vh */
   background-color: transparent;
   border-radius: 10px;
   z-index: 100;
   visibility: hidden;  /* Initially hidden */
   opacity: 0;          /* Initially transparent */
   transition: opacity 0.5s ease, transform 0.5s ease; /* Smooth fade-in and zoom */
+  cursor: auto; /* Show a pointer cursor to indicate interactivity */
+
 }
 
 .pdf-container.active {
@@ -206,11 +208,13 @@ rect[id^="blockcolor"] {
 .pdf-flipbook {
   margin: 0 auto !important;
   transform: none !important;
+  
 }
 
 .pdf-container.active .pdf-flipbook {
   visibility: visible;
   opacity: 1;
+  
 }
 
 
@@ -223,6 +227,7 @@ rect[id^="blockcolor"] {
   height: 100%;
   background: transparent;
   border-radius: 5px;
+
 }
 .pdf-flipbook .page img {
   object-fit: contain;

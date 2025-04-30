@@ -1614,7 +1614,6 @@ const softSkillsSVG = `<svg id="soft-skills" viewBox="0 0 1200 800" xmlns="http:
 
 
 
-
 // Show page only after DOM ready
 document.addEventListener('DOMContentLoaded', () => {
   try {
@@ -2158,8 +2157,6 @@ async function showPDF(pdfFile) {
         }
       }
 
-    
-
       pageImages.forEach((src) => {
         try {
           const pageDiv = document.createElement('div');
@@ -2174,6 +2171,13 @@ async function showPDF(pdfFile) {
           console.error('Error creating page element:', err);
         }
       });
+
+      const addBlankAtEnd = false; // set to true if you want a blank at the end
+if (addBlankAtEnd && pageImages.length % 2 !== 0) {
+  const blankDiv = document.createElement('div');
+  blankDiv.className = 'page';
+  flipbookContainer.appendChild(blankDiv);
+}
 
       setTimeout(() => {
         try {
@@ -2192,8 +2196,8 @@ async function showPDF(pdfFile) {
           pageWidth = Math.max(window.innerWidth * 0.95, 320);  // 95vw, min 320px
           pageHeight = Math.max(window.innerHeight * 0.65, 400); // 80vh, min 400px
         } else {
-          pageWidth = 710;   // or whatever you want for desktop
-          pageHeight = 1100;
+          pageWidth = 700;   // or whatever you want for desktop
+          pageHeight = 900;
         }
 
         const pageFlip = new PageFlip(flipbookContainer, {
