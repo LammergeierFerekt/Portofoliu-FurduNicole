@@ -1,0 +1,18 @@
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 100 100">
+  <defs>
+    <filter id="cp5" x="4.57" y="4.96" width="91" height="91" filterUnits="userSpaceOnUse">
+      <feOffset input="SourceAlpha"/>
+      <feGaussianBlur stdDeviation="10" result="blur"/>
+      <feFlood flood-color="#ffca31"/>
+      <feComposite operator="in" in2="blur"/>
+      <feComposite in="SourceGraphic"/>
+    </filter>
+  </defs>
+  <g id="checkpoint">
+    <circle id="cp5-2" data-name="cp5" cx="50" cy="50" r="15" style="fill: #ab2726;filter: url(#cp5)"/>
+    <circle id="cp4" cx="50" cy="50" r="10.19" style="fill: #ffca31"/>
+    <path id="cp3" d="M55,56.48A8.15,8.15,0,0,1,44.48,56" style="fill: none;stroke: #fff;stroke-linecap: round;stroke-linejoin: round;stroke-width: 2.8346456692913384px;isolation: isolate"/>
+    <circle id="cp2" cx="50" cy="50" r="2.55" style="fill: #231f20"/>
+    <circle id="cp1" cx="52.92" cy="47.86" r="2.55" style="fill: #fff;isolation: isolate"/>
+  </g>
+</svg>
