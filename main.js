@@ -2504,7 +2504,8 @@ async function showSVGContent(svgType) {
 
   function addCvSvgHoverEffects(svgElement) {
     const groupNumbers = [1, 2, 4, 5, 6, 7, 8, 9, 10, 11, 12, 15];
-  
+    const isMobile = window.innerWidth < 800 || /Mobi|Android/i.test(navigator.userAgent);
+
     groupNumbers.forEach((num) => {
       // Select the group, text group, and box elements
       const group = svgElement.querySelector(`#Layer${num}`);
@@ -2581,6 +2582,21 @@ async function showSVGContent(svgType) {
         }
       }
   
+      // --- MOBILE: Always red and always show time group ---
+      if (isMobile) {
+        redTexts.forEach((el) => {
+          el.style.fill = '#8e0000';
+        });
+        if (timeGroup) {
+          timeGroup.style.opacity = '1';
+          timeGroup.style.filter = 'drop-shadow(2px 4px 6px rgba(0, 0, 0, 0.5))';
+          
+
+        }
+      }
+
+
+
         // After collecting redTexts, add links to specific title*_red elements
         const redTextLinks = {
           title1_red: "https://github.com/LammergeierFerekt",
