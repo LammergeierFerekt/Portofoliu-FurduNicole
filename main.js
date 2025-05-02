@@ -1879,6 +1879,9 @@ const softSkillsSVG = `<svg id="soft-skills" viewBox="0 0 1200 800" xmlns="http:
   <!-- Your soft skills SVG content here -->
 </svg>`;
 
+
+
+
 // Show page only after DOM ready
 document.addEventListener('DOMContentLoaded', () => {
   try {
@@ -2491,6 +2494,133 @@ if (addBlankAtEnd && pageImages.length % 2 !== 0) {
 }
 
 
+  // CHECKPOINT EYE MOVING ACROSS THE CV.SVG FILE
+  function CheckpointAnimation(svgElement) {
+    try {
+      // Show the page only after DOM is ready
+      document.body.style.visibility = 'visible';
+      document.body.style.opacity = '1';
+
+      // Create the checkpoint container
+      const checkpointContainer = document.createElement('div');
+      checkpointContainer.className = 'checkpoint-container';
+      document.body.appendChild(checkpointContainer);
+
+      // Style the container to ensure visibility above everything
+      Object.assign(checkpointContainer.style, {
+        position: 'fixed',
+        zIndex: '9999', // Ensure it's above everything
+        width: '100%',
+        height: '100%',
+        top: '0',
+        left: '0',
+        pointerEvents: 'none',
+        opacity: '1',
+        backgroundColor: 'transparent',
+        overflow: 'hidden',
+      });
+
+      // Fetch the SVG file for the checkpoint
+      fetch('public/checkpoint.svg')
+        .then((response) => {
+          if (!response.ok) throw new Error('Network response was not ok');
+          return response.text();
+        })
+        .then((svgText) => {
+          const parser = new DOMParser();
+          const svgDoc = parser.parseFromString(svgText, 'image/svg+xml');
+
+          // Check for parser errors
+          const parserError = svgDoc.querySelector('parsererror');
+          if (parserError) {
+            console.error('SVG Parse Error:', parserError.textContent);
+            return;
+          }
+
+          const svgElement = svgDoc.querySelector('svg');
+          if (!svgElement) {
+            console.error('No SVG element found in the file');
+            return;
+          }
+
+          // Set SVG dimensions
+          Object.assign(svgElement.style, {
+            width: '100%',
+            height: '100%',
+            display: 'block',
+            position: 'absolute',
+            top: '0',
+            left: '0',
+          });
+
+          // Append to the container
+          checkpointContainer.innerHTML = '';
+          checkpointContainer.appendChild(svgElement);
+
+          // Debug: Log SVG structure
+          console.log('SVG loaded:', svgElement);
+
+          // Get the checkpoint element
+          const checkpoint = svgElement.querySelector('#checkpoint');
+          if (!checkpoint) {
+            console.error('Checkpoint element not found in the SVG');
+            return;
+          }
+
+          // Apply custom styles to the checkpoint group
+          Object.assign(checkpoint.style, {
+            filter: 'drop-shadow(0 0 20px rgba(255, 183, 0, 0.8))', // Add a red glow effect
+
+          });
+
+          // Get the traseu element (path for the checkpoint zone)
+          const traseu = svgElement.querySelector('#traseu');
+          if (!traseu) {
+            console.error('Traseu element not found in the SVG');
+            return;
+          }
+
+          // Apply custom styles to the traseu element
+          Object.assign(traseu.style, {
+            opacity: '0'
+    
+          });
+
+          // Function to move the checkpoint based on mouse position relative to the screen
+          function moveCheckpoint(event) {
+            try {
+              // Get the bounding rectangle of the SVG element
+              const rect = svgElement.getBoundingClientRect();
+
+              // Calculate mouse position relative to the screen
+              const mouseY = event.clientY;
+
+              // Calculate the relative position (0 at the top, 1 at the bottom)
+              const relativePosition = (mouseY - rect.top) / rect.height;
+
+              // Clamp the relative position between 0 and 1
+              const clampedPosition = Math.max(0, Math.min(1, relativePosition));
+
+              // Calculate the new Y position for the checkpoint
+              const newY = rect.height * clampedPosition;
+
+              // Move the checkpoint element
+              checkpoint.setAttribute('transform', `translate(0, ${newY})`);
+            } catch (err) {
+              console.error('Error in moveCheckpoint:', err);
+            }
+          }
+
+          // Add mousemove event listener
+          window.addEventListener('mousemove', moveCheckpoint);
+        })
+        .catch((error) => {
+          console.error('Error loading SVG:', error);
+        });
+    } catch (err) {
+      console.error('Error in DOMContentLoaded:', err);
+    }
+  };
 
 
 // Show SVG content from string
@@ -2500,6 +2630,7 @@ async function showSVGContent(svgType) {
     hideLoadingOverlay();
     return;
   }
+
 
 
   function addCvSvgHoverEffects(svgElement) {
@@ -2847,13 +2978,23 @@ async function showSVGContent(svgType) {
       if (timeGroup) {
         timeGroup.style.opacity = '0';
       }
+
+      // Make the checkpoint invisible initially
+      if (timeGroup) {
+        timeGroup.style.opacity = '0';
+      }
+
+
+
     });
   }
-
 
   try {
     hideAllPdfContainers();
     showLoadingOverlay();
+
+
+    
 
     const loadingSpinner = document.getElementById('loading-spinner');
     if (loadingSpinner && !loadingSpinner.querySelector('svg')) {
@@ -2889,6 +3030,8 @@ async function showSVGContent(svgType) {
 
     // --- Progressive Layer Reveal for CV SVG ---
     if (svgType === 'cv') {
+
+
       // Parse CV SVG
       const parser = new DOMParser();
       const svgDoc = parser.parseFromString(svgString, 'image/svg+xml');
@@ -2940,9 +3083,24 @@ async function showSVGContent(svgType) {
 
       // Call hover/link logic after all layers are visible
       addCvSvgHoverEffects(svgContent);
+
+        // --- Add CheckpointAnimation Call Here ---
+      CheckpointAnimation();
+      
       return;
     }
 
+
+
+
+
+
+
+
+
+
+
+      
     async function processSvgFile(svgString, totalSteps, loadingElements, currentStep) {
       // Parse the SVG string of the specific file
       const parser = new DOMParser();
@@ -3007,8 +3165,6 @@ async function showSVGContent(svgType) {
     hideLoadingOverlay();
   }
 }
-
-
 
 
 
