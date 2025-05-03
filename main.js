@@ -2820,6 +2820,8 @@ async function showSVGContent(svgType) {
           b.style.filter = originalBoxFilters[i] || '';
         });
         if (group) group.style.transform = '';
+        group.style.filter = group.dataset.defaultFilter || 'drop-shadow(10px 10px 10px rgba(0,0,0,0.25))';
+        
   
         // Make the time group invisible
         if (timeGroup) {
@@ -2888,12 +2890,14 @@ async function showSVGContent(svgType) {
     switch (svgType) {
       case 'hard-skills':
         svgString = hardSkillsSVG;
+        hideCheckpointAnimation();
         break;
       case 'cv':
         svgString = cvSVG;
         break;
       case 'soft-skills':
         svgString = softSkillsSVG;
+        hideCheckpointAnimation();
         break;
       default:
         hideLoadingOverlay();
@@ -2932,6 +2936,7 @@ async function showSVGContent(svgType) {
         g.style.opacity = '0';
         g.style.transition = 'opacity 0.8s cubic-bezier(.4,1.4,.4,1), filter 0.8s cubic-bezier(.4,1.4,.4,1)';
         g.style.filter = 'drop-shadow(0px 0px 0px rgba(0,0,0,0))';
+        
       });
 
       // Insert SVG into container
@@ -2951,6 +2956,7 @@ async function showSVGContent(svgType) {
       // Smoothly transition to the final shadow
       await new Promise(res => setTimeout(res, 50));
       layerGroups[i].style.filter = 'drop-shadow(10px 10px 10px rgba(0,0,0,0.25))';
+      layerGroups[i].dataset.defaultFilter = 'drop-shadow(10px 10px 10px rgba(0,0,0,0.25))';
 
       if (!loadingHidden && i === 0) {
           hideLoadingOverlay();
