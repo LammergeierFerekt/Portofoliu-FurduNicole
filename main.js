@@ -1880,8 +1880,6 @@ const softSkillsSVG = `<svg id="soft-skills" viewBox="0 0 1200 800" xmlns="http:
 </svg>`;
 
 
-
-
 // Show page only after DOM ready
 document.addEventListener('DOMContentLoaded', () => {
   try {
@@ -1929,8 +1927,7 @@ function hideAllSvgContainers() {
       interactiveContainer.style.removeProperty('pointer-events');
       interactiveContainer.innerHTML = '';
     }
-    // Hide the checkpoint animation when SVG containers are hidden
-    hideCheckpointAnimation();
+    hideCheckpointAnimation(); // <-- Hide checkpoint when SVG is hidden
   } catch (err) {
     console.error('Error in hideAllSvgContainers:', err);
   }
@@ -2133,19 +2130,19 @@ function attachButtonEvents(svgElement) {
         try { showSVGContent('hard-skills', svgElement); triggerFogEffect(svgElement); } catch (err) { console.error('Error in button1 action:', err); }
       }},
       { layer: 'PROFESSIONAL', id: 'Pana_roz_button2', action: () => { 
-        try { showPDF('professional.pdf', svgElement);    hideCheckpointAnimation(); triggerFogEffect(svgElement); } catch (err) { console.error('Error in button2 action:', err); }
+        try { showPDF('professional.pdf', svgElement); triggerFogEffect(svgElement); } catch (err) { console.error('Error in button2 action:', err); }
       }},
       { layer: 'CV', id: 'Pana_roz_button3', action: () => { 
-        try { hideCheckpointAnimation(); showSVGContent('cv', svgElement); triggerFogEffect(svgElement); } catch (err) { console.error('Error in button3 action:', err); }
+        try { showSVGContent('cv', svgElement); triggerFogEffect(svgElement); } catch (err) { console.error('Error in button3 action:', err); }
       }},
       { layer: 'ACADEMIC', id: 'Pana_roz_button4', action: () => { 
-        try { showPDF('academic.pdf', svgElement);   hideCheckpointAnimation(); triggerFogEffect(svgElement); } catch (err) { console.error('Error in button4 action:', err); }
+        try { showPDF('academic.pdf', svgElement); triggerFogEffect(svgElement); } catch (err) { console.error('Error in button4 action:', err); }
       }},
       { layer: 'SOFT-SKILLS', id: 'Pana_roz_button5', action: () => { 
         try { showSVGContent('soft-skills', svgElement); triggerFogEffect(svgElement); } catch (err) { console.error('Error in button5 action:', err); }
       }},
       { layer: null, id: 'HOME-BUTTON', action: () => {
-        try {    hideCheckpointAnimation(); handleHomeButtonClick(svgElement); } catch (err) { console.error('Error in HOME-BUTTON action:', err); }
+        try { handleHomeButtonClick(svgElement); } catch (err) { console.error('Error in HOME-BUTTON action:', err); }
       }}
     ];
 
@@ -2499,225 +2496,11 @@ if (addBlankAtEnd && pageImages.length % 2 !== 0) {
 }
 
 
-
-
-
-// Set the initial position of the checkpoint element
-async function setInitialCheckpointPosition() {
-  try {
-    const checkpoint = document.querySelector('#checkpoint');
-    const traseu = document.querySelector('#traseu');
-
-    if (!checkpoint || !traseu) {
-      console.error('Checkpoint or Traseu element not found');
-      return;
-    }
-
-    // Get the bounding box of the traseu element
-    const traseuBounds = traseu.getBBox();
-    const initialY = traseuBounds.y + traseuBounds.height / 2; // Center of the traseu
-
-    // Set the initial position of the checkpoint
-    checkpoint.setAttribute('transform', `translate(0, ${initialY})`);
-  } catch (err) {
-    console.error('Error setting initial checkpoint position:', err);
-  }
-}
-
-// CHECKPOINT EYE - hide the animation and reset it
-async function hideCheckpointAnimation() {
-  try {
-    const checkpointContainer = document.querySelector('.checkpoint-container');
-    if (checkpointContainer) {
-      // Fade out the container
-      checkpointContainer.style.opacity = '0';
-      setTimeout(() => {
-        // Hide the container and clear its content
-        checkpointContainer.style.visibility = 'hidden';
-        checkpointContainer.innerHTML = ''; // Clear the container
-
-        // Reset any animation-related state or styles
-        const checkpoint = checkpointContainer.querySelector('#checkpoint');
-        if (checkpoint) {
-          checkpoint.style.transform = ''; // Reset transform
-        }
-
-        // Remove any event listeners related to the animation
-        window.removeEventListener('mousemove', moveCheckpoint);
-      }, 300); // Allow time for the fade-out transition
-    }
-  } catch (err) {
-    console.error('Error in hideCheckpointAnimation:', err);
-  }
-}
-
-// CHECKPOINT EYE MOVING ACROSS THE CV.SVG FILE
-async function CheckpointAnimation(svgElement) {
-  try {
-    // Show the page only after DOM is ready
-    document.body.style.visibility = 'visible';
-    document.body.style.opacity = '1';
-
-    // Create the checkpoint container
-    const checkpointContainer = document.createElement('div');
-    checkpointContainer.className = 'checkpoint-container';
-    document.body.appendChild(checkpointContainer);
-
-    // Style the container to ensure visibility above everything
-    Object.assign(checkpointContainer.style, {
-
-    });
-
-    // Fetch the SVG file for the checkpoint
-    fetch('public/checkpoint.svg')
-      .then((response) => {
-        if (!response.ok) throw new Error('Network response was not ok');
-        return response.text();
-      })
-      .then((svgText) => {
-        const parser = new DOMParser();
-        const svgDoc = parser.parseFromString(svgText, 'image/svg+xml');
-
-        // Check for parser errors
-        const parserError = svgDoc.querySelector('parsererror');
-        if (parserError) {
-          console.error('SVG Parse Error:', parserError.textContent);
-          return;
-        }
-
-        const svgElement = svgDoc.querySelector('svg');
-        if (!svgElement) {
-          console.error('No SVG element found in the file');
-          return;
-        }
-
-        // Set SVG dimensions
-        Object.assign(svgElement.style, {
-
-        });
-
-        // Append to the container
-        checkpointContainer.innerHTML = '';
-        checkpointContainer.appendChild(svgElement);
-
-        // Debug: Log SVG structure
-        console.log('SVG loaded:', svgElement);
-
-        // Get the checkpoint element
-        const checkpoint = svgElement.querySelector('#checkpoint');
-        if (!checkpoint) {
-          console.error('Checkpoint element not found in the SVG');
-          return;
-        }
-
-        // Apply custom styles to the checkpoint group
-        Object.assign(checkpoint.style, {
-          filter: 'drop-shadow(0 0 20px rgba(255, 183, 0, 0.8))', // Add a red glow effect
-
-        });
-
-        // Get the traseu element (path for the checkpoint zone)
-        const traseu = svgElement.querySelector('#traseu');
-        if (!traseu) {
-          console.error('Traseu element not found in the SVG');
-          return;
-        }
-
-        // Apply custom styles to the traseu element
-        Object.assign(traseu.style, {
-          opacity: '0'
-  
-        });
-
-
-
-
-
-
-        // Function to move the checkpoint based on mouse position relative to the screen
-        function moveCheckpoint(event) {
-          try {
-            // Get the checkpoint element
-            const checkpoint = document.querySelector('#checkpoint');
-            if (!checkpoint) {
-              console.error('Checkpoint element not found');
-              return;
-            }
-
-            // Get the traseu element
-            const traseu = document.querySelector('#traseu');
-            if (!traseu) {
-              console.error('Traseu element not found');
-              return;
-            }
-
-            // Get the bounding box of the traseu element
-            const traseuBounds = traseu.getBBox();
-            const minY = traseuBounds.y; // Top of the traseu
-            const maxY = traseuBounds.y + traseuBounds.height; // Bottom of the traseu
-
-            // Get the mouse position relative to the viewport
-            const mouseY = event.clientY;
-
-            // Convert the mouse position to the SVG coordinate system
-            const svg = checkpoint.closest('svg');
-            if (!svg) {
-              console.error('SVG element not found');
-              return;
-            }
-            const svgPoint = svg.createSVGPoint();
-            svgPoint.x = 0; // X is not needed for vertical movement
-            svgPoint.y = mouseY;
-            const transformedPoint = svgPoint.matrixTransform(svg.getScreenCTM().inverse());
-
-            // Clamp the Y-coordinate to the bounds of the traseu
-            const clampedY = Math.max(minY, Math.min(maxY, transformedPoint.y));
-
-            // Move the checkpoint element to the clamped Y-coordinate
-            checkpoint.setAttribute('transform', `translate(0, ${clampedY})`);
-          } catch (err) {
-            console.error('Error in moveCheckpoint:', err);
-          }
-          
-        }
-
-
-
-
-
-
-
-
-
-// Add mousemove event listener
-window.addEventListener('mousemove', moveCheckpoint);
-
-
-
-
-
-
-        // Add mousemove event listener
-        window.addEventListener('mousemove', moveCheckpoint);
-      })
-      .catch((error) => {
-        console.error('Error loading SVG:', error);
-      });
-  } catch (err) {
-    console.error('Error in DOMContentLoaded:', err);
-  }
-};
-
-
-
-
-
 // Show SVG content from string
 async function showSVGContent(svgType) {
   const interactiveContainer = document.querySelector('.interactive-container');
   if (!interactiveContainer) {
     hideLoadingOverlay();
-    hideCheckpointAnimation();
     return;
   }
 
@@ -2761,7 +2544,6 @@ async function showSVGContent(svgType) {
           b.classList.remove('boxg-hover'); // Remove hover effect class
         });
       });
-  
 
       // Collect red text elements
       let redTexts = [];
@@ -3073,8 +2855,6 @@ async function showSVGContent(svgType) {
       if (timeGroup) {
         timeGroup.style.opacity = '0';
       }
-
-    hideCheckpointAnimation();
     });
   }
 
@@ -3181,11 +2961,10 @@ async function showSVGContent(svgType) {
       // Call hover/link logic after all layers are visible
       addCvSvgHoverEffects(svgContent);
 
-      
-      // --- Add CheckpointAnimation Call Here ---
-      hideCheckpointAnimation();
-      CheckpointAnimation(svgContent); // Start the checkpoint animation
-      return;
+      await insertCheckpointSVG();
+      showCheckpointAnimation();
+      // Optionally, set initial checkpoint position here
+  
    }
 
 
@@ -3269,11 +3048,6 @@ async function showSVGContent(svgType) {
 
 
 
-
-
-
-
-
 // Function to add hover effects to main elements
 function addHoverEffectToMainElements() {
   try {
@@ -3313,6 +3087,8 @@ function addHoverEffectToMainElements() {
     console.error('Error in addHoverEffectToMainElements:', err);
   }
 }
+
+
 
 // --- Wind Wave Animation for Feathers ---
 let windWaveTimeout;
@@ -3466,3 +3242,108 @@ window.onload = function () {
     console.error('Error in window.onload:', err);
   }
 };
+
+// Function to move the checkpoint based on mouse position relative to the screen
+function moveCheckpoint(event) {
+  try {
+    const checkpoint = document.querySelector('#checkpoint');
+    const traseu = document.querySelector('#traseu');
+    if (!checkpoint || !traseu) return;
+
+    const traseuBounds = traseu.getBBox();
+    const minY = traseuBounds.y;
+    const maxY = traseuBounds.y + traseuBounds.height;
+
+    const mouseY = event.clientY;
+    const svg = checkpoint.closest('svg');
+    if (!svg) return;
+
+    const svgPoint = svg.createSVGPoint();
+    svgPoint.x = 0;
+    svgPoint.y = mouseY;
+    const transformedPoint = svgPoint.matrixTransform(svg.getScreenCTM().inverse());
+
+    const clampedY = Math.max(minY, Math.min(maxY, transformedPoint.y));
+    checkpoint.setAttribute('transform', `translate(0, ${clampedY})`);
+  } catch (err) {
+    console.error('Error in moveCheckpoint:', err);
+  }
+}
+
+// Insert the checkpoint SVG if not already present
+async function insertCheckpointSVG() {
+  try {
+    const container = document.getElementById('checkpoint-container');
+    if (!container) throw new Error('Checkpoint container not found');
+    if (!container.querySelector('svg')) {
+      const response = await fetch('public/checkpoint.svg');
+      if (!response.ok) throw new Error('Failed to load checkpoint.svg');
+      const svgText = await response.text();
+      const parser = new DOMParser();
+      const svgDoc = parser.parseFromString(svgText, 'image/svg+xml');
+      if (svgDoc.querySelector('parsererror')) throw new Error('SVG parsing error');
+      container.innerHTML = '';
+      container.appendChild(svgDoc.documentElement);
+      
+      
+    }
+  } catch (err) {
+    console.error('Error inserting checkpoint SVG:', err);
+  }
+}
+
+// Show the checkpoint animation and add the event listener
+function showCheckpointAnimation() {
+  const container = document.getElementById('checkpoint-container');
+  if (container) {
+    container.style.opacity = '1';
+    container.style.visibility = 'visible';
+    window.addEventListener('mousemove', moveCheckpoint);
+
+    // --- Ensure traseu is hidden and checkpoint glows ---
+    const svg = container.querySelector('svg');
+    if (svg) {
+      const traseu = svg.getElementById
+        ? svg.getElementById('traseu')
+        : svg.querySelector('#traseu');
+      if (traseu) {
+        traseu.style.opacity = '0';
+        traseu.querySelectorAll('*').forEach(el => {
+          el.style.opacity = '0';
+          el.style.stroke = 'transparent';
+          el.style.fill = 'transparent';
+        });
+      }
+      const checkpoint = svg.getElementById
+        ? svg.getElementById('checkpoint')
+        : svg.querySelector('#checkpoint');
+      if (checkpoint) {
+        checkpoint.style.filter = 'drop-shadow(0 0 12px #ffe066)';
+      }
+    }
+
+    // --- Set initial checkpoint position ---
+    setTimeout(() => {
+      const rect = container.getBoundingClientRect();
+      const event = {
+        clientX: rect.left + rect.width / 2,
+        clientY: rect.top + rect.height / 2
+      };
+      moveCheckpoint(event);
+    }, 0);
+  }
+}
+
+
+
+// Hide the checkpoint animation and remove the event listener
+function hideCheckpointAnimation() {
+  const container = document.getElementById('checkpoint-container');
+  if (container) {
+    container.style.opacity = '0';
+    container.style.visibility = 'hidden';
+    window.removeEventListener('mousemove', moveCheckpoint);
+  }
+}
+
+
