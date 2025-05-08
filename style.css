@@ -372,7 +372,7 @@ a {
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
-  width: 90vh;         /* Fixed width, adjust as needed */
+  width: 100vh;         /* Fixed width, adjust as needed */
   height: 70vh;
   max-height: 90vh;
   background-color: transparent;
@@ -380,6 +380,8 @@ a {
   opacity: 0;
   overflow: visible;     /* Allow SVG to overflow if needed */
   transition: opacity 0.5s ease, transform 0.5s ease;
+  pointer-events: auto;
+
 }
 
 .interactive-container.active {
@@ -396,8 +398,8 @@ a {
     overflow: visible;
     width: 85vh;        /* Nearly full width on mobile */
     max-width: 165vh;
-    height: 105vh;       /* More height for mobile */
-    max-height: 165vh;
+    height: 90vh;       /* More height for mobile */
+    max-height: 90vh;
     left: 50%;
     top: 67.5%;
     transform: translate(-50%, -50%);
@@ -405,6 +407,7 @@ a {
 
   }
 }
+
 
 
 @media (max-width: 700px) {
@@ -422,13 +425,140 @@ a {
 
 
 
-.loading-overlay,
-.loading-animation {
-  pointer-events: none !important; /* Only when not visible */
+
+
+#cv_content,
+#checkpoint-container {
+  position: fixed;
+  top: 55%;
+  left: 50%;
+  width: 90vh;
+  height: 75vh;
+  max-width: 95vw;
+  max-height: 80vh;
+  transform: translate(-50%, -50%);
+  background: transparent;
+  display: block;
+  margin: 0 auto;
+  z-index: 1000;
+  transition: opacity 0.5s, transform 0.5s;
+}
+
+#cv_content.active,
+ #checkpoint-container.active{
+  visibility: visible; /* Make it visible */
+  opacity: 1;          /* Fully opaque */
+  transform: translate(-50%, -50%) scale(1); /* Scale back to normal */
 }
 
 
 
+
+
+/* Responsive: mobile screens */
+@media (max-width: 700px) {
+  #cv_content,
+  #checkpoint-container {
+    width: 90%;
+    height: 90%;
+    max-width: 100%;
+    max-height: 100%;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+  }
+}
+
+
+
+
+/* --- Hard Skills Content: separate rules --- */
+#hard-skills_content {
+  position: fixed;
+  top: 52.5%;
+  left: 50%;
+  width: 110vh;
+  height: 80vh;
+  max-width: 110vh;
+  max-height: 80vh;
+  transform: translate(-50%, -50%);
+  background: transparent;
+  display: block;
+  margin: 0 auto;
+  overflow: visible; /* Allow content to overflow visibly */
+
+  z-index: 1000;
+  transition: opacity 0.5s, transform 0.5s;
+}
+
+
+/* Show and animate hard skills container when active */
+#hard-skills_content.active {
+  opacity: 1;
+  visibility: visible;
+  /* Optional: add a subtle box-shadow for effect */
+  box-shadow: 0 8px 32px rgba(0,0,0,0.18);
+}
+
+
+
+/* Responsive: mobile screens */
+@media (max-width: 700px) {
+  #hard-skills_content {
+    width: 90%;        /* Use almost full viewport width */
+    height: 90%;       /* Use most of the viewport height */
+    max-width: 100%;
+    max-height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    top: 32.5%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    overflow: visible;
+  }
+}
+
+
+/* Add this to your style.css */
+#bim, #modelling, #cgi, #graphics, #technical {
+  filter: drop-shadow(0 8px 16px rgba(0,0,0,0.25));
+  transition: filter 0.3s;
+}
+
+
+#hard-skills_content image[id^="img_d"] {
+  /* Prevent resizing */
+
+}
+
+#hard-skills_content g:hover image[id^="img_d"],
+#hard-skills_content image[id^="img_d"].active {
+  opacity: 1;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+.loading-overlay,
+.loading-animation {
+  pointer-events: none !important; /* Only when not visible */
+}
 
 
 
@@ -462,15 +592,22 @@ a {
 
 @media (max-width: 700px) {
   #checkpoint-container {
-    width: 98vw;
-    height: 60vh;
+
+    transform: translate(-50%, -50%);
+    width: 100vw;
+    height: 100vh;
     max-width: 100vw;
-    max-height: 80vh;
+    max-height: 100%;
     top: 60%;
     left: 50%;
-    transform: translate(-50%, -50%);
   }
 }
+
+
+
+
+
+
 
 
 /* CV.SVG FUNCTIONALITITES**********************************************/
