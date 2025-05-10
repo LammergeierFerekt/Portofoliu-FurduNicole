@@ -4807,11 +4807,17 @@ async function CVfunction(svgType) {
 }
 
 
-
-
 ///////////////////////////////////// HARDSKILLS SVG FILE HANDLING - FUNCTIONS /////////////////////////////////////////
 
-//#region 1. Global Foundation - CONFIGURATION DATA - HARD-SKILLS 
+//#region 1. Global Foundation - CONFIGURATION DATA - HARD-SKILLS
+
+const defaultHardSkillsImages = [
+  { imgId: 'img_d1', translate: [823.83, -174.006] },
+  { imgId: 'img_d2', translate: [447.082, 37.327] },
+  { imgId: 'img_d3', translate: [823.826, 479.158] },
+  { imgId: 'img_d4', translate: [539.484, 850.684] },
+  { imgId: 'img_d5', translate: [877.528, 790.752] }
+];
 
 const imgTranslateMap = {
   img_1: [786.313, -224.412], img_2: [811.678, -421.667], img_3: [360.332, 126.429],
@@ -4887,26 +4893,14 @@ const state = {
 //#region 2. Core Utilities - IMAGE ANIMATION UTILITIES - HARD-SKILLS
 
 // Function to animate default images
-function animateHardSkillsDefaultImages(svgElement) {
-  const defaultImages = [
-      { imgId: 'img_d1', translate: [823.83, -174.006] },
-      { imgId: 'img_d2', translate: [447.082, 37.327] },
-      { imgId: 'img_d3', translate: [823.826, 479.158] },
-      { imgId: 'img_d4', translate: [539.484, 850.684] },
-      { imgId: 'img_d5', translate: [877.528, 790.752] }
-  ];
-
-  defaultImages.forEach(({ imgId, translate }) => {
-      const img = svgElement.querySelector(`#${imgId}`);
-      if (img) {
-          // Reset image first
-          resetImageTransform(img);
-          // Then animate after a short delay
-          setTimeout(() => {
-              slideImageDown(img, translate, 2000, 0);
-          }, 100);
-      }
-  });
+function animateHardSkillsDefaultImages(svgElement, imgId, translate) {
+  const img = svgElement.querySelector(`#${imgId}`);
+  if (img) {
+    resetImageTransform(img, translate);
+    setTimeout(() => {
+      slideImageDown(img, translate, 2000, 0);
+    }, 100);
+  }
 }
 // Reset function for elements
 function resetElement(svgElement, titleId, showId, imgId, layer) {
@@ -5035,6 +5029,76 @@ function addHoverEffectToMainElements(svgElement) {
   });
 }
 
+function attachDefaultImageHover(svgElement) {
+  defaultHardSkillsImages.forEach(({ imgId, translate }) => {
+    const img = svgElement.querySelector(`#${imgId}`);
+    if (img) {
+      if (!img.dataset.originalTransform) {
+        img.dataset.originalTransform = img.getAttribute('transform') || '';
+      }
+      img.onmouseenter = null;
+      img.onmouseleave = null;
+
+      img.addEventListener('mouseenter', () => {
+        // Cancel any running transition by forcing computed style
+        img.style.transition = 'none';
+        img.style.opacity = '1';
+        img.setAttribute('transform', img.dataset.originalTransform);
+        img.style.transform = '';
+        void img.offsetWidth; // force reflow
+
+        // Remove any queued timeouts (store on element)
+        if (img._leaveTimeout) {
+          clearTimeout(img._leaveTimeout);
+          img._leaveTimeout = null;
+        }
+        if (img._fadeInTimeout) {
+          clearTimeout(img._fadeInTimeout);
+          img._fadeInTimeout = null;
+        }
+
+        // Animate down after a short delay
+        setTimeout(() => {
+          const [x, y] = translate;
+          let downTransform;
+          if (img.id === 'img_d3') {
+            downTransform = `translate(${x} ${y - 100})` + img.dataset.originalTransform.replace(/^translate\([^)]+\)/, '');
+          } else {
+            downTransform = `translate(${x} ${y + 90})` + img.dataset.originalTransform.replace(/^translate\([^)]+\)/, '');
+          }
+          img.style.transition = 'transform 20s cubic-bezier(.4,1.4,.4,1), opacity 0.3s';
+          img.setAttribute('transform', downTransform);
+          img.style.transform = '';
+        }, 50);
+      });
+
+      img.addEventListener('mouseleave', () => {
+        // Cancel any running transition by forcing computed style
+        img.style.transition = 'opacity 0.5s, transform 0.7s cubic-bezier(.4,1.4,.4,1)';
+        img.style.opacity = '0';
+
+        // Remove any queued timeouts (store on element)
+        if (img._leaveTimeout) {
+          clearTimeout(img._leaveTimeout);
+        }
+        if (img._fadeInTimeout) {
+          clearTimeout(img._fadeInTimeout);
+        }
+
+        // After fade out, reset position and fade in
+        img._leaveTimeout = setTimeout(() => {
+          img.setAttribute('transform', img.dataset.originalTransform);
+          img.style.transform = '';
+          img._fadeInTimeout = setTimeout(() => {
+            img.style.transition = 'opacity 0.5s';
+            img.style.opacity = '1';
+          }, 200);
+        }, 250);
+      });
+    }
+  });
+}
+
 //#endregion
 
 //#region 3. Feature Components - LAYER ANIMATION - HARD-SKILLS
@@ -5067,47 +5131,8 @@ async function handleHardSkillsSVG(interactiveContainer) {
 
 // Update clipmask hover effects to handle individual image animations
 function setupClipMaskHoverEffects(svgElement) {
-  const clipMaskMappings = [
-    { clipMaskId: 'clipmask_d1', imgId: 'img_d1', translate: [823.83, -174.006], layerId: 'bim' },
-    { clipMaskId: 'clipmask_d2', imgId: 'img_d2', translate: [447.082, 37.327], layerId: 'modelling' },
-    { clipMaskId: 'clipmask_d3', imgId: 'img_d3', translate: [823.826, 479.158], layerId: 'cgi' },
-    { clipMaskId: 'clipmask_d4', imgId: 'img_d4', translate: [539.484, 850.684], layerId: 'graphics' },
-    { clipMaskId: 'clipmask_d5', imgId: 'img_d5', translate: [877.528, 790.752], layerId: 'technical' }
-  ];
-
-  clipMaskMappings.forEach(({ clipMaskId, imgId, translate, layerId }) => {
-    const clipMask = svgElement.querySelector(`#${clipMaskId}`);
-    if (clipMask) {
-      let hoverTimeout;
-
-      clipMask.addEventListener('mouseenter', () => {
-        if (hoverTimeout) clearTimeout(hoverTimeout);
-        
-        // Find and animate only the corresponding image
-        const img = svgElement.querySelector(`#${imgId}`);
-        if (img) {
-          // Reset first to ensure clean animation state
-          resetImageTransform(img);
-          // Then animate with slide down
-          setTimeout(() => {
-            slideImageDown(img, translate, 2000, 0);
-          }, 100);
-        }
-
-        // Update state to prevent random animations
-        state.hardSkillsImageHovered = true;
-      });
-
-      clipMask.addEventListener('mouseleave', () => {
-        hoverTimeout = setTimeout(() => {
-          const img = svgElement.querySelector(`#${imgId}`);
-          if (img) {
-            resetImageTransform(img);
-          }
-          state.hardSkillsImageHovered = false;
-        }, 300);
-      });
-    }
+  defaultHardSkillsImages.forEach(({ imgId, translate }) => {
+    // ...
   });
 }
 
@@ -5123,13 +5148,7 @@ function setupClipMaskHoverEffects(svgElement) {
         { id: 'graphics', direction: 'left', stopPx: 0 },
         { id: 'technical', direction: 'right', stopPx: 0 },
     ];
-      const defaultImages = [
-        { imgId: 'img_d1', translate: [823.83, -174.006] },
-        { imgId: 'img_d2', translate: [447.082, 37.327] },
-        { imgId: 'img_d3', translate: [823.826, 479.158] },
-        { imgId: 'img_d4', translate: [539.484, 850.684] },
-        { imgId: 'img_d5', translate: [877.528, 790.752] }
-    ];
+      const defaultImages = defaultHardSkillsImages;
 
     setupClipMaskHoverEffects(svgElement);
 
@@ -5167,12 +5186,7 @@ function setupClipMaskHoverEffects(svgElement) {
             );
         }
         return Promise.resolve();
-    })).then(() => {
-        // Animation complete - trigger next animations
-        if (typeof addHardSkillsDefaultImagesHoverTrigger === 'function') {
-            addHardSkillsDefaultImagesHoverTrigger(svgElement);
-        }
-    }).catch(err => {
+    })).catch(err => {
         console.error('Error in layer animations:', err);
     });
   }
@@ -5259,13 +5273,7 @@ function addHardSkillsDefaultImagesHoverTrigger(svgElement) {
               if (hoverTimeout) clearTimeout(hoverTimeout);
               
               // Start default images animation
-              const defaultImages = [
-                  { imgId: 'img_d1', translate: [823.83, -174.006] },
-                  { imgId: 'img_d2', translate: [447.082, 37.327] },
-                  { imgId: 'img_d3', translate: [823.826, 479.158] },
-                  { imgId: 'img_d4', translate: [539.484, 850.684] },
-                  { imgId: 'img_d5', translate: [877.528, 790.752] }
-              ];
+              const defaultImages = defaultHardSkillsImages;
 
               defaultImages.forEach(({ imgId, translate }) => {
                   const img = svgElement.querySelector(`#${imgId}`);
@@ -5287,40 +5295,36 @@ function addHardSkillsDefaultImagesHoverTrigger(svgElement) {
 
 // Random animation loop for default images
 function loopRandomHardSkillsImageAnimation(svgElement) {
-  const defaultImages = [
-      { imgId: 'img_d1', translate: [823.83, -174.006] },
-      { imgId: 'img_d2', translate: [447.082, 37.327] },
-      { imgId: 'img_d3', translate: [823.826, 479.158] },
-      { imgId: 'img_d4', translate: [539.484, 850.684] },
-      { imgId: 'img_d5', translate: [877.528, 790.752] }
-  ];
-
   let isAnimating = false;
+  const animationDuration = 30000; // ms, must match slideImageDown duration
 
   function triggerRandom() {
-      if (state.hardSkillsImageHovered) {  // Use state object
-          setTimeout(triggerRandom, 1000);
-          return;
-      }
+    if (state.hardSkillsImageHovered) {
+      setTimeout(triggerRandom, 5000);
+      return;
+    }
+    if (isAnimating) {
+      // Wait and check again later
+      setTimeout(triggerRandom, 1000);
+      return;
+    }
+    const randomIndex = Math.floor(Math.random() * defaultHardSkillsImages.length);
+    const { imgId, translate } = defaultHardSkillsImages[randomIndex];
+    const img = svgElement.querySelector(`#${imgId}`);
+    if (img) {
+      isAnimating = true;
+      slideImageDown(img, translate, animationDuration, 0);
 
-      const randomIndex = Math.floor(Math.random() * defaultImages.length);
-      const { imgId, translate } = defaultImages[randomIndex];
-      const img = svgElement.querySelector(`#${imgId}`);
-
-      if (img && !isAnimating) {
-          isAnimating = true;
-          slideImageDown(img, translate, 20000, 0);
-          
-          setTimeout(() => {
-              isAnimating = false;
-              const nextDelay = Math.floor(Math.random() * 3000) + 2000;
-              setTimeout(triggerRandom, nextDelay);
-          }, 20000);
-      } else {
-          setTimeout(triggerRandom, 2000);
-      }
+      setTimeout(() => {
+        isAnimating = false;
+        // Add a random pause before next animation
+        const nextDelay = Math.floor(Math.random() * 3000) + 2000;
+        setTimeout(triggerRandom, nextDelay);
+      }, animationDuration);
+    } else {
+      setTimeout(triggerRandom, 2000);
+    }
   }
-
   triggerRandom();
 }
 
@@ -5504,6 +5508,8 @@ async function HARDSKILLSfunction() {
       textEl.style.opacity = '0';
     });
 
+    attachDefaultImageHover(svgHardSkillsContent);
+    
     // 5. Show container
     requestAnimationFrame(() => {
       interactiveContainer.classList.add('active');
@@ -5535,6 +5541,10 @@ async function HARDSKILLSfunction() {
 }
 
 //#endregion
+
+
+
+
 
 
 
