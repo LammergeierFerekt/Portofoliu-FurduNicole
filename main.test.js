@@ -79,6 +79,13 @@ const state = {
   hoverTimeout: null,
   hardSkillsImageHovered: false  
 };
+
+window.hardSkillsTitleHovered = false;
+window.hardSkillsTitleClicked = false;
+// When a title is clicked and activated:
+window.hardSkillsTitleClicked = true;
+// When a title is deactivated (clicked again or clicking outside):
+window.hardSkillsTitleClicked = false;
 //#endregion
 
 //#region 2. Core Utilities - IMAGE ANIMATION UTILITIES - HARD-SKILLS
@@ -231,14 +238,15 @@ function attachDefaultImageHover(svgElement) {
       img.onmouseleave = null;
 
       img.addEventListener('mouseenter', () => {
-        // Cancel any running transition by forcing computed style
+        // Prevent hover effect if a title is clicked
+        if (window.hardSkillsTitleClicked) return;
+
         img.style.transition = 'none';
         img.style.opacity = '1';
         img.setAttribute('transform', img.dataset.originalTransform);
         img.style.transform = '';
-        void img.offsetWidth; // force reflow
+        void img.offsetWidth;
 
-        // Remove any queued timeouts (store on element)
         if (img._leaveTimeout) {
           clearTimeout(img._leaveTimeout);
           img._leaveTimeout = null;
@@ -248,7 +256,6 @@ function attachDefaultImageHover(svgElement) {
           img._fadeInTimeout = null;
         }
 
-        // Animate down after a short delay
         setTimeout(() => {
           const [x, y] = translate;
           let downTransform;
@@ -264,11 +271,12 @@ function attachDefaultImageHover(svgElement) {
       });
 
       img.addEventListener('mouseleave', () => {
-        // Cancel any running transition by forcing computed style
+        // Prevent hover effect if a title is clicked
+        if (window.hardSkillsTitleClicked) return;
+
         img.style.transition = 'opacity 0.5s, transform 0.7s cubic-bezier(.4,1.4,.4,1)';
         img.style.opacity = '0';
 
-        // Remove any queued timeouts (store on element)
         if (img._leaveTimeout) {
           clearTimeout(img._leaveTimeout);
         }
@@ -276,7 +284,6 @@ function attachDefaultImageHover(svgElement) {
           clearTimeout(img._fadeInTimeout);
         }
 
-        // After fade out, reset position and fade in
         img._leaveTimeout = setTimeout(() => {
           img.setAttribute('transform', img.dataset.originalTransform);
           img.style.transform = '';
@@ -293,9 +300,6 @@ function attachDefaultImageHover(svgElement) {
 //#endregion
 
 //#region 3. Feature Components - LAYER ANIMATION - HARD-SKILLS
-
-
-
 // Hover effect on the main SVG elements
 async function handleHardSkillsSVG(interactiveContainer) {
   try {
@@ -487,34 +491,15 @@ function addHardSkillsDefaultImagesHoverTrigger(svgElement) {
 // Random animation loop for default images
 function loopRandomHardSkillsImageAnimation(svgElement) {
   let isAnimating = false;
-  const animationDuration = 30000; // ms, must match slideImageDown duration
+  const animationDuration = 30000;
 
   function triggerRandom() {
-    if (state.hardSkillsImageHovered) {
-      setTimeout(triggerRandom, 5000);
-      return;
-    }
-    if (isAnimating) {
-      // Wait and check again later
+    // Pause if a title is clicked
+    if (window.hardSkillsTitleClicked) {
       setTimeout(triggerRandom, 1000);
       return;
     }
-    const randomIndex = Math.floor(Math.random() * defaultHardSkillsImages.length);
-    const { imgId, translate } = defaultHardSkillsImages[randomIndex];
-    const img = svgElement.querySelector(`#${imgId}`);
-    if (img) {
-      isAnimating = true;
-      slideImageDown(img, translate, animationDuration, 0);
-
-      setTimeout(() => {
-        isAnimating = false;
-        // Add a random pause before next animation
-        const nextDelay = Math.floor(Math.random() * 3000) + 2000;
-        setTimeout(triggerRandom, nextDelay);
-      }, animationDuration);
-    } else {
-      setTimeout(triggerRandom, 2000);
-    }
+    // ...existing code...
   }
   triggerRandom();
 }
@@ -550,6 +535,14 @@ function setupTitleEvents(svgElement, layer) {
   let activeTextEl = null;
   let activeTitleEl = null;
 
+  const groupToDefaultImg = {
+    bim: 'img_d1',
+    modelling: 'img_d2',
+    cgi: 'img_d3',
+    graphics: 'img_d4',
+    technical: 'img_d5'
+  };
+
   layer.titles.forEach(({ title, show, img, all }) => {
     const titleEl = svgElement.querySelector(`#${title}`);
     if (!titleEl) {
@@ -568,19 +561,144 @@ function setupTitleEvents(svgElement, layer) {
 
     // Hover handlers
     newTitleEl.addEventListener('mouseenter', () => {
+      window.hardSkillsTitleHovered = true;
       if (newTitleEl.dataset.clicked !== 'true') {
         newTitleEl.style.cursor = 'pointer';
         newTitleEl.style.fill = '#ffca31';
         newTitleEl.style.fontWeight = 'bold';
       }
+
+      // Highlight text
+      newTitleEl.style.cursor = 'pointer';
+      newTitleEl.style.fill = '#ffca31';
+
+      // Show only the corresponding group, hide others in 'all'
+      if (all) {
+        all.forEach(gid => {
+          const g = svgElement.querySelector(`#${gid}`);
+          if (g) g.style.display = (gid === show) ? '' : 'none';
+        });
+      }
+
+      // Animate image (img_1, img_2, etc.)
+      const imgEl = svgElement.querySelector(`#${img}`);
+      const translate = imgTranslateMap[img];
+      if (imgEl && translate) {
+        // Hide all other images
+        Object.keys(imgTranslateMap).forEach(imgKey => {
+          if (imgKey !== img) {
+            const otherImg = svgElement.querySelector(`#${imgKey}`);
+            if (otherImg) otherImg.style.opacity = '0';
+          }
+        });
+        // Show and animate the hovered image
+        imgEl.style.opacity = '1';
+        imgEl.setAttribute('transform', imgEl.dataset.originalTransform || '');
+        imgEl.style.transition = 'none';
+        imgEl.style.transform = '';
+        void imgEl.offsetWidth;
+        setTimeout(() => {
+          let downTransform;
+          if (img === 'img_3') {
+            downTransform = `translate(${translate[0]} ${translate[1] - 100})` + (imgEl.dataset.originalTransform || '').replace(/^translate\([^)]+\)/, '');
+          } else {
+            downTransform = `translate(${translate[0]} ${translate[1] + 90})` + (imgEl.dataset.originalTransform || '').replace(/^translate\([^)]+\)/, '');
+          }
+          imgEl.style.transition = 'transform 40000ms cubic-bezier(.4,1.4,.4,1), opacity 0.3s';
+          imgEl.setAttribute('transform', downTransform);
+          imgEl.style.transform = '';
+        }, 50);
+      }
     });
 
     newTitleEl.addEventListener('mouseleave', () => {
-      if (newTitleEl.dataset.clicked !== 'true') {
+      if (!newTitleEl.classList.contains('active-title')) {
         newTitleEl.style.fill = newTitleEl.dataset.origFill;
-        newTitleEl.style.fontWeight = newTitleEl.dataset.origWeight;
+      }
+      if (all) {
+        const defaultGroup = all.find(gid => gid.endsWith('_default'));
+        all.forEach(gid => {
+          const g = svgElement.querySelector(`#${gid}`);
+          if (g) g.style.display = (gid === defaultGroup) ? '' : 'none';
+        });
+      }
+      const imgEl = svgElement.querySelector(`#${img}`);
+      const translate = imgTranslateMap[img];
+      if (imgEl && translate) {
+        imgEl.style.transition = 'opacity 0.5s, transform 0.7s cubic-bezier(.4,1.4,.4,1)';
+        imgEl.style.opacity = '0';
+        setTimeout(() => {
+          imgEl.setAttribute('transform', imgEl.dataset.originalTransform || '');
+          imgEl.style.transform = '';
+          setTimeout(() => {
+            imgEl.style.transition = 'opacity 0.5s';
+            imgEl.style.opacity = '1';
+          }, 200);
+        }, 250);
       }
     });
+
+    const imgEl = svgElement.querySelector(`#${img}`);
+    const defaultImgId = groupToDefaultImg[layer.group];
+    const defaultImgEl = svgElement.querySelector(`#${defaultImgId}`);
+
+    // Collect all img_* in this group
+    const groupImgIds = layer.titles.map(t => t.img);
+    const groupImgEls = groupImgIds.map(id => svgElement.querySelector(`#${id}`)).filter(Boolean);
+
+    if (imgEl && imgTranslateMap[img]) {
+      if (!imgEl.dataset.originalTransform) {
+        imgEl.dataset.originalTransform = imgEl.getAttribute('transform') || '';
+      }
+
+      newTitleEl.addEventListener('mouseenter', () => {
+        // Hide all group images and default image
+        groupImgEls.forEach(el => { if (el) el.style.opacity = '0'; });
+        if (defaultImgEl) defaultImgEl.style.opacity = '0';
+
+        // Show and animate only the hovered img_*
+        imgEl.style.opacity = '1';
+        imgEl.setAttribute('transform', imgEl.dataset.originalTransform);
+        imgEl.style.transition = 'none';
+        imgEl.style.transform = '';
+        void imgEl.offsetWidth;
+
+        if (imgEl._leaveTimeout) clearTimeout(imgEl._leaveTimeout);
+        if (imgEl._fadeInTimeout) clearTimeout(imgEl._fadeInTimeout);
+
+        setTimeout(() => {
+          const [x, y] = imgTranslateMap[img];
+          let downTransform;
+          if (img === 'img_3') {
+            downTransform = `translate(${x} ${y - 100})` + imgEl.dataset.originalTransform.replace(/^translate\([^)]+\)/, '');
+          } else {
+            downTransform = `translate(${x} ${y + 90})` + imgEl.dataset.originalTransform.replace(/^translate\([^)]+\)/, '');
+          }
+          imgEl.style.transition = 'transform 4s cubic-bezier(.4,1.4,.4,1), opacity 0.3s';
+          imgEl.setAttribute('transform', downTransform);
+          imgEl.style.transform = '';
+        }, 50);
+      });
+
+      newTitleEl.addEventListener('mouseleave', () => {
+        imgEl.style.transition = 'opacity 0.5s, transform 0.7s cubic-bezier(.4,1.4,.4,1)';
+        imgEl.style.opacity = '0';
+
+        if (imgEl._leaveTimeout) clearTimeout(imgEl._leaveTimeout);
+        if (imgEl._fadeInTimeout) clearTimeout(imgEl._fadeInTimeout);
+
+        imgEl._leaveTimeout = setTimeout(() => {
+          imgEl.setAttribute('transform', imgEl.dataset.originalTransform);
+          imgEl.style.transform = '';
+          imgEl._fadeInTimeout = setTimeout(() => {
+            imgEl.style.transition = 'opacity 0.5s';
+            imgEl.style.opacity = '0'; // keep hidden after reset
+            // Restore default image for the group
+            if (defaultImgEl) defaultImgEl.style.opacity = '1';
+          }, 200);
+        }, 250);
+      });
+    }
 
     // Click handler with text element management
     newTitleEl.addEventListener('click', (event) => {
@@ -589,33 +707,69 @@ function setupTitleEvents(svgElement, layer) {
       const textEl = svgElement.querySelector(`#${layer.group}_${show.split('_')[1]}_text`);
       if (!textEl) return;
 
-      // If clicking the same title again, hide its text
+      // If clicking the same title again, hide its text and image
       if (newTitleEl === activeTitleEl) {
         textEl.style.opacity = '0';
         newTitleEl.dataset.clicked = 'false';
         newTitleEl.style.fill = newTitleEl.dataset.origFill;
+        // Hide image
+        const imgEl = svgElement.querySelector(`#${img}`);
+        if (imgEl) imgEl.style.opacity = '0';
         activeTitleEl = null;
         activeTextEl = null;
+        window.hardSkillsTitleClicked = false;
         return;
       }
 
-      // Hide previously active text
-      if (activeTextEl) {
-        activeTextEl.style.opacity = '0';
-      }
+      // Hide previously active text and image
+      if (activeTextEl) activeTextEl.style.opacity = '0';
       if (activeTitleEl) {
         activeTitleEl.dataset.clicked = 'false';
         activeTitleEl.style.fill = activeTitleEl.dataset.origFill;
+        // Hide previous image
+        const prevImg = svgElement.querySelector(`#${layer.titles.find(t => t.title === activeTitleEl.id)?.img}`);
+        if (prevImg) prevImg.style.opacity = '0';
       }
+
+      // Hide all other images
+      Object.keys(imgTranslateMap).forEach(imgKey => {
+        if (imgKey !== img) {
+          const otherImg = svgElement.querySelector(`#${imgKey}`);
+          if (otherImg) otherImg.style.opacity = '0';
+        }
+      });
 
       // Show new text
       textEl.style.opacity = '1';
       newTitleEl.dataset.clicked = 'true';
       newTitleEl.style.fill = '#ffca31';
 
+      // Show and keep the image visible
+      const imgEl = svgElement.querySelector(`#${img}`);
+      if (imgEl) {
+        imgEl.style.opacity = '1';
+        imgEl.setAttribute('transform', imgEl.dataset.originalTransform || '');
+        imgEl.style.transition = 'none';
+        imgEl.style.transform = '';
+        void imgEl.offsetWidth;
+        setTimeout(() => {
+          const [x, y] = imgTranslateMap[img];
+          let downTransform;
+          if (img === 'img_3') {
+            downTransform = `translate(${x} ${y - 100})` + (imgEl.dataset.originalTransform || '').replace(/^translate\([^)]+\)/, '');
+          } else {
+            downTransform = `translate(${x} ${y + 90})` + (imgEl.dataset.originalTransform || '').replace(/^translate\([^)]+\)/, '');
+          }
+          imgEl.style.transition = 'transform 40000ms cubic-bezier(.4,1.4,.4,1), opacity 0.3s';
+          imgEl.setAttribute('transform', downTransform);
+          imgEl.style.transform = '';
+        }, 50);
+      }
+
       // Update active elements
       activeTextEl = textEl;
       activeTitleEl = newTitleEl;
+      window.hardSkillsTitleClicked = true;
     });
   });
 }
@@ -645,6 +799,7 @@ function setupGlobalClickHandler(svgElement, layers) {
 
     // Reset state
     state.activeTitleEl = null;
+    window.hardSkillsTitleClicked = false;
     
     // Trigger default animation
     animateHardSkillsDefaultImages(svgElement);
