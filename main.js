@@ -3925,7 +3925,7 @@ function attachButtonEvents(svgElement) {
   try {
     const svgButtons = [
       { layer: 'HARD-SKILLS', id: 'Pana_roz_button1', action: () => { 
-        try { CVfunction('hard-skills', svgElement); triggerFogEffect(svgElement); } catch (err) { console.error('Error in button1 action:', err); }
+        try { HARDSKILLSfunction('hard-skills', svgElement); triggerFogEffect(svgElement); } catch (err) { console.error('Error in button1 action:', err); }
       }},
       { layer: 'PROFESSIONAL', id: 'Pana_roz_button2', action: () => { 
         try { showPDF('professional.pdf', svgElement); triggerFogEffect(svgElement); } catch (err) { console.error('Error in button2 action:', err); }
@@ -4304,6 +4304,10 @@ async function CVfunction(svgType) {
 
 
 
+
+
+
+
   function addCvSvgHoverEffects(svgElement) {
     const groupNumbers = [1, 2, 4, 5, 6, 7, 8, 9, 10, 11, 12, 15];
     const isMobile = window.innerWidth < 800 || /Mobi|Android/i.test(navigator.userAgent);
@@ -4658,20 +4662,10 @@ async function CVfunction(svgType) {
     });
   }
 
-
-
-
-
-
-
-
-
   try {
     hideAllPdfContainers();
     showLoadingOverlay();
 
-
-    
 
     const loadingSpinner = document.getElementById('loading-spinner');
     if (loadingSpinner && !loadingSpinner.querySelector('svg')) {
@@ -4689,9 +4683,7 @@ async function CVfunction(svgType) {
       case 'hard-skills':
         svgString = hardSkillsSVG;
         hideCheckpointAnimation();
-        // Call the hard-skills initialization function
-        await handleHardSkillsSVG(interactiveContainer);
-        return; // Exit after handling hard-skills
+        break;
       case 'cv':
         svgString = cvSVG;
         break;
@@ -4783,46 +4775,6 @@ async function CVfunction(svgType) {
 
 
 
-        // Parse the HARD-SKILLS SVG string HERE
-
-    async function processSvgFile(svgString, totalSteps, loadingElements, currentStep) {
-      const parser = new DOMParser();
-      const svgDoc = parser.parseFromString(svgString, 'image/svg+xml');
-      // Check for parsing errors
-      if (svgDoc.querySelector('parsererror')) {
-        hideLoadingOverlay();
-        return null;
-      }
-
-      // Extract the SVG content
-      const svgHardSkillsContent = svgDoc.documentElement;
-
-      // Select only the relevant parts (e.g., <g> and <path> elements)
-      const svgParts = svgHardSkillsContent.querySelectorAll('g, path');
-      const numParts = Math.max(svgParts.length, 1);
-
-      // Calculate the step duration based on the number of parts and total steps
-      const stepDuration = Math.max(100, 1000 / Math.max(numParts, totalSteps));
-
-      // Process each part of the SVG
-      for (let i = 0; i < numParts; i++) {
-        if (currentStep < totalSteps) {
-          loadingElements[currentStep].style.opacity = '1';
-          currentStep++;
-        }
-        await new Promise((res) => setTimeout(res, stepDuration));
-      }
-
-      // Ensure all steps are completed
-      while (currentStep < totalSteps) {
-        loadingElements[currentStep].style.opacity = '1';
-        currentStep++;
-        await new Promise((res) => setTimeout(res, stepDuration));
-      }
-
-      // Return the parsed SVG element
-      return svgHardSkillsContent;
-    }
 
 
 
@@ -4853,7 +4805,6 @@ async function CVfunction(svgType) {
     hideLoadingOverlay();
   }
 }
-
 
 
 
@@ -4929,7 +4880,7 @@ const state = {
   activeTitleEl: null,
   activeImgEl: null,
   hoverTimeout: null,
-  hardSkillsImageHovered: false,
+  hardSkillsImageHovered: false  
 };
 //#endregion
 
@@ -5088,61 +5039,145 @@ function addHoverEffectToMainElements(svgElement) {
 
 //#region 3. Feature Components - LAYER ANIMATION - HARD-SKILLS
 
-function animateHardSkillsLayers(svgElement) {
-  if (!svgElement) return;
 
-  // Layer configurations
-  const layers = [
-      { id: 'bim', direction: 'right', stopPx: 0 },
-      { id: 'modelling', direction: 'left', stopPx: -75 },
-      { id: 'cgi', direction: 'right', stopPx: 0 },
-      { id: 'graphics', direction: 'left', stopPx: 0 },
-      { id: 'technical', direction: 'right', stopPx: 0 },
+
+// Hover effect on the main SVG elements
+async function handleHardSkillsSVG(interactiveContainer) {
+  try {
+      // Get the SVG element from the container
+      const svgElement = interactiveContainer.querySelector('svg');
+      if (!svgElement) {
+          throw new Error('SVG element not found in container');
+      }
+
+      // Initialize components in sequence
+      await Promise.all([
+          animateHardSkillsLayers(svgElement),
+          loopRandomHardSkillsImageAnimation(svgElement),
+          addHardSkillsLayerHoverEffects(svgElement)
+      ]);
+
+  } catch (err) {
+      console.error('Error in handleHardSkillsSVG:', err);
+      if (typeof hideLoadingOverlay === 'function') {
+          hideLoadingOverlay();
+      }
+  }
+}
+
+// Update clipmask hover effects to handle individual image animations
+function setupClipMaskHoverEffects(svgElement) {
+  const clipMaskMappings = [
+    { clipMaskId: 'clipmask_d1', imgId: 'img_d1', translate: [823.83, -174.006], layerId: 'bim' },
+    { clipMaskId: 'clipmask_d2', imgId: 'img_d2', translate: [447.082, 37.327], layerId: 'modelling' },
+    { clipMaskId: 'clipmask_d3', imgId: 'img_d3', translate: [823.826, 479.158], layerId: 'cgi' },
+    { clipMaskId: 'clipmask_d4', imgId: 'img_d4', translate: [539.484, 850.684], layerId: 'graphics' },
+    { clipMaskId: 'clipmask_d5', imgId: 'img_d5', translate: [877.528, 790.752], layerId: 'technical' }
   ];
 
-  // Get SVG dimensions once
-  const svgRect = svgElement.getBoundingClientRect();
-  const svgWidth = svgRect.width;
+  clipMaskMappings.forEach(({ clipMaskId, imgId, translate, layerId }) => {
+    const clipMask = svgElement.querySelector(`#${clipMaskId}`);
+    if (clipMask) {
+      let hoverTimeout;
 
-  // Calculate positions and centers
-  const groupData = layers.reduce((acc, layer) => {
-      const group = svgElement.querySelector(`#${layer.id}`);
-      if (group) {
-          const rect = group.getBoundingClientRect();
-          acc.rects[layer.id] = rect;
-          acc.centers[layer.id] = rect.left + rect.width / 2;
-      }
-      return acc;
-  }, { rects: {}, centers: {} });
+      clipMask.addEventListener('mouseenter', () => {
+        if (hoverTimeout) clearTimeout(hoverTimeout);
+        
+        // Find and animate only the corresponding image
+        const img = svgElement.querySelector(`#${imgId}`);
+        if (img) {
+          // Reset first to ensure clean animation state
+          resetImageTransform(img);
+          // Then animate with slide down
+          setTimeout(() => {
+            slideImageDown(img, translate, 2000, 0);
+          }, 100);
+        }
 
-  // Calculate reference center
-  const referenceCenter = Object.values(groupData.centers).length > 0
-      ? Object.values(groupData.centers).reduce((a, b) => a + b, 0) / Object.values(groupData.centers).length
-      : window.innerWidth / 2;
+        // Update state to prevent random animations
+        state.hardSkillsImageHovered = true;
+      });
 
-  // Animate layers
-  Promise.all(layers.map(layer => {
-      const group = svgElement.querySelector(`#${layer.id}`);
-      if (group && groupData.rects[layer.id]) {
-          return animateLayerIn(
-              group, 
-              layer.direction, 
-              layer.stopPx, 
-              svgWidth, 
-              groupData.rects[layer.id], 
-              referenceCenter
-          );
-      }
-      return Promise.resolve();
-  })).then(() => {
-      // Animation complete - trigger next animations
-      if (typeof addHardSkillsDefaultImagesHoverTrigger === 'function') {
-          addHardSkillsDefaultImagesHoverTrigger(svgElement);
-      }
-  }).catch(err => {
-      console.error('Error in layer animations:', err);
+      clipMask.addEventListener('mouseleave', () => {
+        hoverTimeout = setTimeout(() => {
+          const img = svgElement.querySelector(`#${imgId}`);
+          if (img) {
+            resetImageTransform(img);
+          }
+          state.hardSkillsImageHovered = false;
+        }, 300);
+      });
+    }
   });
 }
+
+// Function to animate layers in the SVG
+  function animateHardSkillsLayers(svgElement) {
+    if (!svgElement) return;
+
+    // Layer configurations
+    const layers = [
+        { id: 'bim', direction: 'right', stopPx: 0 },
+        { id: 'modelling', direction: 'left', stopPx: -75 },
+        { id: 'cgi', direction: 'right', stopPx: 0 },
+        { id: 'graphics', direction: 'left', stopPx: 0 },
+        { id: 'technical', direction: 'right', stopPx: 0 },
+    ];
+      const defaultImages = [
+        { imgId: 'img_d1', translate: [823.83, -174.006] },
+        { imgId: 'img_d2', translate: [447.082, 37.327] },
+        { imgId: 'img_d3', translate: [823.826, 479.158] },
+        { imgId: 'img_d4', translate: [539.484, 850.684] },
+        { imgId: 'img_d5', translate: [877.528, 790.752] }
+    ];
+
+    setupClipMaskHoverEffects(svgElement);
+
+    // Get SVG dimensions once
+    const svgRect = svgElement.getBoundingClientRect();
+    const svgWidth = svgRect.width;
+
+    // Calculate positions and centers
+    const groupData = layers.reduce((acc, layer) => {
+        const group = svgElement.querySelector(`#${layer.id}`);
+        if (group) {
+            const rect = group.getBoundingClientRect();
+            acc.rects[layer.id] = rect;
+            acc.centers[layer.id] = rect.left + rect.width / 2;
+        }
+        return acc;
+    }, { rects: {}, centers: {} });
+
+    // Calculate reference center
+    const referenceCenter = Object.values(groupData.centers).length > 0
+        ? Object.values(groupData.centers).reduce((a, b) => a + b, 0) / Object.values(groupData.centers).length
+        : window.innerWidth / 2;
+
+    // Animate layers
+    Promise.all(layers.map(layer => {
+        const group = svgElement.querySelector(`#${layer.id}`);
+        if (group && groupData.rects[layer.id]) {
+            return animateLayerIn(
+                group, 
+                layer.direction, 
+                layer.stopPx, 
+                svgWidth, 
+                groupData.rects[layer.id], 
+                referenceCenter
+            );
+        }
+        return Promise.resolve();
+    })).then(() => {
+        // Animation complete - trigger next animations
+        if (typeof addHardSkillsDefaultImagesHoverTrigger === 'function') {
+            addHardSkillsDefaultImagesHoverTrigger(svgElement);
+        }
+    }).catch(err => {
+        console.error('Error in layer animations:', err);
+    });
+  }
+
+
 // Animate a single layer group from left or right
 function animateLayerIn(group, direction, stopPx, svgWidth, initialRect, referenceCenter) {
   return new Promise((resolve) => {
@@ -5316,139 +5351,233 @@ function setupLayerHoverEffects(svgElement, layer) {
 }
 
 function setupTitleEvents(svgElement, layer) {
+  // Track active text element for this layer
+  let activeTextEl = null;
+  let activeTitleEl = null;
+
   layer.titles.forEach(({ title, show, img, all }) => {
-      const titleEl = svgElement.querySelector(`#${title}`);
-      if (!titleEl) {
-          console.warn(`Title element not found: ${title}`);
-          return;
+    const titleEl = svgElement.querySelector(`#${title}`);
+    if (!titleEl) {
+      console.warn(`Title element not found: ${title}`);
+      return;
+    }
+
+    // Clear any existing listeners
+    titleEl.replaceWith(titleEl.cloneNode(true));
+    const newTitleEl = svgElement.querySelector(`#${title}`);
+    
+    // Save original state
+    newTitleEl.dataset.origFill = newTitleEl.getAttribute('fill') || '#ffffff';
+    newTitleEl.dataset.origWeight = window.getComputedStyle(newTitleEl).fontWeight || 'normal';
+    newTitleEl.dataset.clicked = 'false';
+
+    // Hover handlers
+    newTitleEl.addEventListener('mouseenter', () => {
+      if (newTitleEl.dataset.clicked !== 'true') {
+        newTitleEl.style.cursor = 'pointer';
+        newTitleEl.style.fill = '#ffca31';
+        newTitleEl.style.fontWeight = 'bold';
+      }
+    });
+
+    newTitleEl.addEventListener('mouseleave', () => {
+      if (newTitleEl.dataset.clicked !== 'true') {
+        newTitleEl.style.fill = newTitleEl.dataset.origFill;
+        newTitleEl.style.fontWeight = newTitleEl.dataset.origWeight;
+      }
+    });
+
+    // Click handler with text element management
+    newTitleEl.addEventListener('click', (event) => {
+      event.stopPropagation();
+
+      const textEl = svgElement.querySelector(`#${layer.group}_${show.split('_')[1]}_text`);
+      if (!textEl) return;
+
+      // If clicking the same title again, hide its text
+      if (newTitleEl === activeTitleEl) {
+        textEl.style.opacity = '0';
+        newTitleEl.dataset.clicked = 'false';
+        newTitleEl.style.fill = newTitleEl.dataset.origFill;
+        activeTitleEl = null;
+        activeTextEl = null;
+        return;
       }
 
-      // Clear any existing listeners
-      titleEl.replaceWith(titleEl.cloneNode(true));
-      const newTitleEl = svgElement.querySelector(`#${title}`);
-      
-      // Save original state
-      newTitleEl.dataset.origFill = newTitleEl.getAttribute('fill') || '#ffffff';
-      newTitleEl.dataset.clicked = 'false';
+      // Hide previously active text
+      if (activeTextEl) {
+        activeTextEl.style.opacity = '0';
+      }
+      if (activeTitleEl) {
+        activeTitleEl.dataset.clicked = 'false';
+        activeTitleEl.style.fill = activeTitleEl.dataset.origFill;
+      }
 
-      // Hover handlers
-      newTitleEl.addEventListener('mouseenter', () => {
-          console.log('hover enter');  // Debug
-          if (newTitleEl.dataset.clicked !== 'true') {
-              newTitleEl.style.cursor = 'pointer';
-              newTitleEl.style.fill = '#ffca31';
-          }
-      });
+      // Show new text
+      textEl.style.opacity = '1';
+      newTitleEl.dataset.clicked = 'true';
+      newTitleEl.style.fill = '#ffca31';
 
-      newTitleEl.addEventListener('mouseleave', () => {
-          console.log('hover leave');  // Debug
-          if (newTitleEl.dataset.clicked !== 'true') {
-              newTitleEl.style.fill = newTitleEl.dataset.origFill;
-          }
-      });
-
-      // Click handler
-      newTitleEl.addEventListener('click', (event) => {
-          console.log('clicked');  // Debug
-          event.stopPropagation();
-
-          const textEl = svgElement.querySelector(`#${layer.group}_${show.split('_')[1]}_text`);
-          if (textEl) {
-              textEl.style.opacity = '1';
-          }
-
-          // Toggle clicked state
-          const wasClicked = newTitleEl.dataset.clicked === 'true';
-          newTitleEl.dataset.clicked = (!wasClicked).toString();
-          newTitleEl.style.fill = wasClicked ? newTitleEl.dataset.origFill : '#ffca31';
-      });
+      // Update active elements
+      activeTextEl = textEl;
+      activeTitleEl = newTitleEl;
+    });
   });
 }
 
+// Update setupGlobalClickHandler to handle text elements properly
 function setupGlobalClickHandler(svgElement, layers) {
-    document.addEventListener('click', (event) => {
-        // Ignore clicks on titles
-        if (event.target.closest('[id^="title"]')) return;
+  document.addEventListener('click', (event) => {
+    // Ignore clicks on titles
+    if (event.target.closest('[id^="title"]')) return;
 
-        // Reset active element
-        if (state.activeTitleEl) {
-            const titleEl = state.activeTitleEl;
-            titleEl.dataset.clicked = 'false';
-            titleEl.style.fill = titleEl.dataset.origFill;
-            titleEl.classList.remove('active-title');
-            
-            // Re-enable hover events
-            titleEl.addEventListener('mouseenter', titleEl.originalMouseEnterHandler);
-            titleEl.addEventListener('mouseleave', titleEl.originalMouseLeaveHandler);
-            
-            state.activeTitleEl = null;
+    // Hide all text elements and reset all titles
+    layers.forEach(layer => {
+      layer.titles.forEach(({ title, show }) => {
+        const titleEl = svgElement.querySelector(`#${title}`);
+        const textEl = svgElement.querySelector(`#${layer.group}_${show.split('_')[1]}_text`);
+        
+        if (titleEl) {
+          titleEl.dataset.clicked = 'false';
+          titleEl.style.fill = titleEl.dataset.origFill;
         }
-
-        // Reset all elements
-        layers.forEach(layer => {
-            layer.titles.forEach(({ title, show, img }) => {
-                resetElement(svgElement, title, show, img, layer);
-            });
-        });
-
-        // Trigger default animation
-        animateHardSkillsDefaultImages(svgElement);
+        
+        if (textEl) {
+          textEl.style.opacity = '0';
+        }
+      });
     });
+
+    // Reset state
+    state.activeTitleEl = null;
+    
+    // Trigger default animation
+    animateHardSkillsDefaultImages(svgElement);
+  });
 }
 
 //#endregion
 
 //#region 4. Main Initialization - HARD-SKILLS
-async function handleHardSkillsSVG(interactiveContainer) {
+
+async function HARDSKILLSfunction() {
   try {
-      // Parse SVG
-      const parser = new DOMParser();
-      const svgDoc = parser.parseFromString(hardSkillsSVG, 'image/svg+xml');
-      if (svgDoc.querySelector('parsererror')) {
-          console.error('SVG parsing error');
-          return;
-      }
-      const svgElement = svgDoc.documentElement;
+    // Reset state first
+    state.isHovering = false;
+    state.activeTitleEl = null;
+    state.activeImgEl = null;
+    state.hardSkillsImageHovered = false;
+    if (state.hoverTimeout) clearTimeout(state.hoverTimeout);
 
-      // Insert into container
-      interactiveContainer.innerHTML = '';
-      interactiveContainer.appendChild(svgElement);
-      
-      // Hide text elements initially
-      svgElement.querySelectorAll('[id$="_text"]').forEach(textEl => {
-          textEl.style.opacity = '0';
-      });
+    hideAllPdfContainers();
+    hideAllSvgContainers(); // Add this to clear other SVGs
+    showLoadingOverlay();
 
-      // Initialize components in sequence
-      await Promise.all([
-          animateHardSkillsLayers(svgElement),
-          addHardSkillsDefaultImagesHoverTrigger(svgElement),
-          loopRandomHardSkillsImageAnimation(svgElement),
-          addHardSkillsLayerHoverEffects(svgElement)
-      ]);
+    const interactiveContainer = document.querySelector('.interactive-container');
+    if (!interactiveContainer) {
+      hideLoadingOverlay();
+      return;
+    }
 
-      // Show container
+    // Clear existing content
+    interactiveContainer.innerHTML = '';
+
+    // 1. Parse SVG content first
+    const parser = new DOMParser();
+    const svgDoc = parser.parseFromString(hardSkillsSVG, 'image/svg+xml');
+    if (svgDoc.querySelector('parsererror')) {
+      hideLoadingOverlay();
+      return;
+    }
+
+    const svgHardSkillsContent = svgDoc.documentElement;
+
+    // 2. Add SVG to DOM first before doing any queries
+    interactiveContainer.appendChild(svgHardSkillsContent);
+
+    // 3. Wait for SVG to be fully loaded
+    await new Promise(resolve => setTimeout(resolve, 100));
+
+    // 4. Hide all text elements initially
+    const textElements = svgHardSkillsContent.querySelectorAll('[id$="_text"]');
+    textElements.forEach(textEl => {
+      textEl.style.opacity = '0';
+    });
+
+    // 5. Show container
+    requestAnimationFrame(() => {
       interactiveContainer.classList.add('active');
+      interactiveContainer.style.visibility = 'visible';
+      interactiveContainer.style.opacity = '1';
+    });
+
+    // 6. Initialize features in sequence, with error handling
+    try {
+      await animateHardSkillsLayers(svgHardSkillsContent);
+      await addHardSkillsLayerHoverEffects(svgHardSkillsContent);
+      
+      // Start background animations last
       requestAnimationFrame(() => {
-          interactiveContainer.style.visibility = 'visible';
-          interactiveContainer.style.opacity = '1';
+        loopRandomHardSkillsImageAnimation(svgHardSkillsContent);
       });
+    } catch (initError) {
+      console.error('Error initializing hard-skills features:', initError);
+    }
+
+    // 7. Hide overlays
+    hideLoadingOverlay();
+    hideCheckpointAnimation();
 
   } catch (err) {
-      console.error('Error in handleHardSkillsSVG:', err);
-      hideLoadingOverlay();
+    console.error('Error in HARDSKILLSfunction:', err);
+    hideLoadingOverlay();
   }
 }
+
 //#endregion
 
 
 
+// Parse the HARD-SKILLS SVG string HERE
+async function processSvgFile(svgString, totalSteps, loadingElements, currentStep) {
+  const parser = new DOMParser();
+  const svgDoc = parser.parseFromString(svgString, 'image/svg+xml');
+  // Check for parsing errors
+  if (svgDoc.querySelector('parsererror')) {
+    hideLoadingOverlay();
+    return null;
+  }
 
+  // Extract the SVG content
+  const svgHardSkillsContent = svgDoc.documentElement;
 
+  // Select only the relevant parts (e.g., <g> and <path> elements)
+  const svgParts = svgHardSkillsContent.querySelectorAll('g, path');
+  const numParts = Math.max(svgParts.length, 1);
 
+  // Calculate the step duration based on the number of parts and total steps
+  const stepDuration = Math.max(100, 1000 / Math.max(numParts, totalSteps));
 
+  // Process each part of the SVG
+  for (let i = 0; i < numParts; i++) {
+    if (currentStep < totalSteps) {
+      loadingElements[currentStep].style.opacity = '1';
+      currentStep++;
+    }
+    await new Promise((res) => setTimeout(res, stepDuration));
+  }
 
+  // Ensure all steps are completed
+  while (currentStep < totalSteps) {
+    loadingElements[currentStep].style.opacity = '1';
+    currentStep++;
+    await new Promise((res) => setTimeout(res, stepDuration));
+  }
 
+  // Return the parsed SVG element
+  return svgHardSkillsContent;
+}
+    
 
 
 
@@ -5648,8 +5777,8 @@ async function insertCheckpointSVG() {
       if (svgDoc.querySelector('parsererror')) throw new Error('SVG parsing error');
       container.innerHTML = '';
       container.appendChild(svgDoc.documentElement);
-      
-      
+
+       
     }
   } catch (err) {
     console.error('Error inserting checkpoint SVG:', err);
@@ -5660,16 +5789,13 @@ async function insertCheckpointSVG() {
 function showCheckpointAnimation() {
   const container = document.getElementById('checkpoint-container');
   if (container) {
-    container.style.opacity = '1';
-    container.style.visibility = 'visible';
+    container.classList.add('active');
     window.addEventListener('mousemove', moveCheckpoint);
 
     // --- Ensure traseu is hidden and checkpoint glows ---
     const svg = container.querySelector('svg');
     if (svg) {
-      const traseu = svg.getElementById
-        ? svg.getElementById('traseu')
-        : svg.querySelector('#traseu');
+      const traseu = svg.getElementById('traseu') || svg.querySelector('#traseu');
       if (traseu) {
         traseu.style.opacity = '0';
         traseu.querySelectorAll('*').forEach(el => {
@@ -5678,9 +5804,8 @@ function showCheckpointAnimation() {
           el.style.fill = 'transparent';
         });
       }
-      const checkpoint = svg.getElementById
-        ? svg.getElementById('checkpoint')
-        : svg.querySelector('#checkpoint');
+      
+      const checkpoint = svg.getElementById('checkpoint') || svg.querySelector('#checkpoint');
       if (checkpoint) {
         checkpoint.style.filter = 'drop-shadow(0 0 12px #ffe066)';
       }
@@ -5688,12 +5813,24 @@ function showCheckpointAnimation() {
 
     // --- Set initial checkpoint position ---
     setTimeout(() => {
-      const rect = container.getBoundingClientRect();
-      const event = {
-        clientX: rect.left + rect.width / 2,
-        clientY: rect.top + rect.height / 2
-      };
-      moveCheckpoint(event);
+      if (container) {
+        // Add explicit dimensions
+        container.style.width = '58%';  // Set width
+        container.style.height = '58%'; // Set height
+        container.style.position = 'fixed';
+        container.style.zIndex = '2000';
+        container.style.pointerEvents = 'none';
+        container.style.left = '50%';
+        container.style.top = '44%';
+        container.style.transform = 'translate(-50%, -50%)';
+
+        const rect = container.getBoundingClientRect();
+        const event = {
+          clientX: rect.left + rect.width / 2,
+          clientY: rect.top + rect.height / 2
+        };
+        moveCheckpoint(event);
+      }
     }, 0);
   }
 }

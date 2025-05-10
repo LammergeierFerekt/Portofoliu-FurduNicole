@@ -431,8 +431,8 @@ a {
   position: fixed;
   top: 55%;
   left: 50%;
-  width: 120%;
-  height: 120%;
+  width: 122.5%;
+  height: 122.5%;
   transform: translate(-50%, -50%);
   background: transparent;
   display: block;
@@ -445,8 +445,8 @@ a {
   position: fixed;
   top: 55%;
   left: 50%;
-  width: 120%;
-  height: 120%;
+  width: 90%;
+  height: 90%;
   transform: translate(-50%, -50%);
   background: transparent;
   display: block;
@@ -460,7 +460,6 @@ a {
  #checkpoint-container.active{
   visibility: visible; /* Make it visible */
   opacity: 1;          /* Fully opaque */
-  transform: translate(-50%, -50%) scale(1); /* Scale back to normal */
 }
 
 
