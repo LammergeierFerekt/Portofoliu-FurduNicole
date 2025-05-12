@@ -4808,9 +4808,19 @@ async function CVfunction(svgType) {
 
 
 
+
+
+
+
+
+
+
+
 ///////////////////////////////////// HARDSKILLS SVG FILE HANDLING - FUNCTIONS /////////////////////////////////////////
 
 //#region 1. Global Foundation - CONFIGURATION DATA - HARD-SKILLS
+let activeTitleEl = null;
+let activeImgEl = null;
 
 const defaultHardSkillsImages = [
   { imgId: 'img_d1', translate: [823.83, -174.006] },
@@ -4881,7 +4891,14 @@ const layers = [
   }
 ];
 
-// State object - HARD-SKILLS 
+const groupToDefaultImg = {
+  bim: 'img_d1',
+  modelling: 'img_d2',
+  cgi: 'img_d3',
+  graphics: 'img_d4',
+  technical: 'img_d5'
+};
+
 const state = {
   isHovering: false,
   activeTitleEl: null,
@@ -4889,13 +4906,8 @@ const state = {
   hoverTimeout: null,
   hardSkillsImageHovered: false  
 };
+window.hardSkillsTitleClicked = null;
 
-window.hardSkillsTitleHovered = false;
-window.hardSkillsTitleClicked = false;
-// When a title is clicked and activated:
-window.hardSkillsTitleClicked = true;
-// When a title is deactivated (clicked again or clicking outside):
-window.hardSkillsTitleClicked = false;
 //#endregion
 
 //#region 2. Core Utilities - IMAGE ANIMATION UTILITIES - HARD-SKILLS
@@ -4915,20 +4927,31 @@ function resetElement(svgElement, titleId, showId, imgId, layer) {
   // Reset title element
   const titleEl = svgElement.querySelector(`#${titleId}`);
   if (titleEl) {
+     // Only reset if this title is not the currently clicked one
+    if (window.hardSkillsTitleClicked !== titleId) {
       titleEl.dataset.clicked = 'false';
       titleEl.style.fill = titleEl.dataset.origFill || '';
   }
+}
+
+
 
   // Reset text element
   const textEl = svgElement.querySelector(`#${layer.group}_${showId.split('_')[1]}_text`);
   if (textEl) {
+     // Only reset if this title is not the currently clicked one
+    if (window.hardSkillsTitleClicked !== titleId) {
       textEl.style.opacity = '0';
+    }
   }
+  
 
   // Reset image element
   const imgEl = svgElement.querySelector(`#${imgId}`);
-  if (imgEl) {
+  if (imgEl) { // Only reset if this title is not the currently clicked one
+    if (window.hardSkillsTitleClicked !== titleId) {
       resetImageTransform(imgEl);
+    }
   }
 
   // Reset any other layer-specific elements
@@ -4936,11 +4959,14 @@ function resetElement(svgElement, titleId, showId, imgId, layer) {
       layer.all.forEach(id => {
           const el = svgElement.querySelector(`#${id}`);
           if (el) {
-              el.style.opacity = '0';
+            if (window.hardSkillsTitleClicked !== titleId) {
+            el.style.opacity = '0';
+            }
           }
       });
   }
 }
+
 // Move images downward - set duration and delay here
 function slideImageDown(img, baseTranslate, duration = 2000, delay = 0) {
   if (!img) return;
@@ -4972,8 +4998,9 @@ function slideImageDown(img, baseTranslate, duration = 2000, delay = 0) {
       img.style.transform = '';
   }, delay);////HERE ADD...1000 delay); START WITH A DELAY/////
 }
+
 // On mouse leave: fade out while returning to initial state
-function resetImageTransform(img, baseTranslate) {
+function resetImageTransform(img) {
   if (!img) return;
   img.style.transition = 'opacity 0.5s, transform 0.7s cubic-bezier(.4,1.4,.4,1)';
   img.style.opacity = '0';
@@ -4988,26 +5015,6 @@ function resetImageTransform(img, baseTranslate) {
       }, 200);
     }, 250);
   }
-}
-// Attach hover effect to each image individually
-function attachImageHoverEffects(svgElement, defaultImages) {
-  defaultImages.forEach(({ imgId, translate }) => {
-      const img = svgElement.querySelector(`#${imgId}`);
-      if (img) {
-          if (!img.dataset.originalTransform) {
-              img.dataset.originalTransform = img.getAttribute('transform') || '';
-          }
-          img.onmouseenter = null;
-          img.onmouseleave = null;
-
-          img.addEventListener('mouseenter', () => {
-              slideImageDown(img, translate, 20000, 0);
-          });
-          img.addEventListener('mouseleave', () => {
-              resetImageTransform(img, translate);
-          });
-      }
-  });
 }
 
 function addHoverEffectToMainElements(svgElement) {
@@ -5048,8 +5055,15 @@ function attachDefaultImageHover(svgElement) {
       img.onmouseleave = null;
 
       img.addEventListener('mouseenter', () => {
-        // Prevent hover effect if a title is clicked
-        if (window.hardSkillsTitleClicked) return;
+        // Find the group for this img (e.g., 'bim', 'modelling', etc.)
+        const group = Object.entries(groupToDefaultImg).find(([_, imgId]) => imgId === img.id)?.[0];
+        if (!group) return;
+
+        // Get all titles for this group
+        const groupTitles = layers.find(l => l.group === group).titles.map(t => t.title);
+
+        // If the currently clicked title is in this group, block the hover
+        if (groupTitles.includes(window.hardSkillsTitleClicked)) return;
 
         img.style.transition = 'none';
         img.style.opacity = '1';
@@ -5110,6 +5124,7 @@ function attachDefaultImageHover(svgElement) {
 //#endregion
 
 //#region 3. Feature Components - LAYER ANIMATION - HARD-SKILLS
+
 // Hover effect on the main SVG elements
 async function handleHardSkillsSVG(interactiveContainer) {
   try {
@@ -5134,68 +5149,58 @@ async function handleHardSkillsSVG(interactiveContainer) {
   }
 }
 
-// Update clipmask hover effects to handle individual image animations
-function setupClipMaskHoverEffects(svgElement) {
-  defaultHardSkillsImages.forEach(({ imgId, translate }) => {
-    // ...
+// Function to animate layers in the SVG
+function animateHardSkillsLayers(svgElement) {
+  if (!svgElement) return;
+
+  // Layer configurations
+  const layers = [
+      { id: 'bim', direction: 'right', stopPx: 0 },
+      { id: 'modelling', direction: 'left', stopPx: -75 },
+      { id: 'cgi', direction: 'right', stopPx: 0 },
+      { id: 'graphics', direction: 'left', stopPx: 0 },
+      { id: 'technical', direction: 'right', stopPx: 0 },
+  ];
+    const defaultImages = defaultHardSkillsImages;
+    
+  // Get SVG dimensions once
+  const svgRect = svgElement.getBoundingClientRect();
+  const svgWidth = svgRect.width;
+
+  // Calculate positions and centers
+  const groupData = layers.reduce((acc, layer) => {
+      const group = svgElement.querySelector(`#${layer.id}`);
+      if (group) {
+          const rect = group.getBoundingClientRect();
+          acc.rects[layer.id] = rect;
+          acc.centers[layer.id] = rect.left + rect.width / 2;
+      }
+      return acc;
+  }, { rects: {}, centers: {} });
+
+  // Calculate reference center
+  const referenceCenter = Object.values(groupData.centers).length > 0
+      ? Object.values(groupData.centers).reduce((a, b) => a + b, 0) / Object.values(groupData.centers).length
+      : window.innerWidth / 2;
+
+  // Animate layers
+  Promise.all(layers.map(layer => {
+      const group = svgElement.querySelector(`#${layer.id}`);
+      if (group && groupData.rects[layer.id]) {
+          return animateLayerIn(
+              group, 
+              layer.direction, 
+              layer.stopPx, 
+              svgWidth, 
+              groupData.rects[layer.id], 
+              referenceCenter
+          );
+      }
+      return Promise.resolve();
+  })).catch(err => {
+      console.error('Error in layer animations:', err);
   });
 }
-
-// Function to animate layers in the SVG
-  function animateHardSkillsLayers(svgElement) {
-    if (!svgElement) return;
-
-    // Layer configurations
-    const layers = [
-        { id: 'bim', direction: 'right', stopPx: 0 },
-        { id: 'modelling', direction: 'left', stopPx: -75 },
-        { id: 'cgi', direction: 'right', stopPx: 0 },
-        { id: 'graphics', direction: 'left', stopPx: 0 },
-        { id: 'technical', direction: 'right', stopPx: 0 },
-    ];
-      const defaultImages = defaultHardSkillsImages;
-
-    setupClipMaskHoverEffects(svgElement);
-
-    // Get SVG dimensions once
-    const svgRect = svgElement.getBoundingClientRect();
-    const svgWidth = svgRect.width;
-
-    // Calculate positions and centers
-    const groupData = layers.reduce((acc, layer) => {
-        const group = svgElement.querySelector(`#${layer.id}`);
-        if (group) {
-            const rect = group.getBoundingClientRect();
-            acc.rects[layer.id] = rect;
-            acc.centers[layer.id] = rect.left + rect.width / 2;
-        }
-        return acc;
-    }, { rects: {}, centers: {} });
-
-    // Calculate reference center
-    const referenceCenter = Object.values(groupData.centers).length > 0
-        ? Object.values(groupData.centers).reduce((a, b) => a + b, 0) / Object.values(groupData.centers).length
-        : window.innerWidth / 2;
-
-    // Animate layers
-    Promise.all(layers.map(layer => {
-        const group = svgElement.querySelector(`#${layer.id}`);
-        if (group && groupData.rects[layer.id]) {
-            return animateLayerIn(
-                group, 
-                layer.direction, 
-                layer.stopPx, 
-                svgWidth, 
-                groupData.rects[layer.id], 
-                referenceCenter
-            );
-        }
-        return Promise.resolve();
-    })).catch(err => {
-        console.error('Error in layer animations:', err);
-    });
-  }
-
 
 // Animate a single layer group from left or right
 function animateLayerIn(group, direction, stopPx, svgWidth, initialRect, referenceCenter) {
@@ -5297,7 +5302,6 @@ function addHardSkillsDefaultImagesHoverTrigger(svgElement) {
       });
   });
 }
-
 // Random animation loop for default images
 function loopRandomHardSkillsImageAnimation(svgElement) {
   let isAnimating = false;
@@ -5317,8 +5321,8 @@ function loopRandomHardSkillsImageAnimation(svgElement) {
 //LAYER HOVER EFFECTS
 function addHardSkillsLayerHoverEffects(svgElement) {
   // State management
-  let activeTitleEl = null;
-  let activeImgEl = null;
+  
+  animateHardSkillsLayers(svgElement);
 
   // Setup layer event handlers
   layers.forEach(layer => {
@@ -5328,30 +5332,102 @@ function addHardSkillsLayerHoverEffects(svgElement) {
 
   // Global click handler
   setupGlobalClickHandler(svgElement, layers);
+
+  layers.forEach(layer => {
+    layer.titles.forEach(({ title, show, img }) => {
+      if (window.hardSkillsTitleClicked !== title) {
+        resetElement(svgElement, title, show, img, layer);
+      }
+    });
+  });
 }
 
 function setupLayerHoverEffects(svgElement, layer) {
-    const groupEl = svgElement.querySelector(`#${layer.group}`);
-    if (!groupEl) {
-        console.warn(`Group element not found for layer: ${layer.group}`);
-        return;
+  const groupEl = svgElement.querySelector(`#${layer.group}`);
+  const header = svgElement.querySelector(`#${layer.header}`);
+  const headerBox = svgElement.querySelector(`#${layer.headerBox}`);
+
+  const headerOrigTransform = header ? header.getAttribute('transform') || '' : '';
+  const headerBoxOrigTransform = headerBox ? headerBox.getAttribute('transform') || '' : '';
+  const headerOrigColor = header ? (header.getAttribute('fill') || header.style.fill || '') : '';
+  const headerBoxOrigFilter = headerBox ? (headerBox.style.filter || '') : '';
+
+  // Store original transforms for titles
+  const titleOrigTransforms = {};
+  layer.titles.forEach(({ title }) => {
+    const titleEl = svgElement.querySelector(`#${title}`);
+    if (titleEl) {
+      titleOrigTransforms[title] = titleEl.getAttribute('transform') || '';
     }
-    
-    // Rest of the code...
+  });
+
+  // Optionally, collect subgroup elements and their transforms if needed
+  const subgroupElements = [];
+  const subgroupOrigTransforms = [];
+  // If you want to move paths inside titleX_path groups as well:
+  layer.titles.forEach(({ title }) => {
+    const pathId = title.replace('_red', '_path');
+    const pathGroup = svgElement.querySelector(`#${pathId}`);
+    if (pathGroup) {
+      Array.from(pathGroup.querySelectorAll('path, polyline, polygon')).forEach(el => {
+        subgroupElements.push(el);
+        subgroupOrigTransforms.push(el.getAttribute('transform') || '');
+      });
+    }
+  });
+
+  if (groupEl) {
+    groupEl.addEventListener('mouseenter', () => {
+
+
+      if (header) {
+        header.setAttribute('transform', `translate(0,-18) ${headerOrigTransform}`.trim());
+        header.style.transition = 'fill 0.3s';
+        header.style.fill = '#f4dbdb';
+      }
+      if (headerBox) {
+        headerBox.setAttribute('transform', `translate(0,-18) ${headerBoxOrigTransform}`.trim());
+        headerBox.style.transition = 'filter 0.3s';
+        headerBox.style.filter = 'drop-shadow(0 8px 16px rgba(0, 0, 0, 0.25))';
+      }
+      layer.titles.forEach(({ title }) => {
+        const titleEl = svgElement.querySelector(`#${title}`);
+        if (titleEl) {
+          titleEl.setAttribute('transform', `translate(0,-18) ${titleOrigTransforms[title]}`.trim());
+        }
+      });
+      subgroupElements.forEach((el, idx) => {
+        el.setAttribute('transform', `translate(0,-18) ${subgroupOrigTransforms[idx]}`.trim());
+      });
+    });
+
+    groupEl.addEventListener('mouseleave', () => {
+      
+      if (header) {
+        header.setAttribute('transform', headerOrigTransform);
+        header.style.fill = headerOrigColor;
+      }
+      if (headerBox) {
+        headerBox.setAttribute('transform', headerBoxOrigTransform);
+        headerBox.style.filter = headerBoxOrigFilter;
+      }
+      layer.titles.forEach(({ title }) => {
+        const titleEl = svgElement.querySelector(`#${title}`);
+        if (titleEl) {
+          titleEl.setAttribute('transform', titleOrigTransforms[title]);
+        }
+      });
+      subgroupElements.forEach((el, idx) => {
+        el.setAttribute('transform', subgroupOrigTransforms[idx]);
+      });
+    });
+  }
 }
 
 function setupTitleEvents(svgElement, layer) {
   // Track active text element for this layer
   let activeTextEl = null;
   let activeTitleEl = null;
-
-  const groupToDefaultImg = {
-    bim: 'img_d1',
-    modelling: 'img_d2',
-    cgi: 'img_d3',
-    graphics: 'img_d4',
-    technical: 'img_d5'
-  };
 
   layer.titles.forEach(({ title, show, img, all }) => {
     const titleEl = svgElement.querySelector(`#${title}`);
@@ -5361,7 +5437,6 @@ function setupTitleEvents(svgElement, layer) {
     }
 
     // Clear any existing listeners
-    titleEl.replaceWith(titleEl.cloneNode(true));
     const newTitleEl = svgElement.querySelector(`#${title}`);
     
     // Save original state
@@ -5369,20 +5444,30 @@ function setupTitleEvents(svgElement, layer) {
     newTitleEl.dataset.origWeight = window.getComputedStyle(newTitleEl).fontWeight || 'normal';
     newTitleEl.dataset.clicked = 'false';
 
+    const imgEl = svgElement.querySelector(`#${img}`);
+    const defaultImgId = groupToDefaultImg[layer.group];
+    const defaultImgEl = svgElement.querySelector(`#${defaultImgId}`);
+
+  
+    if (imgEl && imgTranslateMap[img]) {
+      if (!imgEl.dataset.originalTransform) {
+        imgEl.dataset.originalTransform = imgEl.getAttribute('transform') || '';
+      }
+    }
+
     // Hover handlers
     newTitleEl.addEventListener('mouseenter', () => {
-      window.hardSkillsTitleHovered = true;
-      if (newTitleEl.dataset.clicked !== 'true') {
-        newTitleEl.style.cursor = 'pointer';
-        newTitleEl.style.fill = '#ffca31';
-        newTitleEl.style.fontWeight = 'bold';
+      // Prevent hover effect if a title is clicked and it's not this title
+      if (window.hardSkillsTitleClicked && window.hardSkillsTitleClicked !== newTitleEl.id) {
+        return;
       }
-
-      // Highlight text
+      // Highlight hovered title
+    
       newTitleEl.style.cursor = 'pointer';
       newTitleEl.style.fill = '#ffca31';
+      newTitleEl.style.fontWeight = 'bold';
 
-      // Show only the corresponding group, hide others in 'all'
+      // Hide all group images and default image for this group
       if (all) {
         all.forEach(gid => {
           const g = svgElement.querySelector(`#${gid}`);
@@ -5390,18 +5475,20 @@ function setupTitleEvents(svgElement, layer) {
         });
       }
 
-      // Animate image (img_1, img_2, etc.)
+      // Show and animate the hovered image
       const imgEl = svgElement.querySelector(`#${img}`);
       const translate = imgTranslateMap[img];
+      const defaultImgId = groupToDefaultImg[layer.group];
+      const defaultImgEl = svgElement.querySelector(`#${defaultImgId}`);
+
+      // Hide all group images and default image for this group
+      layer.titles.forEach(t => {
+        const otherImg = svgElement.querySelector(`#${t.img}`);
+        if (otherImg && otherImg !== imgEl) otherImg.style.opacity = '0';
+      });
+      if (defaultImgEl) defaultImgEl.style.opacity = '0';
+
       if (imgEl && translate) {
-        // Hide all other images
-        Object.keys(imgTranslateMap).forEach(imgKey => {
-          if (imgKey !== img) {
-            const otherImg = svgElement.querySelector(`#${imgKey}`);
-            if (otherImg) otherImg.style.opacity = '0';
-          }
-        });
-        // Show and animate the hovered image
         imgEl.style.opacity = '1';
         imgEl.setAttribute('transform', imgEl.dataset.originalTransform || '');
         imgEl.style.transition = 'none';
@@ -5422,9 +5509,64 @@ function setupTitleEvents(svgElement, layer) {
     });
 
     newTitleEl.addEventListener('mouseleave', () => {
-      if (!newTitleEl.classList.contains('active-title')) {
-        newTitleEl.style.fill = newTitleEl.dataset.origFill;
+      // If a title is clicked, restore its highlight and image after leaving any other title
+      if (window.hardSkillsTitleClicked) {
+        // Restore highlight for clicked title
+        const clickedTitle = svgElement.querySelector(`#${window.hardSkillsTitleClicked}`);
+        if (clickedTitle) {
+          clickedTitle.style.fill = '#ffca31';
+          clickedTitle.style.fontWeight = 'bold';
+        }
+
+        // Restore clicked image
+        const clickedLayer = layers.find(l => l.titles.some(t => t.title === window.hardSkillsTitleClicked));
+        const clickedImgName = clickedLayer?.titles.find(t => t.title === window.hardSkillsTitleClicked)?.img;
+        const clickedImg = svgElement.querySelector(`#${clickedImgName}`);
+        const clickedTranslate = imgTranslateMap[clickedImgName];
+        const clickedDefaultImgId = groupToDefaultImg[clickedLayer?.group];
+        const clickedDefaultImgEl = svgElement.querySelector(`#${clickedDefaultImgId}`);
+
+        // Hide all group images and default image for this group
+        if (clickedLayer) {
+          clickedLayer.titles.forEach(t => {
+            const otherImg = svgElement.querySelector(`#${t.img}`);
+            if (otherImg && otherImg !== clickedImg) otherImg.style.opacity = '0';
+          });
+          if (clickedDefaultImgEl) clickedDefaultImgEl.style.opacity = '0';
+        }
+
+        if (clickedImg && clickedTranslate) {
+          clickedImg.style.opacity = '1';
+          clickedImg.setAttribute('transform', clickedImg.dataset.originalTransform || '');
+          clickedImg.style.transition = 'none';
+          clickedImg.style.transform = '';
+          void clickedImg.offsetWidth;
+          setTimeout(() => {
+            let downTransform;
+            if (clickedImgName === 'img_3') {
+              downTransform = `translate(${clickedTranslate[0]} ${clickedTranslate[1] - 100})` + (clickedImg.dataset.originalTransform || '').replace(/^translate\([^)]+\)/, '');
+            } else {
+              downTransform = `translate(${clickedTranslate[0]} ${clickedTranslate[1] + 90})` + (clickedImg.dataset.originalTransform || '').replace(/^translate\([^)]+\)/, '');
+            }
+            clickedImg.style.transition = 'transform 40000ms cubic-bezier(.4,1.4,.4,1), opacity 0.3s';
+            clickedImg.setAttribute('transform', downTransform);
+            clickedImg.style.transform = '';
+          }, 50);
+        }
+
+        // Restore color for the hovered title (not clicked)
+        if (newTitleEl.dataset.clicked !== 'true') {
+          newTitleEl.style.fill = newTitleEl.dataset.origFill;
+          newTitleEl.style.fontWeight = newTitleEl.dataset.origWeight;
+        }
+        return;
       }
+
+      // If no title is clicked, restore default state
+      newTitleEl.style.fill = newTitleEl.dataset.origFill;
+      newTitleEl.style.fontWeight = newTitleEl.dataset.origWeight;
+
+      // Restore group display to default
       if (all) {
         const defaultGroup = all.find(gid => gid.endsWith('_default'));
         all.forEach(gid => {
@@ -5432,65 +5574,13 @@ function setupTitleEvents(svgElement, layer) {
           if (g) g.style.display = (gid === defaultGroup) ? '' : 'none';
         });
       }
+
+      // Hide/reset the image
       const imgEl = svgElement.querySelector(`#${img}`);
-      const translate = imgTranslateMap[img];
-      if (imgEl && translate) {
-        imgEl.style.transition = 'opacity 0.5s, transform 0.7s cubic-bezier(.4,1.4,.4,1)';
-        imgEl.style.opacity = '0';
-        setTimeout(() => {
-          imgEl.setAttribute('transform', imgEl.dataset.originalTransform || '');
-          imgEl.style.transform = '';
-          setTimeout(() => {
-            imgEl.style.transition = 'opacity 0.5s';
-            imgEl.style.opacity = '1';
-          }, 200);
-        }, 250);
-      }
-    });
+      const defaultImgId = groupToDefaultImg[layer.group];
+      const defaultImgEl = svgElement.querySelector(`#${defaultImgId}`);
 
-    const imgEl = svgElement.querySelector(`#${img}`);
-    const defaultImgId = groupToDefaultImg[layer.group];
-    const defaultImgEl = svgElement.querySelector(`#${defaultImgId}`);
-
-    // Collect all img_* in this group
-    const groupImgIds = layer.titles.map(t => t.img);
-    const groupImgEls = groupImgIds.map(id => svgElement.querySelector(`#${id}`)).filter(Boolean);
-
-    if (imgEl && imgTranslateMap[img]) {
-      if (!imgEl.dataset.originalTransform) {
-        imgEl.dataset.originalTransform = imgEl.getAttribute('transform') || '';
-      }
-
-      newTitleEl.addEventListener('mouseenter', () => {
-        // Hide all group images and default image
-        groupImgEls.forEach(el => { if (el) el.style.opacity = '0'; });
-        if (defaultImgEl) defaultImgEl.style.opacity = '0';
-
-        // Show and animate only the hovered img_*
-        imgEl.style.opacity = '1';
-        imgEl.setAttribute('transform', imgEl.dataset.originalTransform);
-        imgEl.style.transition = 'none';
-        imgEl.style.transform = '';
-        void imgEl.offsetWidth;
-
-        if (imgEl._leaveTimeout) clearTimeout(imgEl._leaveTimeout);
-        if (imgEl._fadeInTimeout) clearTimeout(imgEl._fadeInTimeout);
-
-        setTimeout(() => {
-          const [x, y] = imgTranslateMap[img];
-          let downTransform;
-          if (img === 'img_3') {
-            downTransform = `translate(${x} ${y - 100})` + imgEl.dataset.originalTransform.replace(/^translate\([^)]+\)/, '');
-          } else {
-            downTransform = `translate(${x} ${y + 90})` + imgEl.dataset.originalTransform.replace(/^translate\([^)]+\)/, '');
-          }
-          imgEl.style.transition = 'transform 4s cubic-bezier(.4,1.4,.4,1), opacity 0.3s';
-          imgEl.setAttribute('transform', downTransform);
-          imgEl.style.transform = '';
-        }, 50);
-      });
-
-      newTitleEl.addEventListener('mouseleave', () => {
+      if (imgEl) {
         imgEl.style.transition = 'opacity 0.5s, transform 0.7s cubic-bezier(.4,1.4,.4,1)';
         imgEl.style.opacity = '0';
 
@@ -5507,8 +5597,10 @@ function setupTitleEvents(svgElement, layer) {
             if (defaultImgEl) defaultImgEl.style.opacity = '1';
           }, 200);
         }, 250);
-      });
-    }
+      }
+    });
+
+    
 
     // Click handler with text element management
     newTitleEl.addEventListener('click', (event) => {
@@ -5525,61 +5617,85 @@ function setupTitleEvents(svgElement, layer) {
         // Hide image
         const imgEl = svgElement.querySelector(`#${img}`);
         if (imgEl) imgEl.style.opacity = '0';
-        activeTitleEl = null;
-        activeTextEl = null;
-        window.hardSkillsTitleClicked = false;
+        if (imgEl) imgEl.setAttribute('transform', imgEl.dataset.originalTransform || '');
+        // activeTitleEl = null;
+        // activeTextEl = null;
+        window.hardSkillsTitleClicked = null;
+
+        // Show and animate only the default image for this group
+        const defaultImgId = groupToDefaultImg[layer.group];
+        const defaultImg = svgElement.querySelector(`#${defaultImgId}`);
+        const def = defaultHardSkillsImages.find(d => d.imgId === defaultImgId);
+        if (defaultImg && def) {
+          defaultImg.style.opacity = '1';
+          defaultImg.setAttribute('transform', defaultImg.dataset.originalTransform || '');
+          defaultImg.style.transition = 'none';
+          defaultImg.style.transform = '';
+          void defaultImg.offsetWidth;
+          setTimeout(() => {
+            let downTransform;
+            if (defaultImgId === 'img_d3') {
+              downTransform = `translate(${def.translate[0]} ${def.translate[1] - 100})` + (defaultImg.dataset.originalTransform || '').replace(/^translate\([^)]+\)/, '');
+            } else {
+              downTransform = `translate(${def.translate[0]} ${def.translate[1] + 90})` + (defaultImg.dataset.originalTransform || '').replace(/^translate\([^)]+\)/, '');
+            }
+            defaultImg.style.transition = 'transform 2000ms cubic-bezier(.4,1.4,.4,1), opacity 0.3s';
+            defaultImg.setAttribute('transform', downTransform);
+            defaultImg.style.transform = '';
+          }, 50);
+        }
+
         return;
       }
 
-      // Hide previously active text and image
-      if (activeTextEl) activeTextEl.style.opacity = '0';
-      if (activeTitleEl) {
-        activeTitleEl.dataset.clicked = 'false';
-        activeTitleEl.style.fill = activeTitleEl.dataset.origFill;
-        // Hide previous image
-        const prevImg = svgElement.querySelector(`#${layer.titles.find(t => t.title === activeTitleEl.id)?.img}`);
-        if (prevImg) prevImg.style.opacity = '0';
-      }
+    // --- FIX: Hide previous text if another title is already active ---
+    if (activeTextEl && activeTextEl !== textEl) {
+      activeTextEl.style.opacity = '0';
+    }
+    if (activeTitleEl && activeTitleEl !== newTitleEl) {
+      activeTitleEl.dataset.clicked = 'false';
+      activeTitleEl.style.fill = activeTitleEl.dataset.origFill;
+      activeTitleEl.style.fontWeight = activeTitleEl.dataset.origWeight;
+    }
 
-      // Hide all other images
-      Object.keys(imgTranslateMap).forEach(imgKey => {
-        if (imgKey !== img) {
-          const otherImg = svgElement.querySelector(`#${imgKey}`);
-          if (otherImg) otherImg.style.opacity = '0';
+    // Hide all group images and default image for this group
+    layer.titles.forEach(t => {
+      const otherImg = svgElement.querySelector(`#${t.img}`);
+      if (otherImg && otherImg !== imgEl) otherImg.style.opacity = '0';
+    });
+    if (defaultImgEl) defaultImgEl.style.opacity = '0';
+
+    // Show and animate the clicked image
+    if (imgEl && imgTranslateMap[img]) {
+      imgEl.style.opacity = '1';
+      imgEl.setAttribute('transform', imgEl.dataset.originalTransform || '');
+      imgEl.style.transition = 'none';
+      imgEl.style.transform = '';
+      void imgEl.offsetWidth;
+      setTimeout(() => {
+        let downTransform;
+        if (img === 'img_3') {
+          downTransform = `translate(${imgTranslateMap[img][0]} ${imgTranslateMap[img][1] - 100})` + (imgEl.dataset.originalTransform || '').replace(/^translate\([^)]+\)/, '');
+        } else {
+          downTransform = `translate(${imgTranslateMap[img][0]} ${imgTranslateMap[img][1] + 90})` + (imgEl.dataset.originalTransform || '').replace(/^translate\([^)]+\)/, '');
         }
-      });
+        imgEl.style.transition = 'transform 40000ms cubic-bezier(.4,1.4,.4,1), opacity 0.3s';
+        imgEl.setAttribute('transform', downTransform);
+        imgEl.style.transform = '';
+      }, 50);
+    }
 
       // Show new text
       textEl.style.opacity = '1';
       newTitleEl.dataset.clicked = 'true';
       newTitleEl.style.fill = '#ffca31';
 
-      // Show and keep the image visible
-      const imgEl = svgElement.querySelector(`#${img}`);
-      if (imgEl) {
-        imgEl.style.opacity = '1';
-        imgEl.setAttribute('transform', imgEl.dataset.originalTransform || '');
-        imgEl.style.transition = 'none';
-        imgEl.style.transform = '';
-        void imgEl.offsetWidth;
-        setTimeout(() => {
-          const [x, y] = imgTranslateMap[img];
-          let downTransform;
-          if (img === 'img_3') {
-            downTransform = `translate(${x} ${y - 100})` + (imgEl.dataset.originalTransform || '').replace(/^translate\([^)]+\)/, '');
-          } else {
-            downTransform = `translate(${x} ${y + 90})` + (imgEl.dataset.originalTransform || '').replace(/^translate\([^)]+\)/, '');
-          }
-          imgEl.style.transition = 'transform 40000ms cubic-bezier(.4,1.4,.4,1), opacity 0.3s';
-          imgEl.setAttribute('transform', downTransform);
-          imgEl.style.transform = '';
-        }, 50);
-      }
-
       // Update active elements
       activeTextEl = textEl;
       activeTitleEl = newTitleEl;
-      window.hardSkillsTitleClicked = true;
+      window.hardSkillsTitleClicked = newTitleEl.id;
+
+      console.log('Clicked title:', window.hardSkillsTitleClicked);
     });
   });
 }
@@ -5609,13 +5725,36 @@ function setupGlobalClickHandler(svgElement, layers) {
 
     // Reset state
     state.activeTitleEl = null;
-    window.hardSkillsTitleClicked = false;
-    
+    window.hardSkillsTitleClicked = null;
+
+    // Restore default images
+    Object.values(groupToDefaultImg).forEach(imgId => {
+      const img = svgElement.querySelector(`#${imgId}`);
+      const def = defaultHardSkillsImages.find(d => d.imgId === imgId);
+      if (img && def) {
+        img.style.opacity = '1';
+        img.setAttribute('transform', img.dataset.originalTransform || '');
+        img.style.transition = 'none';
+        img.style.transform = '';
+        void img.offsetWidth;
+        setTimeout(() => {
+          let downTransform;
+          if (imgId === 'img_d3') {
+            downTransform = `translate(${def.translate[0]} ${def.translate[1] - 100})` + (img.dataset.originalTransform || '').replace(/^translate\([^)]+\)/, '');
+          } else {
+            downTransform = `translate(${def.translate[0]} ${def.translate[1] + 90})` + (img.dataset.originalTransform || '').replace(/^translate\([^)]+\)/, '');
+          }
+          img.style.transition = 'transform 2000ms cubic-bezier(.4,1.4,.4,1), opacity 0.3s';
+          img.setAttribute('transform', downTransform);
+          img.style.transform = '';
+        }, 50);
+      }
+    });
+
     // Trigger default animation
     animateHardSkillsDefaultImages(svgElement);
   });
 }
-
 //#endregion
 
 //#region 4. Main Initialization - HARD-SKILLS
@@ -5675,8 +5814,8 @@ async function HARDSKILLSfunction() {
 
     // 6. Initialize features in sequence, with error handling
     try {
-      await animateHardSkillsLayers(svgHardSkillsContent);
-      await addHardSkillsLayerHoverEffects(svgHardSkillsContent);
+      animateHardSkillsLayers(svgHardSkillsContent);
+      addHardSkillsLayerHoverEffects(svgHardSkillsContent);
       
       // Start background animations last
       requestAnimationFrame(() => {
@@ -5695,10 +5834,7 @@ async function HARDSKILLSfunction() {
     hideLoadingOverlay();
   }
 }
-
 //#endregion
-
-
 
 
 
