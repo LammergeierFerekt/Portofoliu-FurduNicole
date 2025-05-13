@@ -673,7 +673,7 @@ function setupTitleEvents(svgElement, layer) {
           } else {
             downTransform = `translate(${translate[0]} ${translate[1] + 90})` + (imgEl.dataset.originalTransform || '').replace(/^translate\([^)]+\)/, '');
           }
-          imgEl.style.transition = 'transform 40000ms cubic-bezier(.4,1.4,.4,1), opacity 0.3s';
+          imgEl.style.transition = 'transform 60s cubic-bezier(.4,1.4,.4,1), opacity 0.3s';
           imgEl.setAttribute('transform', downTransform);
           imgEl.style.transform = '';
         }, 50);
@@ -720,7 +720,7 @@ function setupTitleEvents(svgElement, layer) {
             } else {
               downTransform = `translate(${clickedTranslate[0]} ${clickedTranslate[1] + 90})` + (clickedImg.dataset.originalTransform || '').replace(/^translate\([^)]+\)/, '');
             }
-            clickedImg.style.transition = 'transform 40000ms cubic-bezier(.4,1.4,.4,1), opacity 0.3s';
+            clickedImg.style.transition = 'transform 60s cubic-bezier(.4,1.4,.4,1), opacity 0.3s';
             clickedImg.setAttribute('transform', downTransform);
             clickedImg.style.transform = '';
           }, 50);
@@ -772,8 +772,6 @@ function setupTitleEvents(svgElement, layer) {
       }
     });
 
-    
-
     // Click handler with text element management
     newTitleEl.addEventListener('click', (event) => {
       event.stopPropagation();
@@ -782,6 +780,41 @@ function setupTitleEvents(svgElement, layer) {
       if (!textEl) return;
 
 
+
+      // Reset all titles and texts in the same layer
+      layer.titles.forEach(({ title, img, show }) => {
+        const titleEl = svgElement.querySelector(`#${title}`);
+        const imgEl = svgElement.querySelector(`#${img}`);
+        const textElToReset = svgElement.querySelector(`#${layer.group}_${show.split('_')[1]}_text`);
+
+        // Reset title
+        if (titleEl && titleEl !== newTitleEl) {
+          titleEl.dataset.clicked = 'false';
+          titleEl.style.fill = titleEl.dataset.origFill;
+          titleEl.style.fontWeight = titleEl.dataset.origWeight;
+        }
+
+        // Reset image
+        if (imgEl && titleEl !== newTitleEl) {
+          imgEl.style.opacity = '0';
+          imgEl.setAttribute('transform', imgEl.dataset.originalTransform || '');
+        }
+
+        // Hide the text
+        if (textElToReset && titleEl !== newTitleEl) {
+          textElToReset.style.opacity = '0';
+        }
+      });
+
+
+
+
+
+
+
+
+
+      
       // Reset everything to default if another title is already clicked
       if (window.hardSkillsTitleClicked && window.hardSkillsTitleClicked !== newTitleEl.id) {
         layers.forEach(layer => {
@@ -838,7 +871,6 @@ function setupTitleEvents(svgElement, layer) {
         newTitleEl.dataset.clicked = 'false';
         newTitleEl.style.fill = newTitleEl.dataset.origFill;
         newTitleEl.style.fontWeight = newTitleEl.dataset.origWeight;
-        const textElToReset = svgElement.querySelector(`#${layer.group}_${show.split('_')[1]}_text`);
 
         // Hide the image
         if (imgEl) {
@@ -847,8 +879,8 @@ function setupTitleEvents(svgElement, layer) {
         }
 
         // Hide the text
-        if (textElToReset) {
-          textElToReset.style.opacity = '0';
+        if (textEl) {
+          textEl.style.opacity = '0';
         }
 
         // Reset active elements
@@ -889,7 +921,7 @@ function setupTitleEvents(svgElement, layer) {
           } else {
             downTransform = `translate(${imgTranslateMap[img][0]} ${imgTranslateMap[img][1] + 90})` + (imgEl.dataset.originalTransform || '').replace(/^translate\([^)]+\)/, '');
           }
-          imgEl.style.transition = 'transform 400ms cubic-bezier(.4,1.4,.4,1), opacity 0.3s';
+          imgEl.style.transition = 'transform 60s cubic-bezier(.4,1.4,.4,1), opacity 0.3s';
           imgEl.setAttribute('transform', downTransform);
           imgEl.style.transform = '';
         }, 50);
@@ -954,7 +986,7 @@ function setupGlobalClickHandler(svgElement, layers) {
           } else {
             downTransform = `translate(${def.translate[0]} ${def.translate[1] + 90})` + (img.dataset.originalTransform || '').replace(/^translate\([^)]+\)/, '');
           }
-          img.style.transition = 'transform 2000ms cubic-bezier(.4,1.4,.4,1), opacity 0.3s';
+          img.style.transition = 'transform 60s cubic-bezier(.4,1.4,.4,1), opacity 0.3s';
           img.setAttribute('transform', downTransform);
           img.style.transform = '';
         }, 50);

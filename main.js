@@ -5489,7 +5489,7 @@ function setupTitleEvents(svgElement, layer) {
           } else {
             downTransform = `translate(${translate[0]} ${translate[1] + 90})` + (imgEl.dataset.originalTransform || '').replace(/^translate\([^)]+\)/, '');
           }
-          imgEl.style.transition = 'transform 40000ms cubic-bezier(.4,1.4,.4,1), opacity 0.3s';
+          imgEl.style.transition = 'transform 60s cubic-bezier(.4,1.4,.4,1), opacity 0.3s';
           imgEl.setAttribute('transform', downTransform);
           imgEl.style.transform = '';
         }, 50);
@@ -5536,7 +5536,7 @@ function setupTitleEvents(svgElement, layer) {
             } else {
               downTransform = `translate(${clickedTranslate[0]} ${clickedTranslate[1] + 90})` + (clickedImg.dataset.originalTransform || '').replace(/^translate\([^)]+\)/, '');
             }
-            clickedImg.style.transition = 'transform 40000ms cubic-bezier(.4,1.4,.4,1), opacity 0.3s';
+            clickedImg.style.transition = 'transform 60s cubic-bezier(.4,1.4,.4,1), opacity 0.3s';
             clickedImg.setAttribute('transform', downTransform);
             clickedImg.style.transform = '';
           }, 50);
@@ -5737,7 +5737,7 @@ function setupTitleEvents(svgElement, layer) {
           } else {
             downTransform = `translate(${imgTranslateMap[img][0]} ${imgTranslateMap[img][1] + 90})` + (imgEl.dataset.originalTransform || '').replace(/^translate\([^)]+\)/, '');
           }
-          imgEl.style.transition = 'transform 400ms cubic-bezier(.4,1.4,.4,1), opacity 0.3s';
+          imgEl.style.transition = 'transform 60s cubic-bezier(.4,1.4,.4,1), opacity 0.3s';
           imgEl.setAttribute('transform', downTransform);
           imgEl.style.transform = '';
         }, 50);
@@ -5802,7 +5802,7 @@ function setupGlobalClickHandler(svgElement, layers) {
           } else {
             downTransform = `translate(${def.translate[0]} ${def.translate[1] + 90})` + (img.dataset.originalTransform || '').replace(/^translate\([^)]+\)/, '');
           }
-          img.style.transition = 'transform 2000ms cubic-bezier(.4,1.4,.4,1), opacity 0.3s';
+          img.style.transition = 'transform 60s cubic-bezier(.4,1.4,.4,1), opacity 0.3s';
           img.setAttribute('transform', downTransform);
           img.style.transform = '';
         }, 50);
