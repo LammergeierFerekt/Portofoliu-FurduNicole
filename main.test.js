@@ -106,46 +106,35 @@ function animateHardSkillsDefaultImages(svgElement, imgId, translate) {
 }
 // Reset function for elements
 function resetElement(svgElement, titleId, showId, imgId, layer) {
+
   // Reset title element
   const titleEl = svgElement.querySelector(`#${titleId}`);
   if (titleEl) {
-     // Only reset if this title is not the currently clicked one
-    if (window.hardSkillsTitleClicked !== titleId) {
-      titleEl.dataset.clicked = 'false';
-      titleEl.style.fill = titleEl.dataset.origFill || '';
+    // Reset the title element regardless of whether it's currently clicked
+    titleEl.dataset.clicked = 'false';
+    titleEl.style.fill = titleEl.dataset.origFill || '';
   }
-}
-
-
 
   // Reset text element
   const textEl = svgElement.querySelector(`#${layer.group}_${showId.split('_')[1]}_text`);
   if (textEl) {
-     // Only reset if this title is not the currently clicked one
-    if (window.hardSkillsTitleClicked !== titleId) {
-      textEl.style.opacity = '0';
-    }
+    textEl.style.opacity = '0';
   }
-  
 
   // Reset image element
   const imgEl = svgElement.querySelector(`#${imgId}`);
-  if (imgEl) { // Only reset if this title is not the currently clicked one
-    if (window.hardSkillsTitleClicked !== titleId) {
-      resetImageTransform(imgEl);
-    }
+  if (imgEl) {
+    resetImageTransform(imgEl);
   }
 
   // Reset any other layer-specific elements
   if (layer.all) {
-      layer.all.forEach(id => {
-          const el = svgElement.querySelector(`#${id}`);
-          if (el) {
-            if (window.hardSkillsTitleClicked !== titleId) {
-            el.style.opacity = '0';
-            }
-          }
-      });
+    layer.all.forEach(id => {
+      const el = svgElement.querySelector(`#${id}`);
+      if (el) {
+        el.style.opacity = '0';
+      }
+    });
   }
 }
 
@@ -636,15 +625,16 @@ function setupTitleEvents(svgElement, layer) {
         imgEl.dataset.originalTransform = imgEl.getAttribute('transform') || '';
       }
     }
-
+    if (window.hardSkillsTitleClicked && window.hardSkillsTitleClicked !== newTitleEl.id) {
+      return;
+    }
     // Hover handlers
     newTitleEl.addEventListener('mouseenter', () => {
-      // Prevent hover effect if a title is clicked and it's not this title
+      // Allow hover effects even if a title is clicked
       if (window.hardSkillsTitleClicked && window.hardSkillsTitleClicked !== newTitleEl.id) {
         return;
       }
       // Highlight hovered title
-    
       newTitleEl.style.cursor = 'pointer';
       newTitleEl.style.fill = '#ffca31';
       newTitleEl.style.fontWeight = 'bold';
@@ -692,7 +682,7 @@ function setupTitleEvents(svgElement, layer) {
 
     newTitleEl.addEventListener('mouseleave', () => {
       // If a title is clicked, restore its highlight and image after leaving any other title
-      if (window.hardSkillsTitleClicked) {
+      if (window.hardSkillsTitleClicked && window.hardSkillsTitleClicked) {
         // Restore highlight for clicked title
         const clickedTitle = svgElement.querySelector(`#${window.hardSkillsTitleClicked}`);
         if (clickedTitle) {
@@ -791,90 +781,128 @@ function setupTitleEvents(svgElement, layer) {
       const textEl = svgElement.querySelector(`#${layer.group}_${show.split('_')[1]}_text`);
       if (!textEl) return;
 
-      // If clicking the same title again, hide its text and image
-      if (newTitleEl === activeTitleEl) {
-        textEl.style.opacity = '0';
+
+      // Reset everything to default if another title is already clicked
+      if (window.hardSkillsTitleClicked && window.hardSkillsTitleClicked !== newTitleEl.id) {
+        layers.forEach(layer => {
+          layer.titles.forEach(({ title, img, all }) => {
+            const titleEl = svgElement.querySelector(`#${title}`);
+            const imgEl = svgElement.querySelector(`#${img}`);
+            const defaultImgId = groupToDefaultImg[layer.group];
+            const defaultImgEl = svgElement.querySelector(`#${defaultImgId}`);
+            const textElToReset = svgElement.querySelector(`#${layer.group}_${show.split('_')[1]}_text`);
+
+            // Reset title
+            if (titleEl) {
+              titleEl.dataset.clicked = 'false';
+              titleEl.style.fill = titleEl.dataset.origFill;
+              titleEl.style.fontWeight = titleEl.dataset.origWeight;
+            }
+
+            // Reset image
+            if (imgEl) {
+              imgEl.style.opacity = '0';
+              imgEl.setAttribute('transform', imgEl.dataset.originalTransform || '');
+            }
+
+            // Reset default image
+            if (defaultImgEl) {
+              defaultImgEl.style.opacity = '1';
+              defaultImgEl.setAttribute('transform', defaultImgEl.dataset.originalTransform || '');
+            }
+
+
+            // Hide the text
+            if (textElToReset) {
+              textElToReset.style.opacity = '0';
+            }
+
+            // Reset group display
+            if (all) {
+              all.forEach(gid => {
+                const g = svgElement.querySelector(`#${gid}`);
+                if (g) g.style.display = gid.endsWith('_default') ? '' : 'none';
+              });
+            }
+          });
+        });
+
+        // Reset global state
+        window.hardSkillsTitleClicked = null;
+        activeTitleEl = null;
+        activeTextEl = null;
+      }
+
+      // If clicking the same title again, reset its state
+      if (newTitleEl.dataset.clicked === 'true') {
         newTitleEl.dataset.clicked = 'false';
         newTitleEl.style.fill = newTitleEl.dataset.origFill;
-        // Hide image
-        const imgEl = svgElement.querySelector(`#${img}`);
-        if (imgEl) imgEl.style.opacity = '0';
-        if (imgEl) imgEl.setAttribute('transform', imgEl.dataset.originalTransform || '');
-        // activeTitleEl = null;
-        // activeTextEl = null;
-        window.hardSkillsTitleClicked = null;
+        newTitleEl.style.fontWeight = newTitleEl.dataset.origWeight;
+        const textElToReset = svgElement.querySelector(`#${layer.group}_${show.split('_')[1]}_text`);
 
-        // Show and animate only the default image for this group
-        const defaultImgId = groupToDefaultImg[layer.group];
-        const defaultImg = svgElement.querySelector(`#${defaultImgId}`);
-        const def = defaultHardSkillsImages.find(d => d.imgId === defaultImgId);
-        if (defaultImg && def) {
-          defaultImg.style.opacity = '1';
-          defaultImg.setAttribute('transform', defaultImg.dataset.originalTransform || '');
-          defaultImg.style.transition = 'none';
-          defaultImg.style.transform = '';
-          void defaultImg.offsetWidth;
-          setTimeout(() => {
-            let downTransform;
-            if (defaultImgId === 'img_d3') {
-              downTransform = `translate(${def.translate[0]} ${def.translate[1] - 100})` + (defaultImg.dataset.originalTransform || '').replace(/^translate\([^)]+\)/, '');
-            } else {
-              downTransform = `translate(${def.translate[0]} ${def.translate[1] + 90})` + (defaultImg.dataset.originalTransform || '').replace(/^translate\([^)]+\)/, '');
-            }
-            defaultImg.style.transition = 'transform 2000ms cubic-bezier(.4,1.4,.4,1), opacity 0.3s';
-            defaultImg.setAttribute('transform', downTransform);
-            defaultImg.style.transform = '';
-          }, 50);
+        // Hide the image
+        if (imgEl) {
+          imgEl.style.opacity = '0';
+          imgEl.setAttribute('transform', imgEl.dataset.originalTransform || '');
         }
+
+        // Hide the text
+        if (textElToReset) {
+          textElToReset.style.opacity = '0';
+        }
+
+        // Reset active elements
+        activeTitleEl = null;
+        activeTextEl = null;
+        window.hardSkillsTitleClicked = null;
 
         return;
       }
 
-    // --- FIX: Hide previous text if another title is already active ---
-    if (activeTextEl && activeTextEl !== textEl) {
-      activeTextEl.style.opacity = '0';
-    }
-    if (activeTitleEl && activeTitleEl !== newTitleEl) {
-      activeTitleEl.dataset.clicked = 'false';
-      activeTitleEl.style.fill = activeTitleEl.dataset.origFill;
-      activeTitleEl.style.fontWeight = activeTitleEl.dataset.origWeight;
-    }
-
-    // Hide all group images and default image for this group
-    layer.titles.forEach(t => {
-      const otherImg = svgElement.querySelector(`#${t.img}`);
-      if (otherImg && otherImg !== imgEl) otherImg.style.opacity = '0';
-    });
-    if (defaultImgEl) defaultImgEl.style.opacity = '0';
-
-    // Show and animate the clicked image
-    if (imgEl && imgTranslateMap[img]) {
-      imgEl.style.opacity = '1';
-      imgEl.setAttribute('transform', imgEl.dataset.originalTransform || '');
-      imgEl.style.transition = 'none';
-      imgEl.style.transform = '';
-      void imgEl.offsetWidth;
-      setTimeout(() => {
-        let downTransform;
-        if (img === 'img_3') {
-          downTransform = `translate(${imgTranslateMap[img][0]} ${imgTranslateMap[img][1] - 100})` + (imgEl.dataset.originalTransform || '').replace(/^translate\([^)]+\)/, '');
-        } else {
-          downTransform = `translate(${imgTranslateMap[img][0]} ${imgTranslateMap[img][1] + 90})` + (imgEl.dataset.originalTransform || '').replace(/^translate\([^)]+\)/, '');
-        }
-        imgEl.style.transition = 'transform 40000ms cubic-bezier(.4,1.4,.4,1), opacity 0.3s';
-        imgEl.setAttribute('transform', downTransform);
-        imgEl.style.transform = '';
-      }, 50);
-    }
-
-      // Show new text
-      textEl.style.opacity = '1';
+      // Mark the new title as clicked
       newTitleEl.dataset.clicked = 'true';
+
+      // Apply hover effects (duplicated from mouseenter)
+      newTitleEl.style.cursor = 'pointer';
       newTitleEl.style.fill = '#ffca31';
+      newTitleEl.style.fontWeight = 'bold';
+
+      // Hide all group images and default image for this group
+      if (all) {
+        all.forEach(gid => {
+          const g = svgElement.querySelector(`#${gid}`);
+          if (g) g.style.display = (gid === show) ? '' : 'none';
+        });
+      }
+
+      // Show and animate the clicked image
+      if (imgEl && imgTranslateMap[img]) {
+        imgEl.style.opacity = '1';
+        imgEl.setAttribute('transform', imgEl.dataset.originalTransform || '');
+        imgEl.style.transition = 'none';
+        imgEl.style.transform = '';
+        void imgEl.offsetWidth;
+        setTimeout(() => {
+          let downTransform;
+          if (img === 'img_3') {
+            downTransform = `translate(${imgTranslateMap[img][0]} ${imgTranslateMap[img][1] - 100})` + (imgEl.dataset.originalTransform || '').replace(/^translate\([^)]+\)/, '');
+          } else {
+            downTransform = `translate(${imgTranslateMap[img][0]} ${imgTranslateMap[img][1] + 90})` + (imgEl.dataset.originalTransform || '').replace(/^translate\([^)]+\)/, '');
+          }
+          imgEl.style.transition = 'transform 400ms cubic-bezier(.4,1.4,.4,1), opacity 0.3s';
+          imgEl.setAttribute('transform', downTransform);
+          imgEl.style.transform = '';
+        }, 50);
+      }
+
+      // Show the text
+      if (textEl) {
+        textEl.style.opacity = '1';
+      }
 
       // Update active elements
-      activeTextEl = textEl;
       activeTitleEl = newTitleEl;
+      activeTextEl = textEl;
       window.hardSkillsTitleClicked = newTitleEl.id;
 
       console.log('Clicked title:', window.hardSkillsTitleClicked);
