@@ -425,25 +425,6 @@ a {
 
 
 
-
-
-#cv_content,
-#checkpoint-container {
-  position: fixed;
-  top: 55%;
-  left: 50%;
-  width: 90vh;
-  height: 75vh;
-  max-width: 95vw;
-  max-height: 80vh;
-  transform: translate(-50%, -50%);
-  background: transparent;
-  display: block;
-  margin: 0 auto;
-  z-index: 1000;
-  transition: opacity 0.5s, transform 0.5s;
-}
-
 #cv_content.active,
  #checkpoint-container.active{
   visibility: visible; /* Make it visible */
@@ -452,21 +433,56 @@ a {
 }
 
 
+#cv_content{
+  position: fixed;
+  top: 55%;
+  left: 50%;
+  width: 120vh;
+  height: 100vh;
+  max-width: 120vw;
+  max-height: 115vh;
+  transform: translate(-50%, -50%);
+  background: transparent;
+  display: block;
+  margin: 0 auto;
+  z-index: 1000;
+
+}
+
+
+#checkpoint-container {
+    position: fixed;
+    top: 40%;
+    left: 50%;
+    width: 60%;
+    height: 65%;
+    max-width: 65%;
+    max-height: 70%;
+    background: transparent;
+    z-index: 8000;
+  }
+
 
 
 
 /* Responsive: mobile screens */
 @media (max-width: 700px) {
-  #cv_content,
-  #checkpoint-container {
-    width: 90%;
-    height: 90%;
-    max-width: 100%;
-    max-height: 100%;
+  #cv_content{
+    max-width: 115vh;
     top: 50%;
     left: 50%;
-    transform: translate(-50%, -50%);
+    transform: translate(-50%, -65%);
   }
+  #cv_content.active {
+    opacity: 1;
+    visibility: visible;
+    /* Optional: add a subtle box-shadow for effect */
+  } 
+  #checkpoint {
+    position: fixed;
+    visibility: hidden;
+  }
+    
 }
 
 
@@ -488,7 +504,7 @@ a {
   overflow: visible; /* Allow content to overflow visibly */
 
   z-index: 1000;
-  transition: opacity 0.5s, transform 0.5s;
+ 
 }
 
 

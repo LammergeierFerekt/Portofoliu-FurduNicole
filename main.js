@@ -4835,7 +4835,17 @@ async function insertCheckpointSVG() {
       // Ensure the current tab is still active before appending the SVG
       if (document.getElementById('checkpoint-container') === container) {
         container.innerHTML = '';
-        container.appendChild(svgDoc.documentElement);
+
+
+        // Get the <svg> element and apply styles
+        const svgElement = svgDoc.documentElement;
+
+        container.appendChild(svgElement);
+
+
+
+
+
       }
     }
   } catch (err) {
@@ -4870,15 +4880,20 @@ function showCheckpointAnimation() {
         : svg.querySelector('#checkpoint');
       if (checkpoint) {
         checkpoint.style.filter = 'drop-shadow(0 0 12px #ffe066)';
+        
       }
     }
 
     // --- Set initial checkpoint position ---
     setTimeout(() => {
       const rect = container.getBoundingClientRect();
+    
+      container.style.top = '50%';
+
       const event = {
         clientX: rect.left + rect.width / 2,
         clientY: rect.top + rect.height / 2
+
       };
       moveCheckpoint(event);
     }, 0);
