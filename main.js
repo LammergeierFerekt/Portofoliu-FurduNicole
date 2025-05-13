@@ -4165,12 +4165,6 @@ function reverseFogEffect(svgElement, callback) {
 }
 
 
-
-
-
-
-
-
 //#endregion
 
 //#region 4.Parsing content files 
@@ -4305,13 +4299,15 @@ if (addBlankAtEnd && pageImages.length % 2 !== 0) {
 
 // CV SVG FILE HANDLING - Svg strings
 async function CVfunction(svgType) {
+
+  // Set the loading state to true
+  isHARDSKILLSfunctionLoading = false;
+
   const interactiveContainer = document.querySelector('.interactive-container');
   if (!interactiveContainer) {
     hideLoadingOverlay();
     return;
   }
-
-
 
   function addCvSvgHoverEffects(svgElement) {
     const groupNumbers = [1, 2, 4, 5, 6, 7, 8, 9, 10, 11, 12, 15];
@@ -4667,20 +4663,12 @@ async function CVfunction(svgType) {
     });
   }
 
-
-
-
-
-
-
-
-
   try {
     hideAllPdfContainers();
     showLoadingOverlay();
 
 
-    
+
 
     const loadingSpinner = document.getElementById('loading-spinner');
     if (loadingSpinner && !loadingSpinner.querySelector('svg')) {
@@ -4816,9 +4804,26 @@ function moveCheckpoint(event) {
 
 // Insert the checkpoint SVG if not already present
 async function insertCheckpointSVG() {
+  // Prevent loading if HARDSKILLSfunction is running
+  if (isHARDSKILLSfunctionLoading) {
+    console.warn('insertCheckpointSVG() is blocked because HARDSKILLSfunction() is loading.');
+
+    // Ensure checkpoint elements are hidden
+    const checkpointContainer = document.getElementById('checkpoint-container');
+    if (checkpointContainer) {
+      checkpointContainer.style.opacity = '0';
+      checkpointContainer.style.visibility = 'hidden';
+      checkpointContainer.innerHTML = ''; // Remove any existing checkpoint SVG
+    }
+
+    return; // Exit the function early
+  }
+
   try {
     const container = document.getElementById('checkpoint-container');
     if (!container) throw new Error('Checkpoint container not found');
+    
+    // Check if the SVG is already present
     if (!container.querySelector('svg')) {
       const response = await fetch('public/checkpoint.svg');
       if (!response.ok) throw new Error('Failed to load checkpoint.svg');
@@ -4826,10 +4831,12 @@ async function insertCheckpointSVG() {
       const parser = new DOMParser();
       const svgDoc = parser.parseFromString(svgText, 'image/svg+xml');
       if (svgDoc.querySelector('parsererror')) throw new Error('SVG parsing error');
-      container.innerHTML = '';
-      container.appendChild(svgDoc.documentElement);
       
-      
+      // Ensure the current tab is still active before appending the SVG
+      if (document.getElementById('checkpoint-container') === container) {
+        container.innerHTML = '';
+        container.appendChild(svgDoc.documentElement);
+      }
     }
   } catch (err) {
     console.error('Error inserting checkpoint SVG:', err);
@@ -4892,7 +4899,7 @@ function hideCheckpointAnimation() {
 
 //#region HARDSKILLS SVG FILE HANDLING - Svg strings 
 
-//#region 1. Global Foundation - CONFIGURATION DATA - HARD-SKILLS
+//#region 4.1 Global Foundation - CONFIGURATION DATA - HARD-SKILLS
 let activeTitleEl = null;
 let activeImgEl = null;
 
@@ -4984,7 +4991,7 @@ window.hardSkillsTitleClicked = null;
 
 //#endregion
 
-//#region 2. Core Utilities - IMAGE ANIMATION UTILITIES - HARD-SKILLS
+//#region 4.2 Core Utilities - IMAGE ANIMATION UTILITIES - HARD-SKILLS
 
 // Function to animate default images
 function animateHardSkillsDefaultImages(svgElement, imgId, translate) {
@@ -5186,7 +5193,7 @@ function attachDefaultImageHover(svgElement) {
 
 //#endregion
 
-//#region 3. Feature Components - LAYER ANIMATION - HARD-SKILLS
+//#region 4.3 Feature Components - LAYER ANIMATION - HARD-SKILLS
 
 // Hover effect on the main SVG elements
 async function handleHardSkillsSVG(interactiveContainer) {
@@ -5891,16 +5898,33 @@ function setupGlobalClickHandler(svgElement, layers) {
 }
 //#endregion
 
-//#region 4. Main Initialization - HARD-SKILLS
+//#region 4.4 Main Initialization - HARD-SKILLS
+
+// Add a shared state variable
+let isHARDSKILLSfunctionLoading = false;
 
 async function HARDSKILLSfunction() {
   try {
+
+    // Set the loading state to true
+    isHARDSKILLSfunctionLoading = true;
+
+
+    // Hide or remove checkpoint elements
+    const checkpointContainer = document.getElementById('checkpoint-container');
+    if (checkpointContainer) {
+      checkpointContainer.style.opacity = '0';
+      checkpointContainer.style.visibility = 'hidden';
+      checkpointContainer.innerHTML = ''; // Remove any existing checkpoint SVG
+    }
+
     // Reset state first
     state.isHovering = false;
     state.activeTitleEl = null;
     state.activeImgEl = null;
     state.hardSkillsImageHovered = false;
     if (state.hoverTimeout) clearTimeout(state.hoverTimeout);
+
 
     hideAllPdfContainers();
     hideAllSvgContainers(); // Add this to clear other SVGs
@@ -5966,9 +5990,9 @@ async function HARDSKILLSfunction() {
   } catch (err) {
     console.error('Error in HARDSKILLSfunction:', err);
     hideLoadingOverlay();
+    hideCheckpointAnimation();
   }
 }
-//#endregion
 
 // Parse the HARD-SKILLS SVG string HERE
 async function processSvgFile(svgString, totalSteps, loadingElements, currentStep) {
@@ -6009,13 +6033,14 @@ async function processSvgFile(svgString, totalSteps, loadingElements, currentSte
   // Return the parsed SVG element
   return svgHardSkillsContent;
 }
-    
-//#endregion
-
 
 //#endregion
 
-//#region 5. Effects& functions for design elements (artwork_div_1)
+//#endregion
+
+//#endregion
+
+//#region 5.Effects & functions for design elements (artwork_div_1)
 
 // Function to add hover effects to main elements
 function addHoverEffectToMainElements() {
@@ -6213,7 +6238,6 @@ window.onload = function () {
 //#endregion
 
 //#endregion
-
 
 
 
