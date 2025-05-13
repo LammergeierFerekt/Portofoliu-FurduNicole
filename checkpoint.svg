@@ -1,18 +1,12 @@
-<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 100 100">
-  <defs>
-    <filter id="cp5" x="4.57" y="4.96" width="91" height="91" filterUnits="userSpaceOnUse">
-      <feOffset input="SourceAlpha"/>
-      <feGaussianBlur stdDeviation="10" result="blur"/>
-      <feFlood flood-color="#ffca31"/>
-      <feComposite operator="in" in2="blur"/>
-      <feComposite in="SourceGraphic"/>
-    </filter>
-  </defs>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1700 1467.19">
+  <g id="traseu">
+    <polyline points="846.13 38.74 846.13 146.51 846.13 249.56 846.13 377.08 846.13 434.82 846.13 559.59 846.13 708.83 846.13 755.06 846.13 937.07 846.13 991.55 846.13 1167.05 846.13 1331.19" style="fill: none;stroke: #000;stroke-miterlimit: 10"/>
+  </g>
   <g id="checkpoint">
-    <circle id="cp5-2" data-name="cp5" cx="50" cy="50" r="15" style="fill: #ab2726;filter: url(#cp5)"/>
-    <circle id="cp4" cx="50" cy="50" r="10.19" style="fill: #ffca31"/>
-    <path id="cp3" d="M55,56.48A8.15,8.15,0,0,1,44.48,56" style="fill: none;stroke: #fff;stroke-linecap: round;stroke-linejoin: round;stroke-width: 2.8346456692913384px;isolation: isolate"/>
-    <circle id="cp2" cx="50" cy="50" r="2.55" style="fill: #231f20"/>
-    <circle id="cp1" cx="52.92" cy="47.86" r="2.55" style="fill: #fff;isolation: isolate"/>
+    <circle id="cp5" cx="846.13" cy="39.06" r="25" style="fill: #ab2726"/>
+    <circle id="cp4" cx="846.13" cy="39.06" r="16.98" style="fill: #ffca31"/>
+    <path id="cp3" d="M854.46,49.86a13.56,13.56,0,0,1-17.53-.8" style="fill: none;stroke: #fff;stroke-linecap: round;stroke-linejoin: round;stroke-width: 2.83464574813843px"/>
+    <circle id="cp2" cx="846.13" cy="39.06" r="4.25" style="fill: #231f20"/>
+    <circle id="cp1" cx="850.99" cy="35.5" r="4.25" style="fill: #fff"/>
   </g>
 </svg>
