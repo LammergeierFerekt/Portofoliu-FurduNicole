@@ -5835,67 +5835,91 @@ function loopRandomHardSkillsImageAnimation(svgElement) {
   triggerRandom();
 }
 
+function HardskillsMobile(hardSkillsSVG) {
+    // Create a DOM parser to parse the SVG string
+    const parser = new DOMParser();
+    const svgDoc = parser.parseFromString(hardSkillsSVG, "image/svg+xml");
+
+    // Filter out unwanted elements
+    const unwantedElements = svgDoc.querySelectorAll('[id*="_text"], [id^="img_"], [id^="clipmask_"]');
+    unwantedElements.forEach(el => el.remove());
+
+    // Serialize the filtered SVG back to a string
+    const serializer = new XMLSerializer();
+    return serializer.serializeToString(svgDoc);
+}
+
 // Disable loop functions and effects on mobile
 function isMobile() {
-  const isMobileDevice = window.innerWidth <= 700; // Adjust breakpoint as needed
+    const isMobileDevice = window.innerWidth <= 700; // Adjust breakpoint as needed
 
-  // Show the loading overlay
-  showLoadingOverlay();
+    // Show the loading overlay
+    showLoadingOverlay();
 
-  // Insert the loading eye SVG if not already present
-  const loadingSpinner = document.getElementById('loading-spinner');
-  if (loadingSpinner && !loadingSpinner.querySelector('svg')) {
-    insertLoadingEyeSVG();
-  }
+    // Insert the loading eye SVG if not already present
+    const loadingSpinner = document.getElementById('loading-spinner');
+    if (loadingSpinner && !loadingSpinner.querySelector('svg')) {
+        insertLoadingEyeSVG();
+    }
 
-  // Reset and start the loading animation
-  resetLoadingAnimation();
-  startLoadingAnimation(loadingSpinner);
+    // Reset and start the loading animation
+    resetLoadingAnimation();
+    startLoadingAnimation(loadingSpinner);
 
-  const minimumLoadingTime = 1000; // Minimum loading time in milliseconds
-  const startTime = Date.now();
+    const minimumLoadingTime = 1000; // Minimum loading time in milliseconds
+    const startTime = Date.now();
 
-  if (isMobileDevice) {
-    // Disable specific effects for mobile
-    window.loopRandomHardSkillsImageAnimation = () => {}; // Override with a no-op function
-    window.animateLayerIn = () => Promise.resolve(); // Override with a no-op function that resolves immediately
+    if (isMobileDevice) {
+        // Disable specific effects for mobile
+        window.loopRandomHardSkillsImageAnimation = () => {}; // Override with a no-op function
+        window.animateLayerIn = () => Promise.resolve(); // Override with a no-op function that resolves immediately
 
-    // Enable click functionality for mobile
-    enableMobileClickFunctionality();
+        // Enable click functionality for mobile
+        enableMobileClickFunctionality();
 
-    // Wait for the hard-skills images to load
-    const svgElement = document.querySelector('svg'); // Adjust selector if necessary
-    if (svgElement) {
-      const images = Array.from(svgElement.querySelectorAll('image, [id^="img_d"]'));
-      const imagePromises = images.map(img => {
-        return new Promise(resolve => {
-          if (img.complete || img.naturalWidth > 0) {
-            resolve(); // Image is already loaded
-          } else {
-            img.addEventListener('load', resolve);
-            img.addEventListener('error', resolve); // Resolve even if there's an error
-          }
-        });
-      });
+        // Process the Hard Skills SVG for mobile
+        const hardSkillsSVGElement = document.querySelector('#hard-skills-svg'); // Adjust selector if necessary
+        if (hardSkillsSVGElement) {
+            const hardSkillsSVGString = hardSkillsSVGElement.outerHTML; // Get the SVG as a string
+            const filteredSVG = HardskillsMobile(hardSkillsSVGString); // Call HardskillsMobile to parse and filter
+            hardSkillsSVGElement.outerHTML = filteredSVG; // Replace the original SVG with the filtered one
+        } else {
+            console.warn('Hard Skills SVG element not found.');
+        }
 
-      Promise.all(imagePromises).then(() => {
-        // Ensure the loading animation lasts at least the minimum time
+        // Wait for the hard-skills images to load
+        const svgElement = document.querySelector('svg'); // Adjust selector if necessary
+        if (svgElement) {
+            const images = Array.from(svgElement.querySelectorAll('image, [id^="img_d"]'));
+            const imagePromises = images.map(img => {
+                return new Promise(resolve => {
+                    if (img.complete || img.naturalWidth > 0) {
+                        resolve(); // Image is already loaded
+                    } else {
+                        img.addEventListener('load', resolve);
+                        img.addEventListener('error', resolve); // Resolve even if there's an error
+                    }
+                });
+            });
+
+            Promise.all(imagePromises).then(() => {
+                // Ensure the loading animation lasts at least the minimum time
+                const elapsedTime = Date.now() - startTime;
+                const remainingTime = Math.max(0, minimumLoadingTime - elapsedTime);
+                setTimeout(hideLoadingOverlay, remainingTime); // Hide the loading overlay
+            });
+        } else {
+            console.warn('SVG element not found for image loading check.');
+            hideLoadingOverlay(); // Hide the loading overlay if no SVG is found
+        }
+    } else {
+        // Non-mobile format: Ensure the loading animation lasts at least the minimum time
         const elapsedTime = Date.now() - startTime;
         const remainingTime = Math.max(0, minimumLoadingTime - elapsedTime);
         setTimeout(hideLoadingOverlay, remainingTime); // Hide the loading overlay
-      });
-    } else {
-      console.warn('SVG element not found for image loading check');
-      hideLoadingOverlay(); // Hide the loading overlay if no SVG is found
     }
-  } else {
-    // Non-mobile format: Ensure the loading animation lasts at least the minimum time
-    const elapsedTime = Date.now() - startTime;
-    const remainingTime = Math.max(0, minimumLoadingTime - elapsedTime);
-    setTimeout(hideLoadingOverlay, remainingTime); // Hide the loading overlay
-  }
 
-  return isMobileDevice;
+    return isMobileDevice;
 }
 
 // Function to enable click functionality on mobile
@@ -6522,7 +6546,7 @@ let isHARDSKILLSfunctionLoading = false;
 
 async function HARDSKILLSfunction() {
 
-   // Show the loading overlay
+    // Show the loading overlay
     showLoadingOverlay();
 
     // Insert the loading eye SVG if not already present
@@ -6535,7 +6559,7 @@ async function HARDSKILLSfunction() {
     resetLoadingAnimation();
     startLoadingAnimation(loadingSpinner);
 
-    const minimumLoadingTime =6000; // Minimum loading time in milliseconds
+    const minimumLoadingTime = 6000; // Minimum loading time in milliseconds
     const startTime = Date.now();
 
     // Ensure the loading animation lasts at least the minimum time
@@ -6569,7 +6593,6 @@ async function HARDSKILLSfunction() {
 
     hideAllPdfContainers();
     hideAllSvgContainers(); // Add this to clear other SVGs
-    showLoadingOverlay();
 
     const interactiveContainer = document.querySelector('.interactive-container');
     if (!interactiveContainer) {
@@ -6581,51 +6604,70 @@ async function HARDSKILLSfunction() {
       interactiveContainer.innerHTML = '';
 
       // 1. Parse SVG content first
-      const parser = new DOMParser();
-      const svgDoc = parser.parseFromString(hardSkillsSVG, 'image/svg+xml');
-      if (svgDoc.querySelector('parsererror')) {
-        hideLoadingOverlay();
-        return;
-      }
+      const svgLoadPromise = new Promise(async (resolve, reject) => {
+      try {
+        const parser = new DOMParser();
+        const svgDoc = parser.parseFromString(hardSkillsSVG, 'image/svg+xml');
+        if (svgDoc.querySelector('parsererror')) {
+          reject('Error parsing SVG');
+          return;
+        }
 
-      const svgHardSkillsContent = svgDoc.documentElement;
+        const svgHardSkillsContent = svgDoc.documentElement;
 
-      // 2. Add SVG to DOM first before doing any queries
-      interactiveContainer.appendChild(svgHardSkillsContent);
+        // 2. Add SVG to DOM first before doing any queries
+        interactiveContainer.appendChild(svgHardSkillsContent);
 
-      let hardSkillsContent = svgDoc.getElementById('hard-skills_content');
-      if (!hardSkillsContent) {
-        hardSkillsContent = document.createElementNS('http://www.w3.org/2000/svg', 'g');
-        hardSkillsContent.setAttribute('id', 'hard-skills_content');
-        svgDoc.appendChild(hardSkillsContent); // Append it to the root of the SVG
-      }
+        let hardSkillsContent = svgDoc.getElementById('hard-skills_content');
+        if (!hardSkillsContent) {
+          hardSkillsContent = document.createElementNS('http://www.w3.org/2000/svg', 'g');
+          hardSkillsContent.setAttribute('id', 'hard-skills_content');
+          svgDoc.appendChild(hardSkillsContent); // Append it to the root of the SVG
+        }
 
 
-      // 3. Wait for SVG to be fully loaded
-      await new Promise(resolve => setTimeout(resolve, 100));
+        // 3. Wait for SVG to be fully loaded
+        await new Promise(resolve => setTimeout(resolve, 100));
 
-      // 4. Hide all text elements initially
-      const textElements = svgHardSkillsContent.querySelectorAll('[id$="_text"]');
-      textElements.forEach(textEl => {
-        textEl.style.opacity = '0';
-      });
+        // 4. Hide all text elements initially
+        const textElements = svgHardSkillsContent.querySelectorAll('[id$="_text"]');
+        textElements.forEach(textEl => {
+          textEl.style.opacity = '0';
+        });
 
-      attachDefaultImageHover(svgHardSkillsContent);
-      
-      // 5. Show container
-      requestAnimationFrame(() => {
-        interactiveContainer.classList.add('active');
-        interactiveContainer.style.visibility = 'visible';
-        interactiveContainer.style.opacity = '1';
-      });
-      // 7. Hide overlays
-      hideLoadingOverlay();
-      hideCheckpointAnimation();
-
-      }
-          
+        attachDefaultImageHover(svgHardSkillsContent);
         
-      catch (err) {
+        // 5. Show container
+        requestAnimationFrame(() => {
+          interactiveContainer.classList.add('active');
+          interactiveContainer.style.visibility = 'visible';
+          interactiveContainer.style.opacity = '1';
+        });
+
+        resolve(svgHardSkillsContent);
+        } catch (err) {
+            reject(err);
+        }
+      });
+
+      // Wait for both the minimum loading time and the SVG to load
+        const elapsedTime = Date.now() - startTime;
+        const remainingTime = Math.max(0, minimumLoadingTime - elapsedTime);
+
+        const [svgContent] = await Promise.all([
+            svgLoadPromise,
+            new Promise(resolve => setTimeout(resolve, remainingTime))
+        ]);
+
+        // Initialize features in sequence
+        await Promise.all([
+            
+        ]);
+
+        // Hide the loading overlay
+        hideLoadingOverlay();
+
+      } catch (err) {
         console.error('Error during mobile initialization:', err);
         hideLoadingOverlay();
       }
