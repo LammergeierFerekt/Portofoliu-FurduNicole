@@ -1,6 +1,7 @@
 import './style.css';
 import { getDocument, GlobalWorkerOptions } from 'pdfjs-dist';
 import { PageFlip } from 'page-flip';
+import { scale } from 'pdf-lib';
 
 
 
@@ -3672,9 +3673,404 @@ const cvSVG = `<svg id="cv_content" xmlns="http://www.w3.org/2000/svg" viewBox="
 </svg>
 `;
 
-const softSkillsSVG = `<svg id="soft-skills" viewBox="0 0 1200 800" xmlns="http://www.w3.org/2000/svg">
-  <!-- Your soft skills SVG content here -->
-</svg>`;
+const softSkillsSVG = `<svg
+   version="1.1"
+   id="svg1"
+   width="1671.1398"
+   height="2017.7788"
+   viewBox="0 0 1671.1398 2017.7789"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:svg="http://www.w3.org/2000/svg">
+  <defs
+     id="defs1">
+    <rect
+       x="753.60089"
+       y="-281.79245"
+       width="1564.0771"
+       height="296.20444"
+       id="rect2" />
+    <clipPath
+       clipPathUnits="userSpaceOnUse"
+       id="clipPath2">
+      <path
+         d="M 0,1600 H 2400 V 0 H 0 Z"
+         transform="translate(-599.45591,-49.165976)"
+         id="path2" />
+    </clipPath>
+    <clipPath
+       clipPathUnits="userSpaceOnUse"
+       id="clipPath84">
+      <path
+         d="M 0,1600 H 2400 V 0 H 0 Z"
+         transform="translate(-599.45591,-366.96851)"
+         id="path84" />
+    </clipPath>
+    <clipPath
+       clipPathUnits="userSpaceOnUse"
+       id="clipPath111">
+      <path
+         d="M 0,1600 H 2400 V 0 H 0 Z"
+         transform="translate(-599.45591,-684.11472)"
+         id="path111" />
+    </clipPath>
+    <clipPath
+       clipPathUnits="userSpaceOnUse"
+       id="clipPath159">
+      <path
+         d="M 0,1600 H 2400 V 0 H 0 Z"
+         transform="translate(-599.45591,-1001.5908)"
+         id="path159" />
+    </clipPath>
+    <clipPath
+       clipPathUnits="userSpaceOnUse"
+       id="clipPath193">
+      <path
+         d="M 0,1600 H 2400 V 0 H 0 Z"
+         transform="translate(-599.45591,-1318.7015)"
+         id="path193" />
+    </clipPath>
+    <rect
+       x="753.60089"
+       y="-281.79245"
+       width="1564.0771"
+       height="168.04135"
+       id="rect2-8" />
+    <rect
+       x="753.60089"
+       y="-281.79245"
+       width="1564.0771"
+       height="168.04135"
+       id="rect2-8-2" />
+    <rect
+       x="753.60089"
+       y="-281.79245"
+       width="1564.0771"
+       height="168.04135"
+       id="rect2-8-2-6" />
+    <rect
+       x="753.60089"
+       y="-281.79245"
+       width="1564.0771"
+       height="168.04135"
+       id="rect2-8-2-6-7" />
+  </defs>
+  <g
+     id="soft-skills_content"
+     transform="translate(-763.86022,-49.999998)">
+    <g
+       id="analysis"
+       style="display:inline">
+      <path
+         id="glass_5"
+         d="m 0,0 h 1201.088 c 7.613,0 13.785,6.172 13.785,13.785 v 198.649 c 0,7.613 -6.172,13.785 -13.785,13.785 H 0 c -7.613,0 -13.785,-6.172 -13.785,-13.785 V 13.785 C -13.785,6.172 -7.613,0 0,0"
+         style="fill:#93a0c5;fill-opacity:1;fill-rule:nonzero;stroke:none"
+         transform="matrix(1.3333333,0,0,-1.3333333,799.27453,2067.7787)"
+         clip-path="url(#clipPath2)" />
+      <text
+         xml:space="preserve"
+         id="text_5"
+         style="font-size:26.6667px;text-align:justify;writing-mode:lr-tb;direction:ltr;white-space:pre;shape-inside:url(#rect2-8-2-6-7);display:inline;fill:#ffffff;fill-opacity:1"
+         transform="translate(67.5148,2151.7304)"
+         x="0"
+         y="0"><tspan
+           x="753.60156"
+           y="-257.46413"
+           id="tspan2"><tspan
+             dx="0 0 0.61362839 0 0 0 0 0 0 0 0 0.61362076 0 0 0 0 0 0 0 0 0 0 0 0 0.6136055 0 0 0 0 0.61363602 0 0.61363602 0 0 0 0 0.6136055 0 0 0 0 0 0.61363602 0 0 0.61363602 0 0 0 0 0 0 0 0 0 0.61363602 0 0 0 0.61363602 0 0 0 0 0 0 0 0 0 0 0.61363602 0 0 0 0 0 0 0.61363602 0 0 0 0 0 0 0 0 0 0 0 0 0 0.61363602 0 0 0.00010871887 0 0 0 0 0 0 0 0 0 0 0 0 0 0.61363602 0 0.61363602"
+             id="tspan1">I approach architecture with a deep sense of curiosity and skepticism toward surface-level interpretations. I believe </tspan></tspan><tspan
+           x="753.60156"
+           y="-224.13076"
+           id="tspan4"><tspan
+             dx="0 0 0 0 0 6.0082283 0 0 0 0 0 6.0082283 0 0 0 0 0 0 0 6.008213 0 0 0 0 0 0 0 0 6.0082283 0 0 0 6.0082283 0 0 0 0 0 0 0 0 0 0 6.0082283 0 0 0 0 0 6.0082283 0 0 0 0 0 0 0 6.0082283 0 0 0 6.0082283 0 0 0 6.0082283 0 0 0 0 0 0 0 6.0082283 0 0.00010108948 0 0 0 0.00010871887 0 0 0 6.0081673 0 0.00010108948 0 0 6.0081673 0 0 0 0 6.0082893 0 0 6.0082893 0 0 0 0 0 0 0 0 -0.00010108948 0 6.0082893"
+             id="tspan3">that every client, context, and historical layer carries its own complex narrative that must be understood and </tspan></tspan><tspan
+           x="753.60156"
+           y="-190.79738"
+           id="tspan6"><tspan
+             dx="0 0 0 0 0 0 0 0 0 0 0 2.5045509 0 0 0 0 2.5045509 0 0 0 0 0 0 0 0 0 0 0 0 0 2.5045662 0 0 0 0 0 0 0 0 0 2.5045662 0 2.5045052 0 0 0 0 0 2.5045662 0 0 0 0 0 0 0 0 0 2.5045662 0 0 0 2.5045662 0 0 0 0 0 0 0 0 0 0 0 0 0 2.5045662 0 0 0 0 0.00010108948 0 0 0 0 0 2.5046272 0 0 0 0 0 0 2.5045052 0.00010108948 0 0 0 0 0 0 2.5045052 0.00010108948 2.5045052 0 0 -0.00010108948 0.00011062622 0 0 0 0 2.5046272"
+             id="tspan5">translated into architectural language. I enjoy exploring the psychological dimensions behind anyone, a project, a </tspan></tspan><tspan
+           x="753.60156"
+           y="-157.46401"
+           id="tspan9"><tspan
+             dx="0 0 0 0 0 0 6.6787415 0 0 0 0 0 0 0 0 6.67873 0 0 0 6.6787453 0 0 0 0 0 0 0 0 6.67873 0 0 0 0 0 0 0 6.67873 0 0 6.6787605 0 0 0 0 0 0 6.6787605 0 0 0 6.6786995 0 0 0 0 0 0 0 6.6787605 0 0 0 0 6.6787605 0 0 0 0 0 0 0 0 0 0 6.6786995 0 0 0.00010108948 -0.00010299683 0 0 0.00010871887 6.6786995 0 0 0 0 0 6.6786995 0 0 6.6786995 0 0 0 0 0 6.6788216"
+             id="tspan7">site, allowing its symbolic essence to inform the design. This analytical mindset helps me shape architectural </tspan></tspan><tspan
+           x="753.60156"
+           y="-124.13063"
+           id="tspan11"><tspan
+             dx="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0.00010108948 0 0 0 0 0 0 0.00010108948 0 0 0 0 0 0 0 0 0 -0.00010299683 0.00010871887 0 0 0 0 0 -0.00010108948 0 0 0 0 0 0 0.00010108948"
+             id="tspan10">concepts with intention, expressing them through both visual representation and clear, descriptive communication.</tspan></tspan></text>
+      <rect
+         style="display:inline;fill:#63769e;fill-opacity:1;stroke-width:0.958852"
+         id="headerbox_5"
+         width="510"
+         height="115"
+         x="-1273.8602"
+         y="1734.4465"
+         transform="scale(-1,1)"
+         ry="20"
+         rx="20" />
+      <text
+         id="analysis_header_5"
+         xml:space="preserve"
+         transform="scale(0.99777764,1.0022273)"
+         style="font-size:16.0356px;display:inline;stroke-width:1.3363"
+         x="806.74005"
+         y="1810.8663"><tspan
+           id="tspan8-6"
+           style="font-variant:normal;font-weight:700;font-stretch:normal;font-size:70.0875px;font-family:'Yu Gothic UI';writing-mode:lr-tb;fill:#ffffff;fill-opacity:1;fill-rule:nonzero;stroke:none;stroke-width:1.3363"
+           x="806.74005"
+           y="1810.8663">Analysis skills</tspan></text>
+    </g>
+    <g
+       id="client-talk"
+       style="display:inline">
+      <path
+         id="glass_4"
+         d="m 0,0 h 1201.088 c 7.613,0 13.785,6.172 13.785,13.785 v 198.649 c 0,7.613 -6.172,13.784 -13.785,13.784 H 0 c -7.613,0 -13.785,-6.171 -13.785,-13.784 V 13.785 C -13.785,6.172 -7.613,0 0,0"
+         style="fill:#93a0c5;fill-opacity:1;fill-rule:nonzero;stroke:none"
+         transform="matrix(1.3333333,0,0,-1.3333333,799.27453,1644.042)"
+         clip-path="url(#clipPath84)" />
+      <text
+         xml:space="preserve"
+         id="text_4"
+         style="font-size:26.6667px;text-align:justify;writing-mode:lr-tb;direction:ltr;white-space:pre;shape-inside:url(#rect2-8-2-6);display:inline;fill:#ffffff;fill-opacity:1"
+         transform="translate(67.5148,1735.6644)"
+         x="0"
+         y="0"><tspan
+           x="753.60156"
+           y="-257.46413"
+           id="tspan13"><tspan
+             dx="0 0 1.2873535 0 0 0 0 1.2873573 0 0 0 0 0 0 0 0 0 0 1.2873573 0 0 0 0 0 0 0 1.2873421 0 0 0 0 0 0 0 1.2873421 0 0 0 0 1.2873421 0 0 0 0 0 0 0 1.2874031 0 0 1.2873421 0 0 0 0 1.2873421 0 0 0 0 0 0 0 0 1.2873421 0 0 0 0 0 0 1.2873421 0 0 0 1.2873421 0 0 0 0 0 0 0 0 0 0 1.2873421 0 0 0 0 0 0 0 0 0 0 0 0 1.2873421 0 0 0 0 0 0 0 0 0 1.2873421 0 1.2873421"
+             id="tspan12">I have experience working closely with clients on both interior design and conceptual architecture projects. I strive </tspan></tspan><tspan
+           x="753.60156"
+           y="-224.13076"
+           id="tspan15"><tspan
+             dx="0 0 0 5.5391464 0 0 0 0 0 0 0 0 0 0 5.5391426 0 0 0 0 0 5.5391426 0 0 0 0 0 5.5391426 0 0 0 5.5391426 0 0 0 0 5.5391426 0 0 5.5391121 0 0 0 0 0 5.5391121 0 0 5.5391731 0 0 0 0 0 0 0 0 0 5.5391121 0 0 0 5.5391731 0 0 0 0 5.5391731 0 0 0 0 5.5391121 0 0 5.5391731 0 0 -0.00010108948 0.00010871887 0 0 0 0 0 5.5391731 0 0 0 5.5391731 0 0 0 0 -0.00010108948 0.00010108948 0 0 5.5391731 0 0 0 0 0 0 0 0 0 0.00010204315"
+             id="tspan14">to understand their needs not just in terms of function, but also from an emotional and personal perspective, </tspan></tspan><tspan
+           x="753.60156"
+           y="-190.79738"
+           id="tspan17"><tspan
+             dx="0 0 0 0 0 0 0 0 0 0 0 0 2.3666878 0 0 0 0 0 2.3666878 0 0 0 0 0 0 2.3666878 0 0 0 0 2.3666878 0 0 0 0 0 0 0 0 0 0 0 0 0 2.3666878 0 0 0 0 0 0 0 0 0 2.3666878 0 0 0 0 0 0 0 2.3666878 0 2.3666878 0 0 0 0 0 0 0 0 0 0 0 2.3667488 -0.00010108948 0 2.3666878 0.00010871887 0 0 0 0 0 0 0 0 2.3666878 0 0 -0.00010108948 0.00011062622 0 0 0 0 0 0 0 2.3666878 0 0 0 2.3666878"
+             id="tspan16">translating those values into architectural solutions through a combination of technical proficiency and empathetic </tspan></tspan><tspan
+           x="753.60156"
+           y="-157.46401"
+           id="tspan19"><tspan
+             dx="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 4.1305122 0 0 4.1305122 0 0 0 0 0 0 4.1305122 0 0 0 0 0 0 0 4.1305122 0 0 0 4.1305428 0 0 0 0 0 0 0 0 0 0 4.1304817 0 4.1304817 0 0 0 0 0 0 4.1305428 0 0 0 0 0 0 0 0 4.1305428 0 0 0 0 0 0 0 0 0 0 0 0 0 0 4.1304817 0 0 0 0 0 0 0 0 4.1304817 0 0 4.1304817 0 0 0 0 0 0 0 0 4.1304817"
+             id="tspan18">communication. To ensure clarity and alignment, I design tailored questionnaires followed by feedback sessions, </tspan></tspan><tspan
+           x="753.60156"
+           y="-124.13063"
+           id="tspan20">refining each project through honest and open dialogue.</tspan></text>
+      <rect
+         style="display:inline;fill:#63769e;fill-opacity:1;stroke-width:1.0825"
+         id="headerbox_4"
+         width="650"
+         height="115"
+         x="-2435"
+         y="-1430"
+         transform="scale(-1)"
+         ry="20"
+         rx="20" />
+      <text
+         id="client-talk_header_4"
+         xml:space="preserve"
+         transform="scale(0.99777764,1.0022273)"
+         x="1868.6118"
+         y="1391.7474"
+         style="font-size:16.0356px;stroke-width:1.3363"><tspan
+           id="tspan185-1"
+           style="font-variant:normal;font-weight:700;font-stretch:normal;font-size:70.0875px;font-family:'Yu Gothic UI';writing-mode:lr-tb;fill:#ffffff;fill-opacity:1;fill-rule:nonzero;stroke:none;stroke-width:1.3363"
+           x="1868.6118"
+           y="1391.7474">Client-talk skills</tspan></text>
+    </g>
+    <g
+       id="communication"
+       style="display:inline">
+      <path
+         id="glass_3"
+         d="m 0,0 h 1201.088 c 7.613,0 13.785,6.172 13.785,13.785 v 198.649 c 0,7.613 -6.172,13.785 -13.785,13.785 H 0 c -7.613,0 -13.785,-6.172 -13.785,-13.785 V 13.785 C -13.785,6.172 -7.613,0 0,0"
+         style="fill:#93a0c5;fill-opacity:1;fill-rule:nonzero;stroke:none"
+         transform="matrix(1.3333333,0,0,-1.3333333,799.27453,1221.1804)"
+         clip-path="url(#clipPath111)" />
+      <text
+         xml:space="preserve"
+         id="text_3"
+         style="font-size:26.6667px;text-align:justify;writing-mode:lr-tb;direction:ltr;white-space:pre;shape-inside:url(#rect2-8-2);display:inline;fill:#ffffff;fill-opacity:1"
+         transform="translate(66.883468,1315.0371)"
+         x="0"
+         y="0"><tspan
+           x="753.60156"
+           y="-257.46413"
+           id="tspan22"><tspan
+             dx="0 0 4.7693825 0 0 0 0 4.7693825 0 4.7693748 0 0 0 0 0 0 4.7693825 0 0 0 0 0 0 0 4.7693977 0 0 4.7693672 0 0 0 0 0 0 4.7693977 0 0 0 0 0 0 0 0 0 0 0 4.7693977 0 0 0 4.7693977 0 0 0 0 0 0 0 0 0 0 4.7693367 0 0 0 4.7693367 0 0 0 0 0 0 4.7693977 0 0 0 0 0 0 0 0 4.7693977 0 0 4.7693977 0 0 0 0 0 0 0 0 0 4.7693977 0 0 0 0 0 4.7693977 0 0 0 0 0 4.7693977"
+             id="tspan21">I have a strong ability to listen attentively and understand how others perceive my messages, which helps me </tspan></tspan><tspan
+           x="753.60156"
+           y="-224.13076"
+           id="tspan24"><tspan
+             dx="0 0 0 0 0 0 0 3.0077324 0 0 0 0 3.0077248 0 0 3.00774 0 0 0 0 0 3.0077095 0 3.00774 0 0 0 0 0 0 3.00774 0 0 0 0 0 0 0 0 0 0 0 0 0 0 3.007679 0 0 0 0 3.00774 0 3.00774 0 0 0 0 0 3.00774 0 0 0 3.007679 0 0 0 0 0 0 0 0 0 3.0078011 -0.00010108948 0 3.0078011 0 0 0 0 0 0 0 0 0 0 0 0 0 3.007679 0 3.007679 0 0 0 0 0 0.00010871887 0 0 0 0 0 3.007679"
+             id="tspan23">ensure that we share a common understanding. When I sense any confusion or misalignment, I proactively seek </tspan></tspan><tspan
+           x="753.60156"
+           y="-190.79738"
+           id="tspan26"><tspan
+             dx="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0.87416458 0 0 0 0.87416458 0 0 0 0 0 0 0 0.87416458 0 0 0 0 0 0 0 0 0.87416458 0 0 0 0 0 0 0 0 0 0 0 0 0.8741951 0 0 0.87413406 0 0 0 0 0 0 0 0.87413406 0 0.87413406 0 0 0 0 0 0 0 0.8741951 0 0 0.8741951 0 0 0 0 0 0 0 0 0 0 0 0.87413406 0 0 0 0 0 0.87413406 0 0 0 0.87413406 0.00010108948 -0.00010108948 0.00010108948 0 0 0.00010871887 0.87413406 0 0 0 0 0 0 0 0 0 0.00010871887"
+             id="tspan25">clarification and provide detailed explanations as needed. I believe in maintaining clear and honest communication, </tspan></tspan><tspan
+           x="753.60156"
+           y="-157.46401"
+           id="tspan28"><tspan
+             dx="0 0 0 2.9212265 0 0 0 0 0 0 0 0 0 0 0 0 2.9212227 0 0 0 2.9212227 0 0 0 0 0 0 0 0 0 2.9212227 0 0 0 0 0 2.9212532 0 0 0 0 0 0 2.9211922 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 2.9212532 0 0 0 2.9212532 0 0 0 0 0 0 0 0 0 0 2.9211922 0 0 0 0 0 0 -0.00010108948 0 0 0 0 0 0 0 2.9212532 0 -0.00010108948 0 0 0 0 0 0 0 2.9212532 0 2.9212532 0 0 0 0 2.9212532 0 0 0 0 0 0 0 0 2.9212532"
+             id="tspan27">as transparency and integrity build trust, responsibility, and successful collaboration. Moreover, I take pleasure in </tspan></tspan><tspan
+           x="753.60156"
+           y="-124.13063"
+           id="tspan29">crafting thorough analyses and detailed descriptions to enhance project clarity.</tspan></text>
+      <rect
+         style="display:inline;fill:#63769e;fill-opacity:1;stroke-width:1.17818"
+         id="headerbox_3"
+         width="770"
+         height="115"
+         x="-1535"
+         y="895"
+         transform="scale(-1,1)"
+         ry="20"
+         rx="20" />
+      <text
+         id="communication_header_3"
+         xml:space="preserve"
+         transform="scale(0.99777764,1.0022273)"
+         style="font-size:16.0356px;display:inline;stroke-width:1.3363"
+         x="813.89575"
+         y="973.28528"><tspan
+           id="tspan8"
+           style="font-variant:normal;font-weight:700;font-stretch:normal;font-size:70.0875px;font-family:'Yu Gothic UI';writing-mode:lr-tb;fill:#ffffff;fill-opacity:1;fill-rule:nonzero;stroke:none;stroke-width:1.3363"
+           x="813.89575"
+           y="973.28528">Communication skills</tspan></text>
+    </g>
+    <g
+       id="management"
+       style="display:inline">
+      <path
+         id="glass_2"
+         d="m 0,0 h 1201.088 c 7.613,0 13.785,6.172 13.785,13.785 v 198.649 c 0,7.613 -6.172,13.784 -13.785,13.784 H 0 c -7.613,0 -13.785,-6.171 -13.785,-13.784 V 13.785 C -13.785,6.172 -7.613,0 0,0"
+         style="fill:#93a0c5;fill-opacity:1;fill-rule:nonzero;stroke:none"
+         transform="matrix(1.3333333,0,0,-1.3333333,799.27453,797.87893)"
+         clip-path="url(#clipPath159)" />
+      <text
+         xml:space="preserve"
+         id="text_2"
+         style="font-size:26.6667px;text-align:justify;writing-mode:lr-tb;direction:ltr;white-space:pre;shape-inside:url(#rect2-8);display:inline;fill:#ffffff;fill-opacity:1"
+         transform="translate(66.876958,887.16728)"
+         x="0"
+         y="0"><tspan
+           x="753.60156"
+           y="-257.46413"
+           id="tspan31"><tspan
+             dx="0 0 4.4691372 0 0 0 0 0 0 0 0 0 4.4691353 0 0 0 0 4.4691353 0 0 0 0 0 0 0 0 0 0 4.4691658 0 0 4.4691353 0 0 0 0 4.4691353 0 0 0 0 0 0 0 0 0 4.4691048 0 0 0 0 0 0 0 0 0 0 4.4691658 0 0 0 0 4.4691048 0 0 0 0 0 4.4691658 0 0 0 4.4691048 0 0 0 0 4.4692268 0 0.00010108948 4.4691048 0 0 0 0 0 0 0 0 0 4.4691048 0 0 4.4691048 0 0 0 0 0 0 0 0 0 0 0.00010108948 0 0 0.00010108948 -0.00010299683 0 4.4692268 0 4.4692268"
+             id="tspan30">I naturally take initiative to lead projects, especially when there are gaps in direction or decision-making. I am </tspan></tspan><tspan
+           x="753.60156"
+           y="-224.13076"
+           id="tspan33"><tspan
+             dx="0 0 0 0 0 0 10.85371 0 0 10.853718 0 0 0 0 0 0 0 0 0 0 10.853718 0 0 0 10.853687 0 0 0 0 0 0 0 0 0 0 0 10.853687 0 0 0 0 0 0 10.853748 0 0 0 0 0 0 0 0 10.853687 0 0 0 0 0 0 0 0 0 0 10.853748 0 0 0 0 0 0 10.853748 0 0 0 0 0 10.853626 0 10.853748 0 0 0 0 10.853748 0 0 0 0 0 10.853748 0 10.853626 0 0 0 0 0 0 0 0.00010204315"
+             id="tspan32">drawn to organizing and maintaining clear, cohesive management within teams I work with. I proactively </tspan></tspan><tspan
+           x="753.60156"
+           y="-190.79738"
+           id="tspan35"><tspan
+             dx="0 0 0 0 0 0 0 0 0 0 0 1.0017586 0 0 0 1.0017586 0 0 0 0 0 0 0 0 1.0017586 0 0 0 0 0 0 0 0 0 0 1.0017586 0 0 0 0 0 0 0 0 0 0 1.0017586 0 0 0 0 1.0017586 0 0 0 0 0 0 0 0 0 0 1.0017586 0 0 1.0017586 0 0 0 0 0 0 0 1.0016975 0 0.00010108948 -0.00010299683 1.0018196 0 0 0 0 0.00010108948 1.0016975 0 0 0 0 1.0018196 0 0 1.0016975 0 0 1.0018196 0 0 0 0 1.0016975 0.00010871887 0 0 0 1.0018196 -0.00010299683 0.00010108948 -0.00010108948 0 1.0018196"
+             id="tspan34">understand and question management directives when leadership is lacking and often step up to fill that gap, even </tspan></tspan><tspan
+           x="753.60156"
+           y="-157.46401"
+           id="tspan37"><tspan
+             dx="0 0 0 0 0 0 0 3.2065086 0 0 3.2065163 0 0 0 0 0 0 3.2065315 0 0 0 0 0 3.206501 0 3.2065315 0 0 0 0 0 0 3.2065315 0 0 0 0 0 3.2065315 0 0 0 0 0 0 0 0 0 0 0 0 3.2065315 0 0 0 3.2065315 0 0 0 0 0 3.2065315 0 0 0 0 0 0 0 0 0 0 0 0 0 3.2065315 0 0 3.2065315 0 0 0 0 0 0 0 0 0 3.2064095 0 0 0 0 0 0 0 0 0 3.2064095 0.00010871887 0 0 0 3.2065315 0 0.00010108948"
+             id="tspan36">beyond my formal role. I highly value organization and clear communication in teamwork, believing that success </tspan></tspan><tspan
+           x="753.60156"
+           y="-124.13063"
+           id="tspan38">comes when everyone is aligned and working toward the same goals.</tspan></text>
+      <rect
+         style="display:inline;fill:#63769e;fill-opacity:1;stroke-width:1.0825"
+         id="headerbox_2"
+         width="650"
+         height="115"
+         x="-2435"
+         y="-585"
+         transform="scale(-1)"
+         ry="20"
+         rx="20" />
+      <text
+         id="management_header_2"
+         xml:space="preserve"
+         transform="scale(0.99777764,1.0022273)"
+         x="1821.5043"
+         y="549.9021"
+         style="font-size:16.0356px;stroke-width:1.3363"><tspan
+           id="tspan185"
+           style="font-variant:normal;font-weight:700;font-stretch:normal;font-size:70.0875px;font-family:'Yu Gothic UI';writing-mode:lr-tb;fill:#ffffff;fill-opacity:1;fill-rule:nonzero;stroke:none;stroke-width:1.3363"
+           x="1821.5043"
+           y="549.9021">Management skills</tspan></text>
+    </g>
+    <g
+       id="teamwork"
+       style="display:inline">
+      <path
+         id="glass_1"
+         d="m 0,0 h 1201.088 c 7.613,0 13.785,6.172 13.785,13.785 v 198.649 c 0,7.613 -6.172,13.785 -13.785,13.785 H 0 c -7.613,0 -13.785,-6.172 -13.785,-13.785 V 13.785 C -13.785,6.172 -7.613,0 0,0"
+         style="fill:#93a0c5;fill-opacity:1;fill-rule:nonzero;stroke:none"
+         transform="matrix(1.3333333,0,0,-1.3333333,799.27453,375.06467)"
+         clip-path="url(#clipPath193)" />
+      <text
+         xml:space="preserve"
+         id="text_1"
+         style="font-size:25.3333px;text-align:justify;writing-mode:lr-tb;direction:ltr;white-space:pre;shape-inside:url(#rect2);display:inline;fill:#ffffff;fill-opacity:1"
+         transform="translate(66.991543,454.29677)"
+         x="0"
+         y="0"><tspan
+           x="753.60156"
+           y="-258.68063"
+           id="tspan40"><tspan
+             dx="0 0 1.0709324 0 0 0 0 0 0 1.0709343 0 0 0 0 0 0 1.070919 0 0 0 1.0709343 0 0 0 0 0 0 0 0 0 0 0 0 0 1.0709343 0 0 0 0 0 0 0 0 0 0 1.0709343 0 0 0 0 0 0 0 0 0 0 0 0 1.0709343 0 0 1.0709343 0 0 0 0 0 1.0709343 0 0 0 1.0709343 0 0 0 0 0 0 1.0709343 0 0 1.0709343 0 1.0709343 0 0 0 0 0 0 1.0709343 0 0 0 0 0 0 0 1.0709343 0 0 0 1.0709343 0 1.0709343 0 0 0 0 0 0 0 0 0 0 0 0 0 1.0708122 0.00010204315"
+             id="tspan39">I firmly reject the “starchitect” phenomena: architecture is never the result of a single vision, but a collaborative process </tspan></tspan><tspan
+           x="753.60156"
+           y="-227.01401"
+           id="tspan42"><tspan
+             dx="0 0 0 0 0 0 0 1.4970207 0 0 1.4970055 0 0 0 0 0 0 0 0 1.4970055 0 0 0 0 0 0 0 0 1.4970207 0 0 0 0 0 0 0 0 1.4970207 0 0 0 1.4970207 0 0 0 0 0 0 1.4970207 0 0 0 0 0 0 1.4970207 0 0 1.4970207 0 0 0 0 0 0 0 0 0 0 1.4970207 0 0 1.4970207 0 0 0 0 0 0 0 0 1.4969597 0 0 0 0 0 0 0 0 0 -0.00010108948 0 0 1.4970818 0 0 1.4969597 0 0 0 0 0 0 0 1.4970818 0 0 1.4969597 0 0 0 0 0 0 1.4970818"
+             id="tspan41">shaped by clients, context, culture, and shared input. My background in scouting strengthened my ability to adapt, trust </tspan></tspan><tspan
+           x="753.60156"
+           y="-195.34738"
+           id="tspan44"><tspan
+             dx="0 0 0 0 0 0 0 0 6.7009697 0 0 0 6.7009697 0 0 0 0 0 6.7009697 0 0 0 0 0 0 0 6.7009697 0 0 0 0 0 0 0 0 0 0 0 0 0 0 6.7010002 0 0 0 0 0 0 0 0 0 0 6.7009392 0 0 6.7009392 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 6.7010002 0 0 0 0 0 0 0 0.00010204315 -0.00010108948 0 0 6.7009392 0 0 0 0 6.7010612 -0.00010204315 0 0 0 6.7010612 0 0 0 0 0 0 0 0 0 0 0 0.00010204315 6.7009392 0 0 0 0 0 0 0 0 0 0 0 6.7009392"
+             id="tspan43">others, and value diverse contributions, especially in problem-solving situations. I’ve also collaborated effectively in </tspan></tspan><tspan
+           x="753.60156"
+           y="-163.68075"
+           id="tspan45">academic teams and gained practical experience using ArchiCADs teamwork tool, in diverse professional projects. 
+</tspan><tspan
+           x="753.60156"
+           y="-132.01413"
+           id="tspan47"><tspan
+             dx="0 0 0 0 0 3.3174248 0 3.3174248 0 0 0 3.3174095 0 0 0 0 0 3.3174248 0 0 0 0 0 0 0 0 0 0 0 0 0 0 3.3174248 0 3.3173943 0 0 0 0 0 3.3173943 0 0 3.3174553 0 0 0 0 0 3.3173943 0 0 0 3.3174553 0 0 0 0 0 0 0 0 0 0 3.3174553 0 0 0 0 0 0 3.3173943 0 0 0 0 3.3173943 0 0 3.3173943 0 0 0 0 0 0 0 0 0 0 0 3.3173943 0 0 0 0 0 0 0 -0.00010108948 0.00010204315 3.3173943 0 0 3.3173943 0 0 0 0 0 -0.00011062622 3.3175163 0 -0.00010108948"
+             id="tspan46">When I was named valedictorian, I chose to share the graduation speech with my colleagues, affirming my belief that </tspan></tspan><tspan
+           x="753.60156"
+           y="-100.3475"
+           id="tspan48">meaningful architecture is always built with in teams.</tspan></text>
+      <rect
+         style="display:inline;fill:#63769e;fill-opacity:1;stroke-width:0.995751"
+         id="headerbox_1"
+         width="550"
+         height="115"
+         x="-1315"
+         y="50"
+         transform="scale(-1,1)"
+         ry="20"
+         rx="20" />
+      <text
+         id="teamwork_header_1"
+         xml:space="preserve"
+         transform="scale(0.99777764,1.0022273)"
+         style="font-size:16.0356px;display:inline;stroke-width:1.3363"
+         x="813.89575"
+         y="129.85136"><tspan
+           id="tspan216"
+           style="font-variant:normal;font-weight:700;font-stretch:normal;font-size:70.0875px;font-family:'Yu Gothic UI';writing-mode:lr-tb;fill:#ffffff;fill-opacity:1;fill-rule:nonzero;stroke:none;stroke-width:1.3363"
+           x="813.89575"
+           y="129.85136">Teamwork skill</tspan></text>
+    </g>
+  </g>
+</svg>
+`;
 
 //#endregion
 
@@ -3926,7 +4322,7 @@ function attachButtonEvents(svgElement) {
   try {
     const svgButtons = [
       { layer: 'HARD-SKILLS', id: 'Pana_roz_button1', action: () => { 
-        try { CVfunction('hard-skills', svgElement); triggerFogEffect(svgElement); } catch (err) { console.error('Error in button1 action:', err); }
+        try { HARDSKILLSfunction('hard-skills', svgElement); triggerFogEffect(svgElement); } catch (err) { console.error('Error in button1 action:', err); }
       }},
       { layer: 'PROFESSIONAL', id: 'Pana_roz_button2', action: () => { 
         try { showPDF('professional.pdf', svgElement); triggerFogEffect(svgElement); } catch (err) { console.error('Error in button2 action:', err); }
@@ -3938,7 +4334,7 @@ function attachButtonEvents(svgElement) {
         try { showPDF('academic.pdf', svgElement); triggerFogEffect(svgElement); } catch (err) { console.error('Error in button4 action:', err); }
       }},
       { layer: 'SOFT-SKILLS', id: 'Pana_roz_button5', action: () => { 
-        try { CVfunction('soft-skills', svgElement); triggerFogEffect(svgElement); } catch (err) { console.error('Error in button5 action:', err); }
+        try { SOFTSKILLSfunction('soft-skills', svgElement); triggerFogEffect(svgElement); } catch (err) { console.error('Error in button5 action:', err); }
       }},
       { layer: null, id: 'HOME-BUTTON', action: () => {
         try { handleHomeButtonClick(svgElement); } catch (err) { console.error('Error in HOME-BUTTON action:', err); }
@@ -4179,14 +4575,13 @@ async function showPDF(pdfFile) {
     }
 
     hideAllSvgContainers();
+    
     showLoadingOverlay();
-
     // Insert the loading-eye.svg if not already present
     const loadingSpinner = document.getElementById('loading-spinner');
     if (loadingSpinner && !loadingSpinner.querySelector('svg')) {
       insertLoadingEyeSVG();
     }
-
     resetLoadingAnimation();
 
     const loadingElements = svg ? svg.querySelectorAll('[id^="loading"]') : [];
@@ -4297,11 +4692,14 @@ if (addBlankAtEnd && pageImages.length % 2 !== 0) {
   }
 }
 
+//#region CV SVG FILE HANDLING - Svg strings
+
 // CV SVG FILE HANDLING - Svg strings
 async function CVfunction(svgType) {
 
   // Set the loading state to true
   isHARDSKILLSfunctionLoading = false;
+  isSOFTSKILLSfunctionLoading = false;  
 
   const interactiveContainer = document.querySelector('.interactive-container');
   if (!interactiveContainer) {
@@ -4666,10 +5064,6 @@ async function CVfunction(svgType) {
   try {
     hideAllPdfContainers();
     showLoadingOverlay();
-
-
-
-
     const loadingSpinner = document.getElementById('loading-spinner');
     if (loadingSpinner && !loadingSpinner.querySelector('svg')) {
       insertLoadingEyeSVG();
@@ -4681,18 +5075,20 @@ async function CVfunction(svgType) {
     const totalSteps = loadingElements.length;
     let currentStep = 0;
 
+
     let svgString;
+    const minimumLoadingTime = 2000; // Minimum loading time in milliseconds
+    const startTime = Date.now(); // Record the start time
+
     switch (svgType) {
       case 'hard-skills':
-        await HARDSKILLSfunction(); // <-- Call the async function here
-        hideCheckpointAnimation();
+        svgString = hardSkillsSVG;
         break;
       case 'cv':
         svgString = cvSVG;
         break;
       case 'soft-skills':
         svgString = softSkillsSVG;
-        hideCheckpointAnimation();
         break;
       default:
         hideLoadingOverlay();
@@ -4703,6 +5099,34 @@ async function CVfunction(svgType) {
       hideLoadingOverlay();
       return;
     }
+
+    // Simulate loading steps
+    const simulateLoading = () => {
+      if (currentStep < totalSteps) {
+        const element = loadingElements[currentStep];
+        if (element) {
+          element.style.opacity = '1'; // Simulate the current step being active
+        }
+        currentStep++;
+        setTimeout(simulateLoading, minimumLoadingTime / totalSteps); // Spread steps over the minimum loading time
+      }
+    };
+
+    // Start simulating the loading animation
+    simulateLoading();
+
+
+    // Ensure the loading animation lasts at least 1 second
+    const elapsedTime = Date.now() - startTime;
+    const remainingTime = Math.max(0, minimumLoadingTime - elapsedTime);
+
+    await new Promise(resolve => setTimeout(resolve, remainingTime));
+
+    // Hide the loading overlay after the minimum time has passed
+    hideLoadingOverlay();
+
+
+
 
     // --- Progressive Layer Reveal for CV SVG ---
     if (svgType === 'cv') {
@@ -4746,7 +5170,7 @@ async function CVfunction(svgType) {
 
       // Reveal each group step by step
       for (let i = 0; i < layerGroups.length; i++) {
-        await new Promise(res => setTimeout(res, 300)); // adjust speed as needed
+        await new Promise(res => setTimeout(res, 50)); // adjust speed as needed
         layerGroups[i].style.opacity = '1';
       // Smoothly transition to the final shadow
       await new Promise(res => setTimeout(res, 50));
@@ -4805,8 +5229,12 @@ function moveCheckpoint(event) {
 // Insert the checkpoint SVG if not already present
 async function insertCheckpointSVG() {
   // Prevent loading if HARDSKILLSfunction is running
-  if (isHARDSKILLSfunctionLoading) {
+  if (isHARDSKILLSfunctionLoading, isSOFTSKILLSfunctionLoading) {
     console.warn('insertCheckpointSVG() is blocked because HARDSKILLSfunction() is loading.');
+
+
+
+
 
     // Ensure checkpoint elements are hidden
     const checkpointContainer = document.getElementById('checkpoint-container');
@@ -4909,6 +5337,8 @@ function hideCheckpointAnimation() {
     window.removeEventListener('mousemove', moveCheckpoint);
   }
 }
+
+//#endregion
 
 //#endregion
 
@@ -5387,6 +5817,7 @@ function addHardSkillsDefaultImagesHoverTrigger(svgElement) {
       });
   });
 }
+
 // Random animation loop for default images
 function loopRandomHardSkillsImageAnimation(svgElement) {
   let isAnimating = false;
@@ -5398,9 +5829,99 @@ function loopRandomHardSkillsImageAnimation(svgElement) {
       setTimeout(triggerRandom, 1000);
       return;
     }
+     if (isMobile()) return;
     // ...existing code...
   }
   triggerRandom();
+}
+
+// Disable loop functions and effects on mobile
+function isMobile() {
+  const isMobileDevice = window.innerWidth <= 700; // Adjust breakpoint as needed
+
+  // Show the loading overlay
+  showLoadingOverlay();
+
+  // Insert the loading eye SVG if not already present
+  const loadingSpinner = document.getElementById('loading-spinner');
+  if (loadingSpinner && !loadingSpinner.querySelector('svg')) {
+    insertLoadingEyeSVG();
+  }
+
+  // Reset and start the loading animation
+  resetLoadingAnimation();
+  startLoadingAnimation(loadingSpinner);
+
+  const minimumLoadingTime = 1000; // Minimum loading time in milliseconds
+  const startTime = Date.now();
+
+  if (isMobileDevice) {
+    // Disable specific effects for mobile
+    window.loopRandomHardSkillsImageAnimation = () => {}; // Override with a no-op function
+    window.animateLayerIn = () => Promise.resolve(); // Override with a no-op function that resolves immediately
+
+    // Enable click functionality for mobile
+    enableMobileClickFunctionality();
+
+    // Wait for the hard-skills images to load
+    const svgElement = document.querySelector('svg'); // Adjust selector if necessary
+    if (svgElement) {
+      const images = Array.from(svgElement.querySelectorAll('image, [id^="img_d"]'));
+      const imagePromises = images.map(img => {
+        return new Promise(resolve => {
+          if (img.complete || img.naturalWidth > 0) {
+            resolve(); // Image is already loaded
+          } else {
+            img.addEventListener('load', resolve);
+            img.addEventListener('error', resolve); // Resolve even if there's an error
+          }
+        });
+      });
+
+      Promise.all(imagePromises).then(() => {
+        // Ensure the loading animation lasts at least the minimum time
+        const elapsedTime = Date.now() - startTime;
+        const remainingTime = Math.max(0, minimumLoadingTime - elapsedTime);
+        setTimeout(hideLoadingOverlay, remainingTime); // Hide the loading overlay
+      });
+    } else {
+      console.warn('SVG element not found for image loading check');
+      hideLoadingOverlay(); // Hide the loading overlay if no SVG is found
+    }
+  } else {
+    // Non-mobile format: Ensure the loading animation lasts at least the minimum time
+    const elapsedTime = Date.now() - startTime;
+    const remainingTime = Math.max(0, minimumLoadingTime - elapsedTime);
+    setTimeout(hideLoadingOverlay, remainingTime); // Hide the loading overlay
+  }
+
+  return isMobileDevice;
+}
+
+// Function to enable click functionality on mobile
+function enableMobileClickFunctionality() {
+    document.addEventListener('click', (event) => {
+        const target = event.target;
+
+        // Check if the clicked element is a title
+        if (target.matches('[id^="title"]')) {
+            console.log(`Clicked on: ${target.id}`);
+
+            // Reuse the existing click functionality for titles
+            const titleEl = target;
+            if (titleEl instanceof HTMLElement && typeof titleEl.click === 'function') {
+                titleEl.click(); // Trigger the existing click event handler
+            } else {
+                console.warn('titleEl is not a valid clickable element:', titleEl);
+            }
+        }
+
+        // Handle other interactive elements if needed
+        if (target.matches('.interactive-container')) {
+            console.log('Interactive container clicked.');
+            // Add any additional logic for the container if required
+        }
+    });
 }
 
 //LAYER HOVER EFFECTS
@@ -5533,7 +6054,7 @@ function setupTitleEvents(svgElement, layer) {
     const defaultImgId = groupToDefaultImg[layer.group];
     const defaultImgEl = svgElement.querySelector(`#${defaultImgId}`);
 
-  
+
     if (imgEl && imgTranslateMap[img]) {
       if (!imgEl.dataset.originalTransform) {
         imgEl.dataset.originalTransform = imgEl.getAttribute('transform') || '';
@@ -5544,6 +6065,7 @@ function setupTitleEvents(svgElement, layer) {
     }
     // Hover handlers
     newTitleEl.addEventListener('mouseenter', () => {
+
       // Allow hover effects even if a title is clicked
       if (window.hardSkillsTitleClicked && window.hardSkillsTitleClicked !== newTitleEl.id) {
         return;
@@ -5685,6 +6207,22 @@ function setupTitleEvents(svgElement, layer) {
         }, 250);
       }
     });
+
+    
+    // Add touchstart event for mobile devices
+    newTitleEl.addEventListener('touchstart', (event) => {
+      event.preventDefault(); // Prevent default touch behavior
+      handleTitleClick(newTitleEl, imgEl, show, all, layer, svgElement);
+    });
+
+    // Add click event for desktop devices
+    newTitleEl.addEventListener('click', (event) => {
+      event.stopPropagation();
+      handleTitleClick(newTitleEl, imgEl, show, all, layer, svgElement);
+    });
+
+
+
 
     // Click handler with text element management
     newTitleEl.addEventListener('click', (event) => {
@@ -5856,6 +6394,70 @@ function setupTitleEvents(svgElement, layer) {
   });
 }
 
+// Helper function to handle title clicks
+function handleTitleClick(titleEl, imgEl, show, all, layer, svgElement) {
+  // Reset all titles and texts in the same layer
+  layer.titles.forEach(({ title, img, show }) => {
+    const titleEl = svgElement.querySelector(`#${title}`);
+    const imgEl = svgElement.querySelector(`#${img}`);
+    const textElToReset = svgElement.querySelector(`#${layer.group}_${show.split('_')[1]}_text`);
+
+    // Reset title
+    if (titleEl && titleEl !== titleEl) {
+      titleEl.dataset.clicked = 'false';
+      titleEl.style.fill = titleEl.dataset.origFill;
+      titleEl.style.fontWeight = titleEl.dataset.origWeight;
+    }
+
+    // Reset image
+    if (imgEl && titleEl !== titleEl) {
+      imgEl.style.opacity = '0';
+      imgEl.setAttribute('transform', imgEl.dataset.originalTransform || '');
+    }
+
+    // Hide the text
+    if (textElToReset && titleEl !== titleEl) {
+      textElToReset.style.opacity = '0';
+    }
+  });
+
+  // Mark the new title as clicked
+  titleEl.dataset.clicked = 'true';
+
+  // Apply hover effects (duplicated from mouseenter)
+  titleEl.style.cursor = 'pointer';
+  titleEl.style.fill = '#ffca31';
+  titleEl.style.fontWeight = 'bold';
+
+  // Hide all group images and default image for this group
+  if (all) {
+    all.forEach(gid => {
+      const g = svgElement.querySelector(`#${gid}`);
+      if (g) g.style.display = (gid === show) ? '' : 'none';
+    });
+  }
+
+  // Show and animate the clicked image
+  if (imgEl && imgTranslateMap[img]) {
+    imgEl.style.opacity = '1';
+    imgEl.setAttribute('transform', imgEl.dataset.originalTransform || '');
+    imgEl.style.transition = 'none';
+    imgEl.style.transform = '';
+    void imgEl.offsetWidth;
+    setTimeout(() => {
+      let downTransform;
+      if (img === 'img_3') {
+        downTransform = `translate(${imgTranslateMap[img][0]} ${imgTranslateMap[img][1] - 100})` + (imgEl.dataset.originalTransform || '').replace(/^translate\([^)]+\)/, '');
+      } else {
+        downTransform = `translate(${imgTranslateMap[img][0]} ${imgTranslateMap[img][1] + 90})` + (imgEl.dataset.originalTransform || '').replace(/^translate\([^)]+\)/, '');
+      }
+      imgEl.style.transition = 'transform 60s cubic-bezier(.4,1.4,.4,1), opacity 0.3s';
+      imgEl.setAttribute('transform', downTransform);
+      imgEl.style.transform = '';
+    }, 50);
+  }
+}
+
 // Update setupGlobalClickHandler to handle text elements properly
 function setupGlobalClickHandler(svgElement, layers) {
   document.addEventListener('click', (event) => {
@@ -5919,9 +6521,134 @@ function setupGlobalClickHandler(svgElement, layers) {
 let isHARDSKILLSfunctionLoading = false;
 
 async function HARDSKILLSfunction() {
-  try {
+
+   // Show the loading overlay
+    showLoadingOverlay();
+
+    // Insert the loading eye SVG if not already present
+    const loadingSpinner = document.getElementById('loading-spinner');
+    if (loadingSpinner && !loadingSpinner.querySelector('svg')) {
+        insertLoadingEyeSVG();
+    }
+
+    // Reset and start the loading animation
+    resetLoadingAnimation();
+    startLoadingAnimation(loadingSpinner);
+
+    const minimumLoadingTime =6000; // Minimum loading time in milliseconds
+    const startTime = Date.now();
+
+    // Ensure the loading animation lasts at least the minimum time
+    const elapsedTime = Date.now() - startTime;
+    const remainingTime = Math.max(0, minimumLoadingTime - elapsedTime);
+    await new Promise(resolve => setTimeout(resolve, remainingTime));
+
+  if (isMobile()) {
+    console.log('Mobile device detected. Running initialization with limited functionality.');
+      // Mobile-specific initialization
+      try {
 
     // Set the loading state to true
+    isHARDSKILLSfunctionLoading = true;
+
+    // Hide or remove checkpoint elements
+    const checkpointContainer = document.getElementById('checkpoint-container');
+    if (checkpointContainer) {
+      checkpointContainer.style.opacity = '0';
+      checkpointContainer.style.visibility = 'hidden';
+      checkpointContainer.innerHTML = ''; // Remove any existing checkpoint SVG
+    }
+
+    // Reset state first
+    state.isHovering = false;
+    state.activeTitleEl = null;
+    state.activeImgEl = null;
+    state.hardSkillsImageHovered = false;
+    if (state.hoverTimeout) clearTimeout(state.hoverTimeout);
+
+
+    hideAllPdfContainers();
+    hideAllSvgContainers(); // Add this to clear other SVGs
+    showLoadingOverlay();
+
+    const interactiveContainer = document.querySelector('.interactive-container');
+    if (!interactiveContainer) {
+      hideLoadingOverlay();
+      return;
+    }
+
+      // Clear existing content
+      interactiveContainer.innerHTML = '';
+
+      // 1. Parse SVG content first
+      const parser = new DOMParser();
+      const svgDoc = parser.parseFromString(hardSkillsSVG, 'image/svg+xml');
+      if (svgDoc.querySelector('parsererror')) {
+        hideLoadingOverlay();
+        return;
+      }
+
+      const svgHardSkillsContent = svgDoc.documentElement;
+
+      // 2. Add SVG to DOM first before doing any queries
+      interactiveContainer.appendChild(svgHardSkillsContent);
+
+      let hardSkillsContent = svgDoc.getElementById('hard-skills_content');
+      if (!hardSkillsContent) {
+        hardSkillsContent = document.createElementNS('http://www.w3.org/2000/svg', 'g');
+        hardSkillsContent.setAttribute('id', 'hard-skills_content');
+        svgDoc.appendChild(hardSkillsContent); // Append it to the root of the SVG
+      }
+
+
+      // 3. Wait for SVG to be fully loaded
+      await new Promise(resolve => setTimeout(resolve, 100));
+
+      // 4. Hide all text elements initially
+      const textElements = svgHardSkillsContent.querySelectorAll('[id$="_text"]');
+      textElements.forEach(textEl => {
+        textEl.style.opacity = '0';
+      });
+
+      attachDefaultImageHover(svgHardSkillsContent);
+      
+      // 5. Show container
+      requestAnimationFrame(() => {
+        interactiveContainer.classList.add('active');
+        interactiveContainer.style.visibility = 'visible';
+        interactiveContainer.style.opacity = '1';
+      });
+      // 7. Hide overlays
+      hideLoadingOverlay();
+      hideCheckpointAnimation();
+
+      }
+          
+        
+      catch (err) {
+        console.error('Error during mobile initialization:', err);
+        hideLoadingOverlay();
+      }
+    return; // Exit early after mobile-specific initialization
+  }
+
+  try {
+    // Show the loading overlay
+    showLoadingOverlay();
+
+    // Insert the loading eye SVG if not already present
+    const loadingSpinner = document.getElementById('loading-spinner');
+    if (loadingSpinner && !loadingSpinner.querySelector('svg')) {
+        insertLoadingEyeSVG();
+    }
+
+    // Reset and start the loading animation
+    resetLoadingAnimation();
+    startLoadingAnimation(loadingSpinner);
+
+    const minimumLoadingTime = 6000; // Minimum loading time in milliseconds
+    const startTime = Date.now();
+
     isHARDSKILLSfunctionLoading = true;
 
 
@@ -5943,7 +6670,6 @@ async function HARDSKILLSfunction() {
 
     hideAllPdfContainers();
     hideAllSvgContainers(); // Add this to clear other SVGs
-    showLoadingOverlay();
 
     const interactiveContainer = document.querySelector('.interactive-container');
     if (!interactiveContainer) {
@@ -5998,16 +6724,22 @@ async function HARDSKILLSfunction() {
       console.error('Error initializing hard-skills features:', initError);
     }
 
+
     // 7. Hide overlays
     hideLoadingOverlay();
     hideCheckpointAnimation();
 
+  
   } catch (err) {
     console.error('Error in HARDSKILLSfunction:', err);
     hideLoadingOverlay();
     hideCheckpointAnimation();
+  } finally {
+    // Reset the loading state
+    isHARDSKILLSfunctionLoading = false;
   }
 }
+
 
 // Parse the HARD-SKILLS SVG string HERE
 async function processSvgFile(svgString, totalSteps, loadingElements, currentStep) {
@@ -6048,6 +6780,379 @@ async function processSvgFile(svgString, totalSteps, loadingElements, currentSte
   // Return the parsed SVG element
   return svgHardSkillsContent;
 }
+
+//#endregion
+
+//#endregion
+
+//#region SOFTSKILLS SVG FILE HANDLING - Svg strings
+
+//#region 4.1.2 Global Foundation - CONFIGURATION DATA - SOFT-SKILLS
+
+// --- Main title/header elements for SOFT-SKILLS ---
+const softSkillsLayers = [
+  'analysis',
+  'client-talk',
+  'communication',
+  'management',
+  'teamwork'
+];
+
+// Build selectors for header and headerbox elements (1 to 5)
+const softSkillsHeaderSelectors = [];
+const softSkillsHeaderBoxSelectors = [];
+for (let i = 1; i <= 5; i++) {
+  softSkillsHeaderSelectors.push(
+    ...softSkillsLayers.map(layer => `#${layer}_header_${i}`)
+  );
+  softSkillsHeaderBoxSelectors.push(`#headerbox_${i}`);
+}
+
+// Combined selector strings for easy querySelectorAll
+const softSkillsHeaderSelector = softSkillsHeaderSelectors.join(', ');
+const softSkillsHeaderBoxSelector = softSkillsHeaderBoxSelectors.join(', ');
+
+
+const softSkillsFrostedClipmasks = '[id^="glass_"]';
+
+
+
+
+
+//#endregion
+
+//#region 4.2.2 Core Utilities - IMAGE ANIMATION UTILITIES - SOFT-SKILLS
+//#endregion
+
+//#region 4.3.2 Feature Components - LAYER ANIMATION - SOFT-SKILLS
+
+// Function to animate layers in the SOFT-SKILLS SVG
+
+function animateSoftSkillsLayers(svgElement) {
+  if (!svgElement) return;
+
+  // Layer configurations
+  const layers = [
+    { id: 'analysis', direction: 'right', stopPx: 0 },
+    { id: 'client-talk', direction: 'left', stopPx: -75 },
+    { id: 'communication', direction: 'right', stopPx: 0 },
+    { id: 'management', direction: 'left', stopPx: 0 },
+    { id: 'teamwork', direction: 'right', stopPx: 0 },
+  ];
+
+  // Get SVG dimensions once
+  const svgRect = svgElement.getBoundingClientRect();
+  const svgWidth = svgRect.width;
+
+  // Calculate positions and centers
+  const groupData = layers.reduce((acc, layer) => {
+    const group = svgElement.querySelector(`#${layer.id}`);
+    if (group) {
+      const rect = group.getBoundingClientRect();
+      acc.rects[layer.id] = rect;
+      acc.centers[layer.id] = rect.left + rect.width / 2;
+    }
+    return acc;
+  }, { rects: {}, centers: {} });
+
+  // Calculate reference center
+  const referenceCenter = Object.values(groupData.centers).length > 0
+    ? Object.values(groupData.centers).reduce((a, b) => a + b, 0) / Object.values(groupData.centers).length
+    : window.innerWidth / 2;
+
+  // Animate layers
+  Promise.all(
+    layers.map(layer => {
+      const group = svgElement.querySelector(`#${layer.id}`);
+      if (group) {
+        return SoftskillsanimateLayerIn(
+          group,
+          layer.direction,
+          layer.stopPx,
+          svgWidth,
+          groupData.rects[layer.id],
+          referenceCenter
+        );
+      }
+      return Promise.resolve();
+    })
+  ).catch(err => console.error('Error animating SOFT-SKILLS layers:', err));
+}
+
+// Function to animate a single layer group from left or right
+function SoftskillsanimateLayerIn(group, direction, stopPx, svgWidth, initialRect, referenceCenter) {
+  return new Promise((resolve) => {
+    // Show loading overlay/spinner before starting the delay
+    if (typeof showLoadingOverlay === 'function') showLoadingOverlay();
+
+    const viewportWidth = window.innerWidth;
+    const groupRect = initialRect || group.getBoundingClientRect();
+    const groupWidth = groupRect.width;
+
+    // Use the saved reference center for all groups
+    const groupCurrentLeft = groupRect.left;
+    const groupCurrentCenter = groupCurrentLeft + groupWidth / 2;
+    const centerDelta = (referenceCenter !== undefined ? referenceCenter : viewportWidth / 2) - groupCurrentCenter;
+
+    // Target position (relative to viewport)
+    let targetLeft;
+    if (direction === 'right') {
+      targetLeft = stopPx;
+    } else {
+      targetLeft = viewportWidth - groupWidth - stopPx;
+    }
+    const deltaX = targetLeft - groupCurrentLeft;
+
+    group.style.transition = 'none';
+    group.style.opacity = '0';
+    group.style.transform = `translateX(${centerDelta}px)`;
+
+    void group.offsetWidth;
+
+    setTimeout(() => {
+      let outDelta;
+      if (direction === 'right') {
+        outDelta = deltaX + viewportWidth / 2 + groupWidth / 2 + 200;
+      } else {
+        outDelta = deltaX - (viewportWidth / 2 + groupWidth / 2 + 200);
+      }
+      group.style.transition = 'none';
+      group.style.opacity = '0';
+      group.style.transform = `translateX(${outDelta}px)`;
+
+      void group.offsetWidth;
+
+      setTimeout(() => {
+        group.style.transition = 'transform 0.8s cubic-bezier(.4,1.4,.4,1), opacity 0.8s';
+        group.style.opacity = '1';
+        group.style.transform = `translateX(${deltaX}px)`;
+
+        // Hide loading overlay/spinner after animation
+        if (typeof hideLoadingOverlay === 'function') hideLoadingOverlay();
+
+        setTimeout(resolve, 850);
+      }, 20);
+    }, 100); // This is the delay before the whole SOFT-SKILLS file starts showing
+  });
+}
+
+function addGlassEffectToClipmasks(svgElement) {
+  if (!svgElement) return;
+
+  // Add filter definition if not present
+  let defs = svgElement.querySelector('defs');
+  if (!defs) {
+    defs = document.createElementNS('http://www.w3.org/2000/svg', 'defs');
+    svgElement.insertBefore(defs, svgElement.firstChild);
+  }
+  if (!svgElement.querySelector('#frosted-glass-filter')) {
+    const filter = document.createElementNS('http://www.w3.org/2000/svg', 'filter');
+    filter.setAttribute('id', 'frosted-glass-filter');
+    filter.setAttribute('x', '-20%');
+    filter.setAttribute('y', '-20%');
+    filter.setAttribute('width', '140%');
+    filter.setAttribute('height', '140%');
+    filter.innerHTML = `
+      <feGaussianBlur in="SourceGraphic" stdDeviation="5" result="blur"/>
+      <feColorMatrix in="blur" type="matrix"
+        values="1 0 0 0 0
+                0 1 0 0 0
+                0 0 1 0 0
+                0 0 0 0.18 0" result="glass"/>
+      <feBlend in="SourceGraphic" in2="glass" mode="normal"/>
+    `;
+    defs.appendChild(filter);
+  }
+
+  // Apply filter and fill to all glass_ elements
+  Array.from(svgElement.querySelectorAll(softSkillsFrostedClipmasks)).forEach(el => {
+    el.setAttribute('filter', 'url(#frosted-glass-filter)');
+    el.setAttribute('fill', '#93a0c5');
+    el.setAttribute('fill-opacity', '0.25');
+    el.style.opacity = '0.65';
+  });
+}
+
+// Function to add a drop shadow SVG filter to all [id^="glass_"] elements inside the given SVG
+function addDropShadowToClipmasks(svgElement) {
+  if (!svgElement) return;
+
+  // Ensure <defs> exists
+  let defs = svgElement.querySelector('defs');
+  if (!defs) {
+    defs = document.createElementNS('http://www.w3.org/2000/svg', 'defs');
+    svgElement.insertBefore(defs, svgElement.firstChild);
+  }
+
+  // Add drop shadow filter if not present
+  if (!svgElement.querySelector('#glass-drop-shadow')) {
+    const dropShadow = document.createElementNS('http://www.w3.org/2000/svg', 'filter');
+    dropShadow.setAttribute('id', 'glass-drop-shadow');
+    dropShadow.setAttribute('x', '-20%');
+    dropShadow.setAttribute('y', '-20%');
+    dropShadow.setAttribute('width', '140%');
+    dropShadow.setAttribute('height', '140%');
+    dropShadow.innerHTML = `
+      <feDropShadow dx="0" dy="10" stdDeviation="10" flood-color="#343543" flood-opacity="0.7"/>
+    `;
+    defs.appendChild(dropShadow);
+  }
+
+  // Apply drop shadow filter to all glass_ elements
+  Array.from(svgElement.querySelectorAll('[id^="glass_"]')).forEach(el => {
+    el.setAttribute('filter', 'url(#glass-drop-shadow)');
+  });
+}
+
+// Function to add hover effects to SOFT-SKILLS main title/header and headerbox elements
+function addSoftSkillsHeaderHoverEffects(svgElement) {
+  if (!svgElement) return;
+
+  // Select all header and headerbox elements
+  const headerElements = Array.from(svgElement.querySelectorAll(softSkillsHeaderSelector));
+  const headerBoxElements = Array.from(svgElement.querySelectorAll(softSkillsHeaderBoxSelector));
+
+  // Pair headers and boxes by their index (assumes order matches)
+  const pairs = headerElements.map((header, i) => ({
+    header,
+    box: headerBoxElements[i]
+  }));
+
+  pairs.forEach(({ header, box }) => {
+    if (!header || !box) return;
+
+    // Store original transforms and styles
+    const origHeaderTransform = header.getAttribute('transform') || '';
+    const origBoxTransform = box.getAttribute('transform') || '';
+    const origHeaderFill = header.getAttribute('fill') || header.style.fill || '#fff';
+    const origBoxFilter = box.style.filter || '';
+
+    // Helper to apply hover effect
+    function applyHover() {
+      header.style.cursor = 'default'; // normal arrow, no pointer
+      header.setAttribute('transform', `translate(0,-10) ${origHeaderTransform}`.trim());
+      header.style.fill = '#f4dbdb'; // pink
+      box.setAttribute('transform', `translate(0,-10) ${origBoxTransform}`.trim());
+      box.style.filter = 'drop-shadow(0 8px 16px rgba(75, 73, 82, 0.25))';
+    }
+
+    // Helper to remove hover effect
+    function removeHover() {
+      header.setAttribute('transform', origHeaderTransform);
+      header.style.fill = origHeaderFill;
+      box.setAttribute('transform', origBoxTransform);
+      box.style.filter = origBoxFilter;
+    }
+
+    // Attach listeners to both elements so hovering either triggers both
+    [header, box].forEach(el => {
+      el.addEventListener('mouseenter', applyHover);
+      el.addEventListener('mouseleave', removeHover);
+    });
+  });
+}
+
+//#endregion
+
+//#region 4.4.2 Main Initialization - SOFT-SKILLS
+
+// Add a shared state variable
+let isSOFTSKILLSfunctionLoading = false;
+
+async function SOFTSKILLSfunction() {
+  try {
+    // Set the loading state to true
+    isSOFTSKILLSfunctionLoading = true;
+
+    // Hide or remove checkpoint elements
+    const checkpointContainer = document.getElementById('checkpoint-container');
+    if (checkpointContainer) {
+      checkpointContainer.style.opacity = '0';
+      checkpointContainer.style.visibility = 'hidden';
+      checkpointContainer.innerHTML = ''; // Remove any existing checkpoint SVG
+    }
+
+    // Reset state first
+    state.isHovering = false;
+    state.activeTitleEl = null;
+    state.activeImgEl = null;
+    if (state.hoverTimeout) clearTimeout(state.hoverTimeout);
+
+    hideAllPdfContainers();
+    hideAllSvgContainers(); // Add this to clear other SVGs
+    showLoadingOverlay();
+
+    const interactiveContainer = document.querySelector('.interactive-container');
+    if (!interactiveContainer) {
+      hideLoadingOverlay();
+      return;
+    }
+
+    // Clear existing content
+    interactiveContainer.innerHTML = '';
+
+    // 1. Parse SVG content first
+    const parser = new DOMParser();
+    const svgDoc = parser.parseFromString(softSkillsSVG, 'image/svg+xml');
+    if (svgDoc.querySelector('parsererror')) {
+      hideLoadingOverlay();
+      return;
+    }
+
+    const svgSoftSkillsContent = svgDoc.documentElement;
+
+    // 2. Add SVG to DOM first before doing any queries
+    interactiveContainer.appendChild(svgSoftSkillsContent);
+
+    // 3. Wait for SVG to be fully loaded
+    await new Promise(resolve => setTimeout(resolve, 100));
+
+    // 4. Ensure fonts are loaded
+    const fontLink = document.createElement('link');
+    fontLink.rel = 'stylesheet';
+    fontLink.href = 'https://fonts.googleapis.com/css2?family=Yu+Gothic+UI:wght@400;700&display=swap';
+    document.head.appendChild(fontLink);
+
+
+    // 5. Apply font-family to the SVG container
+    svgSoftSkillsContent.style.fontFamily = "'Yu Gothic UI', sans-serif";
+    
+    // 6. Apply font-family to all text elements in the SVG
+    const textElements = svgSoftSkillsContent.querySelectorAll('text, tspan');
+    textElements.forEach((textEl) => {
+      textEl.style.fontFamily = "'Yu Gothic UI', sans-serif";
+    });
+
+    // 7. Call effetcs here
+    animateSoftSkillsLayers(svgSoftSkillsContent);
+    addGlassEffectToClipmasks(svgSoftSkillsContent);
+    addDropShadowToClipmasks(svgSoftSkillsContent);
+    addSoftSkillsHeaderHoverEffects(svgSoftSkillsContent);
+
+  
+
+    // 8. Show container
+    requestAnimationFrame(() => {
+      interactiveContainer.classList.add('active');
+      interactiveContainer.style.visibility = 'visible';
+      interactiveContainer.style.opacity = '1';
+    });
+
+  
+
+    // 9. Hide overlays
+    hideLoadingOverlay();
+    hideCheckpointAnimation();
+
+  } catch (err) {
+    console.error('Error in SOFTSKILLSfunction:', err);
+    hideLoadingOverlay();
+    hideCheckpointAnimation();
+  }
+}
+
+
+
 
 //#endregion
 
@@ -6123,31 +7228,7 @@ function startWindWaveAnimation() {
 
 // On small screens, animate a random bunch of feathers, not all columns
   if (window.innerWidth < 700) {
-    const allFeathers = Array.from(document.querySelectorAll(
-      '[id*="Pana_roz_degrade"], [id*="Pana_roz_opac"], [id*="Pana_gri_opac"]'
-    ));
-
-    // Pick a random subset (e.g., 8-14 feathers)
-    const count = Math.floor(Math.random() * 6) + 8;
-    const shuffled = allFeathers.sort(() => Math.random() - 0.5);
-    const randomFeathers = shuffled.slice(0, count);
-
-    randomFeathers.forEach((el, idx) => {
-      setTimeout(() => {
-        el.style.transition = 'transform 1s cubic-bezier(.4,1.4,.4,1)';
-        el.style.transform = 'translateY(50px)';
-        setTimeout(() => {
-          el.style.transition = 'transform 0.7s cubic-bezier(.4,1.4,.4,1)';
-          el.style.transform = 'translateY(0px)';
-        }, 350);
-      }, idx * 80);
-    });
-
-    setTimeout(() => {
-      windWaveActive = false;
-      if (!userActive) windWaveRepeatTimeout = setTimeout(startWindWaveAnimation, windWaveDelay);
-    }, count * 60 + 400);
-
+    // Disable animation on mobile devices
     return;
   }
 
