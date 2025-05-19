@@ -388,6 +388,7 @@ a {
   visibility: visible; /* Make it visible */
   opacity: 1;          /* Fully opaque */
   transform: translate(-50%, -50%) scale(1); /* Scale back to normal */
+  pointer-events: auto;
 }
 
 
@@ -587,8 +588,10 @@ a {
 /* Responsive: mobile screens */
 @media (max-width: 700px) {
   #hard-skills_content {
-    height: 65%;       /* Use most of the viewport height */
-    max-height: 90%;
+    width: 110vh;
+    height: 70vh;
+    max-width: 110vh;
+    max-height: 70vh;
     display: flex;
     align-items: center;
     justify-content: center;
@@ -672,21 +675,26 @@ a {
 
 
 /* SOFT-SKILLS.SVG FUNCTIONALITITES**********************************************/
-#svg1 {
+#soft-skills_canvas {
   position: fixed;
   top: 52.5%;
   left: 50%;
-  width: 70vw;
-  height: 70vh;
-  max-width: 70vh;
-  max-height: 70vh;
+  width: 110vh;
+  height: 80vh;
+  max-width: 110vh;
+  max-height: 80vh;
   transform: translate(-50%, -50%);
   background: transparent;
   display: block;
   margin: 0 auto;
   overflow: visible; /* Allow content to overflow visibly */
+  pointer-events: none; /* Enable click functionality */
+
 }
 
+#soft-skills_canvas.active {
+  pointer-events: auto;
+}
 
 /* Show and animate soft-skills container when active */
 #soft-skills_content.active {
@@ -695,22 +703,59 @@ a {
   z-index: 8000;  /* Make it visible */
 }
 
+#soft-skills_canvas text:not([id*="header"]) {
+  font-family: 'Yu Gothic UI', sans-serif; /* Set a specific font */
+  font-size: 24px; /* Adjust the font size */
+  text-anchor: flex; /* Center-align the text horizontally */
+  text-align: justify; /* Justify the text */
+  white-space: pre; /* Preserve spaces and line breaks */
+  overflow: visible; /* Ensure text is not clipped */
+  word-spacing: 10px; /* Add spacing between words for better justification */
+  pointer-events: auto; /* Allow interaction with the text */
+  user-select: none; /* Prevent text selection */
+}
+
+
+
 /* Responsive: mobile screens */
 @media (max-width: 700px) {
-  #soft-skills_content {
-    width: 30%;         /* Use almost full viewport width */
-    height: 30%;        /* Use most of the viewport height */
-    max-width: 60%;
-    max-height: 60%;
+  #soft-skills_canvas {
+    height: 75%;       /* Use most of the viewport height */
+    max-height: 85%;
+    display: flex;
     align-items: center;
     justify-content: center;
-    overflow: visible;
+    top: 32.5%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    overflow-x: hidden;
+    overflow-y: auto;
+    pointer-events: none; /* Enable click functionality */
   }
+
+#soft-skills_canvas text:not([id*="header"]) {
+  font-family: 'Yu Gothic UI', sans-serif; /* Set a specific font */
+  font-size: 24px; /* Adjust the font size */
+  text-anchor: flex; /* Center-align the text horizontally */
+  text-align: justify; /* Justify the text */
+  white-space: pre; /* Preserve spaces and line breaks */
+  overflow: visible; /* Ensure text is not clipped */
+  word-spacing: 10px; /* Add spacing between words for better justification */
+  pointer-events: none; /* Allow interaction with the text */
+  user-select: none; /* Prevent text selection */
 }
+
+#soft-skills_canvas.active {
+  pointer-events: auto;
+}
+
+
+}
+
+
 
 #frosted-glass-filter {
-  box-shadow: 8px 8px 32px rgba(52, 53, 67, 0.5); /* Drop shadow effect */
-
-}
+box-shadow: 8px 8px 32px rgba(52, 53, 67, 0.5); /* Drop shadow effect */
+opacity: 0.8; }
 
 /* SOFT-SKILLS.SVG FUNCTIONALITITES**********************************************/

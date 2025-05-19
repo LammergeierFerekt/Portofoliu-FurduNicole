@@ -3675,19 +3675,44 @@ const cvSVG = `<svg id="cv_content" xmlns="http://www.w3.org/2000/svg" viewBox="
 
 const softSkillsSVG = `<svg
    version="1.1"
-   id="svg1"
-   width="1671.1398"
-   height="2017.7788"
-   viewBox="0 0 1671.1398 2017.7789"
+   id="soft-skills_canvas"
+   width="3200"
+   height="2133.3333"
+   viewBox="0 0 3200 2133.3333"
+   sodipodi:docname="soft-skills.svg"
+   inkscape:version="1.4.2 (f4327f4, 2025-05-13)"
+   inkscape:export-filename="SOFT-SKILLS_2025.svg"
+   inkscape:export-xdpi="96"
+   inkscape:export-ydpi="96"
+   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
+   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
    xmlns="http://www.w3.org/2000/svg"
    xmlns:svg="http://www.w3.org/2000/svg">
+  <sodipodi:namedview
+     id="namedview1"
+     pagecolor="#ffffff"
+     bordercolor="#000000"
+     borderopacity="0.25"
+     inkscape:showpageshadow="2"
+     inkscape:pageopacity="0.0"
+     inkscape:pagecheckerboard="0"
+     inkscape:deskcolor="#d1d1d1"
+     inkscape:zoom="0.38680952"
+     inkscape:cx="2068.2014"
+     inkscape:cy="1199.5568"
+     inkscape:window-width="1897"
+     inkscape:window-height="1360"
+     inkscape:window-x="859"
+     inkscape:window-y="0"
+     inkscape:window-maximized="0"
+     inkscape:current-layer="client-talk" />
   <defs
-     id="defs1">
+     id="soft-skills_def">
     <rect
-       x="753.60089"
-       y="-281.79245"
-       width="1564.0771"
-       height="296.20444"
+       x="753.60087"
+       y="-281.79244"
+       width="1564.0772"
+       height="296.20445"
        id="rect2" />
     <clipPath
        clipPathUnits="userSpaceOnUse"
@@ -3756,16 +3781,21 @@ const softSkillsSVG = `<svg
   </defs>
   <g
      id="soft-skills_content"
-     transform="translate(-763.86022,-49.999998)">
+     inkscape:label="soft-skills_content">
     <g
        id="analysis"
        style="display:inline">
-      <path
-         id="glass_5"
-         d="m 0,0 h 1201.088 c 7.613,0 13.785,6.172 13.785,13.785 v 198.649 c 0,7.613 -6.172,13.785 -13.785,13.785 H 0 c -7.613,0 -13.785,-6.172 -13.785,-13.785 V 13.785 C -13.785,6.172 -7.613,0 0,0"
-         style="fill:#93a0c5;fill-opacity:1;fill-rule:nonzero;stroke:none"
-         transform="matrix(1.3333333,0,0,-1.3333333,799.27453,2067.7787)"
-         clip-path="url(#clipPath2)" />
+      <rect
+         style="display:inline;fill:#93a0c5;fill-opacity:1;stroke-width:0.994356"
+         id="clipmask_5"
+         width="1640"
+         height="300"
+         x="-2420"
+         y="1765"
+         transform="scale(-1,1)"
+         ry="19.924408"
+         rx="20.019653"
+         inkscape:label="clipmask_5" />
       <text
          xml:space="preserve"
          id="text_5"
@@ -3775,29 +3805,29 @@ const softSkillsSVG = `<svg
          y="0"><tspan
            x="753.60156"
            y="-257.46413"
-           id="tspan2"><tspan
+           id="tspan50"><tspan
              dx="0 0 0.61362839 0 0 0 0 0 0 0 0 0.61362076 0 0 0 0 0 0 0 0 0 0 0 0 0.6136055 0 0 0 0 0.61363602 0 0.61363602 0 0 0 0 0.6136055 0 0 0 0 0 0.61363602 0 0 0.61363602 0 0 0 0 0 0 0 0 0 0.61363602 0 0 0 0.61363602 0 0 0 0 0 0 0 0 0 0 0.61363602 0 0 0 0 0 0 0.61363602 0 0 0 0 0 0 0 0 0 0 0 0 0 0.61363602 0 0 0.00010871887 0 0 0 0 0 0 0 0 0 0 0 0 0 0.61363602 0 0.61363602"
-             id="tspan1">I approach architecture with a deep sense of curiosity and skepticism toward surface-level interpretations. I believe </tspan></tspan><tspan
+             id="tspan49">I approach architecture with a deep sense of curiosity and skepticism toward surface-level interpretations. I believe </tspan></tspan><tspan
            x="753.60156"
            y="-224.13076"
-           id="tspan4"><tspan
+           id="tspan52"><tspan
              dx="0 0 0 0 0 6.0082283 0 0 0 0 0 6.0082283 0 0 0 0 0 0 0 6.008213 0 0 0 0 0 0 0 0 6.0082283 0 0 0 6.0082283 0 0 0 0 0 0 0 0 0 0 6.0082283 0 0 0 0 0 6.0082283 0 0 0 0 0 0 0 6.0082283 0 0 0 6.0082283 0 0 0 6.0082283 0 0 0 0 0 0 0 6.0082283 0 0.00010108948 0 0 0 0.00010871887 0 0 0 6.0081673 0 0.00010108948 0 0 6.0081673 0 0 0 0 6.0082893 0 0 6.0082893 0 0 0 0 0 0 0 0 -0.00010108948 0 6.0082893"
-             id="tspan3">that every client, context, and historical layer carries its own complex narrative that must be understood and </tspan></tspan><tspan
+             id="tspan51">that every client, context, and historical layer carries its own complex narrative that must be understood and </tspan></tspan><tspan
            x="753.60156"
            y="-190.79738"
-           id="tspan6"><tspan
+           id="tspan54"><tspan
              dx="0 0 0 0 0 0 0 0 0 0 0 2.5045509 0 0 0 0 2.5045509 0 0 0 0 0 0 0 0 0 0 0 0 0 2.5045662 0 0 0 0 0 0 0 0 0 2.5045662 0 2.5045052 0 0 0 0 0 2.5045662 0 0 0 0 0 0 0 0 0 2.5045662 0 0 0 2.5045662 0 0 0 0 0 0 0 0 0 0 0 0 0 2.5045662 0 0 0 0 0.00010108948 0 0 0 0 0 2.5046272 0 0 0 0 0 0 2.5045052 0.00010108948 0 0 0 0 0 0 2.5045052 0.00010108948 2.5045052 0 0 -0.00010108948 0.00011062622 0 0 0 0 2.5046272"
-             id="tspan5">translated into architectural language. I enjoy exploring the psychological dimensions behind anyone, a project, a </tspan></tspan><tspan
+             id="tspan53">translated into architectural language. I enjoy exploring the psychological dimensions behind anyone, a project, a </tspan></tspan><tspan
            x="753.60156"
            y="-157.46401"
-           id="tspan9"><tspan
+           id="tspan56"><tspan
              dx="0 0 0 0 0 0 6.6787415 0 0 0 0 0 0 0 0 6.67873 0 0 0 6.6787453 0 0 0 0 0 0 0 0 6.67873 0 0 0 0 0 0 0 6.67873 0 0 6.6787605 0 0 0 0 0 0 6.6787605 0 0 0 6.6786995 0 0 0 0 0 0 0 6.6787605 0 0 0 0 6.6787605 0 0 0 0 0 0 0 0 0 0 6.6786995 0 0 0.00010108948 -0.00010299683 0 0 0.00010871887 6.6786995 0 0 0 0 0 6.6786995 0 0 6.6786995 0 0 0 0 0 6.6788216"
-             id="tspan7">site, allowing its symbolic essence to inform the design. This analytical mindset helps me shape architectural </tspan></tspan><tspan
+             id="tspan55">site, allowing its symbolic essence to inform the design. This analytical mindset helps me shape architectural </tspan></tspan><tspan
            x="753.60156"
            y="-124.13063"
-           id="tspan11"><tspan
+           id="tspan58"><tspan
              dx="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0.00010108948 0 0 0 0 0 0 0.00010108948 0 0 0 0 0 0 0 0 0 -0.00010299683 0.00010871887 0 0 0 0 0 -0.00010108948 0 0 0 0 0 0 0.00010108948"
-             id="tspan10">concepts with intention, expressing them through both visual representation and clear, descriptive communication.</tspan></tspan></text>
+             id="tspan57">concepts with intention, expressing them through both visual representation and clear, descriptive communication.</tspan></tspan></text>
       <rect
          style="display:inline;fill:#63769e;fill-opacity:1;stroke-width:0.958852"
          id="headerbox_5"
@@ -3822,13 +3852,19 @@ const softSkillsSVG = `<svg
     </g>
     <g
        id="client-talk"
-       style="display:inline">
-      <path
-         id="glass_4"
-         d="m 0,0 h 1201.088 c 7.613,0 13.785,6.172 13.785,13.785 v 198.649 c 0,7.613 -6.172,13.784 -13.785,13.784 H 0 c -7.613,0 -13.785,-6.171 -13.785,-13.784 V 13.785 C -13.785,6.172 -7.613,0 0,0"
-         style="fill:#93a0c5;fill-opacity:1;fill-rule:nonzero;stroke:none"
-         transform="matrix(1.3333333,0,0,-1.3333333,799.27453,1644.042)"
-         clip-path="url(#clipPath84)" />
+       style="display:inline"
+       transform="matrix(1.0005408,0,0,1.0029115,-1.3168382,-3.8285994)">
+      <rect
+         style="display:inline;fill:#93a0c5;fill-opacity:1;stroke-width:0.992643"
+         id="clipmask_4"
+         width="1639.1135"
+         height="299.12909"
+         x="-2420.0081"
+         y="1349.8983"
+         transform="scale(-1,1)"
+         ry="19.866566"
+         rx="20.008833"
+         inkscape:label="clipmask_4" />
       <text
          xml:space="preserve"
          id="text_4"
@@ -3838,27 +3874,27 @@ const softSkillsSVG = `<svg
          y="0"><tspan
            x="753.60156"
            y="-257.46413"
-           id="tspan13"><tspan
+           id="tspan60"><tspan
              dx="0 0 1.2873535 0 0 0 0 1.2873573 0 0 0 0 0 0 0 0 0 0 1.2873573 0 0 0 0 0 0 0 1.2873421 0 0 0 0 0 0 0 1.2873421 0 0 0 0 1.2873421 0 0 0 0 0 0 0 1.2874031 0 0 1.2873421 0 0 0 0 1.2873421 0 0 0 0 0 0 0 0 1.2873421 0 0 0 0 0 0 1.2873421 0 0 0 1.2873421 0 0 0 0 0 0 0 0 0 0 1.2873421 0 0 0 0 0 0 0 0 0 0 0 0 1.2873421 0 0 0 0 0 0 0 0 0 1.2873421 0 1.2873421"
-             id="tspan12">I have experience working closely with clients on both interior design and conceptual architecture projects. I strive </tspan></tspan><tspan
+             id="tspan59">I have experience working closely with clients on both interior design and conceptual architecture projects. I strive </tspan></tspan><tspan
            x="753.60156"
            y="-224.13076"
-           id="tspan15"><tspan
+           id="tspan62"><tspan
              dx="0 0 0 5.5391464 0 0 0 0 0 0 0 0 0 0 5.5391426 0 0 0 0 0 5.5391426 0 0 0 0 0 5.5391426 0 0 0 5.5391426 0 0 0 0 5.5391426 0 0 5.5391121 0 0 0 0 0 5.5391121 0 0 5.5391731 0 0 0 0 0 0 0 0 0 5.5391121 0 0 0 5.5391731 0 0 0 0 5.5391731 0 0 0 0 5.5391121 0 0 5.5391731 0 0 -0.00010108948 0.00010871887 0 0 0 0 0 5.5391731 0 0 0 5.5391731 0 0 0 0 -0.00010108948 0.00010108948 0 0 5.5391731 0 0 0 0 0 0 0 0 0 0.00010204315"
-             id="tspan14">to understand their needs not just in terms of function, but also from an emotional and personal perspective, </tspan></tspan><tspan
+             id="tspan61">to understand their needs not just in terms of function, but also from an emotional and personal perspective, </tspan></tspan><tspan
            x="753.60156"
            y="-190.79738"
-           id="tspan17"><tspan
+           id="tspan64"><tspan
              dx="0 0 0 0 0 0 0 0 0 0 0 0 2.3666878 0 0 0 0 0 2.3666878 0 0 0 0 0 0 2.3666878 0 0 0 0 2.3666878 0 0 0 0 0 0 0 0 0 0 0 0 0 2.3666878 0 0 0 0 0 0 0 0 0 2.3666878 0 0 0 0 0 0 0 2.3666878 0 2.3666878 0 0 0 0 0 0 0 0 0 0 0 2.3667488 -0.00010108948 0 2.3666878 0.00010871887 0 0 0 0 0 0 0 0 2.3666878 0 0 -0.00010108948 0.00011062622 0 0 0 0 0 0 0 2.3666878 0 0 0 2.3666878"
-             id="tspan16">translating those values into architectural solutions through a combination of technical proficiency and empathetic </tspan></tspan><tspan
+             id="tspan63">translating those values into architectural solutions through a combination of technical proficiency and empathetic </tspan></tspan><tspan
            x="753.60156"
            y="-157.46401"
-           id="tspan19"><tspan
+           id="tspan66"><tspan
              dx="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 4.1305122 0 0 4.1305122 0 0 0 0 0 0 4.1305122 0 0 0 0 0 0 0 4.1305122 0 0 0 4.1305428 0 0 0 0 0 0 0 0 0 0 4.1304817 0 4.1304817 0 0 0 0 0 0 4.1305428 0 0 0 0 0 0 0 0 4.1305428 0 0 0 0 0 0 0 0 0 0 0 0 0 0 4.1304817 0 0 0 0 0 0 0 0 4.1304817 0 0 4.1304817 0 0 0 0 0 0 0 0 4.1304817"
-             id="tspan18">communication. To ensure clarity and alignment, I design tailored questionnaires followed by feedback sessions, </tspan></tspan><tspan
+             id="tspan65">communication. To ensure clarity and alignment, I design tailored questionnaires followed by feedback sessions, </tspan></tspan><tspan
            x="753.60156"
            y="-124.13063"
-           id="tspan20">refining each project through honest and open dialogue.</tspan></text>
+           id="tspan67">refining each project through honest and open dialogue.</tspan></text>
       <rect
          style="display:inline;fill:#63769e;fill-opacity:1;stroke-width:1.0825"
          id="headerbox_4"
@@ -3884,12 +3920,17 @@ const softSkillsSVG = `<svg
     <g
        id="communication"
        style="display:inline">
-      <path
-         id="glass_3"
-         d="m 0,0 h 1201.088 c 7.613,0 13.785,6.172 13.785,13.785 v 198.649 c 0,7.613 -6.172,13.785 -13.785,13.785 H 0 c -7.613,0 -13.785,-6.172 -13.785,-13.785 V 13.785 C -13.785,6.172 -7.613,0 0,0"
-         style="fill:#93a0c5;fill-opacity:1;fill-rule:nonzero;stroke:none"
-         transform="matrix(1.3333333,0,0,-1.3333333,799.27453,1221.1804)"
-         clip-path="url(#clipPath111)" />
+      <rect
+         style="display:inline;fill:#93a0c5;fill-opacity:1;stroke-width:0.994356"
+         id="clipmask_3"
+         width="1640"
+         height="300"
+         x="-2415"
+         y="920"
+         transform="scale(-1,1)"
+         ry="19.924408"
+         rx="20.019653"
+         inkscape:label="clipmask_3" />
       <text
          xml:space="preserve"
          id="text_3"
@@ -3899,27 +3940,27 @@ const softSkillsSVG = `<svg
          y="0"><tspan
            x="753.60156"
            y="-257.46413"
-           id="tspan22"><tspan
+           id="tspan69"><tspan
              dx="0 0 4.7693825 0 0 0 0 4.7693825 0 4.7693748 0 0 0 0 0 0 4.7693825 0 0 0 0 0 0 0 4.7693977 0 0 4.7693672 0 0 0 0 0 0 4.7693977 0 0 0 0 0 0 0 0 0 0 0 4.7693977 0 0 0 4.7693977 0 0 0 0 0 0 0 0 0 0 4.7693367 0 0 0 4.7693367 0 0 0 0 0 0 4.7693977 0 0 0 0 0 0 0 0 4.7693977 0 0 4.7693977 0 0 0 0 0 0 0 0 0 4.7693977 0 0 0 0 0 4.7693977 0 0 0 0 0 4.7693977"
-             id="tspan21">I have a strong ability to listen attentively and understand how others perceive my messages, which helps me </tspan></tspan><tspan
+             id="tspan68">I have a strong ability to listen attentively and understand how others perceive my messages, which helps me </tspan></tspan><tspan
            x="753.60156"
            y="-224.13076"
-           id="tspan24"><tspan
+           id="tspan71"><tspan
              dx="0 0 0 0 0 0 0 3.0077324 0 0 0 0 3.0077248 0 0 3.00774 0 0 0 0 0 3.0077095 0 3.00774 0 0 0 0 0 0 3.00774 0 0 0 0 0 0 0 0 0 0 0 0 0 0 3.007679 0 0 0 0 3.00774 0 3.00774 0 0 0 0 0 3.00774 0 0 0 3.007679 0 0 0 0 0 0 0 0 0 3.0078011 -0.00010108948 0 3.0078011 0 0 0 0 0 0 0 0 0 0 0 0 0 3.007679 0 3.007679 0 0 0 0 0 0.00010871887 0 0 0 0 0 3.007679"
-             id="tspan23">ensure that we share a common understanding. When I sense any confusion or misalignment, I proactively seek </tspan></tspan><tspan
+             id="tspan70">ensure that we share a common understanding. When I sense any confusion or misalignment, I proactively seek </tspan></tspan><tspan
            x="753.60156"
            y="-190.79738"
-           id="tspan26"><tspan
+           id="tspan73"><tspan
              dx="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0.87416458 0 0 0 0.87416458 0 0 0 0 0 0 0 0.87416458 0 0 0 0 0 0 0 0 0.87416458 0 0 0 0 0 0 0 0 0 0 0 0 0.8741951 0 0 0.87413406 0 0 0 0 0 0 0 0.87413406 0 0.87413406 0 0 0 0 0 0 0 0.8741951 0 0 0.8741951 0 0 0 0 0 0 0 0 0 0 0 0.87413406 0 0 0 0 0 0.87413406 0 0 0 0.87413406 0.00010108948 -0.00010108948 0.00010108948 0 0 0.00010871887 0.87413406 0 0 0 0 0 0 0 0 0 0.00010871887"
-             id="tspan25">clarification and provide detailed explanations as needed. I believe in maintaining clear and honest communication, </tspan></tspan><tspan
+             id="tspan72">clarification and provide detailed explanations as needed. I believe in maintaining clear and honest communication, </tspan></tspan><tspan
            x="753.60156"
            y="-157.46401"
-           id="tspan28"><tspan
+           id="tspan75"><tspan
              dx="0 0 0 2.9212265 0 0 0 0 0 0 0 0 0 0 0 0 2.9212227 0 0 0 2.9212227 0 0 0 0 0 0 0 0 0 2.9212227 0 0 0 0 0 2.9212532 0 0 0 0 0 0 2.9211922 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 2.9212532 0 0 0 2.9212532 0 0 0 0 0 0 0 0 0 0 2.9211922 0 0 0 0 0 0 -0.00010108948 0 0 0 0 0 0 0 2.9212532 0 -0.00010108948 0 0 0 0 0 0 0 2.9212532 0 2.9212532 0 0 0 0 2.9212532 0 0 0 0 0 0 0 0 2.9212532"
-             id="tspan27">as transparency and integrity build trust, responsibility, and successful collaboration. Moreover, I take pleasure in </tspan></tspan><tspan
+             id="tspan74">as transparency and integrity build trust, responsibility, and successful collaboration. Moreover, I take pleasure in </tspan></tspan><tspan
            x="753.60156"
            y="-124.13063"
-           id="tspan29">crafting thorough analyses and detailed descriptions to enhance project clarity.</tspan></text>
+           id="tspan76">crafting thorough analyses and detailed descriptions to enhance project clarity.</tspan></text>
       <rect
          style="display:inline;fill:#63769e;fill-opacity:1;stroke-width:1.17818"
          id="headerbox_3"
@@ -3945,12 +3986,17 @@ const softSkillsSVG = `<svg
     <g
        id="management"
        style="display:inline">
-      <path
-         id="glass_2"
-         d="m 0,0 h 1201.088 c 7.613,0 13.785,6.172 13.785,13.785 v 198.649 c 0,7.613 -6.172,13.784 -13.785,13.784 H 0 c -7.613,0 -13.785,-6.171 -13.785,-13.784 V 13.785 C -13.785,6.172 -7.613,0 0,0"
-         style="fill:#93a0c5;fill-opacity:1;fill-rule:nonzero;stroke:none"
-         transform="matrix(1.3333333,0,0,-1.3333333,799.27453,797.87893)"
-         clip-path="url(#clipPath159)" />
+      <rect
+         style="display:inline;fill:#93a0c5;fill-opacity:1;stroke-width:0.994356"
+         id="clipmask_2"
+         width="1640"
+         height="300"
+         x="-2415"
+         y="500"
+         transform="scale(-1,1)"
+         ry="19.924408"
+         rx="20.019653"
+         inkscape:label="clipmask_2" />
       <text
          xml:space="preserve"
          id="text_2"
@@ -3960,27 +4006,27 @@ const softSkillsSVG = `<svg
          y="0"><tspan
            x="753.60156"
            y="-257.46413"
-           id="tspan31"><tspan
+           id="tspan78"><tspan
              dx="0 0 4.4691372 0 0 0 0 0 0 0 0 0 4.4691353 0 0 0 0 4.4691353 0 0 0 0 0 0 0 0 0 0 4.4691658 0 0 4.4691353 0 0 0 0 4.4691353 0 0 0 0 0 0 0 0 0 4.4691048 0 0 0 0 0 0 0 0 0 0 4.4691658 0 0 0 0 4.4691048 0 0 0 0 0 4.4691658 0 0 0 4.4691048 0 0 0 0 4.4692268 0 0.00010108948 4.4691048 0 0 0 0 0 0 0 0 0 4.4691048 0 0 4.4691048 0 0 0 0 0 0 0 0 0 0 0.00010108948 0 0 0.00010108948 -0.00010299683 0 4.4692268 0 4.4692268"
-             id="tspan30">I naturally take initiative to lead projects, especially when there are gaps in direction or decision-making. I am </tspan></tspan><tspan
+             id="tspan77">I naturally take initiative to lead projects, especially when there are gaps in direction or decision-making. I am </tspan></tspan><tspan
            x="753.60156"
            y="-224.13076"
-           id="tspan33"><tspan
+           id="tspan80"><tspan
              dx="0 0 0 0 0 0 10.85371 0 0 10.853718 0 0 0 0 0 0 0 0 0 0 10.853718 0 0 0 10.853687 0 0 0 0 0 0 0 0 0 0 0 10.853687 0 0 0 0 0 0 10.853748 0 0 0 0 0 0 0 0 10.853687 0 0 0 0 0 0 0 0 0 0 10.853748 0 0 0 0 0 0 10.853748 0 0 0 0 0 10.853626 0 10.853748 0 0 0 0 10.853748 0 0 0 0 0 10.853748 0 10.853626 0 0 0 0 0 0 0 0.00010204315"
-             id="tspan32">drawn to organizing and maintaining clear, cohesive management within teams I work with. I proactively </tspan></tspan><tspan
+             id="tspan79">drawn to organizing and maintaining clear, cohesive management within teams I work with. I proactively </tspan></tspan><tspan
            x="753.60156"
            y="-190.79738"
-           id="tspan35"><tspan
+           id="tspan82"><tspan
              dx="0 0 0 0 0 0 0 0 0 0 0 1.0017586 0 0 0 1.0017586 0 0 0 0 0 0 0 0 1.0017586 0 0 0 0 0 0 0 0 0 0 1.0017586 0 0 0 0 0 0 0 0 0 0 1.0017586 0 0 0 0 1.0017586 0 0 0 0 0 0 0 0 0 0 1.0017586 0 0 1.0017586 0 0 0 0 0 0 0 1.0016975 0 0.00010108948 -0.00010299683 1.0018196 0 0 0 0 0.00010108948 1.0016975 0 0 0 0 1.0018196 0 0 1.0016975 0 0 1.0018196 0 0 0 0 1.0016975 0.00010871887 0 0 0 1.0018196 -0.00010299683 0.00010108948 -0.00010108948 0 1.0018196"
-             id="tspan34">understand and question management directives when leadership is lacking and often step up to fill that gap, even </tspan></tspan><tspan
+             id="tspan81">understand and question management directives when leadership is lacking and often step up to fill that gap, even </tspan></tspan><tspan
            x="753.60156"
            y="-157.46401"
-           id="tspan37"><tspan
+           id="tspan84"><tspan
              dx="0 0 0 0 0 0 0 3.2065086 0 0 3.2065163 0 0 0 0 0 0 3.2065315 0 0 0 0 0 3.206501 0 3.2065315 0 0 0 0 0 0 3.2065315 0 0 0 0 0 3.2065315 0 0 0 0 0 0 0 0 0 0 0 0 3.2065315 0 0 0 3.2065315 0 0 0 0 0 3.2065315 0 0 0 0 0 0 0 0 0 0 0 0 0 3.2065315 0 0 3.2065315 0 0 0 0 0 0 0 0 0 3.2064095 0 0 0 0 0 0 0 0 0 3.2064095 0.00010871887 0 0 0 3.2065315 0 0.00010108948"
-             id="tspan36">beyond my formal role. I highly value organization and clear communication in teamwork, believing that success </tspan></tspan><tspan
+             id="tspan83">beyond my formal role. I highly value organization and clear communication in teamwork, believing that success </tspan></tspan><tspan
            x="753.60156"
            y="-124.13063"
-           id="tspan38">comes when everyone is aligned and working toward the same goals.</tspan></text>
+           id="tspan85">comes when everyone is aligned and working toward the same goals.</tspan></text>
       <rect
          style="display:inline;fill:#63769e;fill-opacity:1;stroke-width:1.0825"
          id="headerbox_2"
@@ -4006,12 +4052,17 @@ const softSkillsSVG = `<svg
     <g
        id="teamwork"
        style="display:inline">
-      <path
-         id="glass_1"
-         d="m 0,0 h 1201.088 c 7.613,0 13.785,6.172 13.785,13.785 v 198.649 c 0,7.613 -6.172,13.785 -13.785,13.785 H 0 c -7.613,0 -13.785,-6.172 -13.785,-13.785 V 13.785 C -13.785,6.172 -7.613,0 0,0"
-         style="fill:#93a0c5;fill-opacity:1;fill-rule:nonzero;stroke:none"
-         transform="matrix(1.3333333,0,0,-1.3333333,799.27453,375.06467)"
-         clip-path="url(#clipPath193)" />
+      <rect
+         style="display:inline;fill:#93a0c5;fill-opacity:1;stroke-width:0.994356"
+         id="clipmask_1"
+         width="1640"
+         height="300"
+         x="-2420"
+         y="70"
+         transform="scale(-1,1)"
+         ry="19.924408"
+         rx="20.019653"
+         inkscape:label="clipmask_1" />
       <text
          xml:space="preserve"
          id="text_1"
@@ -4021,31 +4072,31 @@ const softSkillsSVG = `<svg
          y="0"><tspan
            x="753.60156"
            y="-258.68063"
-           id="tspan40"><tspan
+           id="tspan87"><tspan
              dx="0 0 1.0709324 0 0 0 0 0 0 1.0709343 0 0 0 0 0 0 1.070919 0 0 0 1.0709343 0 0 0 0 0 0 0 0 0 0 0 0 0 1.0709343 0 0 0 0 0 0 0 0 0 0 1.0709343 0 0 0 0 0 0 0 0 0 0 0 0 1.0709343 0 0 1.0709343 0 0 0 0 0 1.0709343 0 0 0 1.0709343 0 0 0 0 0 0 1.0709343 0 0 1.0709343 0 1.0709343 0 0 0 0 0 0 1.0709343 0 0 0 0 0 0 0 1.0709343 0 0 0 1.0709343 0 1.0709343 0 0 0 0 0 0 0 0 0 0 0 0 0 1.0708122 0.00010204315"
-             id="tspan39">I firmly reject the “starchitect” phenomena: architecture is never the result of a single vision, but a collaborative process </tspan></tspan><tspan
+             id="tspan86">I firmly reject the “starchitect” phenomena: architecture is never the result of a single vision, but a collaborative process </tspan></tspan><tspan
            x="753.60156"
            y="-227.01401"
-           id="tspan42"><tspan
+           id="tspan89"><tspan
              dx="0 0 0 0 0 0 0 1.4970207 0 0 1.4970055 0 0 0 0 0 0 0 0 1.4970055 0 0 0 0 0 0 0 0 1.4970207 0 0 0 0 0 0 0 0 1.4970207 0 0 0 1.4970207 0 0 0 0 0 0 1.4970207 0 0 0 0 0 0 1.4970207 0 0 1.4970207 0 0 0 0 0 0 0 0 0 0 1.4970207 0 0 1.4970207 0 0 0 0 0 0 0 0 1.4969597 0 0 0 0 0 0 0 0 0 -0.00010108948 0 0 1.4970818 0 0 1.4969597 0 0 0 0 0 0 0 1.4970818 0 0 1.4969597 0 0 0 0 0 0 1.4970818"
-             id="tspan41">shaped by clients, context, culture, and shared input. My background in scouting strengthened my ability to adapt, trust </tspan></tspan><tspan
+             id="tspan88">shaped by clients, context, culture, and shared input. My background in scouting strengthened my ability to adapt, trust </tspan></tspan><tspan
            x="753.60156"
            y="-195.34738"
-           id="tspan44"><tspan
+           id="tspan91"><tspan
              dx="0 0 0 0 0 0 0 0 6.7009697 0 0 0 6.7009697 0 0 0 0 0 6.7009697 0 0 0 0 0 0 0 6.7009697 0 0 0 0 0 0 0 0 0 0 0 0 0 0 6.7010002 0 0 0 0 0 0 0 0 0 0 6.7009392 0 0 6.7009392 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 6.7010002 0 0 0 0 0 0 0 0.00010204315 -0.00010108948 0 0 6.7009392 0 0 0 0 6.7010612 -0.00010204315 0 0 0 6.7010612 0 0 0 0 0 0 0 0 0 0 0 0.00010204315 6.7009392 0 0 0 0 0 0 0 0 0 0 0 6.7009392"
-             id="tspan43">others, and value diverse contributions, especially in problem-solving situations. I’ve also collaborated effectively in </tspan></tspan><tspan
+             id="tspan90">others, and value diverse contributions, especially in problem-solving situations. I’ve also collaborated effectively in </tspan></tspan><tspan
            x="753.60156"
            y="-163.68075"
-           id="tspan45">academic teams and gained practical experience using ArchiCADs teamwork tool, in diverse professional projects. 
+           id="tspan92">academic teams and gained practical experience using ArchiCADs teamwork tool, in diverse professional projects. 
 </tspan><tspan
            x="753.60156"
            y="-132.01413"
-           id="tspan47"><tspan
+           id="tspan94"><tspan
              dx="0 0 0 0 0 3.3174248 0 3.3174248 0 0 0 3.3174095 0 0 0 0 0 3.3174248 0 0 0 0 0 0 0 0 0 0 0 0 0 0 3.3174248 0 3.3173943 0 0 0 0 0 3.3173943 0 0 3.3174553 0 0 0 0 0 3.3173943 0 0 0 3.3174553 0 0 0 0 0 0 0 0 0 0 3.3174553 0 0 0 0 0 0 3.3173943 0 0 0 0 3.3173943 0 0 3.3173943 0 0 0 0 0 0 0 0 0 0 0 3.3173943 0 0 0 0 0 0 0 -0.00010108948 0.00010204315 3.3173943 0 0 3.3173943 0 0 0 0 0 -0.00011062622 3.3175163 0 -0.00010108948"
-             id="tspan46">When I was named valedictorian, I chose to share the graduation speech with my colleagues, affirming my belief that </tspan></tspan><tspan
+             id="tspan93">When I was named valedictorian, I chose to share the graduation speech with my colleagues, affirming my belief that </tspan></tspan><tspan
            x="753.60156"
            y="-100.3475"
-           id="tspan48">meaningful architecture is always built with in teams.</tspan></text>
+           id="tspan95">meaningful architecture is always built with in teams.</tspan></text>
       <rect
          style="display:inline;fill:#63769e;fill-opacity:1;stroke-width:0.995751"
          id="headerbox_1"
@@ -4717,7 +4768,7 @@ async function CVfunction(svgType) {
       const textGroup = svgElement.querySelector(`#textg${num}`);
       let box = svgElement.querySelector(`#boxg${num}`);
       const lineg = svgElement.querySelector(`#lineg${num}`, `#lineg${num}_${num}`);
-
+    
       const timeGroup = svgElement.querySelector(`#time${num}`); // Select the time group
   
       // Handle multiple boxes for group 3
@@ -4754,23 +4805,23 @@ async function CVfunction(svgType) {
           const t2 = textGroup.querySelector('#title15_red');
           if (t1) redTexts.push(t1);
           if (t2) redTexts.push(t2);
-  
-          // Add mutual hover effects for title3_red and title3-1_red
-          // Store original fill
-          const originalFills = [t1?.getAttribute('fill') || t1?.style.fill, t2?.getAttribute('fill') || t2?.style.fill];
 
+          // Store original fill colors
+          const originalFills = [t1?.getAttribute('fill') || t1?.style.fill || '#ffffff', t2?.getAttribute('fill') || t2?.style.fill || '#ffffff'];
+
+          // Add hover effects for both titles
           [t1, t2].forEach((el, i, siblings) => {
             if (!el) return;
 
             el.addEventListener('mouseenter', () => {
               siblings.forEach((sibling) => {
-                if (sibling) sibling.style.fill = '#ab2726';
+                if (sibling) sibling.style.fill = '#ab2726'; // Turn red on hover
               });
             });
 
             el.addEventListener('mouseleave', () => {
               siblings.forEach((sibling, j) => {
-                if (sibling) sibling.style.fill = originalFills[j] || '';
+                if (sibling) sibling.style.fill = originalFills[j] || '#ffffff'; // Reset to original color (white)
               });
             });
           });
@@ -4785,7 +4836,8 @@ async function CVfunction(svgType) {
           });
         }
       }
-  
+
+
       // --- MOBILE: Always red and always show time group ---
       if (isMobile) {
         redTexts.forEach((el) => {
@@ -4798,7 +4850,6 @@ async function CVfunction(svgType) {
 
         }
       }
-
 
 
         // After collecting redTexts, add links to specific title*_red elements
@@ -5076,120 +5127,72 @@ async function CVfunction(svgType) {
     let currentStep = 0;
 
 
-    let svgString;
-    const minimumLoadingTime = 2000; // Minimum loading time in milliseconds
-    const startTime = Date.now(); // Record the start time
+  let svgString = cvSVG; // Directly assign the CV SVG string
 
-    switch (svgType) {
-      case 'hard-skills':
-        svgString = hardSkillsSVG;
-        break;
-      case 'cv':
-        svgString = cvSVG;
-        break;
-      case 'soft-skills':
-        svgString = softSkillsSVG;
-        break;
-      default:
-        hideLoadingOverlay();
-        return;
-    }
-
-    if (!svgString) {
-      hideLoadingOverlay();
-      return;
-    }
-
-    // Simulate loading steps
-    const simulateLoading = () => {
-      if (currentStep < totalSteps) {
-        const element = loadingElements[currentStep];
-        if (element) {
-          element.style.opacity = '1'; // Simulate the current step being active
-        }
-        currentStep++;
-        setTimeout(simulateLoading, minimumLoadingTime / totalSteps); // Spread steps over the minimum loading time
-      }
-    };
-
-    // Start simulating the loading animation
-    simulateLoading();
-
-
-    // Ensure the loading animation lasts at least 1 second
-    const elapsedTime = Date.now() - startTime;
-    const remainingTime = Math.max(0, minimumLoadingTime - elapsedTime);
-
-    await new Promise(resolve => setTimeout(resolve, remainingTime));
-
-    // Hide the loading overlay after the minimum time has passed
+  if (!svgString) {
+    console.error('CV SVG string is missing.');
     hideLoadingOverlay();
+    return;
+  }
 
+  // Parse CV SVG
+  const parser = new DOMParser();
+  const svgDoc = parser.parseFromString(svgString, 'image/svg+xml');
+  if (svgDoc.querySelector('parsererror')) {
+    console.error('Error parsing CV SVG.');
+    hideLoadingOverlay();
+    return;
+  }
 
+  const svgCVContent = svgDoc.documentElement;
 
+  // Hide all timeX groups initially
+  const timeGroups = svgCVContent.querySelectorAll('g[id^="time"]');
+  timeGroups.forEach((g) => {
+    g.style.opacity = '0';
+  });
 
-    // --- Progressive Layer Reveal for CV SVG ---
-    if (svgType === 'cv') {
+  // Find all main Layer groups (Layer1, Layer2, ..., Layer15)
+  const layerGroups = Array.from(svgCVContent.querySelectorAll('g[id^="Layer"]'));
 
+  // Hide all layers initially
+  layerGroups.forEach((g) => {
+    g.style.opacity = '0';
+    g.style.transition = 'opacity 0.8s cubic-bezier(.4,1.4,.4,1), filter 0.8s cubic-bezier(.4,1.4,.4,1)';
+    g.style.filter = 'drop-shadow(0px 0px 0px rgba(0,0,0,0))';
+  });
 
-      // Parse CV SVG
-      const parser = new DOMParser();
-      const svgDoc = parser.parseFromString(svgString, 'image/svg+xml');
-      if (svgDoc.querySelector('parsererror')) {
-        hideLoadingOverlay();
-        return;
-      }
-      const svgCVContent = svgDoc.documentElement;
+  // Insert SVG into container
+  interactiveContainer.innerHTML = '';
+  interactiveContainer.appendChild(svgCVContent);
+  interactiveContainer.classList.add('active');
+  interactiveContainer.style.visibility = 'visible';
+  interactiveContainer.style.opacity = '1';
 
-      // Hide all timeX groups initially
-      const timeGroups = svgCVContent.querySelectorAll('g[id^="time"]');
-      timeGroups.forEach(g => {
-        g.style.opacity = '0';
-      });
+  // Hide loading overlay after first group is visible
+  let loadingHidden = false;
 
-      // Find all main Layer groups (Layer1, Layer2, ..., Layer15)
-      const layerGroups = Array.from(svgCVContent.querySelectorAll('g[id^="Layer"]'));
+  // Reveal each group step by step
+  for (let i = 0; i < layerGroups.length; i++) {
+    await new Promise((res) => setTimeout(res, 50)); // Adjust speed as needed
+    layerGroups[i].style.opacity = '1';
 
-      // Hide all layers initially
-      layerGroups.forEach(g => {
-        g.style.opacity = '0';
-        g.style.transition = 'opacity 0.8s cubic-bezier(.4,1.4,.4,1), filter 0.8s cubic-bezier(.4,1.4,.4,1)';
-        g.style.filter = 'drop-shadow(0px 0px 0px rgba(0,0,0,0))';
-        
-      });
+    // Smoothly transition to the final shadow
+    await new Promise((res) => setTimeout(res, 50));
+    layerGroups[i].style.filter = 'drop-shadow(10px 10px 10px rgba(0,0,0,0.25))';
+    layerGroups[i].dataset.defaultFilter = 'drop-shadow(10px 10px 10px rgba(0,0,0,0.25))';
 
-      // Insert SVG into container
-      interactiveContainer.innerHTML = '';
-      interactiveContainer.appendChild(svgCVContent);
-      interactiveContainer.classList.add('active');
-      interactiveContainer.style.visibility = 'visible';
-      interactiveContainer.style.opacity = '1';
+    if (!loadingHidden && i === 0) {
+      hideLoadingOverlay();
+      loadingHidden = true;
+    }
+  }
 
-      // Hide loading overlay after first group is visible
-      let loadingHidden = false;
+  // Call hover/link logic after all layers are visible
+  addCvSvgHoverEffects(svgCVContent);
 
-      // Reveal each group step by step
-      for (let i = 0; i < layerGroups.length; i++) {
-        await new Promise(res => setTimeout(res, 50)); // adjust speed as needed
-        layerGroups[i].style.opacity = '1';
-      // Smoothly transition to the final shadow
-      await new Promise(res => setTimeout(res, 50));
-      layerGroups[i].style.filter = 'drop-shadow(10px 10px 10px rgba(0,0,0,0.25))';
-      layerGroups[i].dataset.defaultFilter = 'drop-shadow(10px 10px 10px rgba(0,0,0,0.25))';
-
-      if (!loadingHidden && i === 0) {
-          hideLoadingOverlay();
-          loadingHidden = true;
-        }
-      }
-
-      // Call hover/link logic after all layers are visible
-      addCvSvgHoverEffects(svgCVContent);
-
-      await insertCheckpointSVG();
-      showCheckpointAnimation();
-      // Optionally, set initial checkpoint position here
-   }
+  await insertCheckpointSVG();
+  showCheckpointAnimation();
     
   } catch (err) {
     console.error('Error in CVfunction:', err);
@@ -5871,52 +5874,48 @@ function isMobile() {
 
     if (isMobileDevice) {
         // Disable specific effects for mobile
-        window.loopRandomHardSkillsImageAnimation = () => {}; // Override with a no-op function
-        window.animateLayerIn = () => Promise.resolve(); // Override with a no-op function that resolves immediately
+        window.loopRandomHardSkillsImageAnimation = () => {};
+        window.animateLayerIn = () => Promise.resolve();
 
         // Enable click functionality for mobile
         enableMobileClickFunctionality();
 
-        // Process the Hard Skills SVG for mobile
-        const hardSkillsSVGElement = document.querySelector('#hard-skills-svg'); // Adjust selector if necessary
+        // Process the Hard Skills SVG for mobile (if present)
+        const hardSkillsSVGElement = document.querySelector('#hard-skills_canvas');
         if (hardSkillsSVGElement) {
-            const hardSkillsSVGString = hardSkillsSVGElement.outerHTML; // Get the SVG as a string
-            const filteredSVG = HardskillsMobile(hardSkillsSVGString); // Call HardskillsMobile to parse and filter
-            hardSkillsSVGElement.outerHTML = filteredSVG; // Replace the original SVG with the filtered one
-        } else {
-            console.warn('Hard Skills SVG element not found.');
+            const hardSkillsSVGString = hardSkillsSVGElement.outerHTML;
+            const filteredSVG = HardskillsMobile(hardSkillsSVGString);
+            hardSkillsSVGElement.outerHTML = filteredSVG;
         }
 
-        // Wait for the hard-skills images to load
-        const svgElement = document.querySelector('svg'); // Adjust selector if necessary
+        // Wait for the hard-skills images to load (if present)
+        const svgElement = document.querySelector('svg');
         if (svgElement) {
             const images = Array.from(svgElement.querySelectorAll('image, [id^="img_d"]'));
             const imagePromises = images.map(img => {
                 return new Promise(resolve => {
                     if (img.complete || img.naturalWidth > 0) {
-                        resolve(); // Image is already loaded
+                        resolve();
                     } else {
                         img.addEventListener('load', resolve);
-                        img.addEventListener('error', resolve); // Resolve even if there's an error
+                        img.addEventListener('error', resolve);
                     }
                 });
             });
 
             Promise.all(imagePromises).then(() => {
-                // Ensure the loading animation lasts at least the minimum time
                 const elapsedTime = Date.now() - startTime;
                 const remainingTime = Math.max(0, minimumLoadingTime - elapsedTime);
-                setTimeout(hideLoadingOverlay, remainingTime); // Hide the loading overlay
+                setTimeout(hideLoadingOverlay, remainingTime);
             });
         } else {
-            console.warn('SVG element not found for image loading check.');
-            hideLoadingOverlay(); // Hide the loading overlay if no SVG is found
+            hideLoadingOverlay();
         }
     } else {
         // Non-mobile format: Ensure the loading animation lasts at least the minimum time
         const elapsedTime = Date.now() - startTime;
         const remainingTime = Math.max(0, minimumLoadingTime - elapsedTime);
-        setTimeout(hideLoadingOverlay, remainingTime); // Hide the loading overlay
+        setTimeout(hideLoadingOverlay, remainingTime);
     }
 
     return isMobileDevice;
@@ -6418,69 +6417,69 @@ function setupTitleEvents(svgElement, layer) {
   });
 }
 
-// Helper function to handle title clicks
-function handleTitleClick(titleEl, imgEl, show, all, layer, svgElement) {
-  // Reset all titles and texts in the same layer
-  layer.titles.forEach(({ title, img, show }) => {
-    const titleEl = svgElement.querySelector(`#${title}`);
-    const imgEl = svgElement.querySelector(`#${img}`);
-    const textElToReset = svgElement.querySelector(`#${layer.group}_${show.split('_')[1]}_text`);
+// // Helper function to handle title clicks
+// function handleTitleClick(titleEl, imgEl, show, all, layer, svgElement) {
+//   // Reset all titles and texts in the same layer
+//   layer.titles.forEach(({ title, img, show }) => {
+//     const titleEl = svgElement.querySelector(`#${title}`);
+//     const imgEl = svgElement.querySelector(`#${img}`);
+//     const textElToReset = svgElement.querySelector(`#${layer.group}_${show.split('_')[1]}_text`);
 
-    // Reset title
-    if (titleEl && titleEl !== titleEl) {
-      titleEl.dataset.clicked = 'false';
-      titleEl.style.fill = titleEl.dataset.origFill;
-      titleEl.style.fontWeight = titleEl.dataset.origWeight;
-    }
+//     // Reset title
+//     if (titleEl && titleEl !== titleEl) {
+//       titleEl.dataset.clicked = 'false';
+//       titleEl.style.fill = titleEl.dataset.origFill;
+//       titleEl.style.fontWeight = titleEl.dataset.origWeight;
+//     }
 
-    // Reset image
-    if (imgEl && titleEl !== titleEl) {
-      imgEl.style.opacity = '0';
-      imgEl.setAttribute('transform', imgEl.dataset.originalTransform || '');
-    }
+//     // Reset image
+//     if (imgEl && titleEl !== titleEl) {
+//       imgEl.style.opacity = '0';
+//       imgEl.setAttribute('transform', imgEl.dataset.originalTransform || '');
+//     }
 
-    // Hide the text
-    if (textElToReset && titleEl !== titleEl) {
-      textElToReset.style.opacity = '0';
-    }
-  });
+//     // Hide the text
+//     if (textElToReset && titleEl !== titleEl) {
+//       textElToReset.style.opacity = '0';
+//     }
+//   });
 
-  // Mark the new title as clicked
-  titleEl.dataset.clicked = 'true';
+//   // Mark the new title as clicked
+//   titleEl.dataset.clicked = 'true';
 
-  // Apply hover effects (duplicated from mouseenter)
-  titleEl.style.cursor = 'pointer';
-  titleEl.style.fill = '#ffca31';
-  titleEl.style.fontWeight = 'bold';
+//   // Apply hover effects (duplicated from mouseenter)
+//   titleEl.style.cursor = 'pointer';
+//   titleEl.style.fill = '#ffca31';
+//   titleEl.style.fontWeight = 'bold';
 
-  // Hide all group images and default image for this group
-  if (all) {
-    all.forEach(gid => {
-      const g = svgElement.querySelector(`#${gid}`);
-      if (g) g.style.display = (gid === show) ? '' : 'none';
-    });
-  }
+//   // Hide all group images and default image for this group
+//   if (all) {
+//     all.forEach(gid => {
+//       const g = svgElement.querySelector(`#${gid}`);
+//       if (g) g.style.display = (gid === show) ? '' : 'none';
+//     });
+//   }
 
-  // Show and animate the clicked image
-  if (imgEl && imgTranslateMap[img]) {
-    imgEl.style.opacity = '1';
-    imgEl.setAttribute('transform', imgEl.dataset.originalTransform || '');
-    imgEl.style.transition = 'none';
-    imgEl.style.transform = '';
-    void imgEl.offsetWidth;
-    setTimeout(() => {
-      let downTransform;
-      if (img === 'img_3') {
-        downTransform = `translate(${imgTranslateMap[img][0]} ${imgTranslateMap[img][1] - 100})` + (imgEl.dataset.originalTransform || '').replace(/^translate\([^)]+\)/, '');
-      } else {
-        downTransform = `translate(${imgTranslateMap[img][0]} ${imgTranslateMap[img][1] + 90})` + (imgEl.dataset.originalTransform || '').replace(/^translate\([^)]+\)/, '');
-      }
-      imgEl.style.transition = 'transform 60s cubic-bezier(.4,1.4,.4,1), opacity 0.3s';
-      imgEl.setAttribute('transform', downTransform);
-      imgEl.style.transform = '';
-    }, 50);
-  }
-}
+//   // Show and animate the clicked image
+//   if (imgEl && imgTranslateMap[img]) {
+//     imgEl.style.opacity = '1';
+//     imgEl.setAttribute('transform', imgEl.dataset.originalTransform || '');
+//     imgEl.style.transition = 'none';
+//     imgEl.style.transform = '';
+//     void imgEl.offsetWidth;
+//     setTimeout(() => {
+//       let downTransform;
+//       if (img === 'img_3') {
+//         downTransform = `translate(${imgTranslateMap[img][0]} ${imgTranslateMap[img][1] - 100})` + (imgEl.dataset.originalTransform || '').replace(/^translate\([^)]+\)/, '');
+//       } else {
+//         downTransform = `translate(${imgTranslateMap[img][0]} ${imgTranslateMap[img][1] + 90})` + (imgEl.dataset.originalTransform || '').replace(/^translate\([^)]+\)/, '');
+//       }
+//       imgEl.style.transition = 'transform 60s cubic-bezier(.4,1.4,.4,1), opacity 0.3s';
+//       imgEl.setAttribute('transform', downTransform);
+//       imgEl.style.transform = '';
+//     }, 50);
+//   }
+// } --- this was blocking hardskills function behave of on clicking titles
 
 // Update setupGlobalClickHandler to handle text elements properly
 function setupGlobalClickHandler(svgElement, layers) {
@@ -6559,7 +6558,7 @@ async function HARDSKILLSfunction() {
     resetLoadingAnimation();
     startLoadingAnimation(loadingSpinner);
 
-    const minimumLoadingTime = 6000; // Minimum loading time in milliseconds
+    const minimumLoadingTime = 2000; // Minimum loading time in milliseconds
     const startTime = Date.now();
 
     // Ensure the loading animation lasts at least the minimum time
@@ -6783,46 +6782,6 @@ async function HARDSKILLSfunction() {
 }
 
 
-// Parse the HARD-SKILLS SVG string HERE
-async function processSvgFile(svgString, totalSteps, loadingElements, currentStep) {
-  const parser = new DOMParser();
-  const svgDoc = parser.parseFromString(svgString, 'image/svg+xml');
-  // Check for parsing errors
-  if (svgDoc.querySelector('parsererror')) {
-    hideLoadingOverlay();
-    return null;
-  }
-
-  // Extract the SVG content
-  const svgHardSkillsContent = svgDoc.documentElement;
-
-  // Select only the relevant parts (e.g., <g> and <path> elements)
-  const svgParts = svgHardSkillsContent.querySelectorAll('g, path');
-  const numParts = Math.max(svgParts.length, 1);
-
-  // Calculate the step duration based on the number of parts and total steps
-  const stepDuration = Math.max(100, 1000 / Math.max(numParts, totalSteps));
-
-  // Process each part of the SVG
-  for (let i = 0; i < numParts; i++) {
-    if (currentStep < totalSteps) {
-      loadingElements[currentStep].style.opacity = '1';
-      currentStep++;
-    }
-    await new Promise((res) => setTimeout(res, stepDuration));
-  }
-
-  // Ensure all steps are completed
-  while (currentStep < totalSteps) {
-    loadingElements[currentStep].style.opacity = '1';
-    currentStep++;
-    await new Promise((res) => setTimeout(res, stepDuration));
-  }
-
-  // Return the parsed SVG element
-  return svgHardSkillsContent;
-}
-
 //#endregion
 
 //#endregion
@@ -6850,13 +6809,14 @@ for (let i = 1; i <= 5; i++) {
   softSkillsHeaderBoxSelectors.push(`#headerbox_${i}`);
 }
 
-// Combined selector strings for easy querySelectorAll
-const softSkillsHeaderSelector = softSkillsHeaderSelectors.join(', ');
-const softSkillsHeaderBoxSelector = softSkillsHeaderBoxSelectors.join(', ');
-
-
-const softSkillsFrostedClipmasks = '[id^="glass_"]';
-
+// --- Main group/header/headerBox configs for SOFT-SKILLS ---
+const softSkillsLayerConfigs = [
+  { group: 'analysis', header: 'analysis_header_5', headerBox: 'headerbox_5', clipmask: 'clipmask_5', text: 'text_5' },
+  { group: 'client-talk', header: 'client-talk_header_4', headerBox: 'headerbox_4', clipmask: 'clipmask_4', text: 'text_4' },
+  { group: 'communication', header: 'communication_header_3', headerBox: 'headerbox_3', clipmask: 'clipmask_3', text: 'text_3' },
+  { group: 'management', header: 'management_header_2', headerBox: 'headerbox_2', clipmask: 'clipmask_2', text: 'text_2' },
+  { group: 'teamwork', header: 'teamwork_header_1', headerBox: 'headerbox_1', clipmask: 'clipmask_1', text: 'text_1' }
+];
 
 
 
@@ -6873,14 +6833,16 @@ const softSkillsFrostedClipmasks = '[id^="glass_"]';
 function animateSoftSkillsLayers(svgElement) {
   if (!svgElement) return;
 
+
   // Layer configurations
   const layers = [
     { id: 'analysis', direction: 'right', stopPx: 0 },
     { id: 'client-talk', direction: 'left', stopPx: -75 },
     { id: 'communication', direction: 'right', stopPx: 0 },
-    { id: 'management', direction: 'left', stopPx: 0 },
+    { id: 'management', direction: 'left', stopPx: -75 },
     { id: 'teamwork', direction: 'right', stopPx: 0 },
   ];
+
 
   // Get SVG dimensions once
   const svgRect = svgElement.getBoundingClientRect();
@@ -6978,120 +6940,106 @@ function SoftskillsanimateLayerIn(group, direction, stopPx, svgWidth, initialRec
   });
 }
 
-function addGlassEffectToClipmasks(svgElement) {
+// Function to add hover effects to all SOFT-SKILLS layer groups (move the whole group on hover)
+function addSoftSkillsLayerHoverEffects(svgElement) {
   if (!svgElement) return;
+  if (window.innerWidth <= 700) return; // Skip hover effects on mobile
 
-  // Add filter definition if not present
-  let defs = svgElement.querySelector('defs');
-  if (!defs) {
-    defs = document.createElementNS('http://www.w3.org/2000/svg', 'defs');
-    svgElement.insertBefore(defs, svgElement.firstChild);
-  }
-  if (!svgElement.querySelector('#frosted-glass-filter')) {
-    const filter = document.createElementNS('http://www.w3.org/2000/svg', 'filter');
-    filter.setAttribute('id', 'frosted-glass-filter');
-    filter.setAttribute('x', '-20%');
-    filter.setAttribute('y', '-20%');
-    filter.setAttribute('width', '140%');
-    filter.setAttribute('height', '140%');
-    filter.innerHTML = `
-      <feGaussianBlur in="SourceGraphic" stdDeviation="5" result="blur"/>
-      <feColorMatrix in="blur" type="matrix"
-        values="1 0 0 0 0
-                0 1 0 0 0
-                0 0 1 0 0
-                0 0 0 0.18 0" result="glass"/>
-      <feBlend in="SourceGraphic" in2="glass" mode="normal"/>
-    `;
-    defs.appendChild(filter);
-  }
+  // Animate layers in (like in hardskills)
+  animateSoftSkillsLayers(svgElement);
 
-  // Apply filter and fill to all glass_ elements
-  Array.from(svgElement.querySelectorAll(softSkillsFrostedClipmasks)).forEach(el => {
-    el.setAttribute('filter', 'url(#frosted-glass-filter)');
-    el.setAttribute('fill', '#93a0c5');
-    el.setAttribute('fill-opacity', '0.25');
-    el.style.opacity = '0.65';
+  // Use all config elements for each layer
+  softSkillsLayerConfigs.forEach(layerConfig => {
+    setupSoftSkillsLayerHoverEffects(svgElement, layerConfig);
   });
 }
 
-// Function to add a drop shadow SVG filter to all [id^="glass_"] elements inside the given SVG
-function addDropShadowToClipmasks(svgElement) {
-  if (!svgElement) return;
+function setupSoftSkillsLayerHoverEffects(svgElement, layer) {
+  const groupEl = svgElement.querySelector(`#${layer.group}`);
+  const header = svgElement.querySelector(`#${layer.header}`);
+  const headerBox = svgElement.querySelector(`#${layer.headerBox}`);
+  const clipmask = svgElement.querySelector(`#${layer.clipmask}`);
 
-  // Ensure <defs> exists
-  let defs = svgElement.querySelector('defs');
-  if (!defs) {
-    defs = document.createElementNS('http://www.w3.org/2000/svg', 'defs');
-    svgElement.insertBefore(defs, svgElement.firstChild);
+  // Select all <text> and <tspan> elements inside the group
+  let textElements = [];
+  if (groupEl) {
+    textElements = Array.from(groupEl.querySelectorAll('text, tspan'));
   }
 
-  // Add drop shadow filter if not present
-  if (!svgElement.querySelector('#glass-drop-shadow')) {
-    const dropShadow = document.createElementNS('http://www.w3.org/2000/svg', 'filter');
-    dropShadow.setAttribute('id', 'glass-drop-shadow');
-    dropShadow.setAttribute('x', '-20%');
-    dropShadow.setAttribute('y', '-20%');
-    dropShadow.setAttribute('width', '140%');
-    dropShadow.setAttribute('height', '140%');
-    dropShadow.innerHTML = `
-      <feDropShadow dx="0" dy="10" stdDeviation="10" flood-color="#343543" flood-opacity="0.7"/>
-    `;
-    defs.appendChild(dropShadow);
-  }
 
-  // Apply drop shadow filter to all glass_ elements
-  Array.from(svgElement.querySelectorAll('[id^="glass_"]')).forEach(el => {
-    el.setAttribute('filter', 'url(#glass-drop-shadow)');
-  });
-}
+  
+  // Store original transforms/colors/visibility
+  let baseTransform = groupEl ? (groupEl.getAttribute('transform') || '') : '';
+  const headerOrigTransform = header ? header.getAttribute('transform') || '' : '';
+  const headerBoxOrigTransform = headerBox ? headerBox.getAttribute('transform') || '' : '';
+  const headerOrigColor = header ? (header.getAttribute('fill') || header.style.fill || '') : '';
+  const headerBoxOrigFilter = headerBox ? (headerBox.style.filter || '') : '';
+  const clipmaskOrigTransform = clipmask ? clipmask.getAttribute('transform') || '' : '';
+  const clipmaskOrigStyle = clipmask ? (clipmask.getAttribute('style') || '') : '';
+  // Store original for each text element
+  const textOrigTransforms = textElements.map(el => el.getAttribute('transform') || '');
+  const textOrigOpacities = textElements.map(el => el.style.opacity || '');
 
-// Function to add hover effects to SOFT-SKILLS main title/header and headerbox elements
-function addSoftSkillsHeaderHoverEffects(svgElement) {
-  if (!svgElement) return;
-
-  // Select all header and headerbox elements
-  const headerElements = Array.from(svgElement.querySelectorAll(softSkillsHeaderSelector));
-  const headerBoxElements = Array.from(svgElement.querySelectorAll(softSkillsHeaderBoxSelector));
-
-  // Pair headers and boxes by their index (assumes order matches)
-  const pairs = headerElements.map((header, i) => ({
-    header,
-    box: headerBoxElements[i]
-  }));
-
-  pairs.forEach(({ header, box }) => {
-    if (!header || !box) return;
-
-    // Store original transforms and styles
-    const origHeaderTransform = header.getAttribute('transform') || '';
-    const origBoxTransform = box.getAttribute('transform') || '';
-    const origHeaderFill = header.getAttribute('fill') || header.style.fill || '#fff';
-    const origBoxFilter = box.style.filter || '';
-
-    // Helper to apply hover effect
-    function applyHover() {
-      header.style.cursor = 'default'; // normal arrow, no pointer
-      header.setAttribute('transform', `translate(0,-10) ${origHeaderTransform}`.trim());
-      header.style.fill = '#f4dbdb'; // pink
-      box.setAttribute('transform', `translate(0,-10) ${origBoxTransform}`.trim());
-      box.style.filter = 'drop-shadow(0 8px 16px rgba(75, 73, 82, 0.25))';
-    }
-
-    // Helper to remove hover effect
-    function removeHover() {
-      header.setAttribute('transform', origHeaderTransform);
-      header.style.fill = origHeaderFill;
-      box.setAttribute('transform', origBoxTransform);
-      box.style.filter = origBoxFilter;
-    }
-
-    // Attach listeners to both elements so hovering either triggers both
-    [header, box].forEach(el => {
-      el.addEventListener('mouseenter', applyHover);
-      el.addEventListener('mouseleave', removeHover);
+  if (groupEl) {
+    groupEl.addEventListener('transitionend', () => {
+      baseTransform = groupEl.getAttribute('transform') || '';
     });
-  });
+
+    groupEl.addEventListener('mouseenter', () => {
+      groupEl.setAttribute('transform', `translate(0,-18) ${baseTransform}`.trim());
+      groupEl.style.transition = 'transform 1s cubic-bezier(.4,1.4,.4,1)';
+      if (header) {
+
+        header.setAttribute('transform', `translate(0,-18) ${headerOrigTransform}`.trim());
+        header.style.transition = 'fill 0.8s';
+        header.setAttribute('fill', '#f4dbdb');
+        header.querySelectorAll('tspan').forEach(tspan => tspan.setAttribute('fill', '#f4dbdb'));
+      }
+      if (headerBox) {
+
+        headerBox.setAttribute('transform', `translate(0,-18) ${headerBoxOrigTransform}`.trim());
+        headerBox.style.transition = 'filter 0.8s';
+        headerBox.style.filter = 'drop-shadow(0 8px 16px rgba(0, 0, 0, 0.25))';
+      }
+      if (clipmask) {
+        clipmask.setAttribute('transform', `translate(0,-18) ${clipmaskOrigTransform}`.trim());
+        clipmask.setAttribute('style', `${clipmaskOrigStyle};filter:opacity(0)`);
+      }
+      textElements.forEach((el, i) => {
+        el.setAttribute('transform', `translate(0,-18) ${textOrigTransforms[i]}`.trim());
+        el.style.transition = 'filter 0.8s, opacity 0.8s';
+        el.style.filter = 'drop-shadow(0 8px 16px rgba(0, 0, 1, 0.15))';
+        el.style.opacity = '1';
+      });
+    });
+
+    groupEl.addEventListener('mouseleave', () => {
+      groupEl.setAttribute('transform', baseTransform);
+      groupEl.style.transition = '';
+      if (header) {
+        header.setAttribute('transform', headerOrigTransform);
+        header.setAttribute('fill', headerOrigColor);
+        header.querySelectorAll('tspan').forEach(tspan => tspan.setAttribute('fill', headerOrigColor));
+      }
+      if (headerBox) {
+        headerBox.setAttribute('transform', headerBoxOrigTransform);
+        headerBox.style.filter = headerBoxOrigFilter;
+      }
+      if (clipmask) {
+        clipmask.setAttribute('transform', clipmaskOrigTransform);
+        clipmask.setAttribute('style', clipmaskOrigStyle);
+      }
+      textElements.forEach((el, i) => {
+        el.setAttribute('transform', textOrigTransforms[i]);
+        el.style.filter = '';
+        el.style.opacity = textOrigOpacities[i];
+        el.style.transition = '';
+      });
+    });
+
+    groupEl.style.cursor = 'default';
+    groupEl.setAttribute('pointer-events', 'all');
+  }
 }
 
 //#endregion
@@ -7103,25 +7051,112 @@ let isSOFTSKILLSfunctionLoading = false;
 
 async function SOFTSKILLSfunction() {
   try {
-    // Set the loading state to true
     isSOFTSKILLSfunctionLoading = true;
+    showLoadingOverlay();
 
-    // Hide or remove checkpoint elements
+    const loadingSpinner = document.getElementById('loading-spinner');
+    if (loadingSpinner && !loadingSpinner.querySelector('svg')) {
+      insertLoadingEyeSVG();
+    }
+    resetLoadingAnimation();
+    startLoadingAnimation(loadingSpinner);
+
+    const minimumLoadingTime = 2000;
+    const startTime = Date.now();
+    const elapsedTime = Date.now() - startTime;
+    const remainingTime = Math.max(0, minimumLoadingTime - elapsedTime);
+    await new Promise(resolve => setTimeout(resolve, remainingTime));
+
+    // MOBILE INITIALIZATION
+    if (isMobile()) {
+      console.log('Mobile device detected. Running initialization with limited functionality.');
+      try {
+        isSOFTSKILLSfunctionLoading = true;
+        const checkpointContainer = document.getElementById('checkpoint-container');
+        if (checkpointContainer) {
+          checkpointContainer.style.opacity = '0';
+          checkpointContainer.style.visibility = 'hidden';
+          checkpointContainer.innerHTML = '';
+        }
+        state.isHovering = false;
+        state.activeTitleEl = null;
+        state.activeImgEl = null;
+        state.hardSkillsImageHovered = false;
+        if (state.hoverTimeout) clearTimeout(state.hoverTimeout);
+
+        hideAllPdfContainers();
+        hideAllSvgContainers();
+
+        const interactiveContainer = document.querySelector('.interactive-container');
+        if (!interactiveContainer) {
+          hideLoadingOverlay();
+          return;
+        }
+        interactiveContainer.innerHTML = '';
+
+        const svgLoadPromise = new Promise(async (resolve, reject) => {
+          try {
+            const parser = new DOMParser();
+            const svgDoc = parser.parseFromString(softSkillsSVG, 'image/svg+xml');
+            if (svgDoc.querySelector('parsererror')) {
+              reject('Error parsing SVG');
+              return;
+            }
+            const svgSoftSkillsContent = svgDoc.documentElement;
+            interactiveContainer.appendChild(svgSoftSkillsContent);
+
+            // Set transparency and shadow for clipmask elements
+            const clipmaskElements = svgSoftSkillsContent.querySelectorAll('[id^="clipmask_"]');
+            clipmaskElements.forEach(clipmask => {
+              clipmask.style.opacity = '0.5';
+              clipmask.style.filter = 'drop-shadow(0px 15px 15px rgba(0, 0, 0, 0.3))';
+            });
+
+            // Wait for SVG to be fully loaded
+            await new Promise(resolve => setTimeout(resolve, 100));
+
+            // Add hover effects to layers (for mobile, still allow tap highlight)
+            addSoftSkillsLayerHoverEffects(svgSoftSkillsContent);
+
+            requestAnimationFrame(() => {
+              interactiveContainer.classList.add('active');
+              interactiveContainer.style.visibility = 'visible';
+              interactiveContainer.style.opacity = '1';
+            });
+
+            resolve(svgSoftSkillsContent);
+          } catch (err) {
+            reject(err);
+          }
+        });
+
+        const [svgContent] = await Promise.all([
+          svgLoadPromise,
+          new Promise(resolve => setTimeout(resolve, remainingTime))
+        ]);
+
+        hideLoadingOverlay();
+      } catch (err) {
+        console.error('Error during mobile initialization:', err);
+        hideLoadingOverlay();
+      }
+      return;
+    }
+
+    // DESKTOP INITIALIZATION
     const checkpointContainer = document.getElementById('checkpoint-container');
     if (checkpointContainer) {
       checkpointContainer.style.opacity = '0';
       checkpointContainer.style.visibility = 'hidden';
-      checkpointContainer.innerHTML = ''; // Remove any existing checkpoint SVG
+      checkpointContainer.innerHTML = '';
     }
-
-    // Reset state first
     state.isHovering = false;
     state.activeTitleEl = null;
     state.activeImgEl = null;
     if (state.hoverTimeout) clearTimeout(state.hoverTimeout);
 
     hideAllPdfContainers();
-    hideAllSvgContainers(); // Add this to clear other SVGs
+    hideAllSvgContainers();
     showLoadingOverlay();
 
     const interactiveContainer = document.querySelector('.interactive-container');
@@ -7129,63 +7164,43 @@ async function SOFTSKILLSfunction() {
       hideLoadingOverlay();
       return;
     }
-
-    // Clear existing content
     interactiveContainer.innerHTML = '';
 
-    // 1. Parse SVG content first
     const parser = new DOMParser();
     const svgDoc = parser.parseFromString(softSkillsSVG, 'image/svg+xml');
     if (svgDoc.querySelector('parsererror')) {
+      console.error('Error parsing softSkillsSVG.');
       hideLoadingOverlay();
       return;
     }
-
     const svgSoftSkillsContent = svgDoc.documentElement;
-
-    // 2. Add SVG to DOM first before doing any queries
     interactiveContainer.appendChild(svgSoftSkillsContent);
 
-    // 3. Wait for SVG to be fully loaded
     await new Promise(resolve => setTimeout(resolve, 100));
 
-    // 4. Ensure fonts are loaded
-    const fontLink = document.createElement('link');
-    fontLink.rel = 'stylesheet';
-    fontLink.href = 'https://fonts.googleapis.com/css2?family=Yu+Gothic+UI:wght@400;700&display=swap';
-    document.head.appendChild(fontLink);
-
-
-    // 5. Apply font-family to the SVG container
-    svgSoftSkillsContent.style.fontFamily = "'Yu Gothic UI', sans-serif";
-    
-    // 6. Apply font-family to all text elements in the SVG
-    const textElements = svgSoftSkillsContent.querySelectorAll('text, tspan');
-    textElements.forEach((textEl) => {
-      textEl.style.fontFamily = "'Yu Gothic UI', sans-serif";
+    // Set transparency and shadow for clipmask elements
+    const clipmaskElements = svgSoftSkillsContent.querySelectorAll('[id^="clipmask_"]');
+    clipmaskElements.forEach(clipmask => {
+      clipmask.style.opacity = '0.5';
+      clipmask.style.filter = 'drop-shadow(0px 15px 15px rgba(0, 0, 0, 0.3))';
     });
 
-    // 7. Call effetcs here
+    // Animate layers if needed (optional, keep if you want entrance animation)
     animateSoftSkillsLayers(svgSoftSkillsContent);
-    addGlassEffectToClipmasks(svgSoftSkillsContent);
-    addDropShadowToClipmasks(svgSoftSkillsContent);
-    addSoftSkillsHeaderHoverEffects(svgSoftSkillsContent);
 
-  
+    // Add hover effects to layers and headers
+    addSoftSkillsLayerHoverEffects(svgSoftSkillsContent);
+    console.log('addSoftSkillsLayerHoverEffects called for SOFT-SKILLS SVG');
 
-    // 8. Show container
+
     requestAnimationFrame(() => {
       interactiveContainer.classList.add('active');
       interactiveContainer.style.visibility = 'visible';
       interactiveContainer.style.opacity = '1';
     });
 
-  
-
-    // 9. Hide overlays
     hideLoadingOverlay();
     hideCheckpointAnimation();
-
   } catch (err) {
     console.error('Error in SOFTSKILLSfunction:', err);
     hideLoadingOverlay();
