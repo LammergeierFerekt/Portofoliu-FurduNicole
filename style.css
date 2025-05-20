@@ -1,3 +1,4 @@
+/*#region body html*/
 body {
   height: 110vh;
   width: 100vw;
@@ -10,7 +11,6 @@ body {
   position: relative; /* Corrected from 'flex' */
 }
 
-
 body, html {
   background-color: #93a0c6;
   
@@ -20,20 +20,38 @@ html::-webkit-scrollbar, body::-webkit-scrollbar {
   display: none;
 }
 
-/* If you want the home button to always be on top, give it a high z-index */
-#HOME-BUTTON {
-  z-index: 2000 !important;
-  position: relative;
-  -webkit-tap-highlight-color: transparent;
-  outline: none;
+
+#HOME-BUTTON{
+  position: fixed;
+  max-width: 400px;
+  width: 400px;
+  min-width: 400px;
+  z-index: 9000;
+  pointer-events: none; /* Prevents blocking other elements */
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
+#home-button svg {
+  width: 100%;
+  height: 100%;
+}
+
+#home-button svg #HOME-BUTTON {
+  pointer-events: auto; /* Only the actual button is clickable */
+  cursor: pointer;
+}
+
+
+ 
 .logo-citat-row {
-  position: absolute; /* Keeps wrapper fixed relative to viewport */
+  position: fixed; /* Keeps wrapper fixed relative to viewport */
   bottom: 0; /* Pins wrapper to the top */
   display: flex;
   left: 0;
   width: 100vw;
+  height: 35px; 
   z-index: 3000;
   flex-direction: row;
   align-items: center;    /* Vertically center */
@@ -44,21 +62,21 @@ html::-webkit-scrollbar, body::-webkit-scrollbar {
 }
 /* Logo styling */
 .logo {
-  width: 70px;            /* Adjust as needed */
+  width: 40px;            /* Adjust as needed */
   height: auto;
   margin-left: 70px;         
 ;
 }
 #citat {
   z-index: 10;
-  font-size: .7rem;
+  font-size: .6rem;
   color: #93a0c6;
   
 }
 #citat-wrapper {
   flex: 1 1 auto;
   text-align: center;
-  margin-left: -150px;         
+  margin-left: -150px;
 
 }
 
@@ -70,28 +88,62 @@ html::-webkit-scrollbar, body::-webkit-scrollbar {
     justify-content: center;
     align-items: center;
     background-color: transparent;
+    height: 40px; 
+
   }
   .logo {
     margin-left: 0;
     margin-right: 0;
+    margin-bottom: 0px;
     display: block;
+    width: 50px; 
   }
 
 
+  #HOME-BUTTON {
+    position: fixed; /* or remove this line entirely */
+    max-width: 70%;
+    width: 70%;
+    bottom: 0; /* center horizontally, add bottom margin */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 9000;
+    pointer-events: none;
+  }
 
+  #HOME-BUTTON svg {
+    width: 100%;
+    height: 100%;
+  }
 
+  #HOME-BUTTON svg #HOME-BUTTON {
+    pointer-events: auto; /* Only the actual button is clickable */
+    cursor: pointer;
+  }
+
+  #fade-overlay {
+    position: fixed; /* Always stays in the same place on the viewport */
+    width: 100vw;
+    margin-bottom: 0px;
+    display: block;
+    pointer-events: none; /* Allows clicks to pass through */
+    z-index: 9000; /* Above your SVG/content */
+    background: linear-gradient(to top, rgba(147,160,198,1) 0%, rgba(147,160,198,0) 100%);
+  }
 
 }
-
-
-
-
 
 html, body {
   overflow-x: hidden; /* Disables horizontal scrolling */
   overflow-y: auto; /* Allows vertical scrolling */
   width: 100vw; /* Prevents accidental width overflow */
 }
+/*#endregion body html*/
+
+
+/*#region SVG ARTWORK*/
+
 .svg-wrapper {
   position: absolute; /* Keeps wrapper fixed relative to viewport */
   top: 0; /* Pins wrapper to the top */
@@ -137,18 +189,10 @@ rect[id^="blockcolor"] {
   transition: opacity 0.5s ease;
 }
 
+/*#endregion SVG ARTWORK*/
 
 
-
-
-
-
-
-
-
-
-
-
+/*#region PDF*/
 
 /* PDF container styles */
 .pdf-container {
@@ -178,10 +222,6 @@ rect[id^="blockcolor"] {
   transform: translate(-50%, -50%) scale(1); /* Scale back to normal */
 }
 
-
-
-
-
 /* PDF Flipbook integration */
 .pdf-flipbook {
   position: relative;
@@ -202,8 +242,6 @@ rect[id^="blockcolor"] {
   overflow: hidden; /* Prevent scrollbars on desktop */
 }
 
-
-
 /* Keep centering consistent */
 .pdf-flipbook {
   margin: 0 auto !important;
@@ -216,9 +254,6 @@ rect[id^="blockcolor"] {
   opacity: 1;
   
 }
-
-
-
 
 
 .pdf-flipbook .page,
@@ -235,8 +270,6 @@ rect[id^="blockcolor"] {
   box-shadow: 0 2px 8px rgba(0,0,0,0.10);
   background: #fff;
 }
-
-
 
 .pdf-container,
 .pdf-flipbook,
@@ -275,11 +308,6 @@ rect[id^="blockcolor"] {
 }
 
 
-
-
-
-
-
 /* General interactive elements */
 a {
   font-weight: 500;
@@ -303,6 +331,38 @@ a {
   }
 }
 
+/* Optional: Add a subtle background overlay during loading */
+.pdf-container.loading {
+  background-color: rgba(0, 0, 0, 0.5); /* Semi-transparent black overlay */
+}
+
+.stf__page {
+  transform-style: 3d !important;
+  perspective: auto !important;
+  /* Remove transform-origin if you want standard flipping, or tweak for diagonal */
+  /* transform-origin: 80% 90% !important; */
+  /* Remove box-shadow: none !important; to allow subtle shadow */
+  box-shadow: 0 4px 16px rgba(0,0,0,0.10) !important;
+}
+
+
+@media (max-width: 700px) {
+  .pdf-container {
+    overflow-x: auto !important;
+    overflow-y: visible;
+    width: 100vw;
+    min-width: 0;
+    max-width: 100vw;
+    margin: 0 auto;
+    height: 80vh;
+    max-height: 95vh;
+  }
+}
+
+/*#endregion PDF*/
+
+
+/*#region LOADING EYE ANIMATION*/
 
 /* Loading animation container */
 .loading-animation {
@@ -319,14 +379,6 @@ a {
 .loading-animation svg [id^="loading"] {
   opacity: 0; /* Start with elements hidden */
   transition: opacity 0.5s ease; /* Smooth transition for opacity */
-}
-
-
-
-
-/* Optional: Add a subtle background overlay during loading */
-.pdf-container.loading {
-  background-color: rgba(0, 0, 0, 0.5); /* Semi-transparent black overlay */
 }
 
 /* Loading overlay */
@@ -356,15 +408,10 @@ a {
   transition: opacity 0.5s ease; /* Smooth transition for opacity */
 }
 
-.stf__page {
-  transform-style: 3d !important;
-  perspective: auto !important;
-  /* Remove transform-origin if you want standard flipping, or tweak for diagonal */
-  /* transform-origin: 80% 90% !important; */
-  /* Remove box-shadow: none !important; to allow subtle shadow */
-  box-shadow: 0 4px 16px rgba(0,0,0,0.10) !important;
-}
+/*#endregion LOADING EYE ANIMATION*/
 
+
+/*#region SVG interactive-containter*/
 
 .interactive-container {
   z-index: 1000;
@@ -391,9 +438,6 @@ a {
   pointer-events: auto;
 }
 
-
-
-
 @media (max-width: 700px) {
   .interactive-container {
     overflow: visible;
@@ -409,32 +453,24 @@ a {
   }
 }
 
+/*#endregion SVG interactive-containter*/
 
 
-@media (max-width: 700px) {
-  .pdf-container {
-    overflow-x: auto !important;
-    overflow-y: visible;
-    width: 100vw;
-    min-width: 0;
-    max-width: 100vw;
-    margin: 0 auto;
-    height: 80vh;
-    max-height: 95vh;
-  }
-}
+/*#region CV, SOFT-SKILLS, HARD-SKILLS SVG */
 
 
+
+/*#region CV*/
 
 #cv_content.active,
  #checkpoint-container.active{
-  visibility: visible; /* Make it visible */
-  opacity: 1;          /* Fully opaque */
+  visibility: visible;
+  opacity: 1;          
 }
 
 #checkpoint-container {
-  position: flex;     /* Nearly full width on mobile */
-  max-width: 83vh;/* More height for mobile */
+  position: flex;/* Nearly full width on mobile */
+  max-width: 83vh;
   max-height: 90vh;
   background: transparent;
   display: block;
@@ -442,8 +478,8 @@ a {
 }
 
 #cv_content{
-  position: fixed;       /* Nearly full width on mobile */
-  height: 90vh;       /* More height for mobile */
+  position: fixed;
+  height: 90vh;
   max-height: 78vh;
   left: 50%;
   top: 54%;
@@ -454,195 +490,15 @@ a {
   z-index: 1000;
 }
 
+/*#endregion CV*/
 
 
-/* Responsive: mobile screens */
-@media (max-width: 700px) {
-  #cv_content{
-    max-height: 60vh;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -75%);
-  }
- 
-  #cv_content.active {
-    opacity: 1;
-    visibility: visible;
-    /* Optional: add a subtle box-shadow for effect */
-  } 
-  #checkpoint {
-    position: fixed;
-    visibility: hidden;
-  }
-    
-  #hard-skills_content {
-    max-height: 160vw;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-  }
-
-
-
-}
-
-
-/* Responsive: mobile screens */
-@media (max-height: 700px) {
-  #cv_content{
-    max-height: 70vh;
-    top: 55%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-  }
- 
-  #cv_content.active {
-    opacity: 1;
-    visibility: visible;
-    /* Optional: add a subtle box-shadow for effect */
-  } 
-  #checkpoint {
-    position: fixed;
-    visibility: hidden;
-  }
-
-  #hard-skills_content {
-  width: 60vh;
-  max-height: 70vh;
-  top: 55%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  } 
-
-  #hard-skills_content.active {
-  opacity: 1;
-  visibility: visible;
-  /* Optional: add a subtle box-shadow for effect */
-  } 
-
-
-
-
-
-
-}
-
-
-/* Responsive: mobile screens */
-@media (max-height: 800px) {
-  #cv_content{
-    max-height: 70vh;
-    top: 35%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-  }
- 
-  #cv_content.active {
-    opacity: 1;
-    visibility: visible;
-    /* Optional: add a subtle box-shadow for effect */
-  } 
-  #checkpoint {
-    position: fixed;
-    visibility: hidden;
-  }
-    
-}
-
-
-
-
-
-
-
-/* --- Hard Skills Content: separate rules --- */
-#hard-skills_content {
-  position: fixed;
-  top: 52.5%;
-  left: 50%;
-  width: 110vh;
-  height: 80vh;
-  max-width: 110vh;
-  max-height: 80vh;
-  transform: translate(-50%, -50%);
-  background: transparent;
-  display: block;
-  margin: 0 auto;
-  overflow: visible; /* Allow content to overflow visibly */
-
-  z-index: 1000;
- 
-}
-
-
-/* Show and animate hard skills container when active */
-#hard-skills_content.active {
-  opacity: 1;
-  visibility: visible;
-  /* Optional: add a subtle box-shadow for effect */
-  box-shadow: 0 8px 32px rgba(0,0,0,0.18);
-}
-
-
-
-/* Responsive: mobile screens */
-@media (max-width: 700px) {
-  #hard-skills_content {
-    width: 110vh;
-    height: 70vh;
-    max-width: 110vh;
-    max-height: 70vh;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    top: 32.5%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    overflow-x: hidden;
-    overflow-y: auto;
-    pointer-events: auto; /* Enable click functionality */
-
-  }
-}
-
-
-/* Add this to your style.css */
-#bim, #modelling, #cgi, #graphics, #technical {
-  filter: drop-shadow(0 8px 16px rgba(0,0,0,0.25));
-  transition: filter 0.3s;
-}
-
-
-#hard-skills_content image[id^="img_d"] {
-  /* Prevent resizing */
-
-}
-
-#hard-skills_content g:hover image[id^="img_d"],
-#hard-skills_content image[id^="img_d"].active {
-  opacity: 1;
-}
-
-
-.loading-overlay,
-.loading-animation {
-  pointer-events: none !important; /* Only when not visible */
-}
-
-
-
-
-
-
-
-/* CV.SVG FUNCTIONALITITES**********************************************/
+/*#region CV - CHECKPOINT*/
 
 .boxg-shadow {
   box-shadow: 0 4px 8px rgba(0, 0, 0, 1);
   transition: box-shadow 0.3s ease;
 }
-
-
 
 #checkpoint-container {
   z-index: 1000;
@@ -671,10 +527,69 @@ a {
   }
 }
 
-/* CV.SVG FUNCTIONALITITES**********************************************/
+/*#endregion CV - CHECKPOINT*/
 
 
-/* SOFT-SKILLS.SVG FUNCTIONALITITES**********************************************/
+/*#region HARD-SKILLS*/
+
+#hard-skills_content {
+  position: fixed;
+  top: 52.5%;
+  left: 50%;
+  width: 110vh;
+  height: 80vh;
+  max-width: 110vh;
+  max-height: 80vh;
+  transform: translate(-50%, -50%);
+  background: transparent;
+  display: block;
+  margin: 0 auto;
+  overflow: visible; 
+
+  z-index: 1000;
+ 
+}
+
+#hard-skills_content.active {
+  opacity: 1;
+  visibility: visible;
+  box-shadow: 0 8px 32px rgba(0,0,0,0.18);
+}
+
+#bim, #modelling, #cgi, #graphics, #technical {
+  filter: drop-shadow(0 8px 16px rgba(0,0,0,0.25));
+  transition: filter 0.3s;
+}
+
+.loading-overlay,
+.loading-animation {
+  pointer-events: none !important; /* Only when not visible */
+}
+
+/* HARD-SKILLS - checked */
+  #hard-skills_mobile_content {
+  width: 90.5vh;
+  height: 70vh;
+  max-width: 90.5vh;
+  max-height: 70vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  top: 32.5%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  overflow-x: hidden;
+  overflow-y: auto;
+  pointer-events: auto; /* Enable click functionality */
+
+}
+
+
+/*#endregion HARD-SKILLS*/
+
+
+/*#region SOFT-SKILLS*/
+
 #soft-skills_canvas {
   position: fixed;
   top: 52.5%;
@@ -696,7 +611,6 @@ a {
   pointer-events: auto;
 }
 
-/* Show and animate soft-skills container when active */
 #soft-skills_content.active {
   opacity: 1;
   visibility: visible;
@@ -716,9 +630,166 @@ a {
 }
 
 
+/*#endregion SOFT-SKILLS*/
 
-/* Responsive: mobile screens */
+
+
+/*#endregion CV, SOFT-SKILLS, HARD-SKILLS SVG */
+
+
+/*#region MOBILE - CV, SOFT-SKILLS, HARD-SKILLS SVG */
+
+
+/* Mobile adjustments for CV, Soft Skills, and Hard Skills */
 @media (max-width: 700px) {
+  #cv_content{
+    max-height: 60vh;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -75%);
+  }
+ 
+  #cv_content.active {
+    opacity: 1;
+    visibility: visible;
+    /* Optional: add a subtle box-shadow for effect */
+  } 
+  #checkpoint {
+    position: fixed;
+    visibility: hidden;
+  }
+ 
+  /* HARD-SKILLS - checked */
+ #hard-skills_content {
+    width: 90.5vh;
+    height: 70vh;
+    max-width: 90.5vh;
+    max-height: 70vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    top: 32.5%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    overflow-x: hidden;
+    overflow-y: auto;
+    pointer-events: auto; /* Enable click functionality */
+
+  }
+
+    /* HARD-SKILLS - checked */
+  #hard-skills_mobile_content {
+      width: 90.5vh;
+      height: 70vh;
+      max-width: 90.5vh;
+      max-height: 70vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      top: 32.5%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      overflow-x: hidden;
+      overflow-y: auto;
+      pointer-events: auto; /* Enable click functionality */
+
+    }
+
+
+
+
+
+
+  /* SOFT-SKILLS -  */
+  #soft-skills_canvas {
+    width: 85vh;
+    height: 70vh;
+    max-width: 85vh;
+    max-height: 70vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    top: 32.5%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    overflow-x: hidden;
+    overflow-y: auto;
+    pointer-events: none; /* Enable click functionality */
+  }
+
+  #soft-skills_canvas text:not([id*="header"]) {
+    font-family: 'Yu Gothic UI', sans-serif; /* Set a specific font */
+    font-size: 24px; /* Adjust the font size */
+    text-anchor: flex; /* Center-align the text horizontally */
+    text-align: justify; /* Justify the text */
+    white-space: pre; /* Preserve spaces and line breaks */
+    overflow: visible; /* Ensure text is not clipped */
+    word-spacing: 10px; /* Add spacing between words for better justification */
+    pointer-events: none; /* Allow interaction with the text */
+    user-select: none; /* Prevent text selection */
+  }
+
+  #soft-skills_canvas.active {
+    pointer-events: none;
+  }
+
+
+  /* Make the SVG fill the container and grow vertically */
+  #soft-skills_mobile_canvas {
+    display: block;
+    width: 300px;
+    height: 2350px;
+    margin: auto;
+    margin-bottom: 10px;
+    position: relative;
+    top: -150px; /* Negative value moves it up */
+    background: transparent;
+    overflow: visible;
+    pointer-events: none;
+  }
+
+
+
+}
+
+@media (max-height: 700px) {
+
+  /* CV */
+  #cv_content{
+    max-height: 70vh;
+    top: 55%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+  }
+ 
+  #cv_content.active {
+    opacity: 1;
+    visibility: visible;
+  } 
+
+  #checkpoint {
+    position: fixed;
+    visibility: hidden;
+  }
+
+
+  /* HARD-SKILLS */
+  #hard-skills_content {
+  width: 60vh;
+  max-height: 70vh;
+  top: 55%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  } 
+
+  #hard-skills_content.active {
+  opacity: 1;
+  visibility: visible;
+  /* Optional: add a subtle box-shadow for effect */
+  } 
+
+
+  /* SOFT-SKILLS -  */
   #soft-skills_canvas {
     height: 75%;       /* Use most of the viewport height */
     max-height: 85%;
@@ -733,29 +804,85 @@ a {
     pointer-events: none; /* Enable click functionality */
   }
 
-#soft-skills_canvas text:not([id*="header"]) {
-  font-family: 'Yu Gothic UI', sans-serif; /* Set a specific font */
-  font-size: 24px; /* Adjust the font size */
-  text-anchor: flex; /* Center-align the text horizontally */
-  text-align: justify; /* Justify the text */
-  white-space: pre; /* Preserve spaces and line breaks */
-  overflow: visible; /* Ensure text is not clipped */
-  word-spacing: 10px; /* Add spacing between words for better justification */
-  pointer-events: none; /* Allow interaction with the text */
-  user-select: none; /* Prevent text selection */
+  #soft-skills_canvas text:not([id*="header"]) {
+    font-family: 'Yu Gothic UI', sans-serif; /* Set a specific font */
+    font-size: 24px; /* Adjust the font size */
+    text-anchor: flex; /* Center-align the text horizontally */
+    text-align: justify; /* Justify the text */
+    white-space: pre; /* Preserve spaces and line breaks */
+    overflow: visible; /* Ensure text is not clipped */
+    word-spacing: 10px; /* Add spacing between words for better justification */
+    pointer-events: none; /* Allow interaction with the text */
+    user-select: none; /* Prevent text selection */
+  }
+
+  #soft-skills_canvas.active {
+    pointer-events: auto;
+  }
+
+
+  /* Estimate the height of your quote area (e.g., 120px). Adjust as needed! */
+  #soft-skills_mobile_content {
+    position: relative;
+    width: 100vw;
+    max-width: 100vw;
+    /* Subtract the quote area height from viewport height */
+    height: calc(100vh - 120px);
+    max-height: calc(100vh - 120px);
+    overflow-y: auto;
+    overflow-x: hidden;
+    background: transparent;
+    -webkit-overflow-scrolling: touch;
+    touch-action: pan-y;
+    z-index: 1000;
+    margin: 0 auto;
+    display: block;
+  }
+
+  /* Make the SVG fill the container and grow vertically */
+  #soft-skills_mobile_canvas {
+    display: block;
+    width: 100%;
+    height: auto;
+    min-height: 100%;
+    max-width: 100vw;
+    max-height: none;
+    margin: 0 auto;
+    background: transparent;
+    overflow: visible;
+    pointer-events: auto;
+  }
+
+
+
+
+
 }
 
-#soft-skills_canvas.active {
-  pointer-events: auto;
-}
+/* THIS IS NOT REDUDANT - ITS A COPY FOR 800 HEIGHT */
+@media (max-height: 800px) {
+
+  #cv_content{
+    max-height: 70vh;
+    top: 35%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+  }
+ 
+  #cv_content.active {
+    opacity: 1;
+    visibility: visible;
+    /* Optional: add a subtle box-shadow for effect */
+  } 
+  #checkpoint {
+    position: fixed;
+    visibility: hidden;
+  }
+    
+
+
 
 
 }
 
-
-
-#frosted-glass-filter {
-box-shadow: 8px 8px 32px rgba(52, 53, 67, 0.5); /* Drop shadow effect */
-opacity: 0.8; }
-
-/* SOFT-SKILLS.SVG FUNCTIONALITITES**********************************************/
+/*#endregion MOBILE - CV, SOFT-SKILLS, HARD-SKILLS SVG */
