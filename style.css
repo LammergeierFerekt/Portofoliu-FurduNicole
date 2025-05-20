@@ -21,29 +21,32 @@ html::-webkit-scrollbar, body::-webkit-scrollbar {
 }
 
 
-#HOME-BUTTON{
-  position: fixed;
-  max-width: 400px;
-  width: 400px;
-  min-width: 400px;
-  z-index: 9000;
-  pointer-events: none; /* Prevents blocking other elements */
-  display: flex;
-  align-items: center;
-  justify-content: center;
-}
+  #HOME-BUTTON {
+    position: relative;
+    max-width: 10vh;
+    max-height: 10vh;
+    width: 15vh;
+    height: 15vh;
+    min-height: 15vh;
+    min-width: 15vh;
+    bottom: -85vh;
+    z-index: 10;
+    pointer-events: auto;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    /* Remove any margin-left/right or negative margins */
+  }
 
-#home-button svg {
-  width: 100%;
-  height: 100%;
-}
-
-#home-button svg #HOME-BUTTON {
-  pointer-events: auto; /* Only the actual button is clickable */
+  #HOME-BUTTON_canvas:hover {
+  transform: translateY(5px);
+  transition: 0.3s cubic-bezier(.4,2,.3,1);
   cursor: pointer;
-}
+  /* Optional: add a subtle shadow for feedback */
+  filter: drop-shadow(0 8px 16px rgba(0,0,0,0.18));
+  }
 
-
+ 
  
 .logo-citat-row {
   position: fixed; /* Keeps wrapper fixed relative to viewport */
@@ -51,7 +54,7 @@ html::-webkit-scrollbar, body::-webkit-scrollbar {
   display: flex;
   left: 0;
   width: 100vw;
-  height: 35px; 
+  height: 60px; 
   z-index: 3000;
   flex-direction: row;
   align-items: center;    /* Vertically center */
@@ -62,14 +65,14 @@ html::-webkit-scrollbar, body::-webkit-scrollbar {
 }
 /* Logo styling */
 .logo {
-  width: 40px;            /* Adjust as needed */
+  width: 50px;            /* Adjust as needed */
   height: auto;
   margin-left: 70px;         
 ;
 }
 #citat {
   z-index: 10;
-  font-size: .6rem;
+  font-size: .7rem;
   color: #93a0c6;
   
 }
@@ -102,14 +105,19 @@ html::-webkit-scrollbar, body::-webkit-scrollbar {
 
   #HOME-BUTTON {
     position: fixed; /* or remove this line entirely */
-    max-width: 70%;
-    width: 70%;
-    bottom: 0; /* center horizontally, add bottom margin */
-    display: flex;
+    max-width: 60vw;
+    max-height: 25vh;
+    width: 25vw;
+    height: 25vh;
+    bottom: -40px; /* center horizontally, add bottom margin */
+    display: block;
     align-items: center;
     justify-content: center;
-    z-index: 9000;
-    pointer-events: none;
+    z-index: 10;
+    pointer-events: auto;
+    overflow: visible;
+   -webkit-tap-highlight-color: transparent;
+    outline: none;
   }
 
   #HOME-BUTTON svg {
@@ -153,7 +161,7 @@ html, body {
   height: 100vh;
   display: flex;
   flex-direction: column;
-  align-items: flex-start; /* Aligns content to the top */
+  align-items: center; /* Aligns content to the top */
   justify-content: flex-start; /* Prevents centering */
   overflow: visible;
   -webkit-tap-highlight-color: transparent;
@@ -161,7 +169,7 @@ html, body {
 }
 /* Ensure SVG stays at the top */
 .svg1 {
-  position: relative; /* Makes it respect .svg-wrapper */
+  position: absolute; /* Makes it respect .svg-wrapper */
   top: -17%; /* Ensures it starts from the top */
   left: 50%;
   transform: translateX(-50%);
@@ -172,6 +180,9 @@ html, body {
   z-index: 10;
   -webkit-tap-highlight-color: transparent;
   outline: none;
+  flex-direction: column;
+  align-items: center; /* Aligns content to the top */
+  justify-content: flex-start; /* Prevents centering */
 }
 
 #HARD-SKILLS, #PROFESSIONAL, #CV, #ACADEMIC, #SOFT-SKILLS {
@@ -886,3 +897,11 @@ a {
 }
 
 /*#endregion MOBILE - CV, SOFT-SKILLS, HARD-SKILLS SVG */
+
+
+body.no-scroll {
+  overflow: hidden !important;
+  height: 100vh !important;
+  position: fixed !important;
+  width: 100vw !important;
+}

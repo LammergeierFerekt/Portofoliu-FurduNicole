@@ -1552,87 +1552,335 @@ const artworkSVG = `<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://
 </svg>
 `;
 
-const homeButtonSVG = `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1050 2000">
-  <defs>
-    <filter id="filter">
-      <feOffset dy="2" input="SourceAlpha"/>
-      <feGaussianBlur stdDeviation="3" result="blur"/>
-      <feFlood flood-color="#756060"/>
-      <feComposite operator="in" in2="blur"/>
-      <feComposite in="SourceGraphic"/>
+const homeButtonSVG = `<svg
+   viewBox="0 0 300 149.99998"
+   version="1.1"
+   id="HOME-BUTTON_canvas"
+   sodipodi:docname="HOME-BUTTON.svg"
+   width="300"
+   height="150"
+   inkscape:version="1.4.2 (f4327f4, 2025-05-13)"
+   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
+   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
+   xmlns:xlink="http://www.w3.org/1999/xlink"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:svg="http://www.w3.org/2000/svg">
+  <sodipodi:namedview
+     id="namedview29"
+     pagecolor="#ffffff"
+     bordercolor="#000000"
+     borderopacity="0.25"
+     inkscape:showpageshadow="2"
+     inkscape:pageopacity="0.0"
+     inkscape:pagecheckerboard="0"
+     inkscape:deskcolor="#d1d1d1"
+     inkscape:zoom="0.82519361"
+     inkscape:cx="-161.1743"
+     inkscape:cy="-21.207144"
+     inkscape:window-width="3440"
+     inkscape:window-height="1369"
+     inkscape:window-x="-8"
+     inkscape:window-y="-8"
+     inkscape:window-maximized="1"
+     inkscape:current-layer="HOME-BUTTON_canvas"
+     inkscape:clip-to-page="false" />
+  <defs
+     id="HOME-BUTTON_def">
+    <filter
+       id="filter"
+       x="-0.032259145"
+       y="-0.08289238"
+       width="1.0645183"
+       height="1.1888104">
+      <feOffset
+         dy="2"
+         input="SourceAlpha"
+         id="feOffset1" />
+      <feGaussianBlur
+         stdDeviation="3"
+         result="blur"
+         id="feGaussianBlur1" />
+      <feFlood
+         flood-color="#756060"
+         id="feFlood1" />
+      <feComposite
+         operator="in"
+         in2="blur"
+         id="feComposite1" />
+      <feComposite
+         in="SourceGraphic"
+         id="feComposite2" />
     </filter>
-    <linearGradient id="linear-gradient" x1="517.61" y1="1850.56" x2="517.61" y2="1767.54" gradientUnits="userSpaceOnUse">
-      <stop offset="0" stop-color="#fff"/>
-      <stop offset="0.77" stop-color="#efcdcd"/>
-      <stop offset="1" stop-color="#eabebe"/>
+    <linearGradient
+       id="linear-gradient"
+       x1="517.60999"
+       y1="1850.5601"
+       x2="517.60999"
+       y2="1767.54"
+       gradientUnits="userSpaceOnUse">
+      <stop
+         offset="0"
+         stop-color="#fff"
+         id="stop2" />
+      <stop
+         offset="0.77"
+         stop-color="#efcdcd"
+         id="stop3" />
+      <stop
+         offset="1"
+         stop-color="#eabebe"
+         id="stop4" />
     </linearGradient>
-    <linearGradient id="linear-gradient-2" x1="435.03" y1="1797.15" x2="640.33" y2="1797.15" gradientUnits="userSpaceOnUse">
-      <stop offset="0" stop-color="#fff" stop-opacity="0.2"/>
-      <stop offset="0.01" stop-color="#fff" stop-opacity="0.22"/>
-      <stop offset="0.05" stop-color="#fff" stop-opacity="0.39"/>
-      <stop offset="0.1" stop-color="#fff" stop-opacity="0.53"/>
-      <stop offset="0.16" stop-color="#fff" stop-opacity="0.66"/>
-      <stop offset="0.22" stop-color="#fff" stop-opacity="0.77"/>
-      <stop offset="0.29" stop-color="#fff" stop-opacity="0.85"/>
-      <stop offset="0.37" stop-color="#fff" stop-opacity="0.92"/>
-      <stop offset="0.47" stop-color="#fff" stop-opacity="0.97"/>
-      <stop offset="0.61" stop-color="#fff" stop-opacity="0.99"/>
-      <stop offset="1" stop-color="#fff"/>
+    <linearGradient
+       id="linear-gradient-2"
+       x1="435.03"
+       y1="1797.15"
+       x2="640.33002"
+       y2="1797.15"
+       gradientUnits="userSpaceOnUse">
+      <stop
+         offset="0"
+         stop-color="#fff"
+         stop-opacity="0.2"
+         id="stop5" />
+      <stop
+         offset="0.01"
+         stop-color="#fff"
+         stop-opacity="0.22"
+         id="stop6" />
+      <stop
+         offset="0.05"
+         stop-color="#fff"
+         stop-opacity="0.39"
+         id="stop7" />
+      <stop
+         offset="0.1"
+         stop-color="#fff"
+         stop-opacity="0.53"
+         id="stop8" />
+      <stop
+         offset="0.16"
+         stop-color="#fff"
+         stop-opacity="0.66"
+         id="stop9" />
+      <stop
+         offset="0.22"
+         stop-color="#fff"
+         stop-opacity="0.77"
+         id="stop10" />
+      <stop
+         offset="0.29"
+         stop-color="#fff"
+         stop-opacity="0.85"
+         id="stop11" />
+      <stop
+         offset="0.37"
+         stop-color="#fff"
+         stop-opacity="0.92"
+         id="stop12" />
+      <stop
+         offset="0.47"
+         stop-color="#fff"
+         stop-opacity="0.97"
+         id="stop13" />
+      <stop
+         offset="0.61"
+         stop-color="#fff"
+         stop-opacity="0.99"
+         id="stop14" />
+      <stop
+         offset="1"
+         stop-color="#fff"
+         id="stop15" />
     </linearGradient>
-    <linearGradient id="linear-gradient-3" x1="556.88" y1="1834.4" x2="562.82" y2="1834.4" xlink:href="#linear-gradient-2"/>
-    <linearGradient id="linear-gradient-4" x1="553.08" y1="1834.94" x2="556.4" y2="1834.94" xlink:href="#linear-gradient-2"/>
-    <linearGradient id="linear-gradient-5" x1="543.78" y1="1836.79" x2="551.77" y2="1836.79" xlink:href="#linear-gradient-2"/>
-    <linearGradient id="linear-gradient-6" x1="491.34" y1="1838.85" x2="509.16" y2="1838.85" xlink:href="#linear-gradient-2"/>
-    <linearGradient id="linear-gradient-7" x1="482.67" y1="1838.14" x2="505.35" y2="1838.14" xlink:href="#linear-gradient-2"/>
-    <linearGradient id="linear-gradient-8" x1="454.45" y1="1831.65" x2="489.37" y2="1831.65" xlink:href="#linear-gradient-2"/>
-    <linearGradient id="linear-gradient-9" x1="514.84" y1="1822.04" x2="521.88" y2="1822.04" xlink:href="#linear-gradient-2"/>
-    <linearGradient id="linear-gradient-10" x1="509.28" y1="1820.83" x2="518.26" y2="1821.83" xlink:href="#linear-gradient-2"/>
-    <linearGradient id="linear-gradient-11" x1="484.11" y1="1815.69" x2="494.57" y2="1815.69" xlink:href="#linear-gradient-2"/>
-    <linearGradient id="linear-gradient-12" x1="564.51" y1="1818.73" x2="573.39" y2="1818.73" xlink:href="#linear-gradient-2"/>
+    <linearGradient
+       id="linear-gradient-3"
+       x1="556.88"
+       y1="1834.4"
+       x2="562.82001"
+       y2="1834.4"
+       xlink:href="#linear-gradient-2" />
+    <linearGradient
+       id="linear-gradient-4"
+       x1="553.08002"
+       y1="1834.9399"
+       x2="556.40002"
+       y2="1834.9399"
+       xlink:href="#linear-gradient-2" />
+    <linearGradient
+       id="linear-gradient-5"
+       x1="543.78003"
+       y1="1836.79"
+       x2="551.77002"
+       y2="1836.79"
+       xlink:href="#linear-gradient-2" />
+    <linearGradient
+       id="linear-gradient-6"
+       x1="491.34"
+       y1="1838.85"
+       x2="509.16"
+       y2="1838.85"
+       xlink:href="#linear-gradient-2" />
+    <linearGradient
+       id="linear-gradient-7"
+       x1="482.67001"
+       y1="1838.14"
+       x2="505.35001"
+       y2="1838.14"
+       xlink:href="#linear-gradient-2" />
+    <linearGradient
+       id="linear-gradient-8"
+       x1="454.45001"
+       y1="1831.65"
+       x2="489.37"
+       y2="1831.65"
+       xlink:href="#linear-gradient-2" />
+    <linearGradient
+       id="linear-gradient-9"
+       x1="514.84003"
+       y1="1822.04"
+       x2="521.88"
+       y2="1822.04"
+       xlink:href="#linear-gradient-2" />
+    <linearGradient
+       id="linear-gradient-10"
+       x1="509.28"
+       y1="1820.83"
+       x2="518.26001"
+       y2="1821.83"
+       xlink:href="#linear-gradient-2" />
+    <linearGradient
+       id="linear-gradient-11"
+       x1="484.10999"
+       y1="1815.6899"
+       x2="494.57001"
+       y2="1815.6899"
+       xlink:href="#linear-gradient-2" />
+    <linearGradient
+       id="linear-gradient-12"
+       x1="564.51001"
+       y1="1818.73"
+       x2="573.39001"
+       y2="1818.73"
+       xlink:href="#linear-gradient-2" />
+    <linearGradient
+       inkscape:collect="always"
+       xlink:href="#linear-gradient-2"
+       id="linearGradient29"
+       gradientUnits="userSpaceOnUse"
+       x1="435.03"
+       y1="1797.15"
+       x2="640.33002"
+       y2="1797.15" />
   </defs>
-  <g id="HOME-BUTTON">
-    <g style="filter: url(#filter)">
-      <g id="Pana_roz_button-home">
-        <path d="M463.41,1844.46c1.2,0,2.83.87,4,1.2,1.4.39,2.8.75,4.21,1.09,2.75.67,5.53,1.23,8.33,1.71,2.17.37,4.34.74,6.52,1s4.37.26,6.47.66c3.59.69,7.13-1.8,10-3.68l7.84-5.07a10.37,10.37,0,0,0,2.87-2.39c-1.52,3.53-4.34,6.32-7.09,9a22.24,22.24,0,0,0-2.18,2.16c1.93.6,4.54.32,6.56.25,2.19-.08,4.37-.27,6.56-.43,4.5-.33,9-.84,13.47-1.5a190.34,190.34,0,0,0,34.24-8.37c13.13-4.53,26.66-10.57,37.65-19.17,7.28-5.69,15.81-13.22,15-23.34.29,3.79-34.52,12.55-38.49,13.48a166.94,166.94,0,0,1-33.59,4.35,164,164,0,0,1-53.35-7.23c-1.8-.57-3.6-1.17-5.38-1.8-1.4-.49-3.13-1.5-4.6-1.56.26,4.83,3,9.56,4.22,14.21q-3.54-6.64-6.5-13.56a4.61,4.61,0,0,0-2-2.67c-1.16-.51-2.44-.89-3.62-1.43q-4-1.8-7.88-3.84a153.44,153.44,0,0,1-15.06-9l-.43-.3c-4.52-3.09-29.6-25.94-33.35-19.66-1.05,1.77-.7,4-.27,6,3.21,15.24,3.41,29.18,11.9,43.09A61.43,61.43,0,0,0,463.41,1844.46Z" style="fill: url(#linear-gradient)"/>
+  <g
+     id="HOME-BUTTON"
+     transform="translate(-378.73586,-1733.0866)">
+    <g
+       style="filter:url(#filter)"
+       id="g29">
+      <g
+         id="Pana_roz_button-home">
+        <path
+           d="m 463.41,1844.46 c 1.2,0 2.83,0.87 4,1.2 1.4,0.39 2.8,0.75 4.21,1.09 2.75,0.67 5.53,1.23 8.33,1.71 2.17,0.37 4.34,0.74 6.52,1 2.18,0.26 4.37,0.26 6.47,0.66 3.59,0.69 7.13,-1.8 10,-3.68 l 7.84,-5.07 a 10.37,10.37 0 0 0 2.87,-2.39 c -1.52,3.53 -4.34,6.32 -7.09,9 a 22.24,22.24 0 0 0 -2.18,2.16 c 1.93,0.6 4.54,0.32 6.56,0.25 2.19,-0.08 4.37,-0.27 6.56,-0.43 4.5,-0.33 9,-0.84 13.47,-1.5 a 190.34,190.34 0 0 0 34.24,-8.37 c 13.13,-4.53 26.66,-10.57 37.65,-19.17 7.28,-5.69 15.81,-13.22 15,-23.34 0.29,3.79 -34.52,12.55 -38.49,13.48 a 166.94,166.94 0 0 1 -33.59,4.35 164,164 0 0 1 -53.35,-7.23 c -1.8,-0.57 -3.6,-1.17 -5.38,-1.8 -1.4,-0.49 -3.13,-1.5 -4.6,-1.56 0.26,4.83 3,9.56 4.22,14.21 q -3.54,-6.64 -6.5,-13.56 a 4.61,4.61 0 0 0 -2,-2.67 c -1.16,-0.51 -2.44,-0.89 -3.62,-1.43 q -4,-1.8 -7.88,-3.84 a 153.44,153.44 0 0 1 -15.06,-9 l -0.43,-0.3 c -4.52,-3.09 -29.6,-25.94 -33.35,-19.66 -1.05,1.77 -0.7,4 -0.27,6 3.21,15.24 3.41,29.18 11.9,43.09 a 61.43,61.43 0 0 0 33.95,26.8 z"
+           style="fill:url(#linear-gradient)"
+           id="path15" />
       </g>
-      <g id="linie11">
-        <path d="M640.11,1765.84l-8,12.53c-2.68,4.17-5.32,8.39-8.22,12.48a76.8,76.8,0,0,1-9.78,11.49,74.27,74.27,0,0,1-12,9.14,121.38,121.38,0,0,1-27.41,12q-7.14,2.26-14.47,3.8c-2.43.55-4.89,1-7.35,1.4s-4.93.75-7.41,1a137.45,137.45,0,0,1-59-5.86,122,122,0,0,1-50-31.4,121.65,121.65,0,0,0,50.21,30.73,136.42,136.42,0,0,0,58.62,5.12c2.45-.27,4.88-.7,7.32-1.08s4.86-.9,7.26-1.47a146.94,146.94,0,0,0,14.27-3.93,119.75,119.75,0,0,0,26.82-12.15,71.5,71.5,0,0,0,11.53-9,73.3,73.3,0,0,0,9.35-11.25c2.79-4,5.37-8.26,8-12.47l7.88-12.63a1.42,1.42,0,0,1,2.41,1.5Z" style="fill: url(#linear-gradient-2)"/>
+      <g
+         id="linie11">
+        <path
+           d="m 640.11,1765.84 -8,12.53 c -2.68,4.17 -5.32,8.39 -8.22,12.48 a 76.8,76.8 0 0 1 -9.78,11.49 74.27,74.27 0 0 1 -12,9.14 121.38,121.38 0 0 1 -27.41,12 q -7.14,2.26 -14.47,3.8 c -2.43,0.55 -4.89,1 -7.35,1.4 -2.46,0.4 -4.93,0.75 -7.41,1 a 137.45,137.45 0 0 1 -59,-5.86 122,122 0 0 1 -50,-31.4 121.65,121.65 0 0 0 50.21,30.73 136.42,136.42 0 0 0 58.62,5.12 c 2.45,-0.27 4.88,-0.7 7.32,-1.08 2.44,-0.38 4.86,-0.9 7.26,-1.47 a 146.94,146.94 0 0 0 14.27,-3.93 119.75,119.75 0 0 0 26.82,-12.15 71.5,71.5 0 0 0 11.53,-9 73.3,73.3 0 0 0 9.35,-11.25 c 2.79,-4 5.37,-8.26 8,-12.47 l 7.88,-12.63 a 1.42,1.42 0 0 1 2.41,1.5 z"
+           style="fill:url(#linearGradient29)"
+           id="path16" />
       </g>
-      <g id="linie10">
-        <path d="M562.78,1826.72a10.57,10.57,0,0,1-.72,4.25c-.45,1.32-1,2.58-1.54,3.87l-3.14,7.7,2.67-7.86c.43-1.32.93-2.61,1.29-3.94a9.45,9.45,0,0,0,.44-3.91.51.51,0,0,1,.42-.57.5.5,0,0,1,.57.42Z" style="fill: url(#linear-gradient-3)"/>
+      <g
+         id="linie10">
+        <path
+           d="m 562.78,1826.72 a 10.57,10.57 0 0 1 -0.72,4.25 c -0.45,1.32 -1,2.58 -1.54,3.87 l -3.14,7.7 2.67,-7.86 c 0.43,-1.32 0.93,-2.61 1.29,-3.94 a 9.45,9.45 0 0 0 0.44,-3.91 0.51,0.51 0 0 1 0.42,-0.57 0.5,0.5 0 0 1 0.57,0.42 z"
+           style="fill:url(#linear-gradient-3)"
+           id="path17" />
       </g>
-      <g id="linie9">
-        <path d="M556.4,1827.39a22.89,22.89,0,0,1-.44,4l-.76,3.88-.77,3.87-.85,3.86.6-3.9.52-3.91.52-3.91a22.83,22.83,0,0,0,.18-3.86.5.5,0,0,1,1-.06Z" style="fill: url(#linear-gradient-4)"/>
+      <g
+         id="linie9">
+        <path
+           d="m 556.4,1827.39 a 22.89,22.89 0 0 1 -0.44,4 l -0.76,3.88 -0.77,3.87 -0.85,3.86 0.6,-3.9 0.52,-3.91 0.52,-3.91 a 22.83,22.83 0 0 0 0.18,-3.86 0.50089919,0.50089919 0 0 1 1,-0.06 z"
+           style="fill:url(#linear-gradient-4)"
+           id="path18" />
       </g>
-      <g id="linie8">
-        <path d="M551.75,1828.3a35.92,35.92,0,0,1-1.73,4.51l-1.91,4.37-3.83,8.73,3.37-8.92,1.68-4.46a36,36,0,0,0,1.46-4.48.5.5,0,1,1,1,.23Z" style="fill: url(#linear-gradient-5)"/>
+      <g
+         id="linie8">
+        <path
+           d="m 551.75,1828.3 a 35.92,35.92 0 0 1 -1.73,4.51 l -1.91,4.37 -3.83,8.73 3.37,-8.92 1.68,-4.46 a 36,36 0 0 0 1.46,-4.48 0.51305458,0.51305458 0 1 1 1,0.23 z"
+           style="fill:url(#linear-gradient-5)"
+           id="path19" />
       </g>
-      <g id="linie7">
-        <path d="M509.11,1829a58.25,58.25,0,0,1-7.86,10.92c-3,3.35-6.19,6.45-9.41,9.55,3.1-3.21,6.2-6.44,9-9.87a57.16,57.16,0,0,0,7.35-11.06.51.51,0,0,1,.67-.23.52.52,0,0,1,.23.67Z" style="fill: url(#linear-gradient-6)"/>
+      <g
+         id="linie7">
+        <path
+           d="m 509.11,1829 a 58.25,58.25 0 0 1 -7.86,10.92 c -3,3.35 -6.19,6.45 -9.41,9.55 3.1,-3.21 6.2,-6.44 9,-9.87 a 57.16,57.16 0 0 0 7.35,-11.06 0.51,0.51 0 0 1 0.67,-0.23 0.52,0.52 0 0 1 0.23,0.67 z"
+           style="fill:url(#linear-gradient-6)"
+           id="path20" />
       </g>
-      <g id="linie6">
-        <path d="M505.27,1828.53a67.94,67.94,0,0,1-4.58,6c-1.61,1.94-3.28,3.83-5.06,5.61a44.15,44.15,0,0,1-5.78,4.88,28.63,28.63,0,0,1-6.68,3.46,28.59,28.59,0,0,0,6.54-3.67,44.07,44.07,0,0,0,5.56-5c1.71-1.82,3.3-3.75,4.83-5.73a68.89,68.89,0,0,0,4.33-6.1.48.48,0,0,1,.68-.17.49.49,0,0,1,.17.68Z" style="fill: url(#linear-gradient-7)"/>
+      <g
+         id="linie6">
+        <path
+           d="m 505.27,1828.53 a 67.94,67.94 0 0 1 -4.58,6 c -1.61,1.94 -3.28,3.83 -5.06,5.61 a 44.15,44.15 0 0 1 -5.78,4.88 28.63,28.63 0 0 1 -6.68,3.46 28.59,28.59 0 0 0 6.54,-3.67 44.07,44.07 0 0 0 5.56,-5 c 1.71,-1.82 3.3,-3.75 4.83,-5.73 a 68.89,68.89 0 0 0 4.33,-6.1 0.48,0.48 0 0 1 0.68,-0.17 0.49,0.49 0 0 1 0.17,0.68 z"
+           style="fill:url(#linear-gradient-7)"
+           id="path21" />
       </g>
-      <g id="linie5">
-        <path d="M489.21,1824.75A56.78,56.78,0,0,1,455,1839.41,56.27,56.27,0,0,0,488.52,1824a.51.51,0,0,1,.71,0,.5.5,0,0,1,0,.71Z" style="fill: url(#linear-gradient-8)"/>
+      <g
+         id="linie5">
+        <path
+           d="m 489.21,1824.75 a 56.78,56.78 0 0 1 -34.21,14.66 56.27,56.27 0 0 0 33.52,-15.41 0.51,0.51 0 0 1 0.71,0 0.5,0.5 0 0 1 0,0.71 z"
+           style="fill:url(#linear-gradient-8)"
+           id="path22" />
       </g>
-      <g id="linie4">
-        <path d="M520.59,1829.59a5.74,5.74,0,0,0,0-3.94,37.3,37.3,0,0,0-1.65-4l-3.59-7.9,4,7.68a35.87,35.87,0,0,1,1.91,3.94,6.6,6.6,0,0,1,.25,4.54h0a.51.51,0,0,1-.64.31.5.5,0,0,1-.3-.64Z" style="fill: url(#linear-gradient-9)"/>
+      <g
+         id="linie4">
+        <path
+           d="m 520.59,1829.59 a 5.74,5.74 0 0 0 0,-3.94 37.3,37.3 0 0 0 -1.65,-4 l -3.59,-7.9 4,7.68 a 35.87,35.87 0 0 1 1.91,3.94 6.6,6.6 0 0 1 0.25,4.54 v 0 a 0.51,0.51 0 0 1 -0.64,0.31 0.5,0.5 0 0 1 -0.3,-0.64 z"
+           style="fill:url(#linear-gradient-9)"
+           id="path23" />
       </g>
-      <g id="linie3">
-        <path d="M516.45,1829.27a67.48,67.48,0,0,0-5.79-16.27,68,68,0,0,1,6.76,16,.51.51,0,0,1-.35.62.49.49,0,0,1-.61-.35Z" style="fill: url(#linear-gradient-10)"/>
+      <g
+         id="linie3">
+        <path
+           d="m 516.45,1829.27 a 67.48,67.48 0 0 0 -5.79,-16.27 68,68 0 0 1 6.76,16 0.51,0.51 0 0 1 -0.35,0.62 0.49,0.49 0 0 1 -0.61,-0.35 z"
+           style="fill:url(#linear-gradient-10)"
+           id="path24" />
       </g>
-      <g id="linie2">
-        <path d="M493.61,1825.72l-2-5.22q-1-2.6-2.11-5.16c-.72-1.72-1.47-3.41-2.27-5.09a48.28,48.28,0,0,0-2.62-4.92,48.19,48.19,0,0,1,2.84,4.81c.88,1.64,1.71,3.31,2.51,5s1.58,3.38,2.34,5.08l2.23,5.11v0a.5.5,0,1,1-.92.4Z" style="fill: url(#linear-gradient-11)"/>
+      <g
+         id="linie2">
+        <path
+           d="m 493.61,1825.72 -2,-5.22 q -1,-2.6 -2.11,-5.16 c -0.72,-1.72 -1.47,-3.41 -2.27,-5.09 a 48.28,48.28 0 0 0 -2.62,-4.92 48.19,48.19 0 0 1 2.84,4.81 c 0.88,1.64 1.71,3.31 2.51,5 0.8,1.69 1.58,3.38 2.34,5.08 l 2.23,5.11 v 0 a 0.50159745,0.50159745 0 1 1 -0.92,0.4 z"
+           style="fill:url(#linear-gradient-11)"
+           id="path25" />
       </g>
-      <g id="linie1">
-        <path d="M572.4,1823.24a5.28,5.28,0,0,0-1.13-2.61,19.74,19.74,0,0,0-2.09-2.22,27,27,0,0,1-2.13-2.28l-2-2.36,2.21,2.19a25,25,0,0,0,2.29,2.08,22.07,22.07,0,0,1,2.34,2.12,6.19,6.19,0,0,1,1.54,2.93.5.5,0,0,1-.4.58.48.48,0,0,1-.58-.39A.06.06,0,0,1,572.4,1823.24Z" style="fill: url(#linear-gradient-12)"/>
+      <g
+         id="linie1">
+        <path
+           d="m 572.4,1823.24 a 5.28,5.28 0 0 0 -1.13,-2.61 19.74,19.74 0 0 0 -2.09,-2.22 27,27 0 0 1 -2.13,-2.28 l -2,-2.36 2.21,2.19 a 25,25 0 0 0 2.29,2.08 22.07,22.07 0 0 1 2.34,2.12 6.19,6.19 0 0 1 1.54,2.93 0.5,0.5 0 0 1 -0.4,0.58 0.48,0.48 0 0 1 -0.58,-0.39 0.06,0.06 0 0 1 -0.05,-0.04 z"
+           style="fill:url(#linear-gradient-12)"
+           id="path26" />
       </g>
-      <g id="text6">
-        <text transform="translate(460.36 1788.74) rotate(32.86)" style="font-size: 22.677169799804688px;fill: #fff;font-family: YuGothicUI-Light, Yu Gothic UI;font-weight: 300">H</text>
-        <text transform="translate(477.05 1799.11) rotate(21.65)" style="font-size: 22.677169799804688px;fill: #fff;font-family: YuGothicUI-Light, Yu Gothic UI;font-weight: 300">O</text>
-        <text transform="translate(497.3 1806.74) rotate(9.94)" style="font-size: 22.677169799804688px;fill: #fff;font-family: YuGothicUI-Light, Yu Gothic UI;font-weight: 300">M</text>
-        <text transform="translate(519.88 1810.04) rotate(0.66)" style="font-size: 22.677169799804688px;fill: #fff;font-family: YuGothicUI-Light, Yu Gothic UI;font-weight: 300">E</text>
+      <g
+         id="text6">
+        <text
+           transform="rotate(32.86,-2802.7646,1674.9454)"
+           style="font-weight:300;font-size:22.6772px;font-family:YuGothicUI-Light, 'Yu Gothic UI';fill:#ffffff"
+           id="text26">H</text>
+        <text
+           transform="rotate(21.65,-4465.9542,2146.9895)"
+           style="font-weight:300;font-size:22.6772px;font-family:YuGothicUI-Light, 'Yu Gothic UI';fill:#ffffff"
+           id="text27">O</text>
+        <text
+           transform="rotate(9.94,-10139.56,3762.6951)"
+           style="font-weight:300;font-size:22.6772px;font-family:YuGothicUI-Light, 'Yu Gothic UI';fill:#ffffff"
+           id="text28">M</text>
+        <text
+           transform="rotate(0.66,-156871.13,46036.233)"
+           style="font-weight:300;font-size:22.6772px;font-family:YuGothicUI-Light, 'Yu Gothic UI';fill:#ffffff"
+           id="text29">E</text>
       </g>
     </g>
   </g>
@@ -4083,7 +4331,6 @@ const MobilehardSkillsSVG = `<svg
 </svg>
 `;
 
-
 const cvSVG = `<svg id="cv_content" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 2400 1600">
   <g id="Layer12">
     <rect id="boxg12" x="905.678" y="1378.372" width="250" height="105" rx="13.785" transform="translate(2061.357 2861.745) rotate(-180)" style="fill: #63769e;opacity: 0.5"/>
@@ -4355,7 +4602,6 @@ const cvSVG = `<svg id="cv_content" xmlns="http://www.w3.org/2000/svg" viewBox="
   </g>
 </svg>
 `;
-
 
 const softSkillsSVG = `<svg
    version="1.1"
@@ -5321,6 +5567,12 @@ function resetLoadingAnimation() {
   }
 }
 
+// At the top of your file or in a suitable global scope:
+const HomeButtonRefs = {
+  div: null,
+  svg: null,
+  group: null
+};
 
 // After you inject the SVG into the #home-button div:
 document.addEventListener('DOMContentLoaded', () => {
@@ -5342,10 +5594,13 @@ document.addEventListener('DOMContentLoaded', () => {
           console.error('Error in HOME-BUTTON action:', err);
         }
       });
+      // Store references for use elsewhere
+      HomeButtonRefs.div = homeButtonDiv;
+      HomeButtonRefs.svg = svgElement;
+      HomeButtonRefs.group = homeButtonGroup;
     }
   }
 });
-
 
 
 //#endregion
@@ -5465,6 +5720,19 @@ function attachButtonEvents(svgElement) {
       }}
     ];
 
+    // --- HOME-BUTTON HANDLING ---
+    if (HomeButtonRefs.group) {
+      HomeButtonRefs.group.style.cursor = 'pointer';
+      HomeButtonRefs.group.addEventListener('click', () => {
+        try {
+          handleHomeButtonClick(svgElement);
+        } catch (err) {
+          console.error('Error in HOME-BUTTON action:', err);
+        }
+      });
+    }
+
+
     svgButtons.forEach((button) => {
       try {
         let buttonElement;
@@ -5490,14 +5758,36 @@ function attachButtonEvents(svgElement) {
 }
 
 // Function to handle the "HOME-BUTTON" 
-function handleHomeButtonClick(svgElement) {
+function handleHomeButtonClick() {
   try {
     console.log("Home button clicked. Hiding containers, reversing fog, and performing soft reset...");
 
     hideAllSvgContainers();
     hideAllPdfContainers();
 
-    reverseFogEffect(svgElement, () => {
+    const svgElement = HomeButtonRefs.svg;
+
+    // Check if the SVG has fog layers before calling reverseFogEffect
+    let hasFogLayers = false;
+    if (svgElement) {
+      hasFogLayers = !!svgElement.querySelector('[id^="blockcolor"]');
+    }
+
+    if (hasFogLayers) {
+          reverseFogEffect(svgElement, () => {
+            // Now hide containers AFTER the fog effect
+            hideAllSvgContainers();
+            hideAllPdfContainers();
+            softResetAfterFog();
+          });
+        } else {
+          // No fog layers, just do the soft reset directly
+          hideAllSvgContainers();
+          hideAllPdfContainers();
+          softResetAfterFog();
+        }
+
+    function softResetAfterFog() {
       try {
         console.log("Reverse fog effect completed. Performing soft reset...");
         const contentContainer = document.getElementById('content-container');
@@ -5522,7 +5812,7 @@ function handleHomeButtonClick(svgElement) {
       } catch (err) {
         console.error('Error in reverse fog callback:', err);
       }
-    });
+    }
   } catch (err) {
     console.error('Error in handleHomeButtonClick:', err);
   }
@@ -5820,10 +6110,12 @@ if (addBlankAtEnd && pageImages.length % 2 !== 0) {
 
 // CV SVG FILE HANDLING - Svg strings
 async function CVfunction(svgType) {
+  document.body.classList.add('no-scroll');
 
   // Set the loading state to true
   isHARDSKILLSfunctionLoading = false;
   isSOFTSKILLSfunctionLoading = false;  
+
 
   const interactiveContainer = document.querySelector('.interactive-container');
   if (!interactiveContainer) {
@@ -8247,9 +8539,13 @@ function addHoverEffectToMainElements() {
         const mouseX = e.clientX;
         const mouseY = e.clientY;
 
-        const allTargets = document.querySelectorAll(
-          '[id*="Pana_roz_degrade"], [id*="Pana_roz_opac"], [id*="Pana_gri_opac"], #HARD-SKILLS, #PROFESSIONAL, #CV, #ACADEMIC, #SOFT-SKILLS, #HOME-BUTTON'
-        );
+        const allTargets = Array.from(document.querySelectorAll(
+          '[id*="Pana_roz_degrade"], [id*="Pana_roz_opac"], [id*="Pana_gri_opac"], #HARD-SKILLS, #PROFESSIONAL, #CV, #ACADEMIC, #SOFT-SKILLS' ));
+
+          // Add the SVG group for the home button if it exists
+          if (HomeButtonRefs.group) {
+            allTargets.push(HomeButtonRefs.group);
+          }
 
         allTargets.forEach((el) => {
           try {
@@ -8262,9 +8558,8 @@ function addHoverEffectToMainElements() {
             el.style.transition = 'transform 0.3s ease';
 
             if (el.id === 'HOME-BUTTON') {
-              el.style.transform = mouseInsideElement ? 'translateY(5px)' : 'translateY(0px)';
             } else {
-              el.style.transform = mouseInsideElement ? 'translateY(30px)' : 'translateY(0px) scale(1)';
+              el.style.transform = mouseInsideElement ? 'translateY(30px)' : 'translateY(0px)';
             }
           } catch (err) {
             console.error('Error processing hover effect for element:', el, err);
