@@ -419,16 +419,62 @@ a {
 
   }
 
-.stf__block {
-   /* Match the container's height */
-  background: transparent;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  overflow: visible;
-  cursor: pointer;
+  .stf__block {
+    /* Match the container's height */
+    background: transparent;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    overflow: visible;
+    cursor: pointer;
+  }
+
+  .pdf-flipbook .page img {
+  object-fit: cover;
+  display: block;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.10);
+  background: #fff;
+  border-radius: 3px;
+  -webkit-tap-highlight-color: transparent;
+  }
 }
+
+
+@media (max-width: 700px) {
+
+  .pdf-container,
+  .pdf-flipbook,
+  .stf__page,
+  .stf__wrapper--landscape,
+  .stf__wrapper--potrait {
+    perspective: none !important;
+    transform-style: flat !important;
+
+  }
+  /* Hide the folding corner effect */
+  .page-flip__corner {
+    display: none !important;
+  }
+
+  .pdf-flipbook .page img {
+  object-fit: cover;
+  display: block;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.10);
+  background: #fff;
+  border-radius: 3px;
+  -webkit-tap-highlight-color: transparent;
+  }
 }
+
+
+
+
+
+
+
+
+
+
 
 /*#endregion PDF*/
 

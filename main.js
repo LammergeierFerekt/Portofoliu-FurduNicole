@@ -6081,6 +6081,7 @@ if (addBlankAtEnd && pageImages.length % 2 !== 0) {
           pageWidth = Math.max(window.innerWidth * 0.85, 320);  // 95vw, min 320px
           pageHeight = Math.max(window.innerHeight * 0.65, 400); // 80vh, min 400px
 
+
         } else {
           pageWidth = 700; 
           pageHeight = 1000;
