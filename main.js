@@ -5707,13 +5707,13 @@ function attachButtonEvents(svgElement) {
         try { HARDSKILLSfunction('hard-skills', svgElement); triggerFogEffect(svgElement); } catch (err) { console.error('Error in button1 action:', err); }
       }},
       { layer: 'PROFESSIONAL', id: 'Pana_roz_button2', action: () => { 
-        try { showPDF('professional.pdf', svgElement); triggerFogEffect(svgElement); } catch (err) { console.error('Error in button2 action:', err); }
+        try { showPDF('professional.pdf','professional_mobile.pdf', svgElement); triggerFogEffect(svgElement); } catch (err) { console.error('Error in button2 action:', err); }
       }},
       { layer: 'CV', id: 'Pana_roz_button3', action: () => { 
         try { CVfunction('cv', svgElement); triggerFogEffect(svgElement); } catch (err) { console.error('Error in button3 action:', err); }
       }},
       { layer: 'ACADEMIC', id: 'Pana_roz_button4', action: () => { 
-        try { showPDF('academic.pdf', svgElement); triggerFogEffect(svgElement); } catch (err) { console.error('Error in button4 action:', err); }
+        try { showPDF('academic.pdf','academic_mobile.pdf', svgElement); triggerFogEffect(svgElement); } catch (err) { console.error('Error in button4 action:', err); }
       }},
       { layer: 'SOFT-SKILLS', id: 'Pana_roz_button5', action: () => { 
         try { SOFTSKILLSfunction('soft-skills', svgElement); triggerFogEffect(svgElement); } catch (err) { console.error('Error in button5 action:', err); }
@@ -5980,7 +5980,11 @@ function reverseFogEffect(svgElement, callback) {
 //#region 4.Parsing content files 
 
 // PDF FILE HANDLING - Flipbook Integration
-async function showPDF(pdfFile) {
+async function showPDF(pdfFileDesktop, pdfFileMobile) {
+
+  const isMobile = window.innerWidth < 500 || /Mobi|Android/i.test(navigator.userAgent);
+  const pdfFile = isMobile ? pdfFileMobile : pdfFileDesktop;
+
   try {
     const pdfContainer = document.querySelector('.pdf-container');
     const flipbookContainer = document.getElementById('flipbook');
@@ -5989,8 +5993,8 @@ async function showPDF(pdfFile) {
     }
 
     hideAllSvgContainers();
-    
     showLoadingOverlay();
+    
     // Insert the loading-eye.svg if not already present
     const loadingSpinner = document.getElementById('loading-spinner');
     if (loadingSpinner && !loadingSpinner.querySelector('svg')) {
@@ -6072,15 +6076,14 @@ if (addBlankAtEnd && pageImages.length % 2 !== 0) {
       }, 100);
 
       try {
-        // Responsive page size based on viewport width
         let pageWidth, pageHeight;
-        if (window.innerWidth < 700) {
-          // Use most of the viewport, but keep a minimum for readability
-          pageWidth = Math.max(window.innerWidth * 0.95, 320);  // 95vw, min 320px
+        if (window.innerWidth < 500) {
+          pageWidth = Math.max(window.innerWidth * 0.85, 320);  // 95vw, min 320px
           pageHeight = Math.max(window.innerHeight * 0.65, 400); // 80vh, min 400px
+
         } else {
-          pageWidth = 700;   // or whatever you want for desktop
-          pageHeight = 900;
+          pageWidth = 700; 
+          pageHeight = 1000;
         }
 
         const pageFlip = new PageFlip(flipbookContainer, {

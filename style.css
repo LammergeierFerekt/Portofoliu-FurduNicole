@@ -18,6 +18,7 @@ body, html {
 /* Hide scrollbar for Chrome, Edge, Safari */
 html::-webkit-scrollbar, body::-webkit-scrollbar {
   display: none;
+  
 }
 
 
@@ -149,7 +150,6 @@ html, body {
 }
 /*#endregion body html*/
 
-
 /*#region SVG ARTWORK*/
 
 .svg-wrapper {
@@ -203,83 +203,115 @@ rect[id^="blockcolor"] {
 /*#endregion SVG ARTWORK*/
 
 
+
+
+
+
+
+
 /*#region PDF*/
 
 /* PDF container styles */
 .pdf-container {
   position: fixed;
-  margin-top: 2.5%;
   top: 50%;
   left: 50%;
-  transform: translate(-50%, -50%) scale(1); /* Start slightly scaled down */
-  width: 80vw;         /* Constrain the width */
-  min-width: 600px;    /* Minimum width for proper layout */
-  max-width: 100vw;     /* Prevent it from being too wide */
-  height: 100vh;        /* Increased from 70vh */
-  max-height: 1000px;    /* Increased from 90vh */
+  transform: translate(-50%, -50%); /* Start slightly scaled down */
   background-color: transparent;
-  border-radius: 10px;
-  z-index: 100;
+  z-index: 10;
   visibility: hidden;  /* Initially hidden */
   opacity: 0;          /* Initially transparent */
   transition: opacity 0.5s ease, transform 0.5s ease; /* Smooth fade-in and zoom */
   cursor: auto; /* Show a pointer cursor to indicate interactivity */
-
+  -webkit-tap-highlight-color: transparent;
+  pointer-events: none;
 }
 
-.pdf-container.active {
+.pdf-container.active  {
   visibility: visible; /* Make it visible */
-  opacity: 1;          /* Fully opaque */
-  transform: translate(-50%, -50%) scale(1); /* Scale back to normal */
+  opacity: 1;  
+  transform: translate(-50%, -50%) scale(0.85); /* Start slightly scaled down */
+  overflow: visible;
+  pointer-events: none;
+  height: 85vh;
+  top: 52%;
+  -webkit-tap-highlight-color: transparent;
+
 }
+
+
+
+  #pdf-flipbook, .pdf-flipbook.stf__parent {
+  visibility: visible; /* Make it visible */
+  top: -7%;
+  opacity: 1;  
+  overflow: visible;
+  -webkit-tap-highlight-color: transparent;
+
+  }
 
 /* PDF Flipbook integration */
 .pdf-flipbook {
-  position: relative;
-  width: 100%;         /* Match the container's width */
-  height: 100%;        /* Match the container's height */
-  margin: 0 auto;
-  z-index: 200;
+  position: relative;   /* Match the container's height */
   background: transparent;
-  display: flex;
-  align-items: center;
-  justify-content: center;
   overflow: visible;
   cursor: pointer; /* Show a pointer cursor to indicate interactivity */
-}
-
-/* Desktop: Prevent scrollbars and movement */
-.pdf-container {
-  overflow: hidden; /* Prevent scrollbars on desktop */
-}
-
-/* Keep centering consistent */
-.pdf-flipbook {
   margin: 0 auto !important;
   transform: none !important;
-  
+  -webkit-tap-highlight-color: transparent;
+
 }
 
-.pdf-container.active .pdf-flipbook {
-  visibility: visible;
-  opacity: 1;
-  
+.stf_wrapper.active{
+  visibility: visible; /* Make it visible */
+  width: 100vw;
+  max-width: 100vw;
+  height: 100vh;
+  max-height: 100vh; 
+  opacity: 1;  
+  overflow: visible;
+  -webkit-tap-highlight-color: transparent;
+
 }
+
+
+.stf__wrapper--landscape {
+  width: 100vw;
+  max-width: 100vw;
+  height: 100vh;
+  max-height: 100vh; 
+  overflow: visible;
+}
+.stf__wrapper--potrait {
+  width: 100vw;
+  max-width: 100vw;
+  height: 100vh;
+  max-height: 100vh; 
+  overflow: visible;
+   -webkit-tap-highlight-color: transparent;
+
+}
+
+
+
 
 
 .pdf-flipbook .page,
 .pdf-flipbook .page img {
-  width: 100%;
-  height: 100%;
   background: transparent;
-  border-radius: 5px;
+  border-radius: 3px; 
+  -webkit-tap-highlight-color: transparent;
 
 }
 .pdf-flipbook .page img {
-  object-fit: contain;
+  object-fit: cover;
   display: block;
   box-shadow: 0 2px 8px rgba(0,0,0,0.10);
   background: #fff;
+  border-radius: 3px;
+  -webkit-tap-highlight-color: transparent;
+
+  
 }
 
 .pdf-container,
@@ -287,6 +319,7 @@ rect[id^="blockcolor"] {
 .pdf-flipbook .page,
 .pdf-flipbook .page img {
   pointer-events: auto !important;
+
 }
 
 /* Hide all PageFlip navigation, slider, and progress elements */
@@ -307,12 +340,13 @@ rect[id^="blockcolor"] {
   max-height: 0 !important;
   margin: 0 !important;
   padding: 0 !important;
+  
 }
 
 /* Hide scrollbars for PDF container on all platforms */
 .pdf-container {
   scrollbar-width: none;          /* Firefox */
-  -ms-overflow-style: none;       /* IE and Edge */
+  -ms-overflow-style: none;   /* IE and Edge */
 }
 .pdf-container::-webkit-scrollbar {
   display: none;                  /* Chrome, Safari, Opera */
@@ -342,35 +376,64 @@ a {
   }
 }
 
-/* Optional: Add a subtle background overlay during loading */
 .pdf-container.loading {
-  background-color: rgba(0, 0, 0, 0.5); /* Semi-transparent black overlay */
+  background-color: rgba(0, 0, 0, 0.5); 
 }
 
 .stf__page {
   transform-style: 3d !important;
   perspective: auto !important;
-  /* Remove transform-origin if you want standard flipping, or tweak for diagonal */
-  /* transform-origin: 80% 90% !important; */
-  /* Remove box-shadow: none !important; to allow subtle shadow */
   box-shadow: 0 4px 16px rgba(0,0,0,0.10) !important;
+  
 }
 
 
-@media (max-width: 700px) {
+@media (max-width: 2000px) {
   .pdf-container {
     overflow-x: auto !important;
     overflow-y: visible;
-    width: 100vw;
-    min-width: 0;
-    max-width: 100vw;
-    margin: 0 auto;
-    height: 80vh;
+    width: 95vw;
+    max-width: 95vw;
+    height: 95vh;
     max-height: 95vh;
+    overflow: visible;
+  
   }
+
+
+  /* PDF Flipbook integration */
+  .pdf-flipbook {
+    object-fit: contain;
+    position: relative;
+    width: 95vw;
+    max-width: 95vw;
+    height: 95vh;
+    max-height: 95vh;      /* Match the container's height */
+    z-index: 200;
+    background: transparent;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    overflow: visible;
+    cursor: pointer; /* Show a pointer cursor to indicate interactivity */
+
+  }
+
+.stf__block {
+   /* Match the container's height */
+  background: transparent;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: visible;
+  cursor: pointer;
+}
 }
 
 /*#endregion PDF*/
+
+
+
 
 
 /*#region LOADING EYE ANIMATION*/
@@ -421,7 +484,6 @@ a {
 
 /*#endregion LOADING EYE ANIMATION*/
 
-
 /*#region SVG interactive-containter*/
 
 .interactive-container {
@@ -465,7 +527,6 @@ a {
 }
 
 /*#endregion SVG interactive-containter*/
-
 
 /*#region CV, SOFT-SKILLS, HARD-SKILLS SVG */
 
@@ -646,7 +707,6 @@ a {
 
 
 /*#endregion CV, SOFT-SKILLS, HARD-SKILLS SVG */
-
 
 /*#region MOBILE - CV, SOFT-SKILLS, HARD-SKILLS SVG */
 
