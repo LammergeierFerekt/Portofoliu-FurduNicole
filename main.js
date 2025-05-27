@@ -8375,10 +8375,13 @@ async function SOFTSKILLSfunction() {
     const remainingTime = Math.max(0, minimumLoadingTime - elapsedTime);
     await new Promise(resolve => setTimeout(resolve, remainingTime));
 
+
+
     // MOBILE INITIALIZATION
     if (isMobile()) {
       console.log('Mobile device detected. Running initialization with limited functionality.');
       try {
+        
         isSOFTSKILLSfunctionLoading = true;
         const checkpointContainer = document.getElementById('checkpoint-container');
         if (checkpointContainer) {
@@ -8415,11 +8418,6 @@ async function SOFTSKILLSfunction() {
             interactiveContainer.appendChild(svgSoftSkillsContent);
 
 
-            // --- ADD FADE OVERLAY HERE ---
-            const fadeOverlay = document.createElement('div');
-            fadeOverlay.className = 'fade-overlay';
-            interactiveContainer.appendChild(fadeOverlay);
-
             // Set transparency and shadow for clipmask elements
             const clipmaskElements = svgSoftSkillsContent.querySelectorAll('[id^="clipmask_"]');
             clipmaskElements.forEach(clipmask => {
@@ -8450,6 +8448,27 @@ async function SOFTSKILLSfunction() {
           new Promise(resolve => setTimeout(resolve, remainingTime))
         ]);
 
+        // Move HOME-BUTTON to bottom on mobile for soft-skills
+        const homeBtn = document.getElementById('HOME-BUTTON');
+        if (homeBtn) {
+          // Wait for the next frame to ensure layout is updated
+          requestAnimationFrame(() => {
+            // Get the full scrollable height of the page
+            const pageHeight = Math.max(
+              document.body.scrollHeight,
+              document.documentElement.scrollHeight
+            );
+
+
+              const vh = window.innerHeight;
+              homeBtn.style.position = 'absolute';
+              homeBtn.style.left = '50%';
+              homeBtn.style.top = (pageHeight - homeBtn.offsetHeight - (-0.02 * vh)) + 'px'; // 24px margin from bottom
+              homeBtn.style.transform = 'translateX(-50%)';
+              homeBtn.style.zIndex = '1000';
+          });
+        }
+
         hideLoadingOverlay();
       } catch (err) {
         console.error('Error during mobile initialization:', err);
@@ -8457,7 +8476,6 @@ async function SOFTSKILLSfunction() {
       }
       return;
     }
-
 
 
 

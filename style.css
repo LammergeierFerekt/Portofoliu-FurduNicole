@@ -247,7 +247,6 @@ rect[id^="blockcolor"] {
   opacity: 1;  
   overflow: visible;
   -webkit-tap-highlight-color: transparent;
-
   }
 
 /* PDF Flipbook integration */
@@ -304,10 +303,9 @@ rect[id^="blockcolor"] {
 
 }
 .pdf-flipbook .page img {
-  object-fit: cover;
+  object-fit: contain;
   display: block;
   box-shadow: 0 2px 8px rgba(0,0,0,0.10);
-  background: #fff;
   border-radius: 3px;
   -webkit-tap-highlight-color: transparent;
 
@@ -388,7 +386,7 @@ a {
 }
 
 
-@media (max-width: 2000px) {
+@media (max-width: 10000px) {
   .pdf-container {
     overflow-x: auto !important;
     overflow-y: visible;
@@ -430,7 +428,7 @@ a {
   }
 
   .pdf-flipbook .page img {
-  object-fit: cover;
+  object-fit: contain;
   display: block;
   box-shadow: 0 2px 8px rgba(0,0,0,0.10);
   background: #fff;
@@ -457,7 +455,7 @@ a {
   }
 
   .pdf-flipbook .page img {
-  object-fit: cover;
+  object-fit: contain;
   display: block;
   box-shadow: 0 2px 8px rgba(0,0,0,0.10);
   background: #fff;
@@ -908,7 +906,7 @@ a {
 
   /* SOFT-SKILLS -  */
   #soft-skills_canvas {
-    height: 75%;       /* Use most of the viewport height */
+    height: 7%;       /* Use most of the viewport height */
     max-height: 85%;
     display: flex;
     align-items: center;
