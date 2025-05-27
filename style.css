@@ -200,6 +200,15 @@ rect[id^="blockcolor"] {
   transition: opacity 0.5s ease;
 }
 
+
+
+
+
+
+
+
+
+
 /*#endregion SVG ARTWORK*/
 
 
@@ -214,7 +223,7 @@ rect[id^="blockcolor"] {
 /* PDF container styles */
 .pdf-container {
   position: fixed;
-  top: 50%;
+  top: 60%;
   left: 50%;
   transform: translate(-50%, -50%); /* Start slightly scaled down */
   background-color: transparent;
@@ -234,7 +243,7 @@ rect[id^="blockcolor"] {
   overflow: visible;
   pointer-events: none;
   height: 85vh;
-  top: 52%;
+  top: 54%;
   -webkit-tap-highlight-color: transparent;
 
 }
@@ -581,7 +590,7 @@ a {
 #cv_content.active,
  #checkpoint-container.active{
   visibility: visible;
-  opacity: 1;          
+  opacity: 1;    
 }
 
 #checkpoint-container {
@@ -1003,7 +1012,7 @@ a {
 /*#endregion MOBILE - CV, SOFT-SKILLS, HARD-SKILLS SVG */
 
 
-body.no-scroll {
+body.no-scroll soft-skills_canvas {
   overflow: hidden !important;
   height: 100vh !important;
   position: fixed !important;

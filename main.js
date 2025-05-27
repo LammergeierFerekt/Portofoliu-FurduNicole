@@ -1552,6 +1552,722 @@ const artworkSVG = `<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://
 </svg>
 `;
 
+// const MobileartworkSVG = `<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 800 1329.37">
+//   <defs>
+//     <filter id="filter">
+//       <feOffset dy="10" input="SourceAlpha"/>
+//       <feGaussianBlur stdDeviation="6" result="blur"/>
+//       <feFlood/>
+//       <feComposite operator="in" in2="blur"/>
+//       <feComposite in="SourceGraphic"/>
+//     </filter>
+//     <linearGradient id="linear-gradient" x1="435.228" y1="1103.305" x2="435.228" y2="495.786" gradientUnits="userSpaceOnUse">
+//       <stop offset="0" stop-color="#606060"/>
+//       <stop offset="0.288" stop-color="#484848"/>
+//       <stop offset="0.891" stop-color="#0c0c0c"/>
+//       <stop offset="1"/>
+//     </linearGradient>
+//     <linearGradient id="linear-gradient-2" x1="433.234" y1="782.015" x2="437.234" y2="782.015" gradientUnits="userSpaceOnUse">
+//       <stop offset="0" stop-color="#fff" stop-opacity="0"/>
+//       <stop offset="0.239" stop-color="#fff" stop-opacity="0.499"/>
+//       <stop offset="0.422" stop-color="#fff" stop-opacity="0.859"/>
+//       <stop offset="0.505" stop-color="#fff"/>
+//       <stop offset="1" stop-color="#f6e4e4" stop-opacity="0"/>
+//     </linearGradient>
+//     <filter id="filter-2" x="403.2" y="475.68" width="64.08" height="632.64" filterUnits="userSpaceOnUse">
+//       <feOffset dy="10" input="SourceAlpha"/>
+//       <feGaussianBlur stdDeviation="10" result="blur-2"/>
+//       <feFlood flood-color="#fff"/>
+//       <feComposite operator="in" in2="blur-2"/>
+//       <feComposite in="SourceGraphic"/>
+//     </filter>
+//     <filter id="filter-3">
+//       <feOffset dy="10" input="SourceAlpha"/>
+//       <feGaussianBlur stdDeviation="6" result="blur-3"/>
+//       <feFlood/>
+//       <feComposite operator="in" in2="blur-3"/>
+//       <feComposite in="SourceGraphic"/>
+//     </filter>
+//     <linearGradient id="linear-gradient-3" x1="365.228" y1="1103.305" x2="365.228" y2="495.786" xlink:href="#linear-gradient"/>
+//     <linearGradient id="linear-gradient-4" x1="363.234" y1="782.015" x2="367.234" y2="782.015" xlink:href="#linear-gradient-2"/>
+//     <filter id="filter-4" x="333.12" y="475.68" width="64.32" height="632.64" filterUnits="userSpaceOnUse">
+//       <feOffset dy="10" input="SourceAlpha"/>
+//       <feGaussianBlur stdDeviation="10" result="blur-4"/>
+//       <feFlood flood-color="#fff"/>
+//       <feComposite operator="in" in2="blur-4"/>
+//       <feComposite in="SourceGraphic"/>
+//     </filter>
+//     <filter id="filter-5">
+//       <feOffset dy="10" input="SourceAlpha"/>
+//       <feGaussianBlur stdDeviation="6" result="blur-5"/>
+//       <feFlood/>
+//       <feComposite operator="in" in2="blur-5"/>
+//       <feComposite in="SourceGraphic"/>
+//     </filter>
+//     <linearGradient id="linear-gradient-5" x1="329.32" y1="1170.276" x2="329.32" y2="563.534" xlink:href="#linear-gradient"/>
+//     <linearGradient id="linear-gradient-6" x1="327.329" y1="849.397" x2="331.324" y2="849.397" xlink:href="#linear-gradient-2"/>
+//     <filter id="filter-6" x="297.12" y="543.36" width="64.32" height="631.92" filterUnits="userSpaceOnUse">
+//       <feOffset dy="10" input="SourceAlpha"/>
+//       <feGaussianBlur stdDeviation="10" result="blur-6"/>
+//       <feFlood flood-color="#fff"/>
+//       <feComposite operator="in" in2="blur-6"/>
+//       <feComposite in="SourceGraphic"/>
+//     </filter>
+//     <filter id="filter-7">
+//       <feOffset dy="10" input="SourceAlpha"/>
+//       <feGaussianBlur stdDeviation="6" result="blur-7"/>
+//       <feFlood/>
+//       <feComposite operator="in" in2="blur-7"/>
+//       <feComposite in="SourceGraphic"/>
+//     </filter>
+//     <linearGradient id="linear-gradient-7" x1="469.32" y1="1170.108" x2="469.32" y2="563.366" xlink:href="#linear-gradient"/>
+//     <linearGradient id="linear-gradient-8" x1="467.329" y1="849.229" x2="471.324" y2="849.229" xlink:href="#linear-gradient-2"/>
+//     <filter id="filter-8" x="437.28" y="543.36" width="64.08" height="631.92" filterUnits="userSpaceOnUse">
+//       <feOffset dy="10" input="SourceAlpha"/>
+//       <feGaussianBlur stdDeviation="10" result="blur-8"/>
+//       <feFlood flood-color="#fff"/>
+//       <feComposite operator="in" in2="blur-8"/>
+//       <feComposite in="SourceGraphic"/>
+//     </filter>
+//     <filter id="filter-9">
+//       <feOffset dy="10" input="SourceAlpha"/>
+//       <feGaussianBlur stdDeviation="6" result="blur-9"/>
+//       <feFlood/>
+//       <feComposite operator="in" in2="blur-9"/>
+//       <feComposite in="SourceGraphic"/>
+//     </filter>
+//     <linearGradient id="linear-gradient-9" x1="575.228" y1="987.137" x2="575.228" y2="379.618" xlink:href="#linear-gradient"/>
+//     <linearGradient id="linear-gradient-10" x1="573.234" y1="665.847" x2="577.234" y2="665.847" xlink:href="#linear-gradient-2"/>
+//     <filter id="filter-10" x="543.12" y="359.52" width="64.32" height="632.64" filterUnits="userSpaceOnUse">
+//       <feOffset dy="10" input="SourceAlpha"/>
+//       <feGaussianBlur stdDeviation="10" result="blur-10"/>
+//       <feFlood flood-color="#fff"/>
+//       <feComposite operator="in" in2="blur-10"/>
+//       <feComposite in="SourceGraphic"/>
+//     </filter>
+//     <filter id="filter-11">
+//       <feOffset dy="10" input="SourceAlpha"/>
+//       <feGaussianBlur stdDeviation="6" result="blur-11"/>
+//       <feFlood/>
+//       <feComposite operator="in" in2="blur-11"/>
+//       <feComposite in="SourceGraphic"/>
+//     </filter>
+//     <linearGradient id="linear-gradient-11" x1="505.228" y1="1045.26" x2="505.228" y2="437.74" xlink:href="#linear-gradient"/>
+//     <linearGradient id="linear-gradient-12" x1="503.234" y1="723.97" x2="507.234" y2="723.97" xlink:href="#linear-gradient-2"/>
+//     <filter id="filter-12" x="473.04" y="417.6" width="64.32" height="632.64" filterUnits="userSpaceOnUse">
+//       <feOffset dy="10" input="SourceAlpha"/>
+//       <feGaussianBlur stdDeviation="10" result="blur-12"/>
+//       <feFlood flood-color="#fff"/>
+//       <feComposite operator="in" in2="blur-12"/>
+//       <feComposite in="SourceGraphic"/>
+//     </filter>
+//     <filter id="filter-13">
+//       <feOffset dy="10" input="SourceAlpha"/>
+//       <feGaussianBlur stdDeviation="6" result="blur-13"/>
+//       <feFlood/>
+//       <feComposite operator="in" in2="blur-13"/>
+//       <feComposite in="SourceGraphic"/>
+//     </filter>
+//     <linearGradient id="linear-gradient-13" x1="400.228" y1="1259.596" x2="400.228" y2="652.076" xlink:href="#linear-gradient"/>
+//     <linearGradient id="linear-gradient-14" x1="398.234" y1="938.305" x2="402.234" y2="938.305" xlink:href="#linear-gradient-2"/>
+//     <filter id="filter-14" x="368.16" y="631.92" width="64.08" height="632.64" filterUnits="userSpaceOnUse">
+//       <feOffset dy="10" input="SourceAlpha"/>
+//       <feGaussianBlur stdDeviation="10" result="blur-14"/>
+//       <feFlood flood-color="#fff"/>
+//       <feComposite operator="in" in2="blur-14"/>
+//       <feComposite in="SourceGraphic"/>
+//     </filter>
+//     <filter id="filter-15">
+//       <feOffset dy="10" input="SourceAlpha"/>
+//       <feGaussianBlur stdDeviation="6" result="blur-15"/>
+//       <feFlood/>
+//       <feComposite operator="in" in2="blur-15"/>
+//       <feComposite in="SourceGraphic"/>
+//     </filter>
+//     <linearGradient id="linear-gradient-15" x1="295.228" y1="1045.26" x2="295.228" y2="437.74" xlink:href="#linear-gradient"/>
+//     <linearGradient id="linear-gradient-16" x1="293.234" y1="723.97" x2="297.234" y2="723.97" xlink:href="#linear-gradient-2"/>
+//     <filter id="filter-16" x="263.04" y="417.6" width="64.32" height="632.64" filterUnits="userSpaceOnUse">
+//       <feOffset dy="10" input="SourceAlpha"/>
+//       <feGaussianBlur stdDeviation="10" result="blur-16"/>
+//       <feFlood flood-color="#fff"/>
+//       <feComposite operator="in" in2="blur-16"/>
+//       <feComposite in="SourceGraphic"/>
+//     </filter>
+//     <filter id="filter-17">
+//       <feOffset dy="10" input="SourceAlpha"/>
+//       <feGaussianBlur stdDeviation="6" result="blur-17"/>
+//       <feFlood/>
+//       <feComposite operator="in" in2="blur-17"/>
+//       <feComposite in="SourceGraphic"/>
+//     </filter>
+//     <linearGradient id="linear-gradient-17" x1="225.228" y1="987.137" x2="225.228" y2="379.618" xlink:href="#linear-gradient"/>
+//     <linearGradient id="linear-gradient-18" x1="223.234" y1="665.847" x2="227.234" y2="665.847" xlink:href="#linear-gradient-2"/>
+//     <filter id="filter-18" x="193.2" y="359.52" width="64.08" height="632.64" filterUnits="userSpaceOnUse">
+//       <feOffset dy="10" input="SourceAlpha"/>
+//       <feGaussianBlur stdDeviation="10" result="blur-18"/>
+//       <feFlood flood-color="#fff"/>
+//       <feComposite operator="in" in2="blur-18"/>
+//       <feComposite in="SourceGraphic"/>
+//     </filter>
+//     <filter id="filter-19">
+//       <feOffset dy="10" input="SourceAlpha"/>
+//       <feGaussianBlur stdDeviation="6" result="blur-19"/>
+//       <feFlood/>
+//       <feComposite operator="in" in2="blur-19"/>
+//       <feComposite in="SourceGraphic"/>
+//     </filter>
+//     <linearGradient id="linear-gradient-19" x1="539.32" y1="915.37" x2="539.32" y2="308.628" xlink:href="#linear-gradient"/>
+//     <linearGradient id="linear-gradient-20" x1="537.329" y1="594.491" x2="541.324" y2="594.491" xlink:href="#linear-gradient-2"/>
+//     <filter id="filter-20" x="507.12" y="288.48" width="64.32" height="631.92" filterUnits="userSpaceOnUse">
+//       <feOffset dy="10" input="SourceAlpha"/>
+//       <feGaussianBlur stdDeviation="10" result="blur-20"/>
+//       <feFlood flood-color="#fff"/>
+//       <feComposite operator="in" in2="blur-20"/>
+//       <feComposite in="SourceGraphic"/>
+//     </filter>
+//     <filter id="filter-21">
+//       <feOffset dy="10" input="SourceAlpha"/>
+//       <feGaussianBlur stdDeviation="6" result="blur-21"/>
+//       <feFlood/>
+//       <feComposite operator="in" in2="blur-21"/>
+//       <feComposite in="SourceGraphic"/>
+//     </filter>
+//     <linearGradient id="linear-gradient-21" x1="259.32" y1="914.941" x2="259.32" y2="308.199" xlink:href="#linear-gradient"/>
+//     <linearGradient id="linear-gradient-22" x1="257.329" y1="594.062" x2="261.324" y2="594.062" xlink:href="#linear-gradient-2"/>
+//     <filter id="filter-22" x="227.28" y="288" width="64.08" height="632.16" filterUnits="userSpaceOnUse">
+//       <feOffset dy="10" input="SourceAlpha"/>
+//       <feGaussianBlur stdDeviation="10" result="blur-22"/>
+//       <feFlood flood-color="#fff"/>
+//       <feComposite operator="in" in2="blur-22"/>
+//       <feComposite in="SourceGraphic"/>
+//     </filter>
+//     <linearGradient id="linear-gradient-23" x1="400.274" y1="1044.53" x2="400.274" y2="535.11" gradientUnits="userSpaceOnUse">
+//       <stop offset="0" stop-color="#f1d5d5"/>
+//       <stop offset="0.996" stop-color="#d8a7a7"/>
+//     </linearGradient>
+//     <filter id="filter-23" x="360.12" y="525" width="80.16" height="539.76" filterUnits="userSpaceOnUse">
+//       <feOffset dy="5" input="SourceAlpha"/>
+//       <feGaussianBlur stdDeviation="5" result="blur-23"/>
+//       <feFlood flood-color="#896666"/>
+//       <feComposite operator="in" in2="blur-23"/>
+//       <feComposite in="SourceGraphic"/>
+//     </filter>
+//     <linearGradient id="linear-gradient-24" x1="575.5" y1="808.492" x2="575.5" y2="298.419" xlink:href="#linear-gradient-23"/>
+//     <filter id="filter-24" x="535.32" y="288.36" width="80.4" height="540.24" filterUnits="userSpaceOnUse">
+//       <feOffset dy="5" input="SourceAlpha"/>
+//       <feGaussianBlur stdDeviation="5" result="blur-24"/>
+//       <feFlood flood-color="#896666"/>
+//       <feComposite operator="in" in2="blur-24"/>
+//       <feComposite in="SourceGraphic"/>
+//     </filter>
+//     <linearGradient id="linear-gradient-25" x1="505.5" y1="866.821" x2="505.5" y2="356.748" xlink:href="#linear-gradient-23"/>
+//     <filter id="filter-25" x="465.48" y="346.68" width="80.16" height="540.24" filterUnits="userSpaceOnUse">
+//       <feOffset dy="5" input="SourceAlpha"/>
+//       <feGaussianBlur stdDeviation="5" result="blur-25"/>
+//       <feFlood flood-color="#896666"/>
+//       <feComposite operator="in" in2="blur-25"/>
+//       <feComposite in="SourceGraphic"/>
+//     </filter>
+//     <linearGradient id="linear-gradient-26" x1="295.5" y1="866.821" x2="295.5" y2="356.748" xlink:href="#linear-gradient-23"/>
+//     <filter id="filter-26" x="255.48" y="346.68" width="80.16" height="540.24" filterUnits="userSpaceOnUse">
+//       <feOffset dy="5" input="SourceAlpha"/>
+//       <feGaussianBlur stdDeviation="5" result="blur-26"/>
+//       <feFlood flood-color="#896666"/>
+//       <feComposite operator="in" in2="blur-26"/>
+//       <feComposite in="SourceGraphic"/>
+//     </filter>
+//     <linearGradient id="linear-gradient-27" x1="225.5" y1="808.492" x2="225.5" y2="298.419" xlink:href="#linear-gradient-23"/>
+//     <filter id="filter-27" x="185.4" y="288.36" width="80.16" height="540.24" filterUnits="userSpaceOnUse">
+//       <feOffset dy="5" input="SourceAlpha"/>
+//       <feGaussianBlur stdDeviation="5" result="blur-27"/>
+//       <feFlood flood-color="#896666"/>
+//       <feComposite operator="in" in2="blur-27"/>
+//       <feComposite in="SourceGraphic"/>
+//     </filter>
+//     <linearGradient id="linear-gradient-28" x1="610.048" y1="857.634" x2="610.048" y2="212.586" gradientUnits="userSpaceOnUse">
+//       <stop offset="0" stop-color="#fff"/>
+//       <stop offset="0.019" stop-color="#fdf9f9"/>
+//       <stop offset="0.105" stop-color="#f6e3e3"/>
+//       <stop offset="0.206" stop-color="#f1d2d2"/>
+//       <stop offset="0.332" stop-color="#edc7c7"/>
+//       <stop offset="0.508" stop-color="#ebc0c0"/>
+//       <stop offset="0.996" stop-color="#eabebe"/>
+//     </linearGradient>
+//     <filter id="filter-28" x="569.88" y="202.44" width="80.16" height="675.36" filterUnits="userSpaceOnUse">
+//       <feOffset dy="5" input="SourceAlpha"/>
+//       <feGaussianBlur stdDeviation="5" result="blur-28"/>
+//       <feFlood flood-color="#896666"/>
+//       <feComposite operator="in" in2="blur-28"/>
+//       <feComposite in="SourceGraphic"/>
+//     </filter>
+//     <linearGradient id="linear-gradient-29" x1="470.048" y1="964.838" x2="470.048" y2="319.79" xlink:href="#linear-gradient-28"/>
+//     <filter id="filter-29" x="429.96" y="309.72" width="80.16" height="675.12" filterUnits="userSpaceOnUse">
+//       <feOffset dy="5" input="SourceAlpha"/>
+//       <feGaussianBlur stdDeviation="5" result="blur-29"/>
+//       <feFlood flood-color="#896666"/>
+//       <feComposite operator="in" in2="blur-29"/>
+//       <feComposite in="SourceGraphic"/>
+//     </filter>
+//     <linearGradient id="linear-gradient-30" x1="540.048" y1="679.272" x2="540.048" y2="34.224" xlink:href="#linear-gradient-28"/>
+//     <filter id="filter-30" x="500.04" y="24.12" width="80.16" height="675.36" filterUnits="userSpaceOnUse">
+//       <feOffset dy="5" input="SourceAlpha"/>
+//       <feGaussianBlur stdDeviation="5" result="blur-30"/>
+//       <feFlood flood-color="#896666"/>
+//       <feComposite operator="in" in2="blur-30"/>
+//       <feComposite in="SourceGraphic"/>
+//     </filter>
+//     <linearGradient id="linear-gradient-31" x1="400.048" y1="898.734" x2="400.048" y2="253.685" xlink:href="#linear-gradient-28"/>
+//     <filter id="filter-31" x="359.88" y="243.48" width="80.16" height="675.36" filterUnits="userSpaceOnUse">
+//       <feOffset dy="5" input="SourceAlpha"/>
+//       <feGaussianBlur stdDeviation="5" result="blur-31"/>
+//       <feFlood flood-color="#896666"/>
+//       <feComposite operator="in" in2="blur-31"/>
+//       <feComposite in="SourceGraphic"/>
+//     </filter>
+//     <linearGradient id="linear-gradient-32" x1="330.048" y1="964.838" x2="330.048" y2="319.79" xlink:href="#linear-gradient-28"/>
+//     <filter id="filter-32" x="290.04" y="309.72" width="80.16" height="675.12" filterUnits="userSpaceOnUse">
+//       <feOffset dy="5" input="SourceAlpha"/>
+//       <feGaussianBlur stdDeviation="5" result="blur-32"/>
+//       <feFlood flood-color="#896666"/>
+//       <feComposite operator="in" in2="blur-32"/>
+//       <feComposite in="SourceGraphic"/>
+//     </filter>
+//     <linearGradient id="linear-gradient-33" x1="260.048" y1="679.272" x2="260.048" y2="34.224" xlink:href="#linear-gradient-28"/>
+//     <filter id="filter-33" x="219.96" y="24.12" width="80.16" height="675.36" filterUnits="userSpaceOnUse">
+//       <feOffset dy="5" input="SourceAlpha"/>
+//       <feGaussianBlur stdDeviation="5" result="blur-33"/>
+//       <feFlood flood-color="#896666"/>
+//       <feComposite operator="in" in2="blur-33"/>
+//       <feComposite in="SourceGraphic"/>
+//     </filter>
+//     <linearGradient id="linear-gradient-34" x1="190.048" y1="858.178" x2="190.048" y2="213.13" xlink:href="#linear-gradient-28"/>
+//     <filter id="filter-34" x="149.88" y="202.92" width="80.16" height="675.36" filterUnits="userSpaceOnUse">
+//       <feOffset dy="5" input="SourceAlpha"/>
+//       <feGaussianBlur stdDeviation="5" result="blur-34"/>
+//       <feFlood flood-color="#896666"/>
+//       <feComposite operator="in" in2="blur-34"/>
+//       <feComposite in="SourceGraphic"/>
+//     </filter>
+//     <linearGradient id="linear-gradient-35" x1="645.274" y1="728.026" x2="645.274" y2="82.151" xlink:href="#linear-gradient-28"/>
+//     <filter id="filter-35" x="605.16" y="72.12" width="80.16" height="676.08" filterUnits="userSpaceOnUse">
+//       <feOffset dy="5" input="SourceAlpha"/>
+//       <feGaussianBlur stdDeviation="5" result="blur-35"/>
+//       <feFlood flood-color="#896666"/>
+//       <feComposite operator="in" in2="blur-35"/>
+//       <feComposite in="SourceGraphic"/>
+//     </filter>
+//     <linearGradient id="linear-gradient-36" x1="575.274" y1="645.327" x2="575.274" y2="-0.549" xlink:href="#linear-gradient-28"/>
+//     <filter id="filter-36" x="535.08" y="-10.68" width="80.4" height="676.08" filterUnits="userSpaceOnUse">
+//       <feOffset dy="5" input="SourceAlpha"/>
+//       <feGaussianBlur stdDeviation="5" result="blur-36"/>
+//       <feFlood flood-color="#896666"/>
+//       <feComposite operator="in" in2="blur-36"/>
+//       <feComposite in="SourceGraphic"/>
+//     </filter>
+//     <linearGradient id="linear-gradient-37" x1="505.274" y1="728.026" x2="505.274" y2="82.151" xlink:href="#linear-gradient-28"/>
+//     <filter id="filter-37" x="465.24" y="72.12" width="80.16" height="676.08" filterUnits="userSpaceOnUse">
+//       <feOffset dy="5" input="SourceAlpha"/>
+//       <feGaussianBlur stdDeviation="5" result="blur-37"/>
+//       <feFlood flood-color="#896666"/>
+//       <feComposite operator="in" in2="blur-37"/>
+//       <feComposite in="SourceGraphic"/>
+//     </filter>
+//     <linearGradient id="linear-gradient-38" x1="435.274" y1="807.989" x2="435.274" y2="162.113" xlink:href="#linear-gradient-28"/>
+//     <filter id="filter-38" x="395.16" y="152.04" width="80.16" height="676.08" filterUnits="userSpaceOnUse">
+//       <feOffset dy="5" input="SourceAlpha"/>
+//       <feGaussianBlur stdDeviation="5" result="blur-38"/>
+//       <feFlood flood-color="#896666"/>
+//       <feComposite operator="in" in2="blur-38"/>
+//       <feComposite in="SourceGraphic"/>
+//     </filter>
+//     <linearGradient id="linear-gradient-39" x1="365.274" y1="807.989" x2="365.274" y2="162.113" xlink:href="#linear-gradient-28"/>
+//     <filter id="filter-39" x="325.08" y="152.04" width="80.4" height="676.08" filterUnits="userSpaceOnUse">
+//       <feOffset dy="5" input="SourceAlpha"/>
+//       <feGaussianBlur stdDeviation="5" result="blur-39"/>
+//       <feFlood flood-color="#896666"/>
+//       <feComposite operator="in" in2="blur-39"/>
+//       <feComposite in="SourceGraphic"/>
+//     </filter>
+//     <linearGradient id="linear-gradient-40" x1="295.274" y1="728.026" x2="295.274" y2="82.151" xlink:href="#linear-gradient-28"/>
+//     <filter id="filter-40" x="255.24" y="72.12" width="80.16" height="676.08" filterUnits="userSpaceOnUse">
+//       <feOffset dy="5" input="SourceAlpha"/>
+//       <feGaussianBlur stdDeviation="5" result="blur-40"/>
+//       <feFlood flood-color="#896666"/>
+//       <feComposite operator="in" in2="blur-40"/>
+//       <feComposite in="SourceGraphic"/>
+//     </filter>
+//     <linearGradient id="linear-gradient-41" x1="225.274" y1="645.327" x2="225.274" y2="-0.549" xlink:href="#linear-gradient-28"/>
+//     <filter id="filter-41" x="185.16" y="-10.68" width="80.16" height="676.08" filterUnits="userSpaceOnUse">
+//       <feOffset dy="5" input="SourceAlpha"/>
+//       <feGaussianBlur stdDeviation="5" result="blur-41"/>
+//       <feFlood flood-color="#896666"/>
+//       <feComposite operator="in" in2="blur-41"/>
+//       <feComposite in="SourceGraphic"/>
+//     </filter>
+//     <linearGradient id="linear-gradient-42" x1="155.274" y1="728.026" x2="155.274" y2="82.151" xlink:href="#linear-gradient-28"/>
+//     <filter id="filter-42" x="115.08" y="72.12" width="80.4" height="676.08" filterUnits="userSpaceOnUse">
+//       <feOffset dy="5" input="SourceAlpha"/>
+//       <feGaussianBlur stdDeviation="5" result="blur-42"/>
+//       <feFlood flood-color="#896666"/>
+//       <feComposite operator="in" in2="blur-42"/>
+//       <feComposite in="SourceGraphic"/>
+//     </filter>
+//     <linearGradient id="linear-gradient-43" x1="610.048" y1="558.782" x2="610.048" y2="-86.266" xlink:href="#linear-gradient-28"/>
+//     <filter id="filter-43" x="569.88" y="-96.36" width="80.16" height="675.36" filterUnits="userSpaceOnUse">
+//       <feOffset dy="5" input="SourceAlpha"/>
+//       <feGaussianBlur stdDeviation="5" result="blur-43"/>
+//       <feFlood flood-color="#896666"/>
+//       <feComposite operator="in" in2="blur-43"/>
+//       <feComposite in="SourceGraphic"/>
+//     </filter>
+//     <linearGradient id="linear-gradient-44" x1="470.048" y1="616.795" x2="470.048" y2="-28.253" xlink:href="#linear-gradient-28"/>
+//     <filter id="filter-44" x="429.96" y="-38.28" width="80.16" height="675.12" filterUnits="userSpaceOnUse">
+//       <feOffset dy="5" input="SourceAlpha"/>
+//       <feGaussianBlur stdDeviation="5" result="blur-44"/>
+//       <feFlood flood-color="#896666"/>
+//       <feComposite operator="in" in2="blur-44"/>
+//       <feComposite in="SourceGraphic"/>
+//     </filter>
+//     <linearGradient id="linear-gradient-45" x1="400.048" y1="665.847" x2="400.048" y2="20.799" xlink:href="#linear-gradient-28"/>
+//     <filter id="filter-45" x="359.88" y="10.68" width="80.16" height="675.36" filterUnits="userSpaceOnUse">
+//       <feOffset dy="5" input="SourceAlpha"/>
+//       <feGaussianBlur stdDeviation="5" result="blur-45"/>
+//       <feFlood flood-color="#896666"/>
+//       <feComposite operator="in" in2="blur-45"/>
+//       <feComposite in="SourceGraphic"/>
+//     </filter>
+//     <linearGradient id="linear-gradient-46" x1="330.048" y1="616.795" x2="330.048" y2="-28.253" xlink:href="#linear-gradient-28"/>
+//     <filter id="filter-46" x="290.04" y="-38.28" width="80.16" height="675.12" filterUnits="userSpaceOnUse">
+//       <feOffset dy="5" input="SourceAlpha"/>
+//       <feGaussianBlur stdDeviation="5" result="blur-46"/>
+//       <feFlood flood-color="#896666"/>
+//       <feComposite operator="in" in2="blur-46"/>
+//       <feComposite in="SourceGraphic"/>
+//     </filter>
+//     <linearGradient id="linear-gradient-47" x1="190.048" y1="558.782" x2="190.048" y2="-86.266" xlink:href="#linear-gradient-28"/>
+//     <filter id="filter-47" x="149.88" y="-96.36" width="80.16" height="675.36" filterUnits="userSpaceOnUse">
+//       <feOffset dy="5" input="SourceAlpha"/>
+//       <feGaussianBlur stdDeviation="5" result="blur-47"/>
+//       <feFlood flood-color="#896666"/>
+//       <feComposite operator="in" in2="blur-47"/>
+//       <feComposite in="SourceGraphic"/>
+//     </filter>
+//     <filter id="Pana_roz_button5">
+//       <feOffset input="SourceAlpha"/>
+//       <feGaussianBlur stdDeviation="7" result="blur-48"/>
+//       <feFlood flood-color="#422828"/>
+//       <feComposite operator="in" in2="blur-48"/>
+//       <feComposite in="SourceGraphic"/>
+//     </filter>
+//     <filter id="Pana_roz_button4">
+//       <feOffset input="SourceAlpha"/>
+//       <feGaussianBlur stdDeviation="7" result="blur-49"/>
+//       <feFlood flood-color="#422828"/>
+//       <feComposite operator="in" in2="blur-49"/>
+//       <feComposite in="SourceGraphic"/>
+//     </filter>
+//     <filter id="Pana_roz_button3">
+//       <feOffset input="SourceAlpha"/>
+//       <feGaussianBlur stdDeviation="7" result="blur-50"/>
+//       <feFlood flood-color="#422828"/>
+//       <feComposite operator="in" in2="blur-50"/>
+//       <feComposite in="SourceGraphic"/>
+//     </filter>
+//     <filter id="Pana_roz_button2">
+//       <feOffset input="SourceAlpha"/>
+//       <feGaussianBlur stdDeviation="7" result="blur-51"/>
+//       <feFlood flood-color="#422828"/>
+//       <feComposite operator="in" in2="blur-51"/>
+//       <feComposite in="SourceGraphic"/>
+//     </filter>
+//     <filter id="Pana_roz_button1">
+//       <feOffset input="SourceAlpha"/>
+//       <feGaussianBlur stdDeviation="7" result="blur-52"/>
+//       <feFlood flood-color="#422828"/>
+//       <feComposite operator="in" in2="blur-52"/>
+//       <feComposite in="SourceGraphic"/>
+//     </filter>
+//   </defs>
+//   <g id="PENAJ">
+//     <g id="blockcolor8">
+//       <g style="opacity: 0">
+//         <rect width="800" height="1329.37" style="fill: #93a0c6"/>
+//       </g>
+//     </g>
+//     <g id="row8">
+//       <g id="Pana_gri_opac1_9">
+//         <g style="filter: url(#filter)">
+//           <path d="M460.228,1050.605c0,13.81-11.19,52.7-25,52.7s-25-38.89-25-52.7l7.32-230.29V495.786h35.36V820.315Z" style="fill: url(#linear-gradient)"/>
+//           <g>
+//             <path d="M437.234,1065.605c0,.69-.9,2.64-2,2.64s-2-1.95-2-2.64l.584-11.51V495.786h2.832V1054.1Z" style="fill: url(#linear-gradient-2);filter: url(#filter-2)"/>
+//             <path d="M431.667,1068.439c0-1.969,1.6-6.043,3.565-6.043s3.565,4.074,3.565,6.043a3.565,3.565,0,1,1-7.13,0Z" style="fill: #eabebe"/>
+//           </g>
+//         </g>
+//       </g>
+//       <g id="Pana_gri_opac1_8">
+//         <g style="filter: url(#filter-3)">
+//           <path d="M390.228,1050.605c0,13.81-11.19,52.7-25,52.7s-25-38.89-25-52.7l7.32-230.29V495.786h35.36V820.315Z" style="fill: url(#linear-gradient-3)"/>
+//           <g>
+//             <path d="M367.234,1065.605c0,.69-.9,2.64-2,2.64s-2-1.95-2-2.64l.584-11.51V495.786h2.832V1054.1Z" style="fill: url(#linear-gradient-4);filter: url(#filter-4)"/>
+//             <path d="M361.667,1068.439c0-1.969,1.6-6.043,3.565-6.043s3.565,4.074,3.565,6.043a3.565,3.565,0,1,1-7.13,0Z" style="fill: #eabebe"/>
+//           </g>
+//         </g>
+//       </g>
+//     </g>
+//     <g id="blockcolor7">
+//       <g style="opacity: 0">
+//         <rect width="800" height="1329.37" style="fill: #93a0c6"/>
+//       </g>
+//     </g>
+//     <g id="row7">
+//       <g id="Pana_gri_opac2_7">
+//         <g style="filter: url(#filter-5)">
+//           <path d="M354.288,1117.643c0,13.792-11.176,52.633-24.968,52.633s-24.968-38.841-24.968-52.633l7.311-229.995V563.534h35.314V887.648Z" style="fill: url(#linear-gradient-5)"/>
+//           <g>
+//             <path d="M331.324,1132.623c0,.69-.9,2.637-2,2.637s-2-1.947-2-2.637l.583-11.5V563.534h2.828v557.594Z" style="fill: url(#linear-gradient-6);filter: url(#filter-6)"/>
+//             <path d="M325.764,1135.454c0-1.966,1.594-6.035,3.56-6.035s3.56,4.069,3.56,6.035a3.56,3.56,0,0,1-7.12,0Z" style="fill: #eabebe"/>
+//           </g>
+//         </g>
+//       </g>
+//       <g id="Pana_gri_opac1_7">
+//         <g style="filter: url(#filter-7)">
+//           <path d="M494.288,1117.475c0,13.792-11.176,52.633-24.968,52.633s-24.968-38.841-24.968-52.633l7.311-229.995V563.366h35.314V887.48Z" style="fill: url(#linear-gradient-7)"/>
+//           <g>
+//             <path d="M471.324,1132.455c0,.689-.9,2.637-2,2.637s-2-1.948-2-2.637l.583-11.495V563.366h2.828V1120.96Z" style="fill: url(#linear-gradient-8);filter: url(#filter-8)"/>
+//             <path d="M465.764,1135.286c0-1.966,1.594-6.035,3.56-6.035s3.56,4.069,3.56,6.035a3.56,3.56,0,0,1-7.12,0Z" style="fill: #eabebe"/>
+//           </g>
+//         </g>
+//       </g>
+//     </g>
+//     <g id="blockcolor6">
+//       <g style="opacity: 0">
+//         <rect width="800" height="1329.37" style="fill: #93a0c6"/>
+//       </g>
+//     </g>
+//     <g id="row6">
+//       <g id="Pana_gri_opac5_6">
+//         <g style="filter: url(#filter-9)">
+//           <path d="M600.228,934.437c0,13.81-11.19,52.7-25,52.7s-25-38.89-25-52.7l7.32-230.29V379.618h35.36V704.147Z" style="fill: url(#linear-gradient-9)"/>
+//           <g>
+//             <path d="M577.234,949.437c0,.69-.9,2.64-2,2.64s-2-1.95-2-2.64l.584-11.51V379.618h2.832V937.927Z" style="fill: url(#linear-gradient-10);filter: url(#filter-10)"/>
+//             <path d="M571.667,952.271c0-1.969,1.6-6.043,3.565-6.043s3.565,4.074,3.565,6.043a3.565,3.565,0,0,1-7.13,0Z" style="fill: #eabebe"/>
+//           </g>
+//         </g>
+//       </g>
+//       <g id="Pana_gri_opac4_6">
+//         <g style="filter: url(#filter-11)">
+//           <path d="M530.228,992.56c0,13.81-11.19,52.7-25,52.7s-25-38.89-25-52.7l7.32-230.29V437.74h35.36V762.27Z" style="fill: url(#linear-gradient-11)"/>
+//           <g>
+//             <path d="M507.234,1007.559c0,.69-.9,2.64-2,2.64s-2-1.95-2-2.64l.584-11.51V437.74h2.832V996.049Z" style="fill: url(#linear-gradient-12);filter: url(#filter-12)"/>
+//             <path d="M501.667,1010.393c0-1.968,1.6-6.042,3.565-6.042s3.565,4.074,3.565,6.042a3.565,3.565,0,1,1-7.13,0Z" style="fill: #eabebe"/>
+//           </g>
+//         </g>
+//       </g>
+//       <g id="Pana_gri_opac3_6">
+//         <g style="filter: url(#filter-13)">
+//           <path d="M425.228,1206.9c0,13.81-11.19,52.7-25,52.7s-25-38.89-25-52.7l7.32-230.29V652.076h35.36v324.53Z" style="fill: url(#linear-gradient-13)"/>
+//           <g>
+//             <path d="M402.234,1221.9c0,.69-.9,2.64-2,2.64s-2-1.95-2-2.64l.584-11.51V652.076h2.832v558.309Z" style="fill: url(#linear-gradient-14);filter: url(#filter-14)"/>
+//             <path d="M396.667,1224.729c0-1.969,1.6-6.043,3.565-6.043s3.565,4.074,3.565,6.043a3.565,3.565,0,1,1-7.13,0Z" style="fill: #eabebe"/>
+//           </g>
+//         </g>
+//       </g>
+//       <g id="Pana_gri_opac2_6">
+//         <g style="filter: url(#filter-15)">
+//           <path d="M320.228,992.56c0,13.81-11.19,52.7-25,52.7s-25-38.89-25-52.7l7.32-230.29V437.74h35.36V762.27Z" style="fill: url(#linear-gradient-15)"/>
+//           <g>
+//             <path d="M297.234,1007.559c0,.69-.9,2.64-2,2.64s-2-1.95-2-2.64l.584-11.51V437.74h2.832V996.049Z" style="fill: url(#linear-gradient-16);filter: url(#filter-16)"/>
+//             <path d="M291.667,1010.393c0-1.968,1.6-6.042,3.565-6.042s3.565,4.074,3.565,6.042a3.565,3.565,0,1,1-7.13,0Z" style="fill: #eabebe"/>
+//           </g>
+//         </g>
+//       </g>
+//       <g id="Pana_gri_opac1_6">
+//         <g style="filter: url(#filter-17)">
+//           <path d="M250.228,934.437c0,13.81-11.19,52.7-25,52.7s-25-38.89-25-52.7l7.32-230.29V379.618h35.36V704.147Z" style="fill: url(#linear-gradient-17)"/>
+//           <g>
+//             <path d="M227.234,949.437c0,.69-.9,2.64-2,2.64s-2-1.95-2-2.64l.584-11.51V379.618h2.832V937.927Z" style="fill: url(#linear-gradient-18);filter: url(#filter-18)"/>
+//             <path d="M221.667,952.271c0-1.969,1.6-6.043,3.565-6.043s3.565,4.074,3.565,6.043a3.565,3.565,0,1,1-7.13,0Z" style="fill: #eabebe"/>
+//           </g>
+//         </g>
+//       </g>
+//     </g>
+//     <g id="blockcolor5">
+//       <g style="opacity: 0">
+//         <rect width="800" height="1329.37" style="fill: #93a0c6"/>
+//       </g>
+//     </g>
+//     <g id="row5">
+//       <g id="Pana_gri_opac5_5">
+//         <g style="filter: url(#filter-19)">
+//           <path d="M564.288,862.737c0,13.792-11.176,52.633-24.968,52.633s-24.968-38.841-24.968-52.633l7.311-229.995V308.628h35.314V632.742Z" style="fill: url(#linear-gradient-19)"/>
+//           <g>
+//             <path d="M541.324,877.717c0,.689-.895,2.637-2,2.637s-2-1.948-2-2.637l.583-11.5V308.628h2.828V866.222Z" style="fill: url(#linear-gradient-20);filter: url(#filter-20)"/>
+//             <path d="M535.764,880.548c0-1.966,1.594-6.035,3.56-6.035s3.56,4.069,3.56,6.035a3.56,3.56,0,1,1-7.12,0Z" style="fill: #eabebe"/>
+//           </g>
+//         </g>
+//       </g>
+//       <g id="Pana_gri_opac1_5">
+//         <g style="filter: url(#filter-21)">
+//           <path d="M284.288,862.308c0,13.793-11.176,52.633-24.968,52.633s-24.968-38.84-24.968-52.633l7.311-229.995V308.2h35.314V632.313Z" style="fill: url(#linear-gradient-21)"/>
+//           <g>
+//             <path d="M261.324,877.289c0,.689-.9,2.636-2,2.636s-2-1.947-2-2.636l.583-11.5V308.2h2.828V865.793Z" style="fill: url(#linear-gradient-22);filter: url(#filter-22)"/>
+//             <path d="M255.764,880.119c0-1.966,1.594-6.035,3.56-6.035s3.56,4.069,3.56,6.035a3.56,3.56,0,1,1-7.12,0Z" style="fill: #eabebe"/>
+//           </g>
+//         </g>
+//       </g>
+//     </g>
+//     <g id="blockcolor4">
+//       <g style="opacity: 0">
+//         <rect width="800" height="1329.37" style="fill: #93a0c6"/>
+//       </g>
+//     </g>
+//     <g id="row4">
+//       <g id="Pana_roz_opac7_5">
+//         <path d="M425.242,991.942c0,13.781-11.176,52.588-24.968,52.588s-24.968-38.807-24.968-52.588l7.31-229.8V535.11h35.315V762.143Z" style="fill: url(#linear-gradient-23);filter: url(#filter-23)"/>
+//       </g>
+//       <g id="Pana_roz_opac6_4">
+//         <path d="M600.5,755.837c0,13.8-11.19,52.655-25,52.655s-25-38.857-25-52.655l7.32-230.094V298.419h35.36V525.743Z" style="fill: url(#linear-gradient-24);filter: url(#filter-24)"/>
+//       </g>
+//       <g id="Pana_roz_opac5_4">
+//         <path d="M530.5,814.166c0,13.8-11.19,52.655-25,52.655s-25-38.857-25-52.655l7.32-230.093V356.748h35.36V584.073Z" style="fill: url(#linear-gradient-25);filter: url(#filter-25)"/>
+//       </g>
+//       <g id="Pana_roz_opac2_4">
+//         <path d="M320.5,814.166c0,13.8-11.19,52.655-25,52.655s-25-38.857-25-52.655l7.32-230.093V356.748h35.36V584.073Z" style="fill: url(#linear-gradient-26);filter: url(#filter-26)"/>
+//       </g>
+//       <g id="Pana_roz_opac1_4">
+//         <path d="M250.5,755.837c0,13.8-11.19,52.655-25,52.655s-25-38.857-25-52.655l7.32-230.094V298.419h35.36V525.743Z" style="fill: url(#linear-gradient-27);filter: url(#filter-27)"/>
+//       </g>
+//     </g>
+//     <g id="blockcolor3">
+//       <g style="opacity: 0">
+//         <rect width="800" height="1329.37" style="fill: #93a0c6"/>
+//       </g>
+//     </g>
+//     <g id="row3">
+//       <g id="Pana_roz_degrade7_3">
+//         <path d="M634.984,805.114c0,13.763-11.161,52.52-24.936,52.52s-24.936-38.757-24.936-52.52l7.3-229.5V212.586h35.27V575.609Z" style="fill: url(#linear-gradient-28);filter: url(#filter-28)"/>
+//       </g>
+//       <g id="Pana_roz_degrade6_3">
+//         <path d="M494.984,912.318c0,13.763-11.161,52.52-24.936,52.52s-24.936-38.757-24.936-52.52l7.3-229.5V319.79h35.27V682.814Z" style="fill: url(#linear-gradient-29);filter: url(#filter-29)"/>
+//       </g>
+//       <g id="Pana_roz_degrade5_3">
+//         <path d="M564.984,626.752c0,13.763-11.161,52.52-24.936,52.52s-24.936-38.757-24.936-52.52l7.3-229.5V34.224h35.27V397.247Z" style="fill: url(#linear-gradient-30);filter: url(#filter-30)"/>
+//       </g>
+//       <g id="Pana_roz_degrade4_3">
+//         <path d="M424.984,846.213c0,13.763-11.161,52.521-24.936,52.521s-24.936-38.758-24.936-52.521l7.3-229.5V253.685h35.27V616.709Z" style="fill: url(#linear-gradient-31);filter: url(#filter-31)"/>
+//       </g>
+//       <g id="Pana_roz_degrade3_3">
+//         <path d="M354.984,912.318c0,13.763-11.161,52.52-24.936,52.52s-24.936-38.757-24.936-52.52l7.3-229.5V319.79h35.27V682.814Z" style="fill: url(#linear-gradient-32);filter: url(#filter-32)"/>
+//       </g>
+//       <g id="Pana_roz_degrade2_3">
+//         <path d="M284.984,626.752c0,13.763-11.161,52.52-24.936,52.52s-24.936-38.757-24.936-52.52l7.3-229.5V34.224h35.27V397.247Z" style="fill: url(#linear-gradient-33);filter: url(#filter-33)"/>
+//       </g>
+//       <g id="Pana_roz_degrade1_3">
+//         <path d="M214.984,805.658c0,13.763-11.161,52.52-24.936,52.52s-24.936-38.757-24.936-52.52l7.3-229.5V213.13h35.27V576.154Z" style="fill: url(#linear-gradient-34);filter: url(#filter-34)"/>
+//       </g>
+//     </g>
+//     <g id="blockcolor2">
+//       <g style="opacity: 0">
+//         <rect width="800" height="1329.37" style="fill: #93a0c6"/>
+//       </g>
+//     </g>
+//     <g id="row2">
+//       <g id="Pana_roz_degrade8_2">
+//         <path d="M670.242,675.439c0,13.78-11.176,52.587-24.968,52.587s-24.968-38.807-24.968-52.587l7.31-229.8V82.151h35.315V445.64Z" style="fill: url(#linear-gradient-35);filter: url(#filter-35)"/>
+//       </g>
+//       <g id="Pana_roz_degrade7_2">
+//         <path d="M600.242,592.739c0,13.78-11.176,52.588-24.968,52.588s-24.968-38.808-24.968-52.588l7.31-229.8V-.549h35.315V362.94Z" style="fill: url(#linear-gradient-36);filter: url(#filter-36)"/>
+//       </g>
+//       <g id="Pana_roz_degrade6_2">
+//         <path d="M530.242,675.439c0,13.78-11.176,52.587-24.968,52.587s-24.968-38.807-24.968-52.587l7.31-229.8V82.151h35.315V445.64Z" style="fill: url(#linear-gradient-37);filter: url(#filter-37)"/>
+//       </g>
+//       <g id="Pana_roz_degrade5_2">
+//         <path d="M460.242,755.4c0,13.781-11.176,52.588-24.968,52.588s-24.968-38.807-24.968-52.588l7.31-229.8V162.113h35.315V525.6Z" style="fill: url(#linear-gradient-38);filter: url(#filter-38)"/>
+//       </g>
+//       <g id="Pana_roz_degrade4_2">
+//         <path d="M390.242,755.4c0,13.781-11.176,52.588-24.968,52.588s-24.968-38.807-24.968-52.588l7.31-229.8V162.113h35.315V525.6Z" style="fill: url(#linear-gradient-39);filter: url(#filter-39)"/>
+//       </g>
+//       <g id="Pana_roz_degrade3_2">
+//         <path d="M320.242,675.439c0,13.78-11.176,52.587-24.968,52.587s-24.968-38.807-24.968-52.587l7.31-229.8V82.151h35.315V445.64Z" style="fill: url(#linear-gradient-40);filter: url(#filter-40)"/>
+//       </g>
+//       <g id="Pana_roz_degrade2_2">
+//         <path d="M250.242,592.739c0,13.78-11.176,52.588-24.968,52.588s-24.968-38.808-24.968-52.588l7.31-229.8V-.549h35.315V362.94Z" style="fill: url(#linear-gradient-41);filter: url(#filter-41)"/>
+//       </g>
+//       <g id="Pana_roz_degrade1_2">
+//         <path d="M180.242,675.439c0,13.78-11.176,52.587-24.968,52.587s-24.968-38.807-24.968-52.587l7.31-229.8V82.151h35.315V445.64Z" style="fill: url(#linear-gradient-42);filter: url(#filter-42)"/>
+//       </g>
+//     </g>
+//     <g id="blockcolor1">
+//       <g style="opacity: 0">
+//         <rect width="800" height="1329.37" style="fill: #93a0c6"/>
+//       </g>
+//     </g>
+//     <g id="row1">
+//       <g id="Pana_roz_degrade5_1">
+//         <path d="M634.984,506.262c0,13.763-11.161,52.52-24.936,52.52s-24.936-38.757-24.936-52.52l7.3-229.5V-86.266h35.27V276.758Z" style="fill: url(#linear-gradient-43);filter: url(#filter-43)"/>
+//       </g>
+//       <g id="Pana_roz_degrade4_1">
+//         <path d="M494.984,564.275c0,13.763-11.161,52.52-24.936,52.52s-24.936-38.757-24.936-52.52l7.3-229.5V-28.253h35.27V334.771Z" style="fill: url(#linear-gradient-44);filter: url(#filter-44)"/>
+//       </g>
+//       <g id="Pana_roz_degrade3_1">
+//         <path d="M424.984,613.327c0,13.763-11.161,52.52-24.936,52.52s-24.936-38.757-24.936-52.52l7.3-229.5V20.8h35.27V383.822Z" style="fill: url(#linear-gradient-45);filter: url(#filter-45)"/>
+//       </g>
+//       <g id="Pana_roz_degrade2_1">
+//         <path d="M354.984,564.275c0,13.763-11.161,52.52-24.936,52.52s-24.936-38.757-24.936-52.52l7.3-229.5V-28.253h35.27V334.771Z" style="fill: url(#linear-gradient-46);filter: url(#filter-46)"/>
+//       </g>
+//       <g id="Pana_roz_degrade1_1">
+//         <path d="M214.984,506.262c0,13.763-11.161,52.52-24.936,52.52s-24.936-38.757-24.936-52.52l7.3-229.5V-86.266h35.27V276.758Z" style="fill: url(#linear-gradient-47);filter: url(#filter-47)"/>
+//       </g>
+//     </g>
+//     <g id="blockcolor0">
+//       <g style="opacity: 0">
+//         <rect width="800" height="1329.37" style="fill: #93a0c6"/>
+//       </g>
+//     </g>
+//   </g>
+//   <g id="SOFT-SKILLS">
+//     <g>
+//       <g id="Pana_roz_button5-2" data-name="Pana_roz_button5" style="filter: url(#Pana_roz_button5)">
+//         <path d="M569.632,454.67c0,13.81-13.428,52.7-30,52.7s-30-38.89-30-52.7l8.784-230.29V0h42.432V224.38Z" style="fill: #fff"/>
+//       </g>
+//       <text id="text5" transform="translate(548.371 452.935) rotate(-90)" style="font-size: 22.677169799804688px;fill: #c45353;font-family: YuGothicUI-Light, Yu Gothic UI;font-weight: 300">S<tspan x="14.29" y="0">O</tspan><tspan x="34.61" y="0">F</tspan><tspan x="48.186" y="0">T</tspan><tspan x="62.801" y="0"> </tspan><tspan x="72.085" y="0">S</tspan><tspan x="86.37" y="0">K</tspan><tspan x="101.366" y="0">I</tspan><tspan x="109.592" y="0">L</tspan><tspan x="123.003" y="0">L</tspan><tspan x="135.979" y="0">S</tspan></text>
+//     </g>
+//   </g>
+//   <g id="ACADEMIC">
+//     <g>
+//       <g id="Pana_roz_button4-2" data-name="Pana_roz_button4" style="filter: url(#Pana_roz_button4)">
+//         <path d="M499.632,454.67c0,13.81-13.428,52.7-30,52.7s-30-38.89-30-52.7l8.784-230.29V0h42.432V224.38Z" style="fill: #fff"/>
+//       </g>
+//       <text id="text4" transform="translate(479.305 452.759) rotate(-90)" style="font-size: 22.677169799804688px;fill: #c45353;font-family: YuGothicUI-Light, Yu Gothic UI;font-weight: 300">A<tspan x="19.582" y="0">C</tspan><tspan x="39.328" y="0">A</tspan><tspan x="59.289" y="0">D</tspan><tspan x="80.227" y="0">E</tspan><tspan x="97.247" y="0">M</tspan><tspan x="121.813" y="0">I</tspan><tspan x="132.639" y="0">C</tspan></text>
+//     </g>
+//   </g>
+//   <g id="CV">
+//     <g>
+//       <g id="Pana_roz_button3-2" data-name="Pana_roz_button3" style="filter: url(#Pana_roz_button3)">
+//         <path d="M429.632,454.67c0,13.81-13.428,52.7-30,52.7s-30-38.89-30-52.7l8.784-230.29V0h42.432V224.38Z" style="fill: #fff"/>
+//       </g>
+//       <text id="text3" transform="translate(385.906 403.72)" style="font-size: 22.677169799804688px;fill: #c45353;font-family: YuGothicUI-Light, Yu Gothic UI;font-weight: 300">CV</text>
+//     </g>
+//   </g>
+//   <g id="PROFESSIONAL">
+//     <g>
+//       <g id="Pana_roz_button2-2" data-name="Pana_roz_button2" style="filter: url(#Pana_roz_button2)">
+//         <path d="M359.632,454.67c0,13.81-13.428,52.7-30,52.7s-30-38.89-30-52.7l8.784-230.29V0h42.432V224.38Z" style="fill: #fff"/>
+//       </g>
+//       <text id="text2" transform="translate(338.388 454.424) rotate(-90)" style="font-size: 22.677169799804688px;fill: #c45353;font-family: YuGothicUI-Light, Yu Gothic UI;font-weight: 300">P<tspan x="12.335" y="0">R</tspan><tspan x="24.711" y="0">O</tspan><tspan x="41.982" y="0">F</tspan><tspan x="52.511" y="0">E</tspan><tspan x="63.858" y="0">S</tspan><tspan x="75.134" y="0">S</tspan><tspan x="86.398" y="0">I</tspan><tspan x="91.592" y="0">O</tspan><tspan x="108.836" y="0">N</tspan><tspan x="124.926" y="0">A</tspan><tspan x="139.202" y="0">L</tspan></text>
+//     </g>
+//   </g>
+//   <g id="HARD-SKILLS">
+//     <g>
+//       <g id="Pana_roz_button1-2" data-name="Pana_roz_button1" style="filter: url(#Pana_roz_button1)">
+//         <path d="M289.632,454.67c0,13.81-13.428,52.7-30,52.7s-30-38.89-30-52.7l8.784-230.29V0h42.432V224.38Z" style="fill: #fff"/>
+//       </g>
+//       <text id="text1" transform="translate(269.07 452.819) rotate(-90)" style="font-size: 22.677169799804688px;fill: #c45353;font-family: YuGothicUI-Light, Yu Gothic UI;font-weight: 300">H<tspan x="17.61" y="0">A</tspan><tspan x="34.144" y="0">R</tspan><tspan x="48.997" y="0">D</tspan><tspan x="66.553" y="0"> </tspan><tspan x="75.048" y="0">S</tspan><tspan x="88.594" y="0">K</tspan><tspan x="102.8" y="0">I</tspan><tspan x="110.241" y="0">L</tspan><tspan x="122.904" y="0">L</tspan><tspan x="135.114" y="0">S</tspan></text>
+//     </g>
+//   </g>
+// </svg>
+// `;
+
 const homeButtonSVG = `<svg
    viewBox="0 0 300 149.99998"
    version="1.1"
@@ -5980,22 +6696,28 @@ function reverseFogEffect(svgElement, callback) {
 //#region 4.Parsing content files 
 
 // PDF FILE HANDLING - Flipbook Integration
+let currentPdfDoc = null; // global or module-level variable
+
 async function showPDF(pdfFileDesktop, pdfFileMobile) {
 
-  const isMobile = window.innerWidth < 500 || /Mobi|Android/i.test(navigator.userAgent);
+  const isMobile = window.innerWidth < 700 || /Mobi|Android/i.test(navigator.userAgent);
   const pdfFile = isMobile ? pdfFileMobile : pdfFileDesktop;
+  console.log(`Loading PDF: ${pdfFile} (${isMobile ? 'mobile' : 'desktop'})`);
+  hideCheckpointAnimation();
 
+  
   try {
     const pdfContainer = document.querySelector('.pdf-container');
     const flipbookContainer = document.getElementById('flipbook');
-    if (!pdfContainer || !flipbookContainer) {
+    if (!pdfContainer) {
       throw new Error('PDF container or flipbook not found');
     }
 
     hideAllSvgContainers();
+
+    //LOADING OVERLAY FOR SPECIFIC PDF 
+
     showLoadingOverlay();
-    
-    // Insert the loading-eye.svg if not already present
     const loadingSpinner = document.getElementById('loading-spinner');
     if (loadingSpinner && !loadingSpinner.querySelector('svg')) {
       insertLoadingEyeSVG();
@@ -6004,7 +6726,6 @@ async function showPDF(pdfFileDesktop, pdfFileMobile) {
 
     const loadingElements = svg ? svg.querySelectorAll('[id^="loading"]') : [];
     const totalSteps = loadingElements.length;
-    let currentStep = 0; // <-- Add this line
 
     // Helper to update loading elements based on progress (0 to 1)
     function updateLoadingProgress(progress) {
@@ -6012,9 +6733,11 @@ async function showPDF(pdfFileDesktop, pdfFileMobile) {
       loadingElements.forEach((el, idx) => {
         el.style.opacity = idx < activeCount ? '1' : '0';
       });
-    
     }
 
+
+
+    //FLIPBOOK FUNCTIONALITY
     try {
       flipbookContainer.innerHTML = '';
       const pdfPath = `${import.meta.env.BASE_URL}pdfs/${pdfFile}`;
@@ -6060,11 +6783,11 @@ async function showPDF(pdfFileDesktop, pdfFileMobile) {
       });
 
       const addBlankAtEnd = false; // set to true if you want a blank at the end
-if (addBlankAtEnd && pageImages.length % 2 !== 0) {
-  const blankDiv = document.createElement('div');
-  blankDiv.className = 'page';
-  flipbookContainer.appendChild(blankDiv);
-}
+      if (addBlankAtEnd && pageImages.length % 2 !== 0) {
+        const blankDiv = document.createElement('div');
+        blankDiv.className = 'page';
+        flipbookContainer.appendChild(blankDiv);
+      }
 
       setTimeout(() => {
         try {
@@ -6084,7 +6807,7 @@ if (addBlankAtEnd && pageImages.length % 2 !== 0) {
 
         } else {
           pageWidth = 700; 
-          pageHeight = 1000;
+          pageHeight = 990;
         }
 
         const pageFlip = new PageFlip(flipbookContainer, {
@@ -6113,13 +6836,15 @@ if (addBlankAtEnd && pageImages.length % 2 !== 0) {
 //#region CV SVG FILE HANDLING - Svg strings
 
 // CV SVG FILE HANDLING - Svg strings
-async function CVfunction(svgType) {
+async function CVfunction() {
   document.body.classList.add('no-scroll');
 
   // Set the loading state to true
   isHARDSKILLSfunctionLoading = false;
   isSOFTSKILLSfunctionLoading = false;  
 
+  // Load the CheckpointSVG first
+  await insertCheckpointSVG();
 
   const interactiveContainer = document.querySelector('.interactive-container');
   if (!interactiveContainer) {
@@ -6127,6 +6852,8 @@ async function CVfunction(svgType) {
     return;
   }
 
+
+  
   function addCvSvgHoverEffects(svgElement) {
     const groupNumbers = [1, 2, 4, 5, 6, 7, 8, 9, 10, 11, 12, 15];
     const isMobile = window.innerWidth < 800 || /Mobi|Android/i.test(navigator.userAgent);
@@ -6560,8 +7287,7 @@ async function CVfunction(svgType) {
   // Call hover/link logic after all layers are visible
   addCvSvgHoverEffects(svgCVContent);
 
-  await insertCheckpointSVG();
-  showCheckpointAnimation();
+
     
   } catch (err) {
     console.error('Error in CVfunction:', err);
@@ -6604,10 +7330,6 @@ async function insertCheckpointSVG() {
   if (isHARDSKILLSfunctionLoading, isSOFTSKILLSfunctionLoading) {
     console.warn('insertCheckpointSVG() is blocked because HARDSKILLSfunction() is loading.');
 
-
-
-
-
     // Ensure checkpoint elements are hidden
     const checkpointContainer = document.getElementById('checkpoint-container');
     if (checkpointContainer) {
@@ -6636,67 +7358,48 @@ async function insertCheckpointSVG() {
       if (document.getElementById('checkpoint-container') === container) {
         container.innerHTML = '';
 
-
         // Get the <svg> element and apply styles
         const svgElement = svgDoc.documentElement;
-
         container.appendChild(svgElement);
 
+        // --- Show the checkpoint animation and add the event listener ---
+        container.style.opacity = '1';
+        container.style.visibility = 'visible';
+        window.addEventListener('mousemove', moveCheckpoint);
 
+        // --- Ensure traseu is hidden and checkpoint glows ---
+        const traseu = svgElement.getElementById
+          ? svgElement.getElementById('traseu')
+          : svgElement.querySelector('#traseu');
+        if (traseu) {
+          traseu.style.opacity = '0';
+          traseu.querySelectorAll('*').forEach(el => {
+            el.style.opacity = '0';
+            el.style.stroke = 'transparent';
+            el.style.fill = 'transparent';
+          });
+        }
+        const checkpoint = svgElement.getElementById
+          ? svgElement.getElementById('checkpoint')
+          : svgElement.querySelector('#checkpoint');
+        if (checkpoint) {
+          checkpoint.style.filter = 'drop-shadow(0 0 12px #ffe066)';
+        }
 
-
-
+        // --- Set initial checkpoint position ---
+        setTimeout(() => {
+          const rect = container.getBoundingClientRect();
+          container.style.top = '50%';
+          const event = {
+            clientX: rect.left + rect.width / 2,
+            clientY: rect.top + rect.height / 2
+          };
+          moveCheckpoint(event);
+        }, 0);
       }
     }
   } catch (err) {
     console.error('Error inserting checkpoint SVG:', err);
-  }
-}
-
-// Show the checkpoint animation and add the event listener
-function showCheckpointAnimation() {
-  const container = document.getElementById('checkpoint-container');
-  if (container) {
-    container.style.opacity = '1';
-    container.style.visibility = 'visible';
-    window.addEventListener('mousemove', moveCheckpoint);
-
-    // --- Ensure traseu is hidden and checkpoint glows ---
-    const svg = container.querySelector('svg');
-    if (svg) {
-      const traseu = svg.getElementById
-        ? svg.getElementById('traseu')
-        : svg.querySelector('#traseu');
-      if (traseu) {
-        traseu.style.opacity = '0';
-        traseu.querySelectorAll('*').forEach(el => {
-          el.style.opacity = '0';
-          el.style.stroke = 'transparent';
-          el.style.fill = 'transparent';
-        });
-      }
-      const checkpoint = svg.getElementById
-        ? svg.getElementById('checkpoint')
-        : svg.querySelector('#checkpoint');
-      if (checkpoint) {
-        checkpoint.style.filter = 'drop-shadow(0 0 12px #ffe066)';
-        
-      }
-    }
-
-    // --- Set initial checkpoint position ---
-    setTimeout(() => {
-      const rect = container.getBoundingClientRect();
-    
-      container.style.top = '50%';
-
-      const event = {
-        clientX: rect.left + rect.width / 2,
-        clientY: rect.top + rect.height / 2
-
-      };
-      moveCheckpoint(event);
-    }, 0);
   }
 }
 
@@ -7856,6 +8559,7 @@ async function HARDSKILLSfunction() {
 
     // Show the loading overlay
     showLoadingOverlay();
+    hideCheckpointAnimation();
 
     // Insert the loading eye SVG if not already present
     const loadingSpinner = document.getElementById('loading-spinner');
@@ -8361,7 +9065,7 @@ async function SOFTSKILLSfunction() {
   try {
     isSOFTSKILLSfunctionLoading = true;
     showLoadingOverlay();
-
+    hideCheckpointAnimation();
     const loadingSpinner = document.getElementById('loading-spinner');
     if (loadingSpinner && !loadingSpinner.querySelector('svg')) {
       insertLoadingEyeSVG();
@@ -8724,6 +9428,7 @@ window.onload = function () {
     console.error('Error in window.onload:', err);
   }
 };
+
 
 //#endregion
 
