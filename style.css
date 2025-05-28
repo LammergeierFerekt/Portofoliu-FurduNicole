@@ -89,18 +89,12 @@ html::-webkit-scrollbar, body::-webkit-scrollbar {
     display: none;
   }
   .logo-citat-row {
-    justify-content: center;
-    align-items: center;
-    background-color: transparent;
-    height: 40px; 
+    display: none;
 
   }
   .logo {
-    margin-left: 0;
-    margin-right: 0;
-    margin-bottom: 0px;
-    display: block;
-    width: 50px; 
+    display: none;
+
   }
 
 
@@ -142,6 +136,8 @@ html::-webkit-scrollbar, body::-webkit-scrollbar {
   }
 
 }
+
+
 
 html, body {
   overflow-x: hidden; /* Disables horizontal scrolling */
@@ -210,13 +206,6 @@ rect[id^="blockcolor"] {
 
 
 /*#endregion SVG ARTWORK*/
-
-
-
-
-
-
-
 
 /*#region PDF*/
 
@@ -392,6 +381,7 @@ a {
   perspective: auto !important;
   box-shadow: 0 4px 16px rgba(0,0,0,0.10) !important;
   
+
 }
 
 
@@ -423,17 +413,18 @@ a {
     justify-content: center;
     overflow: visible;
     cursor: pointer; /* Show a pointer cursor to indicate interactivity */
+    
 
   }
 
   .stf__block {
-    /* Match the container's height */
     background: transparent;
     display: flex;
     align-items: center;
     justify-content: center;
     overflow: visible;
     cursor: pointer;
+    
   }
 
   .pdf-flipbook .page img {
@@ -443,11 +434,12 @@ a {
   background: #fff;
   border-radius: 3px;
   -webkit-tap-highlight-color: transparent;
+  
   }
 }
 
 
-@media (max-width: 700px) {
+@media (max-width: 1200px) {
 
   .pdf-container,
   .pdf-flipbook,
@@ -470,7 +462,25 @@ a {
   background: #fff;
   border-radius: 3px;
   -webkit-tap-highlight-color: transparent;
+  
   }
+
+
+.stf__wrapper--landscape {
+  width: 10vw;
+  max-width: 10vw;
+  height: 100vh;
+  max-height: 100vh; 
+  overflow: visible;
+}
+.stf__wrapper--potrait {
+  width: 10vw;
+  max-width: 10vw;
+  height: 10vh;
+  max-height: 10vh; 
+  overflow: visible;
+   -webkit-tap-highlight-color: transparent;
+
 }
 
 
@@ -483,11 +493,21 @@ a {
 
 
 
+
+}
+
+
+
+
+
+
+
+
+
+
+
+
 /*#endregion PDF*/
-
-
-
-
 
 /*#region LOADING EYE ANIMATION*/
 
@@ -520,6 +540,7 @@ a {
   background: rgba(147, 160, 198, 0.1);
   backdrop-filter: blur(5px);
   -webkit-backdrop-filter: blur(5px);
+  pointer-events: all; 
 
 }
 
@@ -544,7 +565,6 @@ a {
   position: fixed;
   top: 50%;
   left: 50%;
-  transform: translate(-50%, -50%);
   width: 100vh;         /* Fixed width, adjust as needed */
   height: 70vh;
   max-height: 90vh;
@@ -564,15 +584,15 @@ a {
   pointer-events: auto;
 }
 
-@media (max-width: 700px) {
+@media (max-width:  1200px) {
   .interactive-container {
     overflow: visible;
     width: 85vh;        /* Nearly full width on mobile */
     max-width: 90vw;
-    height: 90vh;       /* More height for mobile */
-    max-height: 90vh;
+    height: 50vh;       /* More height for mobile */
+    max-height: 50vh;
     left: 50%;
-    top: 67.5%;
+    top: 60%;
     transform: translate(-50%, -50%);
     pointer-events: none; /* Disable pointer events when not active */
 
@@ -640,7 +660,7 @@ a {
   -webkit-tap-highlight-color: transparent;
 }
 
-@media (max-width: 700px) {
+@media (max-width: 1200px) {
   #checkpoint-container {
     transform: translate(-50%, -50%);
     width: 100vw;
@@ -686,7 +706,7 @@ a {
   transition: filter 0.3s;
 }
 
-.loading-overlay,
+
 .loading-animation {
   pointer-events: none !important; /* Only when not visible */
 }
@@ -765,7 +785,7 @@ a {
 
 
 /* Mobile adjustments for CV, Soft Skills, and Hard Skills */
-@media (max-width: 700px) {
+@media (max-width: 1200px) {
   #cv_content{
     max-height: 60vh;
     top: 50%;
@@ -866,7 +886,7 @@ a {
     margin: auto;
     margin-bottom: 10px;
     position: relative;
-    top: -150px; /* Negative value moves it up */
+    top: -30vh; /* Negative value moves it up */
     background: transparent;
     overflow: visible;
     pointer-events: none;
@@ -876,7 +896,7 @@ a {
 
 }
 
-@media (max-height: 700px) {
+@media (max-width:0px) {
 
   /* CV */
   #cv_content{
@@ -1012,9 +1032,14 @@ a {
 /*#endregion MOBILE - CV, SOFT-SKILLS, HARD-SKILLS SVG */
 
 
+
+
+
 body.no-scroll soft-skills_canvas {
   overflow: hidden !important;
   height: 100vh !important;
   position: fixed !important;
   width: 100vw !important;
 }
+
+
