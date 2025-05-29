@@ -4,14 +4,12 @@ const REPO_NAME = '/Portofoliu-FurduNicole';
 const FILES_TO_CACHE = [
   `${REPO_NAME}/`,
   `${REPO_NAME}/index.html`,
-  `${REPO_NAME}/style.css`,
-  `${REPO_NAME}/main.js`,
-  `${REPO_NAME}/public/pdfs/academic.pdf`,
-  `${REPO_NAME}/public/pdfs/academic_mobile.pdf`,
-  `${REPO_NAME}/public/pdfs/professional.pdf`,
-  `${REPO_NAME}/public/pdfs/professional_mobile.pdf`,
-  ...Array.from({ length: 15 }, (_, i) => `${REPO_NAME}/public/hard-skills/img_${i + 1}.png`),
-  ...Array.from({ length: 5 }, (_, i) => `${REPO_NAME}/public/hard-skills/img_d${i + 1}.png`)
+  `${REPO_NAME}/pdfs/academic.pdf`,
+  `${REPO_NAME}/pdfs/academic_mobile.pdf`,
+  `${REPO_NAME}/pdfs/professional.pdf`,
+  `${REPO_NAME}/pdfs/professional_mobile.pdf`,
+  ...Array.from({ length: 15 }, (_, i) => `${REPO_NAME}/hard-skills/img_${i + 1}.png`),
+  ...Array.from({ length: 5 }, (_, i) => `${REPO_NAME}/hard-skills/img_d${i + 1}.png`)
 ];
 
 self.addEventListener('install', (event) => {
