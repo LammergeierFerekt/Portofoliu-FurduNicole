@@ -4,19 +4,6 @@ import { PageFlip } from 'page-flip';
 import { scale } from 'pdf-lib';
 
 
-//#region Disable DARKMODE in Edge or other browsers
-const disableDarkModeCSS = `
-  :root {
-    color-scheme: light;
-  }
-`;
-
-const styleTag = document.createElement('style');
-styleTag.textContent = disableDarkModeCSS;
-document.head.prepend(styleTag);
-//#endregion
-
-
 //#region 1.SVG content as strings
 const loadingEyeSVG = `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 490 285.96">
   <g id="ochi">
@@ -6920,39 +6907,6 @@ function reverseFogEffect(svgElement, callback) {
 
 //#region 4.Parsing content files 
 
-// //#region Preload for file cache
-
-// const pdfsToPreload = [
-//   '/public/pdfs/academic.pdf',
-//   '/public/pdfs/academic_mobile.pdf',
-//   '/public/pdfs/professional.pdf',
-//   '/public/pdfs/professional_mobile.pdf'
-// ];
-
-// const imagesToPreload = [
-//   ...Array.from({ length: 15 }, (_, i) => `/public/hard-skills/img_${i + 1}.png`),
-//   ...Array.from({ length: 5 }, (_, i) => `/public/hard-skills/img_d${i + 1}.png`)
-// ];
-
-// const assetsToPreload = [...pdfsToPreload, ...imagesToPreload];
-
-// assetsToPreload.forEach(src => {
-//   const link = document.createElement('link');
-//   link.rel = 'preload';
-//   link.href = src;
-
-//   if (src.endsWith('.png') || src.endsWith('.jpg') || src.endsWith('.svg')) {
-//     link.as = 'image';
-//   } else if (src.endsWith('.pdf')) {
-//     link.as = 'fetch'; // correct value for PDF preload
-//   }
-
-//   document.head.appendChild(link);
-// });
-
-// //#endregion
-
-
 //#region PDF FILE HANDLING - Flipbook Integration
 let currentPdfDoc = null; // global or module-level variable
 
@@ -9708,6 +9662,17 @@ window.onload = function () {
 //#endregion
 
 
+
+//#region Cache files
+if ('serviceWorker' in navigator) {
+  window.addEventListener('load', () => {
+    navigator.serviceWorker.register('/Portofoliu-FurduNicole/sw.js')
+      .then((reg) => console.log('✅ Service Worker registered:', reg))
+      .catch((err) => console.error('❌ Service Worker registration failed:', err));
+  });
+}
+
+//#endregion
 
 
 
