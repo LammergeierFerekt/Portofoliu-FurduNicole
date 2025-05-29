@@ -1,10 +1,49 @@
 import './style.css';
 import { getDocument, GlobalWorkerOptions } from 'pdfjs-dist';
 import { PageFlip } from 'page-flip';
-import { scale } from 'pdf-lib';
+
+
+
+//#region Handle cache files
+
+const BASE_PATH = import.meta.env.BASE_URL;
+
+// List of all files to preload — match this to what your service worker caches:
+const filesToPreload = [
+  `${BASE_PATH}pdfs/academic.pdf`,
+  `${BASE_PATH}pdfs/academic_mobile.pdf`,
+  `${BASE_PATH}pdfs/professional.pdf`,
+  `${BASE_PATH}pdfs/professional_mobile.pdf`,
+  // images img_1.png to img_15.png
+  ...Array.from({ length: 15 }, (_, i) => `${BASE_PATH}hard-skills/img_${i + 1}.png`),
+  // images img_d1.png to img_d5.png
+  ...Array.from({ length: 5 }, (_, i) => `${BASE_PATH}hard-skills/img_d${i + 1}.png`)
+];
+
+// Function to preload all files by fetching them
+function preloadFiles() {
+  filesToPreload.forEach((url) => {
+    fetch(url).then(response => {
+      if (!response.ok) {
+        console.warn('Failed to preload', url);
+      }
+      // No need to do anything with the response body here
+    }).catch(err => {
+      console.warn('Error preloading', url, err);
+    });
+  });
+}
+
+// Call this on page load
+window.addEventListener('load', () => {
+  preloadFiles();
+});
+
+//#endregion
 
 
 //#region 1.SVG content as strings
+
 const loadingEyeSVG = `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 490 285.96">
   <g id="ochi">
     <g id="ochi6">
@@ -2633,43 +2672,43 @@ const hardSkillsSVG = `<svg id="hard-skills_content" xmlns="http://www.w3.org/20
     <g id="technical_6">
       <rect id="clipmask_15-2" data-name="clipmask_15" x="585.671" y="1324.615" width="1228.658" height="226.218" rx="13.785" style="fill: #93a0c5"/>
       <g style="clip-path: url(#clip-path)">
-        <image id="img_15" width="7021" height="4966" transform="translate(972.558 959.948) scale(0.122)" xlink:href="hard-skills/img_15.png"/>
+        <image id="img_15" width="7021" height="4966" transform="translate(972.558 959.948) scale(0.122)" xlink:href="${BASE_PATH}hard-skills/img_15.png"/>
       </g>
     </g>
     <g id="technical_5">
       <rect id="clipmask_14-2" data-name="clipmask_14" x="585.671" y="1324.615" width="1228.658" height="226.218" rx="13.785" style="fill: #93a0c5"/>
       <g style="clip-path: url(#clip-path)">
-        <image id="img_14" width="7021" height="4966" transform="translate(1001.021 1202.205) scale(0.117)" xlink:href="hard-skills/img_14.png"/>
+        <image id="img_14" width="7021" height="4966" transform="translate(1001.021 1202.205) scale(0.117)" xlink:href="${BASE_PATH}hard-skills/img_14.png"/>
       </g>
     </g>
     <g id="technical_4">
       <rect id="clipmask_13-2" data-name="clipmask_13" x="585.671" y="1324.615" width="1228.658" height="226.218" rx="13.785" style="fill: #93a0c5"/>
       <g style="clip-path: url(#clip-path)">
-        <image id="img_13" width="4961" height="3508" transform="translate(958.882 1005.932) scale(0.206)" xlink:href="hard-skills/img_13.png"/>
+        <image id="img_13" width="4961" height="3508" transform="translate(958.882 1005.932) scale(0.206)" xlink:href="${BASE_PATH}hard-skills/img_13.png"/>
       </g>
     </g>
     <g id="technical_3">
       <rect id="clipmask_12-2" data-name="clipmask_12" x="585.671" y="1324.615" width="1228.658" height="226.218" rx="13.785" style="fill: #93a0c5"/>
       <g style="clip-path: url(#clip-path)">
-        <image id="img_12" width="2326" height="1363" transform="translate(1087.67 1248.406) scale(0.314)" xlink:href="hard-skills/img_12.png"/>
+        <image id="img_12" width="2326" height="1363" transform="translate(1087.67 1248.406) scale(0.314)" xlink:href="${BASE_PATH}hard-skills/img_12.png"/>
       </g>
     </g>
     <g id="technical_2">
       <rect id="clipmask_11-2" data-name="clipmask_11" x="585.671" y="1324.615" width="1228.658" height="226.218" rx="13.785" style="fill: #93a0c5"/>
       <g style="clip-path: url(#clip-path)">
-        <image id="img_11" width="3508" height="2480" transform="translate(948.426 1139.581) scale(0.274)" xlink:href="hard-skills/img_11.png"/>
+        <image id="img_11" width="3508" height="2480" transform="translate(948.426 1139.581) scale(0.274)" xlink:href="${BASE_PATH}hard-skills/img_11.png"/>
       </g>
     </g>
     <g id="technical_1">
       <rect id="clipmask_10-2" data-name="clipmask_10" x="585.671" y="1324.615" width="1228.658" height="226.218" rx="13.785" style="fill: #93a0c5"/>
       <g style="clip-path: url(#clip-path)">
-        <image id="img_10" width="3028" height="1754" transform="translate(932.468 1165.009) scale(0.294)" xlink:href="hard-skills/img_10.png"/>
+        <image id="img_10" width="3028" height="1754" transform="translate(932.468 1165.009) scale(0.294)" xlink:href="${BASE_PATH}hard-skills/img_10.png"/>
       </g>
     </g>
     <g id="technical_default">
       <rect id="clipmask_d5-2" data-name="clipmask_d5" x="585.671" y="1324.615" width="1228.658" height="226.218" rx="13.785" style="fill: #93a0c5"/>
       <g style="clip-path: url(#clip-path)">
-        <image id="img_d5" width="2480" height="3508" transform="translate(877.528 252.119) scale(0.389)" xlink:href="hard-skills/img_d5.png"/>
+        <image id="img_d5" width="2480" height="3508" transform="translate(877.528 252.119) scale(0.389)" xlink:href="${BASE_PATH}hard-skills/img_d5.png"/>
       </g>
     </g>
     <g id="technical_6_text">
@@ -3610,19 +3649,19 @@ const hardSkillsSVG = `<svg id="hard-skills_content" xmlns="http://www.w3.org/20
     <g id="graphics_2">
       <rect id="clipmask_9-2" data-name="clipmask_9" x="585.671" y="1006.813" width="1228.658" height="226.218" rx="13.785" style="fill: #93a0c5"/>
       <g style="clip-path: url(#clip-path-8)">
-        <image id="img_9" width="3508" height="2480" transform="translate(509.27 730.838) scale(0.288 0.285)" xlink:href="hard-skills/img_9.png"/>
+        <image id="img_9" width="3508" height="2480" transform="translate(509.27 730.838) scale(0.288 0.285)" xlink:href="${BASE_PATH}hard-skills/img_9.png"/>
       </g>
     </g>
     <g id="graphics_1">
       <rect id="clipmask_8-2" data-name="clipmask_8" x="585.671" y="1006.813" width="1228.658" height="226.218" rx="13.785" style="fill: #93a0c5"/>
       <g style="clip-path: url(#clip-path-8)">
-        <image id="img_8" width="3649" height="811" transform="translate(554.372 930.164) scale(0.373)" xlink:href="hard-skills/img_8.png"/>
+        <image id="img_8" width="3649" height="811" transform="translate(554.372 930.164) scale(0.373)" xlink:href="${BASE_PATH}hard-skills/img_8.png"/>
       </g>
     </g>
     <g id="graphics_default">
       <rect id="clipmask_d4-2" data-name="clipmask_d4" x="585.671" y="1006.813" width="1228.658" height="226.218" rx="13.785" style="fill: #93a0c5"/>
       <g style="clip-path: url(#clip-path-8)">
-        <image id="img_d4" width="2480" height="1753" transform="translate(539.484 850.684) scale(0.325 0.3)" xlink:href="hard-skills/img_d4.png"/>
+        <image id="img_d4" width="2480" height="1753" transform="translate(539.484 850.684) scale(0.325 0.3)" xlink:href="${BASE_PATH}hard-skills/img_d4.png"/>
       </g>
     </g>
     <g id="graphics_2_text">
@@ -3809,19 +3848,19 @@ const hardSkillsSVG = `<svg id="hard-skills_content" xmlns="http://www.w3.org/20
     <g id="cgi_2">
       <rect id="clipmask_7-2" data-name="clipmask_7" x="585.671" y="689.667" width="1228.658" height="226.218" rx="13.785" style="fill: #93a0c5"/>
       <g style="clip-path: url(#clip-path-11)">
-        <image id="img_7" width="3508" height="2480" transform="translate(977.402 391.728) scale(0.242)" xlink:href="hard-skills/img_7.png"/>
+        <image id="img_7" width="3508" height="2480" transform="translate(977.402 391.728) scale(0.242)" xlink:href="${BASE_PATH}hard-skills/img_7.png"/>
       </g>
     </g>
     <g id="cgi_1">
       <rect id="clipmask_1-3" data-name="clipmask_1" x="585.671" y="689.667" width="1228.658" height="226.218" rx="13.785" style="fill: #93a0c5"/>
       <g style="clip-path: url(#clip-path-11)">
-        <image id="img_6" width="2480" height="3508" transform="translate(874.968 404.844) scale(0.391)" xlink:href="hard-skills/img_6.png"/>
+        <image id="img_6" width="2480" height="3508" transform="translate(874.968 404.844) scale(0.391)" xlink:href="${BASE_PATH}hard-skills/img_6.png"/>
       </g>
     </g>
     <g id="cgi_default">
       <rect id="clipmask_d3-2" data-name="clipmask_d3" x="585.671" y="689.667" width="1228.658" height="226.218" rx="13.785" style="fill: #93a0c5"/>
       <g style="clip-path: url(#clip-path-11)">
-        <image id="img_d3" width="3290" height="2160" transform="translate(823.826 479.158) scale(0.301)" xlink:href="hard-skills/img_d3.png"/>
+        <image id="img_d3" width="3290" height="2160" transform="translate(823.826 479.158) scale(0.301)" xlink:href="${BASE_PATH}hard-skills/img_d3.png"/>
       </g>
     </g>
     <g id="cgi_2_text">
@@ -4176,26 +4215,26 @@ const hardSkillsSVG = `<svg id="hard-skills_content" xmlns="http://www.w3.org/20
       <rect id="clipmask_5-2" data-name="clipmask_5" x="585.671" y="372.191" width="1228.658" height="226.218" rx="13.785" style="fill: #93a0c5"/>
       <g style="clip-path: url(#clip-path-14)">
         <g style="mask: url(#mask)">
-          <image id="img_5" width="3508" height="2480" transform="translate(400.818 -94.024) scale(0.356)" xlink:href="hard-skills/img_5.png"/>
+          <image id="img_5" width="3508" height="2480" transform="translate(400.818 -94.024) scale(0.356)" xlink:href="${BASE_PATH}hard-skills/img_5.png"/>
         </g>
       </g>
     </g>
     <g id="modelling_2">
       <rect id="clipmask_4-2" data-name="clipmask_4" x="585.671" y="372.191" width="1228.658" height="226.218" rx="13.785" style="fill: #93a0c5"/>
       <g style="clip-path: url(#clip-path-14)">
-        <image id="img_4" width="3508" height="2480" transform="translate(559.997 86.172) scale(0.306)" xlink:href="hard-skills/img_4.png"/>
+        <image id="img_4" width="3508" height="2480" transform="translate(559.997 86.172) scale(0.306)" xlink:href="${BASE_PATH}hard-skills/img_4.png"/>
       </g>
     </g>
     <g id="modelling_1">
       <rect id="clipmask_3-2" data-name="clipmask_3" x="585.671" y="372.191" width="1228.658" height="226.218" rx="13.785" style="fill: #93a0c5"/>
       <g style="clip-path: url(#clip-path-14)">
-        <image id="img_3" width="3508" height="2480" transform="translate(360.332 126.429) scale(0.488)" xlink:href="hard-skills/img_3.png"/>
+        <image id="img_3" width="3508" height="2480" transform="translate(360.332 126.429) scale(0.488)" xlink:href="${BASE_PATH}hard-skills/img_3.png"/>
       </g>
     </g>
     <g id="modelling_default">
       <rect id="clipmask_d2-2" data-name="clipmask_d2" x="585.671" y="372.191" width="1228.658" height="226.218" rx="13.785" style="fill: #93a0c5"/>
       <g style="clip-path: url(#clip-path-14)">
-        <image id="img_d2" width="3508" height="2480" transform="translate(447.082 4.742) scale(0.303)" xlink:href="hard-skills/img_d2.png"/>
+        <image id="img_d2" width="3508" height="2480" transform="translate(447.082 4.742) scale(0.303)" xlink:href="${BASE_PATH}hard-skills/img_d2.png"/>
       </g>
     </g>
     <g id="modelling_3_text">
@@ -4362,19 +4401,19 @@ const hardSkillsSVG = `<svg id="hard-skills_content" xmlns="http://www.w3.org/20
     <g id="bim_2">
       <rect id="clipmask_2-2" data-name="clipmask_2" x="585.671" y="55.08" width="1228.658" height="226.218" rx="13.785" style="fill: #93a0c5"/>
       <g style="clip-path: url(#clip-path-18)">
-        <image id="img_2" width="2480" height="3508" transform="translate(813.678 -567.37) scale(0.412)" xlink:href="hard-skills/img_2.png"/>
+        <image id="img_2" width="2480" height="3508" transform="translate(813.678 -567.37) scale(0.412)" xlink:href="${BASE_PATH}hard-skills/img_2.png"/>
       </g>
     </g>
     <g id="bim_1">
       <rect id="clipmask_1-4" data-name="clipmask_1" x="585.671" y="55.08" width="1228.658" height="226.218" rx="13.785" style="fill: #93a0c5"/>
       <g style="clip-path: url(#clip-path-18)">
-        <image id="img_1" width="3508" height="2480" transform="translate(786.313 -281.426) scale(0.298)" xlink:href="hard-skills/img_1.png"/>
+        <image id="img_1" width="3508" height="2480" transform="translate(786.313 -281.426) scale(0.298)" xlink:href="${BASE_PATH}hard-skills/img_1.png"/>
       </g>
     </g>
     <g id="bim_default">
       <rect id="clipmask_d1-2" data-name="clipmask_d1" x="585.671" y="55.08" width="1228.658" height="226.218" rx="13.785" style="fill: #93a0c5"/>
       <g style="clip-path: url(#clip-path-18)">
-        <image id="img_d1" width="1000" height="817" transform="translate(823.83 -174.006)" xlink:href="hard-skills/img_d1.png"/>
+        <image id="img_d1" width="1000" height="817" transform="translate(823.83 -174.006)" xlink:href="${BASE_PATH}hard-skills/img_d1.png"/>
       </g>
     </g>
     <g id="bim_1_text">
@@ -4554,7 +4593,7 @@ const MobilehardSkillsSVG = `<svg
            width="2480"
            height="3508"
            transform="translate(877.528 252.119) scale(0.389)"
-           xlink:href="hard-skills/img_d5.png" />
+           xlink:href="${BASE_PATH}hard-skills/img_d5.png" />
       </g>
     </g>
     <g
@@ -4731,7 +4770,7 @@ const MobilehardSkillsSVG = `<svg
            width="2480"
            height="1753"
            transform="translate(539.484 850.684) scale(0.325 0.3)"
-           xlink:href="hard-skills/img_d4.png" />
+           xlink:href="${BASE_PATH}hard-skills/img_d4.png" />
       </g>
     </g>
     <g
@@ -4809,7 +4848,7 @@ const MobilehardSkillsSVG = `<svg
            width="3290"
            height="2160"
            transform="translate(823.826 479.158) scale(0.301)"
-           xlink:href="hard-skills/img_d3.png" />
+           xlink:href="${BASE_PATH}hard-skills/img_d3.png" />
       </g>
     </g>
     <g
@@ -4891,7 +4930,7 @@ const MobilehardSkillsSVG = `<svg
            width="3508"
            height="2480"
            transform="translate(447.082 4.742) scale(0.303)"
-           xlink:href="hard-skills/img_d2.png" />
+           xlink:href="${BASE_PATH}hard-skills/img_d2.png" />
       </g>
     </g>
     <g
@@ -4987,7 +5026,7 @@ const MobilehardSkillsSVG = `<svg
            width="1000"
            height="817"
            transform="translate(823.83 -174.006)"
-           xlink:href="hard-skills/img_d1.png" />
+           xlink:href="${BASE_PATH}hard-skills/img_d1.png" />
       </g>
     </g>
     <g
@@ -9662,6 +9701,7 @@ window.onload = function () {
 //#endregion
 
 //#region Cache files
+
 if ('serviceWorker' in navigator) {
   window.addEventListener('load', () => {
     navigator.serviceWorker.register('/Portofoliu-FurduNicole/sw.js')
@@ -9669,6 +9709,7 @@ if ('serviceWorker' in navigator) {
       .catch((err) => console.error('❌ Service Worker registration failed:', err));
   });
 }
+
 
 //#endregion
 
