@@ -635,6 +635,21 @@ a {
   z-index: 1000;
 }
 
+@media (max-width:  800px) {
+  #cv_content{
+    position: fixed;
+    height: 70vh;
+    max-height: 78vh;
+    left: 50%;
+    top: 54%;
+    transform: translate(-50%, -50%);
+    background: transparent;
+    display: block;
+    z-index: 1000;
+  }
+
+}
+
 /*#endregion CV*/
 
 

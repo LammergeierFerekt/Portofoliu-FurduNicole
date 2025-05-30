@@ -5369,6 +5369,220 @@ const cvSVG = `<svg id="cv_content" xmlns="http://www.w3.org/2000/svg" viewBox="
 </svg>
 `;
 
+const MobilecvSVG = `<svg id="cv_content" data-name="cv content" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1133.858 1133.858">
+  <g id="Layer12">
+    <rect id="boxg12" x="283.608" y="966.613" width="250" height="105" rx="13.785" style="fill: #63769e;isolation: isolate;opacity: 0.5"/>
+    <g id="lineg12_1" data-name="lineg12 1">
+      <g>
+        <polyline points="518.201 985.836 569.139 985.836 569.139 690.223" style="fill: none;stroke: #fff;stroke-linecap: round;stroke-linejoin: round;stroke-width: 3.6850392818450928px"/>
+        <circle cx="518.201" cy="985.837" r="13.855" style="fill: #fff"/>
+      </g>
+    </g>
+    <g id="textg12">
+      <text id="title12_red" data-name="title12 red" transform="translate(380.695 1042.12)" style="isolation: isolate;font-size: 32.073631286621094px;fill: #fff;font-family: YuGothicUI-Regular, Yu Gothic UI;letter-spacing: 0.12999568263694544em">ONCR</text>
+      <g id="ScoutVolunteer">
+        <g style="isolation: isolate">
+          <text transform="translate(342.825 1061.697)" style="isolation: isolate;font-size: 19.606599807739258px;fill: #fff;font-family: YuGothicUI-Regular, Yu Gothic UI">Scout </text>
+          <text transform="translate(396.897 1061.697)" style="isolation: isolate;font-size: 19.606599807739258px;fill: #fff;font-family: YuGothicUI-Regular, Yu Gothic UI;letter-spacing: -0.04400523176942859em">V</text>
+          <text transform="translate(408.193 1061.697)" style="isolation: isolate;font-size: 19.606599807739258px;fill: #fff;font-family: YuGothicUI-Regular, Yu Gothic UI">olunteer</text>
+        </g>
+      </g>
+      <text transform="translate(389.835 1006.937)" style="isolation: isolate;font-size: 43.495079040527344px;fill: #f4dbdb;font-family: YuGothicUI-Bold, Yu Gothic UI;font-weight: 700;letter-spacing: 0.019993730910103813em">2013</text>
+    </g>
+  </g>
+  <g id="Layer11">
+    <rect id="boxg11" x="173.608" y="814.422" width="360" height="105" rx="13.785" style="fill: #63769e;isolation: isolate;opacity: 0.5"/>
+    <g id="lineg11_1" data-name="lineg11 1">
+      <g>
+        <line x1="552.946" y1="901.149" x2="515.335" y2="901.149" style="fill: none;stroke: #fff;stroke-linecap: round;stroke-linejoin: round;stroke-width: 3.6850392818450928px"/>
+        <circle cx="515.366" cy="901.783" r="13.855" style="fill: #fff"/>
+      </g>
+    </g>
+    <g id="textg11">
+      <text transform="translate(388.66 854.245)" style="isolation: isolate;font-size: 43.495079040527344px;fill: #f4dbdb;font-family: YuGothicUI-Bold, Yu Gothic UI;font-weight: 700;letter-spacing: 0.019993730910103813em">2017</text>
+      <text transform="translate(319.188 912.034)" style="isolation: isolate;font-size: 19.606599807739258px;fill: #fff;font-family: YuGothicUI-Regular, Yu Gothic UI">C. NEGRUZZI | IASI</text>
+      <text id="title11_red" data-name="title11 red" transform="translate(182.608 886.406)" style="isolation: isolate;font-size: 32.073631286621094px;fill: #fff;font-family: YuGothicUI-Regular, Yu Gothic UI;letter-spacing: -0.04999482630047182em">High school graduation</text>
+    </g>
+  </g>
+  <g id="Layer10">
+    <rect id="boxg10" x="591.14" y="729.981" width="250" height="105" rx="13.785" style="fill: #63769e;isolation: isolate;opacity: 0.5"/>
+    <g id="lineg10_1" data-name="lineg10 1">
+      <g>
+        <line x1="578.198" y1="761.386" x2="609.412" y2="761.386" style="fill: none;stroke: #fff;stroke-linecap: round;stroke-linejoin: round;stroke-width: 3.6850392818450928px"/>
+        <path d="M609.412,775.241a13.855,13.855,0,1,0-13.855-13.855h0A13.857,13.857,0,0,0,609.412,775.241Z" style="fill: #fff"/>
+      </g>
+    </g>
+    <g id="textg10">
+      <text transform="translate(632.475 777.256)" style="isolation: isolate;font-size: 43.495079040527344px;fill: #f4dbdb;font-family: YuGothicUI-Bold, Yu Gothic UI;font-weight: 700;letter-spacing: 0.019993730910103813em">2018</text>
+      <text id="title10_red" data-name="title10 red" transform="translate(631.475 813.127)" style="isolation: isolate;font-size: 28.346460342407227px;fill: #fff;font-family: YuGothicUI-Regular, Yu Gothic UI;letter-spacing: -0.03999755344422368em">ALLPLAN courses</text>
+    </g>
+  </g>
+  <g id="Layer9">
+    <rect id="boxg9" x="175.574" y="668.477" width="360" height="105" rx="13.785" style="fill: #63769e;isolation: isolate;opacity: 0.5"/>
+    <g id="lineg9_1" data-name="lineg9 1">
+      <g>
+        <line x1="555.812" y1="690.223" x2="517.984" y2="690.223" style="fill: none;stroke: #fff;stroke-linecap: round;stroke-linejoin: round;stroke-width: 3.6850392818450928px"/>
+        <path d="M517.984,676.368a13.855,13.855,0,1,0,13.855,13.855h0A13.856,13.856,0,0,0,517.984,676.368Z" style="fill: #fff"/>
+      </g>
+    </g>
+    <g id="textg9">
+      <text transform="translate(408.537 707.072)" style="isolation: isolate;font-size: 43.495079040527344px;fill: #f4dbdb;font-family: YuGothicUI-Bold, Yu Gothic UI;font-weight: 700;letter-spacing: 0.019993730910103813em">2019</text>
+      <g id="title9_red" data-name="title9 red" style="isolation: isolate">
+        <text transform="translate(184.532 738.492)" style="isolation: isolate;font-size: 32.073631286621094px;fill: #fff;font-family: YuGothicUI-Regular, Yu Gothic UI">NEME</text>
+        <text transform="translate(269.775 738.492)" style="isolation: isolate;font-size: 32.073631286621094px;fill: #fff;font-family: YuGothicUI-Regular, Yu Gothic UI;letter-spacing: -0.008997241882941183em">T</text>
+        <text transform="translate(286.266 738.492)" style="isolation: isolate;font-size: 32.073631286621094px;fill: #fff;font-family: YuGothicUI-Regular, Yu Gothic UI"><tspan xml:space="preserve">SCHEK  contest</tspan></text>
+      </g>
+      <g style="isolation: isolate">
+        <text transform="translate(208.831 760.812)" style="isolation: isolate;font-size: 19.606599807739258px;fill: #fff;font-family: YuGothicUI-Regular, Yu Gothic UI">1</text>
+        <text transform="translate(219.4 760.812)" style="isolation: isolate;font-size: 19.606599807739258px;fill: #fff;font-family: YuGothicUI-Regular, Yu Gothic UI;letter-spacing: -0.008990316167947775em">S</text>
+        <text transform="translate(229.625 760.812)" style="isolation: isolate;font-size: 19.606599807739258px;fill: #fff;font-family: YuGothicUI-Regular, Yu Gothic UI"><tspan xml:space="preserve">T prize winner  of Lumion video</tspan></text>
+      </g>
+    </g>
+  </g>
+  <g id="Layer8">
+    <rect id="boxg8" x="589.644" y="576.197" width="360" height="105" rx="13.785" style="fill: #63769e;isolation: isolate;opacity: 0.5"/>
+    <g id="lineg8_1" data-name="lineg8 1">
+      <g>
+        <polyline points="606.616 599.451 569.139 599.451 569.139 646.36" style="fill: none;stroke: #fff;stroke-linecap: round;stroke-linejoin: round;stroke-width: 3.6850392818450928px"/>
+        <path d="M606.616,585.6a13.855,13.855,0,1,1-13.855,13.855h0A13.857,13.857,0,0,1,606.616,585.6Z" style="fill: #fff"/>
+      </g>
+    </g>
+    <g id="textg8">
+      <g id="title8_red" data-name="title8 red" style="isolation: isolate">
+        <text transform="translate(624.033 612.866)" style="isolation: isolate;font-size: 32.073631286621094px;fill: #fff;font-family: YuGothicUI-Regular, Yu Gothic UI"><tspan xml:space="preserve">Wienerberger  contest</tspan></text>
+      </g>
+      <g style="isolation: isolate">
+        <text transform="translate(624.033 637.638)" style="isolation: isolate;font-size: 19.606599807739258px;fill: #fff;font-family: YuGothicUI-Regular, Yu Gothic UI;letter-spacing: -0.030009227097997422em">3rd prize winner for Collective</text>
+        <text transform="translate(864.516 637.638)" style="isolation: isolate;font-size: 32.073631286621094px;fill: #fff;font-family: YuGothicUI-Regular, Yu Gothic UI;letter-spacing: -0.02999080627647061em"> </text>
+        <text transform="translate(872.34 637.638)" style="isolation: isolate;font-size: 19.606599807739258px;fill: #fff;font-family: YuGothicUI-Regular, Yu Gothic UI;letter-spacing: -0.030009227097997422em">housing</text>
+      </g>
+      <text transform="translate(624.033 664.681)" style="isolation: isolate;font-size: 23.527860641479492px;fill: #fff;font-family: YuGothicUI-Regular, Yu Gothic UI;letter-spacing: -0.00599770983857402em">oct-ian</text>
+    </g>
+  </g>
+  <g id="Layer7">
+    <rect id="boxg7" x="173.607" y="520.116" width="360" height="105" rx="13.785" style="fill: #63769e;isolation: isolate;opacity: 0.5"/>
+    <g id="lineg7_1" data-name="lineg7 1">
+      <g>
+        <polyline points="555.812 447.576 555.812 540.031 515.335 540.031" style="fill: none;stroke: #fff;stroke-linecap: round;stroke-linejoin: round;stroke-width: 3.6850392818450928px"/>
+        <circle cx="515.508" cy="540.55" r="13.858" style="fill: #fff"/>
+      </g>
+    </g>
+    <g id="textg7">
+      <text transform="translate(381.218 557.236)" style="isolation: isolate;font-size: 43.495079040527344px;fill: #f4dbdb;font-family: YuGothicUI-Bold, Yu Gothic UI;font-weight: 700;letter-spacing: 0.019993730910103813em">2020</text>
+      <text id="title7_red" data-name="title7 red" transform="translate(244.754 589.351)" style="isolation: isolate;font-size: 32.073631286621094px;fill: #fff;font-family: YuGothicUI-Regular, Yu Gothic UI;letter-spacing: -0.020004020024001208em">D.A.S. Arch. office</text>
+      <text transform="translate(398.417 614.593)" style="isolation: isolate;font-size: 23.527860641479492px;fill: #fff;font-family: YuGothicUI-Regular, Yu Gothic UI;letter-spacing: 0.03200162135322194em">jan-july</text>
+    </g>
+  </g>
+  <g id="Layer6">
+    <rect id="boxg6" x="589.644" y="427.464" width="360" height="105" rx="13.785" style="fill: #63769e;isolation: isolate;opacity: 0.5"/>
+    <g id="lineg6_1" data-name="lineg6 1">
+      <g>
+        <polyline points="607.916 447.576 569.139 447.576 569.139 355.12" style="fill: none;stroke: #fff;stroke-linecap: round;stroke-linejoin: round;stroke-width: 3.6850392818450928px"/>
+        <path d="M607.916,433.72a13.855,13.855,0,1,1-13.855,13.856h0A13.857,13.857,0,0,1,607.916,433.72Z" style="fill: #fff"/>
+      </g>
+    </g>
+    <g id="textg6">
+      <text transform="translate(638.978 463.817)" style="isolation: isolate;font-size: 43.495079040527344px;fill: #f4dbdb;font-family: YuGothicUI-Bold, Yu Gothic UI;font-weight: 700;letter-spacing: 0.019993730910103813em">2021</text>
+      <g id="title6_red" data-name="title6 red" style="isolation: isolate">
+        <text transform="translate(642.019 498.197)" style="isolation: isolate;font-size: 32.073631286621094px;fill: #fff;font-family: YuGothicUI-Regular, Yu Gothic UI;letter-spacing: -0.03999281628847121em">P</text>
+        <text transform="translate(658.699 498.197)" style="isolation: isolate;font-size: 32.073631286621094px;fill: #fff;font-family: YuGothicUI-Regular, Yu Gothic UI;letter-spacing: -0.019988796264470005em">oint Arch. office</text>
+      </g>
+      <text transform="translate(642.019 523.455)" style="isolation: isolate;font-size: 23.527860641479492px;fill: #fff;font-family: YuGothicUI-Regular, Yu Gothic UI;letter-spacing: -0.00599770983857402em">oct-march</text>
+    </g>
+  </g>
+  <g id="Layer5">
+    <rect id="boxg5" x="283.608" y="373.047" width="250" height="105" rx="13.785" style="fill: #63769e;isolation: isolate;opacity: 0.5"/>
+    <g id="lineg5_1" data-name="lineg5 1">
+      <g>
+        <line x1="552.946" y1="396.258" x2="515.335" y2="396.258" style="fill: none;stroke: #fff;stroke-linecap: round;stroke-linejoin: round;stroke-width: 3.6850392818450928px"/>
+        <circle cx="515.335" cy="396.259" r="13.855" style="fill: #fff"/>
+      </g>
+    </g>
+    <g id="textg5">
+      <g id="title5_red" data-name="title5 red" style="isolation: isolate">
+        <text transform="translate(323.813 408.504)" style="isolation: isolate;font-size: 28.346460342407227px;fill: #fff;font-family: YuGothicUI-Regular, Yu Gothic UI;letter-spacing: 0.03000677782077418em">Monuments </text>
+        <text transform="translate(334.222 434.638)" style="isolation: isolate;font-size: 28.346460342407227px;fill: #fff;font-family: YuGothicUI-Regular, Yu Gothic UI;letter-spacing: 0.029989552345561336em">Ambulance</text>
+      </g>
+      <text transform="translate(398.417 461.64)" style="isolation: isolate;font-size: 23.527860641479492px;fill: #fff;font-family: YuGothicUI-Regular, Yu Gothic UI;letter-spacing: 0.03200162135322194em">jan-july</text>
+    </g>
+  </g>
+  <g id="Layer4">
+    <rect id="boxg4" x="589.644" y="276.182" width="250" height="105" rx="13.785" style="fill: #63769e;isolation: isolate;opacity: 0.5"/>
+    <g id="lineg4_1" data-name="lineg4 1">
+      <g>
+        <polyline points="569.139 284.6 569.139 299.393 607.916 299.393" style="fill: none;stroke: #fff;stroke-linecap: round;stroke-linejoin: round;stroke-width: 3.6850392818450928px"/>
+        <path d="M607.916,313.248a13.855,13.855,0,1,0-13.855-13.855h0A13.857,13.857,0,0,0,607.916,313.248Z" style="fill: #fff"/>
+      </g>
+    </g>
+    <g id="textg4">
+      <text transform="translate(638.978 315.173)" style="isolation: isolate;font-size: 43.495079040527344px;fill: #f4dbdb;font-family: YuGothicUI-Bold, Yu Gothic UI;font-weight: 700;letter-spacing: 0.019993730910103813em">2022</text>
+      <g id="title4_red" data-name="title4 red" style="isolation: isolate">
+        <text transform="translate(642.019 347.755)" style="isolation: isolate;font-size: 31.181100845336914px;fill: #fff;font-family: YuGothicUI-Regular, Yu Gothic UI;letter-spacing: 0.030003651238628724em"><tspan xml:space="preserve">G.R.S.  office</tspan></text>
+      </g>
+      <text transform="translate(642.019 369.675)" style="isolation: isolate;font-size: 23.527860641479492px;fill: #fff;font-family: YuGothicUI-Regular, Yu Gothic UI;letter-spacing: -0.00599770983857402em">aug-sept</text>
+    </g>
+  </g>
+  <g id="Layer15">
+    <rect id="boxg15_2" data-name="boxg15 2" x="588.528" y="883.268" width="360" height="105" rx="13.785" style="fill: #63769e;isolation: isolate;opacity: 0.5"/>
+    <rect id="boxg15_1" data-name="boxg15 1" x="175.574" y="228.1" width="250" height="105" rx="13.785" style="fill: #63769e;isolation: isolate;opacity: 0.5"/>
+    <g id="lineg15_1" data-name="lineg15 1">
+      <g>
+        <polyline points="605.5 900.907 563.223 900.907 563.224 252.258 407.984 252.258" style="fill: none;stroke: #fff;stroke-linecap: round;stroke-linejoin: round;stroke-width: 3.6850392818450928px"/>
+        <path d="M605.5,887.053a13.855,13.855,0,1,1-13.855,13.855h0A13.855,13.855,0,0,1,605.5,887.053Z" style="fill: #fff"/>
+        <path d="M407.984,238.4a13.855,13.855,0,1,0,13.855,13.855h0A13.856,13.856,0,0,0,407.984,238.4Z" style="fill: #fff"/>
+      </g>
+    </g>
+    <g id="textg15">
+      <g id="title14_red" data-name="title14 red" style="isolation: isolate">
+        <text transform="translate(622.918 951.14)" style="isolation: isolate;font-size: 31.181100845336914px;fill: #fff;font-family: YuGothicUI-Regular, Yu Gothic UI;letter-spacing: -0.044003267213228975em">F</text>
+        <text transform="translate(636.742 951.14)" style="isolation: isolate;font-size: 31.181100845336914px;fill: #fff;font-family: YuGothicUI-Regular, Yu Gothic UI">aculty of Architecture</text>
+      </g>
+      <g style="isolation: isolate">
+        <text transform="translate(622.917 977.452)" style="isolation: isolate;font-size: 19.606599807739258px;fill: #fff;font-family: YuGothicUI-Regular, Yu Gothic UI">G.M. CAN</text>
+        <text transform="translate(707.297 977.452)" style="isolation: isolate;font-size: 19.606599807739258px;fill: #fff;font-family: YuGothicUI-Regular, Yu Gothic UI;letter-spacing: -0.03501491560148081em">T</text>
+        <text transform="translate(716.879 977.452)" style="isolation: isolate;font-size: 19.606599807739258px;fill: #fff;font-family: YuGothicUI-Regular, Yu Gothic UI;letter-spacing: -0.01499216158754726em">A</text>
+        <text transform="translate(729.23 977.452)" style="isolation: isolate;font-size: 19.606599807739258px;fill: #fff;font-family: YuGothicUI-Regular, Yu Gothic UI">CUZINO | IASI</text>
+      </g>
+      <text transform="translate(292.045 268.347)" style="isolation: isolate;font-size: 43.495079040527344px;fill: #f4dbdb;font-family: YuGothicUI-Bold, Yu Gothic UI;font-weight: 700;letter-spacing: 0.019993730910103813em">2023</text>
+      <text transform="translate(218.961 321.044)" style="isolation: isolate;font-size: 20.551179885864258px;fill: #fff;font-family: YuGothicUI-Regular, Yu Gothic UI;letter-spacing: -0.004989448930400807em">Head of promotion</text>
+      <g id="title15_red" data-name="title15 red" style="isolation: isolate">
+        <text transform="translate(198.572 297.144)" style="isolation: isolate;font-size: 31.181100845336914px;fill: #fff;font-family: YuGothicUI-Regular, Yu Gothic UI;letter-spacing: -0.01399961597460025em">V</text>
+        <text transform="translate(217.473 297.144)" style="isolation: isolate;font-size: 31.181100845336914px;fill: #fff;font-family: YuGothicUI-Regular, Yu Gothic UI;letter-spacing: 0.029987991712930064em">aledictorian</text>
+      </g>
+    </g>
+  </g>
+  <g id="Layer2">
+    <rect id="boxg2" x="588.528" y="125.958" width="360" height="105" rx="13.785" style="fill: #63769e;isolation: isolate;opacity: 0.5"/>
+    <g id="lineg2_1" data-name="lineg2 1">
+      <g>
+        <polyline points="605.5 148.433 569.139 148.48 569.139 242.678" style="fill: none;stroke: #fff;stroke-linecap: round;stroke-linejoin: round;stroke-width: 3.6850392818450928px"/>
+        <path d="M605.494,134.578a13.855,13.855,0,1,1-13.849,13.861h0A13.855,13.855,0,0,1,605.494,134.578Z" style="fill: #fff"/>
+      </g>
+    </g>
+    <g id="textg2">
+      <text transform="translate(624.31 166.319)" style="isolation: isolate;font-size: 43.495079040527344px;fill: #f4dbdb;font-family: YuGothicUI-Bold, Yu Gothic UI;font-weight: 700;letter-spacing: 0.019993730910103813em">2024</text>
+      <text id="title2_red" data-name="title2 red" transform="translate(622.917 199.373)" style="isolation: isolate;font-size: 31.181100845336914px;fill: #fff;font-family: YuGothicUI-Regular, Yu Gothic UI">Albendiego office</text>
+      <text transform="translate(622.917 221.292)" style="isolation: isolate;font-size: 23.527860641479492px;fill: #fff;font-family: YuGothicUI-Regular, Yu Gothic UI;letter-spacing: -0.00599770983857402em">nov-nov</text>
+    </g>
+  </g>
+  <g id="Layer1">
+    <rect id="boxg1" x="175.574" y="77.89" width="360" height="105" rx="13.785" style="fill: #63769e;isolation: isolate;opacity: 0.5"/>
+    <g id="lineg1_1" data-name="lineg1 1">
+      <g>
+        <polyline points="563.223 303.164 563.223 101.146 518.602 101.146" style="fill: none;stroke: #fff;stroke-linecap: round;stroke-linejoin: round;stroke-width: 3.6850392818450928px"/>
+        <path d="M518.6,87.291a13.855,13.855,0,1,0,13.855,13.855h0A13.857,13.857,0,0,0,518.6,87.291Z" style="fill: #fff"/>
+      </g>
+    </g>
+    <g id="textg1">
+      <text transform="translate(402.663 119.07)" style="isolation: isolate;font-size: 43.495079040527344px;fill: #f4dbdb;font-family: YuGothicUI-Bold, Yu Gothic UI;font-weight: 700;letter-spacing: 0.019993730910103813em">2025</text>
+      <text id="title1_red" data-name="title1 red" transform="translate(184.997 147.423)" style="isolation: isolate;font-size: 29.76378059387207px;fill: #fff;font-family: YuGothicUI-Regular, Yu Gothic UI;letter-spacing: 0.029988734871394963em">Hobby - Code learning</text>
+      <text transform="translate(199.386 171.185)" style="isolation: isolate;font-size: 20.551179885864258px;fill: #fff;font-family: YuGothicUI-Regular, Yu Gothic UI;letter-spacing: -0.004989448930400807em">2 websites &amp; this current example</text>
+    </g>
+  </g>
+</svg>
+`;
+
+
 const softSkillsSVG = `<svg
    version="1.1"
    id="soft-skills_canvas"
@@ -6962,13 +7176,48 @@ function reverseFogEffect(svgElement, callback) {
 let currentPdfDoc = null;
 let flipbookContainer, pdfContainer;
 
-// Preload PDF in background and store image data by PDF filename
-async function preloadFlipbook(pdfFileDesktop, pdfFileMobile) {
+function fetchWithProgress(url, onProgress) {
+  return new Promise(async (resolve, reject) => {
+    try {
+      const response = await fetch(url);
+      if (!response.body) {
+        // No streaming support fallback
+        const data = await response.arrayBuffer();
+        if (onProgress) onProgress(1);
+        resolve(data);
+        return;
+      }
+      const reader = response.body.getReader();
+      const contentLength = +response.headers.get('Content-Length') || 0;
+      let receivedLength = 0;
+      const chunks = [];
+      while (true) {
+        const { done, value } = await reader.read();
+        if (done) break;
+        chunks.push(value);
+        receivedLength += value.length;
+        if (onProgress) onProgress(contentLength ? receivedLength / contentLength : 0);
+      }
+      let chunksAll = new Uint8Array(receivedLength);
+      let position = 0;
+      for (let chunk of chunks) {
+        chunksAll.set(chunk, position);
+        position += chunk.length;
+      }
+      resolve(chunksAll.buffer);
+    } catch (e) {
+      reject(e);
+    }
+  });
+}
+
+async function preloadFlipbook(pdfFileDesktop, pdfFileMobile, onProgress) {
   const isMobile = window.innerWidth < 1200 || /Mobi|Android/i.test(navigator.userAgent);
   const pdfFile = isMobile ? pdfFileMobile : pdfFileDesktop;
   const pdfPath = `${import.meta.env.BASE_URL}pdfs/${pdfFile}`;
 
   if (pdfCache[pdfFile]) {
+    if (onProgress) onProgress(1);
     return; // Already preloaded
   }
 
@@ -6980,10 +7229,35 @@ async function preloadFlipbook(pdfFileDesktop, pdfFileMobile) {
     return;
   }
 
+  // Worker URL (you may adjust path if needed)
+  const workerUrl = pdfjsLib.GlobalWorkerOptions.workerSrc;
+
+  let workerLoaded = 0;
+  let pdfLoaded = 0;
+
+  function updateCombinedProgress() {
+    if (onProgress) onProgress((workerLoaded + pdfLoaded) / 2);
+  }
+
   try {
-    const response = await fetch(pdfPath);
-    const arrayBuffer = await response.arrayBuffer();
-    const loadingTask = pdfjsLib.getDocument({ data: arrayBuffer });
+    // 1. Fetch worker script with progress
+    const workerBuffer = await fetchWithProgress(workerUrl, (p) => {
+      workerLoaded = p;
+      updateCombinedProgress();
+    });
+    // Create blob URL for worker and assign to pdfjsLib
+    const workerBlob = new Blob([workerBuffer], { type: 'application/javascript' });
+    const workerBlobUrl = URL.createObjectURL(workerBlob);
+    pdfjsLib.GlobalWorkerOptions.workerSrc = workerBlobUrl;
+
+    // 2. Fetch PDF with progress
+    const pdfBuffer = await fetchWithProgress(pdfPath, (p) => {
+      pdfLoaded = p;
+      updateCombinedProgress();
+    });
+
+    // Load PDF document from buffer
+    const loadingTask = pdfjsLib.getDocument({ data: pdfBuffer });
     currentPdfDoc = await loadingTask.promise;
 
     const numPages = currentPdfDoc.numPages;
@@ -6998,23 +7272,25 @@ async function preloadFlipbook(pdfFileDesktop, pdfFileMobile) {
       await page.render({ canvasContext: canvas.getContext('2d'), viewport }).promise;
       pdfCache[pdfFile].push(canvas.toDataURL());
     }
+
+    if (onProgress) onProgress(1);
   } catch (err) {
     console.error('Error during preload:', err);
+    if (onProgress) onProgress(1);
   }
 }
 
-// Show a PDF from cache or preload it if missing
 async function showPDF(pdfFileDesktop, pdfFileMobile) {
- // Immediately show loading UI
+  // Immediately show loading UI
   resetLoadingAnimation();
   showLoadingOverlay();
+
   const loadingSpinner = document.getElementById('loading-spinner');
   if (loadingSpinner && !loadingSpinner.querySelector('svg')) {
     insertLoadingEyeSVG();
   }
   resetLoadingAnimation();
 
-  // Prepare loading elements from the SVG (if provided)
   const loadingElements = svg ? svg.querySelectorAll('[id^="loading"]') : [];
   const totalSteps = loadingElements.length;
 
@@ -7022,6 +7298,7 @@ async function showPDF(pdfFileDesktop, pdfFileMobile) {
   function updateLoadingProgress(progress) {
     const activeCount = Math.floor(progress * totalSteps);
     loadingElements.forEach((el, idx) => {
+      el.style.transition = `opacity 0.75s ease ${idx * 0.75}s`;
       el.style.opacity = idx < activeCount ? '1' : '0';
     });
   }
@@ -7052,14 +7329,14 @@ async function showPDF(pdfFileDesktop, pdfFileMobile) {
       throw new Error('PDF container elements are missing');
     }
 
-      let pageWidth, pageHeight;
-      if (window.innerWidth < 1200) {
-        pageWidth = Math.max(window.innerWidth * 0.85, 320);  // 85vw, min 320px
-        pageHeight = Math.max(window.innerHeight * 0.65, 400); // 65vh, min 400px
-      } else {
-        pageWidth = 700;
-        pageHeight = 990;
-      }
+    let pageWidth, pageHeight;
+    if (window.innerWidth < 1200) {
+      pageWidth = Math.max(window.innerWidth * 0.85, 320);  // 85vw, min 320px
+      pageHeight = Math.max(window.innerHeight * 0.65, 400); // 65vh, min 400px
+    } else {
+      pageWidth = 700;
+      pageHeight = 990;
+    }
 
     // ♻️ If flipbook exists, reset only the pages
     if (flipbookContainer.pageFlipInstance) {
@@ -7111,6 +7388,7 @@ async function showPDF(pdfFileDesktop, pdfFileMobile) {
       flipbookContainer.pageFlipInstance = pageFlip;
     }
 
+
     setTimeout(() => {
       const pdfContainer = document.querySelector('.pdf-container');
       if (pdfContainer) pdfContainer.classList.add('active');
@@ -7122,6 +7400,8 @@ async function showPDF(pdfFileDesktop, pdfFileMobile) {
     hideLoadingOverlay();
   }
 }
+//#endregion
+
 
 
 //#endregion
@@ -7230,15 +7510,11 @@ async function CVfunction() {
       // --- MOBILE: Always red and always show time group ---
       if (isMobile) {
         redTexts.forEach((el) => {
-          el.style.fill = '#ffe482';
-          el.style.textDecoration = 'underline'; 
-
         });
+        
         if (timeGroup) {
           timeGroup.style.opacity = '1';
           timeGroup.style.filter = 'drop-shadow(2px 4px 6px #000000)';
-          
-
         }
       }
 
@@ -7263,7 +7539,6 @@ async function CVfunction() {
         redTexts.forEach((el) => {
           let id = el.id;
           if (redTextLinks[id]) {
-            // Make sure it's clickable and pointer
             el.style.cursor = 'pointer';
             el.style.pointerEvents = 'all';
 
@@ -7281,6 +7556,7 @@ async function CVfunction() {
               window.open(redTextLinks[id], '_blank');
             });
 
+
             // Mobile: underline on touch, open on touchend
             el.addEventListener('touchstart', (e) => {
               el.style.textDecoration = 'underline';
@@ -7297,6 +7573,8 @@ async function CVfunction() {
               e.stopPropagation();
             }, {passive: false});
           }
+
+
           // If it's a <g> with a <text> child, also attach to the <text>
           if (el.tagName && el.tagName.toLowerCase() === 'g') {
             const t = el.querySelector('text');
@@ -7519,7 +7797,10 @@ async function CVfunction() {
     let currentStep = 0;
 
 
-  let svgString = cvSVG; // Directly assign the CV SVG string
+    
+  const isMobile = /Mobi|Android/i.test(navigator.userAgent);
+  // Use mobile SVG if on mobile, else desktop SVG
+  let svgString = isMobile ? MobilecvSVG : cvSVG;
 
   if (!svgString) {
     console.error('CV SVG string is missing.');
