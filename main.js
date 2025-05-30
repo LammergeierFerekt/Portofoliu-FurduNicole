@@ -9844,7 +9844,7 @@ async function SOFTSKILLSfunction() {
 
 //#endregion
 
-//#region 5.Effects & functions for design elements (artwork_div_1)
+//#region 5.Effects & functions for design elements (artwork_div_1, others)
 
 // Function to add hover effects to main elements
 function addHoverEffectToMainElements() {

@@ -632,7 +632,7 @@ a {
   background: transparent;
   display: block;
   margin: 0 auto;
-  z-index: 1000;
+  z-index: 1010;
 }
 
 @media (max-width:  800px) {
