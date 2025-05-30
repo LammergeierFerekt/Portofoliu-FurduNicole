@@ -12,32 +12,45 @@ const FILES_TO_CACHE = [
   ...Array.from({ length: 5 }, (_, i) => `${REPO_NAME}/hard-skills/img_d${i + 1}.png`)
 ];
 
-self.addEventListener('install', (event) => {
-  console.log('[ServiceWorker] Install');
+self.addEventListener('install', event => {
+  console.log('[SW] Install');
   event.waitUntil(
-    caches.open(CACHE_NAME).then((cache) => {
+    caches.open(CACHE_NAME).then(cache => {
       return cache.addAll(FILES_TO_CACHE);
     })
   );
   self.skipWaiting();
 });
 
-self.addEventListener('fetch', (event) => {
+self.addEventListener('activate', event => {
+  console.log('[SW] Activate');
+  event.waitUntil(
+    caches.keys().then(cacheNames =>
+      Promise.all(
+        cacheNames.map(cache => {
+          if (cache !== CACHE_NAME) {
+            console.log('[SW] Deleting old cache:', cache);
+            return caches.delete(cache);
+          }
+        })
+      )
+    )
+  );
+  self.clients.claim(); // start controlling without reload
+});
+
+self.addEventListener('fetch', event => {
+  // Only intercept GET requests
   if (event.request.method !== 'GET') return;
 
   event.respondWith(
-    caches.match(event.request).then((cachedResponse) => {
-      if (cachedResponse) {
-        console.log('[ServiceWorker] Serving from cache:', event.request.url);
-        return cachedResponse;
+    caches.match(event.request).then(response => {
+      if (response) {
+        console.log('[SW] Serving from cache:', event.request.url);
+        return response;
       }
-
-      return fetch(event.request).then((networkResponse) => {
-        return caches.open(CACHE_NAME).then((cache) => {
-          cache.put(event.request, networkResponse.clone());
-          return networkResponse;
-        });
-      });
+      console.log('[SW] Fetching from network:', event.request.url);
+      return fetch(event.request);
     })
   );
 });

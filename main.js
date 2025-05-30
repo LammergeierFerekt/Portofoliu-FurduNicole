@@ -14,9 +14,7 @@ const filesToPreload = [
   `${BASE_PATH}pdfs/academic_mobile.pdf`,
   `${BASE_PATH}pdfs/professional.pdf`,
   `${BASE_PATH}pdfs/professional_mobile.pdf`,
-  // images img_1.png to img_15.png
   ...Array.from({ length: 15 }, (_, i) => `${BASE_PATH}hard-skills/img_${i + 1}.png`),
-  // images img_d1.png to img_d5.png
   ...Array.from({ length: 5 }, (_, i) => `${BASE_PATH}hard-skills/img_d${i + 1}.png`)
 ];
 
@@ -25,19 +23,30 @@ function preloadFiles() {
   filesToPreload.forEach((url) => {
     fetch(url).then(response => {
       if (!response.ok) {
-        console.warn('Failed to preload', url);
+        console.warn('[Main] Failed to preload:', url);
       }
-      // No need to do anything with the response body here
     }).catch(err => {
-      console.warn('Error preloading', url, err);
+      console.warn('[Main] Error preloading:', url, err);
     });
   });
 }
 
-// Call this on page load
 window.addEventListener('load', () => {
   preloadFiles();
+
+  if ('serviceWorker' in navigator) {
+    navigator.serviceWorker.register(`${BASE_PATH}sw.js`).then(reg => {
+      console.log('[Main] SW registered:', reg.scope);
+    }).catch(err => {
+      console.error('[Main] SW registration failed:', err);
+    });
+
+    navigator.serviceWorker.ready.then(() => {
+      console.log('[Main] SW ready and controlling the page');
+    });
+  }
 });
+
 
 //#endregion
 
@@ -6993,8 +7002,15 @@ async function showPDF(pdfFileDesktop, pdfFileMobile) {
     try {
       flipbookContainer.innerHTML = '';
       const pdfPath = `${import.meta.env.BASE_URL}pdfs/${pdfFile}`;
-      const loadingTask = getDocument(pdfPath);
-      const pdfDoc = await loadingTask.promise;
+
+      // Manually fetch and pass ArrayBuffer (lets service worker cache it)
+        const response = await fetch(pdfPath);
+        const arrayBuffer = await response.arrayBuffer();
+        const loadingTask = getDocument({ data: arrayBuffer });
+        const pdfDoc = await loadingTask.promise;
+
+      // const loadingTask = getDocument(pdfPath);
+      // const pdfDoc = await loadingTask.promise;
 
       const numPages = pdfDoc.numPages;
       const stepDuration = Math.max(100, 1000 / Math.max(numPages, totalSteps));
