@@ -14,33 +14,45 @@ const filesToPreload = [
   `${BASE_PATH}pdfs/academic_mobile.pdf`,
   `${BASE_PATH}pdfs/professional.pdf`,
   `${BASE_PATH}pdfs/professional_mobile.pdf`,
-  // images img_1.png to img_15.png
   ...Array.from({ length: 15 }, (_, i) => `${BASE_PATH}hard-skills/img_${i + 1}.png`),
-  // images img_d1.png to img_d5.png
   ...Array.from({ length: 5 }, (_, i) => `${BASE_PATH}hard-skills/img_d${i + 1}.png`)
 ];
 
-// Function to preload all files by fetching them
+let flipbookPreloadPromise = null; // Global promise for initial preload
+const pdfCache = {}; // Stores image arrays per PDF file name
+
+// Function to preload static files by fetching them
 function preloadFiles() {
   filesToPreload.forEach((url) => {
     fetch(url).then(response => {
       if (!response.ok) {
-        console.warn('Failed to preload', url);
+        console.warn('[Main] Failed to preload:', url);
       }
-      // No need to do anything with the response body here
     }).catch(err => {
-      console.warn('Error preloading', url, err);
+      console.warn('[Main] Error preloading:', url, err);
     });
   });
 }
 
-// Call this on page load
 window.addEventListener('load', () => {
   preloadFiles();
+
+  flipbookPreloadPromise = preloadFlipbook('professional.pdf', 'professional_mobile.pdf');
+
+  if ('serviceWorker' in navigator) {
+    navigator.serviceWorker.register(`${BASE_PATH}sw.js`).then(reg => {
+      console.log('[Main] SW registered:', reg.scope);
+    }).catch(err => {
+      console.error('[Main] SW registration failed:', err);
+    });
+
+    navigator.serviceWorker.ready.then(() => {
+      console.log('[Main] SW ready and controlling the page');
+    });
+  }
 });
 
 //#endregion
-
 
 //#region 1.SVG content as strings
 
@@ -6947,143 +6959,171 @@ function reverseFogEffect(svgElement, callback) {
 //#region 4.Parsing content files 
 
 //#region PDF FILE HANDLING - Flipbook Integration
-let currentPdfDoc = null; // global or module-level variable
+let currentPdfDoc = null;
+let flipbookContainer, pdfContainer;
 
-async function showPDF(pdfFileDesktop, pdfFileMobile) {
-
-  document.body.classList.add('no-scroll');
-  const isMobile = window.innerWidth < 700 || /Mobi|Android/i.test(navigator.userAgent);
+// Preload PDF in background and store image data by PDF filename
+async function preloadFlipbook(pdfFileDesktop, pdfFileMobile) {
+  const isMobile = window.innerWidth < 1200 || /Mobi|Android/i.test(navigator.userAgent);
   const pdfFile = isMobile ? pdfFileMobile : pdfFileDesktop;
-  console.log(`Loading PDF: ${pdfFile} (${isMobile ? 'mobile' : 'desktop'})`);
-  hideCheckpointAnimation();
+  const pdfPath = `${import.meta.env.BASE_URL}pdfs/${pdfFile}`;
 
-  
+  if (pdfCache[pdfFile]) {
+    return; // Already preloaded
+  }
+
+  flipbookContainer = document.getElementById('flipbook');
+  pdfContainer = document.querySelector('.pdf-container');
+
+  if (!flipbookContainer || !pdfContainer) {
+    console.error('PDF container or flipbook not found');
+    return;
+  }
+
   try {
-    const pdfContainer = document.querySelector('.pdf-container');
-    const flipbookContainer = document.getElementById('flipbook');
-    if (!pdfContainer) {
-      throw new Error('PDF container or flipbook not found');
-    }
+    const response = await fetch(pdfPath);
+    const arrayBuffer = await response.arrayBuffer();
+    const loadingTask = pdfjsLib.getDocument({ data: arrayBuffer });
+    currentPdfDoc = await loadingTask.promise;
 
-    hideAllSvgContainers();
+    const numPages = currentPdfDoc.numPages;
+    pdfCache[pdfFile] = [];
 
-    //LOADING OVERLAY FOR SPECIFIC PDF 
-    resetLoadingAnimation();
-    showLoadingOverlay();
-    const loadingSpinner = document.getElementById('loading-spinner');
-    if (loadingSpinner && !loadingSpinner.querySelector('svg')) {
-      insertLoadingEyeSVG();
-    }
-    resetLoadingAnimation();
-
-    const loadingElements = svg ? svg.querySelectorAll('[id^="loading"]') : [];
-    const totalSteps = loadingElements.length;
-
-    // Helper to update loading elements based on progress (0 to 1)
-    function updateLoadingProgress(progress) {
-      const activeCount = Math.floor(progress * totalSteps);
-      loadingElements.forEach((el, idx) => {
-        el.style.opacity = idx < activeCount ? '1' : '0';
-      });
-    }
-
-
-
-    //FLIPBOOK FUNCTIONALITY
-    try {
-      flipbookContainer.innerHTML = '';
-      const pdfPath = `${import.meta.env.BASE_URL}pdfs/${pdfFile}`;
-      const loadingTask = getDocument(pdfPath);
-      const pdfDoc = await loadingTask.promise;
-
-      const numPages = pdfDoc.numPages;
-      const stepDuration = Math.max(100, 1000 / Math.max(numPages, totalSteps));
-
-      const pageImages = [];
-      for (let i = 1; i <= numPages; i++) {
-        try {
-          const page = await pdfDoc.getPage(i);
-          const viewport = page.getViewport({ scale: 1.5 });
-          const canvas = document.createElement('canvas');
-          canvas.width = viewport.width;
-          canvas.height = viewport.height;
-          await page.render({ canvasContext: canvas.getContext('2d'), viewport }).promise;
-          pageImages.push(canvas.toDataURL());
-
-          // Update loading animation progress
-          updateLoadingProgress(i / numPages);
-
-          await new Promise(res => setTimeout(res, stepDuration));
-        } catch (err) {
-          console.error(`Error rendering page ${i}:`, err);
-        }
-      }
-
-      pageImages.forEach((src) => {
-        try {
-          const pageDiv = document.createElement('div');
-          pageDiv.className = 'page';
-          const img = document.createElement('img');
-          img.src = src;
-          img.style.width = '100%';
-          img.style.height = '100%';
-          pageDiv.appendChild(img);
-          flipbookContainer.appendChild(pageDiv);
-        } catch (err) {
-          console.error('Error creating page element:', err);
-        }
-      });
-
-      const addBlankAtEnd = false; // set to true if you want a blank at the end
-      if (addBlankAtEnd && pageImages.length % 2 !== 0) {
-        const blankDiv = document.createElement('div');
-        blankDiv.className = 'page';
-        flipbookContainer.appendChild(blankDiv);
-      }
-
-      setTimeout(() => {
-        try {
-          pdfContainer.classList.add('active');
-          hideLoadingOverlay();
-        } catch (err) {
-          console.error('Error finalizing PDF display:', err);
-        }
-      }, 100);
-
-      try {
-        let pageWidth, pageHeight;
-        if (window.innerWidth < 500) {
-          pageWidth = Math.max(window.innerWidth * 0.85, 320);  // 95vw, min 320px
-          pageHeight = Math.max(window.innerHeight * 0.65, 400); // 80vh, min 400px
-
-
-        } else {
-          pageWidth = 700; 
-          pageHeight = 990;
-        }
-
-        const pageFlip = new PageFlip(flipbookContainer, {
-          size: 'fixed',
-          width: pageWidth ,
-          height: pageHeight,
-          maxShadowOpacity: 0.5,
-          showCover: false,
-          mobileScrollSupport: true,
-        });
-        pageFlip.loadFromHTML(document.querySelectorAll('#flipbook .page'));
-      } catch (err) {
-        console.error('Error initializing PageFlip:', err);
-      }
-
-    } catch (error) {
-      console.error('Error loading or rendering PDF:', error);
-      hideLoadingOverlay();
+    for (let i = 1; i <= numPages; i++) {
+      const page = await currentPdfDoc.getPage(i);
+      const viewport = page.getViewport({ scale: 1.5 });
+      const canvas = document.createElement('canvas');
+      canvas.width = viewport.width;
+      canvas.height = viewport.height;
+      await page.render({ canvasContext: canvas.getContext('2d'), viewport }).promise;
+      pdfCache[pdfFile].push(canvas.toDataURL());
     }
   } catch (err) {
-    console.error('Error in showPDF:', err);
+    console.error('Error during preload:', err);
+  }
+}
+
+// Show a PDF from cache or preload it if missing
+async function showPDF(pdfFileDesktop, pdfFileMobile) {
+ // Immediately show loading UI
+  resetLoadingAnimation();
+  showLoadingOverlay();
+  const loadingSpinner = document.getElementById('loading-spinner');
+  if (loadingSpinner && !loadingSpinner.querySelector('svg')) {
+    insertLoadingEyeSVG();
+  }
+  resetLoadingAnimation();
+
+  // Prepare loading elements from the SVG (if provided)
+  const loadingElements = svg ? svg.querySelectorAll('[id^="loading"]') : [];
+  const totalSteps = loadingElements.length;
+
+  // Helper to update loading elements based on progress (0 to 1)
+  function updateLoadingProgress(progress) {
+    const activeCount = Math.floor(progress * totalSteps);
+    loadingElements.forEach((el, idx) => {
+      el.style.opacity = idx < activeCount ? '1' : '0';
+    });
+  }
+
+  await new Promise(requestAnimationFrame);
+
+  try {
+    document.body.classList.add('no-scroll');
+    hideCheckpointAnimation();
+    hideAllSvgContainers();
+
+    const isMobile = window.innerWidth < 1200 || /Mobi|Android/i.test(navigator.userAgent);
+    const pdfFile = isMobile ? pdfFileMobile : pdfFileDesktop;
+
+    if (!pdfCache[pdfFile]) {
+      await preloadFlipbook(pdfFileDesktop, pdfFileMobile, (progress) => {
+        updateLoadingProgress(progress);  // progress: 0 to 1
+      });
+    } else {
+      updateLoadingProgress(1); // loading complete
+    }
+
+    const pages = pdfCache[pdfFile];
+    flipbookContainer = document.getElementById('flipbook');
+    pdfContainer = document.querySelector('.pdf-container');
+
+    if (!flipbookContainer || !pdfContainer) {
+      throw new Error('PDF container elements are missing');
+    }
+
+      let pageWidth, pageHeight;
+      if (window.innerWidth < 1200) {
+        pageWidth = Math.max(window.innerWidth * 0.85, 320);  // 85vw, min 320px
+        pageHeight = Math.max(window.innerHeight * 0.65, 400); // 65vh, min 400px
+      } else {
+        pageWidth = 700;
+        pageHeight = 990;
+      }
+
+    // ♻️ If flipbook exists, reset only the pages
+    if (flipbookContainer.pageFlipInstance) {
+      const existingInstance = flipbookContainer.pageFlipInstance;
+
+      // Remove all existing pages (keeping container structure)
+      while (flipbookContainer.firstChild) {
+        flipbookContainer.removeChild(flipbookContainer.firstChild);
+      }
+
+      // Add new pages
+      pages.forEach(src => {
+        const pageDiv = document.createElement('div');
+        pageDiv.className = 'page';
+        const img = document.createElement('img');
+        img.src = src;
+        img.style.width = '100%';
+        img.style.height = '100%';
+        pageDiv.appendChild(img);
+        flipbookContainer.appendChild(pageDiv);
+      });
+
+      // Reload flipbook pages from updated HTML
+      existingInstance.loadFromHTML(document.querySelectorAll('#flipbook .page'));
+
+    } else {
+      // 📖 Create a new PageFlip instance
+      pages.forEach(src => {
+        const pageDiv = document.createElement('div');
+        pageDiv.className = 'page';
+        const img = document.createElement('img');
+        img.src = src;
+        img.style.width = '100%';
+        img.style.height = '100%';
+        pageDiv.appendChild(img);
+        flipbookContainer.appendChild(pageDiv);
+      });
+
+      const pageFlip = new PageFlip(flipbookContainer, {
+        size: 'fixed',
+        width: pageWidth,
+        height: pageHeight,
+        maxShadowOpacity: 0.5,
+        showCover: false,
+        mobileScrollSupport: true,
+      });
+
+      pageFlip.loadFromHTML(document.querySelectorAll('#flipbook .page'));
+      flipbookContainer.pageFlipInstance = pageFlip;
+    }
+
+    setTimeout(() => {
+      const pdfContainer = document.querySelector('.pdf-container');
+      if (pdfContainer) pdfContainer.classList.add('active');
+      hideLoadingOverlay();
+    }, 100);
+
+  } catch (err) {
+    console.error('Error showing PDF:', err);
     hideLoadingOverlay();
   }
 }
+
+
 //#endregion
 
 //#region CV SVG FILE HANDLING - Svg strings
@@ -7190,11 +7230,13 @@ async function CVfunction() {
       // --- MOBILE: Always red and always show time group ---
       if (isMobile) {
         redTexts.forEach((el) => {
-          el.style.fill = '#8e0000';
+          el.style.fill = '#ffe482';
+          el.style.textDecoration = 'underline'; 
+
         });
         if (timeGroup) {
           timeGroup.style.opacity = '1';
-          timeGroup.style.filter = 'drop-shadow(2px 4px 6px rgba(0, 0, 0, 0.5))';
+          timeGroup.style.filter = 'drop-shadow(2px 4px 6px #000000)';
           
 
         }
