@@ -7402,10 +7402,6 @@ async function showPDF(pdfFileDesktop, pdfFileMobile) {
 }
 //#endregion
 
-
-
-//#endregion
-
 //#region CV SVG FILE HANDLING - Svg strings
 
 // CV SVG FILE HANDLING - Svg strings

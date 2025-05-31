@@ -12,8 +12,9 @@ const FILES_TO_CACHE = [
   ...Array.from({ length: 5 }, (_, i) => `${REPO_NAME}/hard-skills/img_d${i + 1}.png`)
 ];
 
+// Install event – cache essential files
 self.addEventListener('install', (event) => {
-  console.log('[ServiceWorker] Install');
+  console.log('[ServiceWorker] Installing and caching static files...');
   event.waitUntil(
     caches.open(CACHE_NAME).then((cache) => {
       return cache.addAll(FILES_TO_CACHE);
@@ -22,6 +23,25 @@ self.addEventListener('install', (event) => {
   self.skipWaiting();
 });
 
+// Activate event – delete old caches
+self.addEventListener('activate', (event) => {
+  console.log('[ServiceWorker] Activating and clearing old caches...');
+  event.waitUntil(
+    caches.keys().then((keyList) => {
+      return Promise.all(
+        keyList.map((key) => {
+          if (key !== CACHE_NAME) {
+            console.log('[ServiceWorker] Deleting old cache:', key);
+            return caches.delete(key);
+          }
+        })
+      );
+    })
+  );
+  self.clients.claim(); // Take control immediately
+});
+
+// Fetch event – serve from cache or fetch from network
 self.addEventListener('fetch', (event) => {
   if (event.request.method !== 'GET') return;
 
@@ -37,6 +57,9 @@ self.addEventListener('fetch', (event) => {
           cache.put(event.request, networkResponse.clone());
           return networkResponse;
         });
+      }).catch((error) => {
+        console.error('[ServiceWorker] Fetch failed:', event.request.url, error);
+        throw error;
       });
     })
   );
