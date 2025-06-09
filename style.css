@@ -66,13 +66,18 @@ html::-webkit-scrollbar, body::-webkit-scrollbar {
 }
 /* Logo styling */
 .logo {
-  width: 50px;            /* Adjust as needed */
+  position: fixed;
+  bottom: 0vh;  
+  width: 5vh;            /* Adjust as needed */
   height: auto;
-  margin-left: 70px;         
+  margin-left: 7vw;    
+  pointer-events: auto;     
 ;
 }
 #citat {
+  position: flex;
   z-index: 10;
+  margin-left: 7vw;    
   font-size: .7rem;
   color: #93a0c6;
   
